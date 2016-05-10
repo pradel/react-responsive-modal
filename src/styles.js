@@ -1,5 +1,5 @@
 export default {
-  modal: {
+  overlay: {
     background: 'rgba(0, 0, 0, 0.75)',
     display: 'flex',
     alignItems: 'flex-start',
@@ -12,15 +12,13 @@ export default {
     overflowY: 'auto',
     overflowX: 'hidden',
     zIndex: 1000,
-  },
-  modalLittle: {
-    alignItems: 'center',
-  },
-  dialog: {
-    maxWidth: 800,
     padding: '1.2rem',
   },
-  content: {
+  overlayLittle: {
+    alignItems: 'center',
+  },
+  modal: {
+    maxWidth: 800,
     position: 'relative',
     padding: '1.2rem',
     background: '#ffffff',

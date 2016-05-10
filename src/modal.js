@@ -43,7 +43,7 @@ class Modal extends React.Component {
   onClickOverlay(e) {
     const { sheet: { classes } } = this.props;
     const className = e.target.className.split(' ');
-    if (className.indexOf(classes.modal) !== -1) {
+    if (className.indexOf(classes.overlay) !== -1) {
       e.stopPropagation();
       this.props.onClose();
     }
@@ -56,7 +56,13 @@ class Modal extends React.Component {
   }
 
   render() {
-    const { open, little, sheet: { classes } } = this.props;
+    const {
+      open,
+      little,
+      sheet: { classes },
+      overlayClassName,
+      modalClassName,
+    } = this.props;
     if (!open) return null;
     return (
       <Portal>
@@ -76,13 +82,13 @@ class Modal extends React.Component {
           transitionLeaveTimeout={500}
         >
           <div
-            className={little ? classNames(classes.modal, classes.modalLittle) : classes.modal}
+            className={
+              classNames(classes.overlay, little ? classes.overlayLittle : null, overlayClassName)
+            }
             onClick={this.onClickOverlay}
           >
-            <div className={classes.dialog}>
-              <div className={classes.content}>
-               {this.props.children}
-              </div>
+            <div className={classNames(classes.modal, modalClassName)}>
+             {this.props.children}
             </div>
           </div>
         </ReactCSSTransitionGroup>
@@ -94,7 +100,8 @@ class Modal extends React.Component {
 Modal.propTypes = {
   onClose: React.PropTypes.func,
   open: React.PropTypes.bool,
-  className: React.PropTypes.string,
+  overlayClassName: React.PropTypes.string,
+  modalClassName: React.PropTypes.string,
   children: React.PropTypes.node,
   classes: React.PropTypes.object,
   sheet: React.PropTypes.object,
