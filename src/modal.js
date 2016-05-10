@@ -21,6 +21,7 @@ class Modal extends React.Component {
     this.handleKeydown = this.handleKeydown.bind(this);
     this.onClickOverlay = this.onClickOverlay.bind(this);
     this.state = {
+      showPortal: false,
       open: false,
     };
   }
@@ -34,6 +35,15 @@ class Modal extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.open) {
       document.body.style.overflow = 'hidden';
+      this.setState({ open: true, showPortal: true });
+    }
+    if (this.props.open && !nextProps.open) {
+      this.setState({ open: false });
+      // Let the animation finish
+      setTimeout(() => {
+        this.setState({ showPortal: false });
+        document.body.style.overflow = null;
+      }, 500);
     }
   }
 
@@ -62,13 +72,13 @@ class Modal extends React.Component {
 
   render() {
     const {
-      open,
       little,
       sheet: { classes },
       overlayClassName,
       modalClassName,
     } = this.props;
-    if (!open) return null;
+    const { open, showPortal } = this.state;
+    if (!showPortal) return null;
     return (
       <Portal>
         <ReactCSSTransitionGroup
@@ -86,16 +96,18 @@ class Modal extends React.Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
         >
-          <div
-            className={
-              classNames(classes.overlay, little ? classes.overlayLittle : null, overlayClassName)
-            }
-            onClick={this.onClickOverlay}
-          >
-            <div className={classNames(classes.modal, modalClassName)}>
-             {this.props.children}
+          {open &&
+            <div
+              className={
+                classNames(classes.overlay, little ? classes.overlayLittle : null, overlayClassName)
+              }
+              onClick={this.onClickOverlay}
+            >
+              <div className={classNames(classes.modal, modalClassName)}>
+               {this.props.children}
+              </div>
             </div>
-          </div>
+          }
         </ReactCSSTransitionGroup>
       </Portal>
     );
