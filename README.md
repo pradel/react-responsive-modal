@@ -1,6 +1,8 @@
 # react-responsive-modal
 A simple responsive react modal.
 
+[![Build Status](https://travis-ci.org/pradel/react-responsive-modal.svg?branch=master)](https://travis-ci.org/pradel/react-responsive-modal)
+
 You can find a demo [here](http://pradel.github.io/react-responsive-modal/).
 Or you can run examples
 ```
