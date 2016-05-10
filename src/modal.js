@@ -21,8 +21,8 @@ class Modal extends React.Component {
     this.handleKeydown = this.handleKeydown.bind(this);
     this.onClickOverlay = this.onClickOverlay.bind(this);
     this.state = {
-      showPortal: false,
-      open: false,
+      showPortal: props.open,
+      open: props.open,
     };
   }
 
