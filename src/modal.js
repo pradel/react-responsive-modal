@@ -26,7 +26,9 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKeydown);
+    if (this.props.closeOnEsc) {
+      document.addEventListener('keydown', this.handleKeydown);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,12 +38,15 @@ class Modal extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeydown);
+    if (this.props.closeOnEsc) {
+      document.removeEventListener('keydown', this.handleKeydown);
+    }
     document.body.style.overflow = null;
   }
 
   onClickOverlay(e) {
-    const { sheet: { classes } } = this.props;
+    const { sheet: { classes }, closeOnOverlayClick } = this.props;
+    if (!closeOnOverlayClick) return;
     const className = e.target.className.split(' ');
     if (className.indexOf(classes.overlay) !== -1) {
       e.stopPropagation();
@@ -98,6 +103,8 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
+  closeOnEsc: React.PropTypes.bool,
+  closeOnOverlayClick: React.PropTypes.bool,
   onClose: React.PropTypes.func,
   open: React.PropTypes.bool,
   overlayClassName: React.PropTypes.string,
@@ -106,6 +113,11 @@ Modal.propTypes = {
   classes: React.PropTypes.object,
   sheet: React.PropTypes.object,
   little: React.PropTypes.bool,
+};
+
+Modal.defaultProps = {
+  closeOnEsc: true,
+  closeOnOverlayClick: true,
 };
 
 export default useSheet(Modal, styles);

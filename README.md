@@ -60,6 +60,10 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 `open`: (Bool) Control if the modal is open or not.
 
+`closeOnEsc`: (Bool) default: true is the modal closable when user press esc key.
+
+`closeOnOverlayClick`: (Bool) default: true is the modal closable when user click on overlay.
+
 `onClose`: (function) Fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
 
 `little`: (Bool) Is the dialog centered __When you don't have a lot of content__.
