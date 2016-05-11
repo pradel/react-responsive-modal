@@ -76,6 +76,8 @@ class Modal extends React.Component {
       sheet: { classes },
       overlayClassName,
       modalClassName,
+      overlayStyle,
+      modalStyle,
     } = this.props;
     const { open, showPortal } = this.state;
     if (!showPortal) return null;
@@ -102,8 +104,9 @@ class Modal extends React.Component {
                 classNames(classes.overlay, little ? classes.overlayLittle : null, overlayClassName)
               }
               onClick={this.onClickOverlay}
+              style={overlayStyle}
             >
-              <div className={classNames(classes.modal, modalClassName)}>
+              <div className={classNames(classes.modal, modalClassName)} style={modalStyle}>
                {this.props.children}
               </div>
             </div>
@@ -121,6 +124,8 @@ Modal.propTypes = {
   open: React.PropTypes.bool,
   overlayClassName: React.PropTypes.string,
   modalClassName: React.PropTypes.string,
+  overlayStyle: React.PropTypes.object,
+  modalStyle: React.PropTypes.object,
   children: React.PropTypes.node,
   classes: React.PropTypes.object,
   sheet: React.PropTypes.object,

@@ -75,3 +75,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 `overlayClassName`: (String) Classname for overlay div.
 
 `modalClassName`: (String) Classname for modal content div.
+
+`overlayStyle`: (Object) Inline style for overlay div.
+
+`modalStyle`: (Object) Inline style for modal content div.
