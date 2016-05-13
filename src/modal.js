@@ -120,8 +120,8 @@ class Modal extends React.Component {
 Modal.propTypes = {
   closeOnEsc: React.PropTypes.bool,
   closeOnOverlayClick: React.PropTypes.bool,
-  onClose: React.PropTypes.func,
-  open: React.PropTypes.bool,
+  onClose: React.PropTypes.func.isRequired,
+  open: React.PropTypes.bool.isRequired,
   overlayClassName: React.PropTypes.string,
   modalClassName: React.PropTypes.string,
   overlayStyle: React.PropTypes.object,
