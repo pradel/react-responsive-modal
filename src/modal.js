@@ -40,7 +40,7 @@ class Modal extends React.Component {
     if (this.props.open && !nextProps.open) {
       this.setState({ open: false });
       // Let the animation finish
-      setTimeout(() => {
+      this.timeout = setTimeout(() => {
         this.setState({ showPortal: false });
         document.body.style.overflow = null;
       }, 500);
@@ -52,6 +52,9 @@ class Modal extends React.Component {
       document.removeEventListener('keydown', this.handleKeydown);
     }
     document.body.style.overflow = null;
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   }
 
   onClickOverlay(e) {
