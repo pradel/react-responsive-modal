@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Portal from 'react-minimalist-portal';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
@@ -15,7 +15,7 @@ jss.use(camelCase());
 jss.use(px());
 jss.use(vendorPrefixer());
 
-class Modal extends React.Component {
+class Modal extends Component {
   constructor(props) {
     super(props);
     this.handleKeydown = this.handleKeydown.bind(this);
