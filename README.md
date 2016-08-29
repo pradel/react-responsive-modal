@@ -70,11 +70,15 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 `little`: (Bool) Is the dialog centered __When you don't have a lot of content__.
 
+`showCloseIcon`: (Bool) default: true Show the close icon.
+
 `children`: (Node) The content of the modal.
 
 `overlayClassName`: (String) Classname for overlay div.
 
 `modalClassName`: (String) Classname for modal content div.
+
+`closeIconClassName`: (String) Classname for close icon svg.
 
 `overlayStyle`: (Object) Inline style for overlay div.
 
