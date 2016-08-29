@@ -25,6 +25,12 @@ export default {
     backgroundClip: 'padding-box',
     boxShadow: '0 12px 15px 0 rgba(0,0,0,0.25)',
   },
+  closeIcon: {
+    position: 'absolute',
+    top: '14px',
+    right: '14px',
+    cursor: 'pointer',
+  },
   transitionEnter: {
     opacity: '0.01',
   },

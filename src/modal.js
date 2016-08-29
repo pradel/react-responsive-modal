@@ -20,6 +20,7 @@ class Modal extends Component {
     super(props);
     this.handleKeydown = this.handleKeydown.bind(this);
     this.onClickOverlay = this.onClickOverlay.bind(this);
+    this.onClickCloseIcon = this.onClickCloseIcon.bind(this);
     this.state = {
       showPortal: props.open,
       open: props.open,
@@ -67,6 +68,11 @@ class Modal extends Component {
     }
   }
 
+  onClickCloseIcon(e) {
+    e.stopPropagation();
+    this.props.onClose();
+  }
+
   handleKeydown(e) {
     if (e.keyCode === 27) {
       this.props.onClose();
@@ -79,8 +85,10 @@ class Modal extends Component {
       sheet: { classes },
       overlayClassName,
       modalClassName,
+      closeIconClassName,
       overlayStyle,
       modalStyle,
+      showCloseIcon,
     } = this.props;
     const { open, showPortal } = this.state;
     if (!showPortal) return null;
@@ -110,7 +118,10 @@ class Modal extends Component {
               style={overlayStyle}
             >
               <div className={classNames(classes.modal, modalClassName)} style={modalStyle}>
-               {this.props.children}
+                {showCloseIcon ?
+                  <svg className={classNames(classes.closeIcon, closeIconClassName)} onClick={this.onClickCloseIcon} xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z" /></svg>
+                  : null}
+                {this.props.children}
               </div>
             </div>
           }
@@ -127,17 +138,20 @@ Modal.propTypes = {
   open: React.PropTypes.bool.isRequired,
   overlayClassName: React.PropTypes.string,
   modalClassName: React.PropTypes.string,
+  closeIconClassName: React.PropTypes.string,
   overlayStyle: React.PropTypes.object,
   modalStyle: React.PropTypes.object,
   children: React.PropTypes.node,
   classes: React.PropTypes.object,
   sheet: React.PropTypes.object,
   little: React.PropTypes.bool,
+  showCloseIcon: React.PropTypes.bool,
 };
 
 Modal.defaultProps = {
   closeOnEsc: true,
   closeOnOverlayClick: true,
+  showCloseIcon: true,
 };
 
 export default useSheet(Modal, styles);
