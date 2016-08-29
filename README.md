@@ -19,7 +19,7 @@ open examples/index.html
 
 ## Usage
 
-```jsx
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-responsive-modal';
