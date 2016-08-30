@@ -30,9 +30,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "jss": "^5.4.0",
-    "jss-camel-case": "^2.0.0",
-    "jss-px": "^1.0.0",
-    "jss-vendor-prefixer": "^3.0.0",
+    "jss-preset-default": "^0.2.0",
     "react-addons-css-transition-group": "^15.3.1",
     "react-jss": "^3.0.1",
     "react-minimalist-portal": "^1.0.6"

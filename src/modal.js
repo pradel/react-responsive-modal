@@ -4,16 +4,12 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
 import { create } from 'jss';
 import reactJss from 'react-jss';
-import camelCase from 'jss-camel-case';
-import px from 'jss-px';
-import vendorPrefixer from 'jss-vendor-prefixer';
+import preset from 'jss-preset-default';
 import styles from './styles';
 
 export const jss = create();
 export const useSheet = reactJss(jss);
-jss.use(camelCase());
-jss.use(px());
-jss.use(vendorPrefixer());
+jss.setup(preset());
 
 class Modal extends Component {
   constructor(props) {
