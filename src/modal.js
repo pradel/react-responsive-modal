@@ -2,14 +2,8 @@ import React, { Component } from 'react';
 import Portal from 'react-minimalist-portal';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
-import { create } from 'jss';
-import reactJss from 'react-jss';
-import preset from 'jss-preset-default';
+import injectSheet from 'react-jss';
 import styles from './styles';
-
-export const jss = create();
-export const useSheet = reactJss(jss);
-jss.setup(preset());
 
 class Modal extends Component {
   constructor(props) {
@@ -138,7 +132,6 @@ Modal.propTypes = {
   overlayStyle: React.PropTypes.object,
   modalStyle: React.PropTypes.object,
   children: React.PropTypes.node,
-  classes: React.PropTypes.object,
   sheet: React.PropTypes.object,
   little: React.PropTypes.bool,
   showCloseIcon: React.PropTypes.bool,
@@ -150,4 +143,4 @@ Modal.defaultProps = {
   showCloseIcon: true,
 };
 
-export default useSheet(Modal, styles);
+export default injectSheet(styles)(Modal);
