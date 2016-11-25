@@ -8,14 +8,16 @@ Or you can run examples
 ```
 git clone https://github.com/pradel/react-responsive-modal
 cd react-responsive-modal
-npm install
-npm run build:examples
+yarn
+yarn run build:examples
 open examples/index.html
 ```
 
 ## Installation
 
-`npm install react-responsive-modal --save`
+With npm: `npm install react-responsive-modal --save`
+
+Or with yarn: `yarn add react-responsive-modal`
 
 ## Usage
 
