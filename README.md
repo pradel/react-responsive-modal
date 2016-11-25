@@ -72,6 +72,8 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 `showCloseIcon`: (Bool) default: true Show the close icon.
 
+`closeIconSize`: (Number) default: 28 Close icon size.
+
 `children`: (Node) The content of the modal.
 
 `overlayClassName`: (String) Classname for overlay div.

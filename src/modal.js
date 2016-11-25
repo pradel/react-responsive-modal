@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Portal from 'react-minimalist-portal';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
@@ -79,6 +79,7 @@ class Modal extends Component {
       overlayStyle,
       modalStyle,
       showCloseIcon,
+      closeIconSize,
     } = this.props;
     const { open, showPortal } = this.state;
     if (!showPortal) return null;
@@ -109,7 +110,7 @@ class Modal extends Component {
             >
               <div className={classNames(classes.modal, modalClassName)} style={modalStyle}>
                 {showCloseIcon ?
-                  <svg className={classNames(classes.closeIcon, closeIconClassName)} onClick={this.onClickCloseIcon} xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z" /></svg>
+                  <svg className={classNames(classes.closeIcon, closeIconClassName)} onClick={this.onClickCloseIcon} xmlns="http://www.w3.org/2000/svg" width={closeIconSize} height={closeIconSize} viewBox="0 0 36 36"><path d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z" /></svg>
                   : null}
                 {this.props.children}
               </div>
@@ -122,25 +123,27 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  closeOnEsc: React.PropTypes.bool,
-  closeOnOverlayClick: React.PropTypes.bool,
-  onClose: React.PropTypes.func.isRequired,
-  open: React.PropTypes.bool.isRequired,
-  overlayClassName: React.PropTypes.string,
-  modalClassName: React.PropTypes.string,
-  closeIconClassName: React.PropTypes.string,
-  overlayStyle: React.PropTypes.object,
-  modalStyle: React.PropTypes.object,
-  children: React.PropTypes.node,
-  sheet: React.PropTypes.object,
-  little: React.PropTypes.bool,
-  showCloseIcon: React.PropTypes.bool,
+  closeOnEsc: PropTypes.bool,
+  closeOnOverlayClick: PropTypes.bool,
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  overlayClassName: PropTypes.string,
+  modalClassName: PropTypes.string,
+  closeIconClassName: PropTypes.string,
+  overlayStyle: PropTypes.object,
+  modalStyle: PropTypes.object,
+  children: PropTypes.node,
+  sheet: PropTypes.object,
+  little: PropTypes.bool,
+  showCloseIcon: PropTypes.bool,
+  closeIconSize: PropTypes.number,
 };
 
 Modal.defaultProps = {
   closeOnEsc: true,
   closeOnOverlayClick: true,
   showCloseIcon: true,
+  closeIconSize: 28,
 };
 
 export default injectSheet(styles)(Modal);
