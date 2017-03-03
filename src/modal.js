@@ -24,16 +24,22 @@ class Modal extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.open) {
-      document.body.style.overflow = 'hidden';
-      this.setState({ open: true, showPortal: true });
+    if (!this.props.open && nextProps.open) {
+      this.setState({
+        open: true,
+        showPortal: true,
+        previousBodyStyleOverflow: document.body.style.overflow,
+      },
+      () => {
+        document.body.style.overflow = 'hidden';
+      });
     }
     if (this.props.open && !nextProps.open) {
       this.setState({ open: false });
       // Let the animation finish
       this.timeout = setTimeout(() => {
         this.setState({ showPortal: false });
-        document.body.style.overflow = null;
+        document.body.style.overflow = this.state.previousBodyStyleOverflow;
       }, 500);
     }
   }
