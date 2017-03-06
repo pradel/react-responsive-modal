@@ -1,4 +1,6 @@
 # react-responsive-modal
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/pradel/react-responsive-modal.svg)](https://greenkeeper.io/)
 A simple responsive react modal.
 
 [![Build Status](https://travis-ci.org/pradel/react-responsive-modal.svg?branch=master)](https://travis-ci.org/pradel/react-responsive-modal)
