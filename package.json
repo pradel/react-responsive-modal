@@ -8,9 +8,7 @@
     "build:watch": "npm run build -- --watch",
     "build:examples": "browserify examples/app.js -o examples/app.bundle.js -t [ babelify --presets [ es2015 react ] ]",
     "lint": "eslint src",
-    "test": "npm run lint && npm run build",
-    "publish-please": "publish-please",
-    "prepublish": "publish-please guard"
+    "test": "npm run lint && npm run build"
   },
   "keywords": [
     "react",
@@ -48,7 +46,6 @@
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.0",
-    "eslint-plugin-react": "^6.7.1",
-    "publish-please": "^2.2.0"
+    "eslint-plugin-react": "^6.7.1"
   }
 }
