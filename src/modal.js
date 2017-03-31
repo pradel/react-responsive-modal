@@ -48,7 +48,7 @@ class Modal extends Component {
     if (this.props.closeOnEsc) {
       document.removeEventListener('keydown', this.handleKeydown);
     }
-    document.body.style.overflow = null;
+    document.body.style.overflow = this.state.previousBodyStyleOverflow;
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
