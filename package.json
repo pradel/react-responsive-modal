@@ -27,6 +27,7 @@
   "homepage": "https://github.com/pradel/react-responsive-modal#readme",
   "dependencies": {
     "classnames": "^2.2.5",
+    "prop-types": "^15.5.8",
     "react-addons-css-transition-group": "^15.4.1",
     "react-jss": "^4.2.0",
     "react-minimalist-portal": "^1.0.6"
