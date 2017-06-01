@@ -56,7 +56,7 @@ class Modal extends Component {
   }
 
   onClickOverlay(e) {
-    const { sheet: { classes }, closeOnOverlayClick } = this.props;
+    const { classes, closeOnOverlayClick } = this.props;
     if (!closeOnOverlayClick) return;
     const className = e.target.className.split(' ');
     if (className.indexOf(classes.overlay) !== -1) {
@@ -79,7 +79,7 @@ class Modal extends Component {
   render() {
     const {
       little,
-      sheet: { classes },
+      classes,
       overlayClassName,
       modalClassName,
       closeIconClassName,
@@ -140,7 +140,7 @@ Modal.propTypes = {
   overlayStyle: PropTypes.object,
   modalStyle: PropTypes.object,
   children: PropTypes.node,
-  sheet: PropTypes.object,
+  classes: PropTypes.object.isRequired,
   little: PropTypes.bool,
   showCloseIcon: PropTypes.bool,
   closeIconSize: PropTypes.number,
@@ -151,6 +151,13 @@ Modal.defaultProps = {
   closeOnOverlayClick: true,
   showCloseIcon: true,
   closeIconSize: 28,
+  overlayClassName: null,
+  modalClassName: null,
+  closeIconClassName: null,
+  overlayStyle: null,
+  modalStyle: null,
+  children: null,
+  little: false,
 };
 
 export default injectSheet(styles)(Modal);
