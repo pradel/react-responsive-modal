@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Portal from 'react-minimalist-portal';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransitionGroup } from 'react-transition-group';
 import classNames from 'classnames';
 import injectSheet from 'react-jss';
 import styles from './styles';
@@ -92,7 +92,7 @@ class Modal extends Component {
     if (!showPortal) return null;
     return (
       <Portal>
-        <ReactCSSTransitionGroup
+        <CSSTransitionGroup
           transitionName={{
             appear: classes.transitionEnter,
             appearActive: classes.transitionEnterActive,
@@ -123,7 +123,7 @@ class Modal extends Component {
               </div>
             </div>
           }
-        </ReactCSSTransitionGroup>
+        </CSSTransitionGroup>
       </Portal>
     );
   }

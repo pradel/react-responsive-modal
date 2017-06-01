@@ -28,9 +28,9 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.5.8",
-    "react-addons-css-transition-group": "^15.5.2",
     "react-jss": "^6.1.1",
-    "react-minimalist-portal": "^1.1.0"
+    "react-minimalist-portal": "^1.1.0",
+    "react-transition-group": "^1.1.3"
   },
   "peerDependencies": {
     "react": "^15.0.0",
