@@ -37,10 +37,10 @@ class Modal extends Component {
     }
     if (this.props.open && !nextProps.open) {
       this.setState({ open: false });
+      document.body.style.overflow = this.state.previousBodyStyleOverflow;
       // Let the animation finish
       this.timeout = setTimeout(() => {
         this.setState({ showPortal: false });
-        document.body.style.overflow = this.state.previousBodyStyleOverflow;
       }, 500);
     }
   }
@@ -49,7 +49,6 @@ class Modal extends Component {
     if (this.props.closeOnEsc) {
       document.removeEventListener('keydown', this.handleKeydown);
     }
-    document.body.style.overflow = this.state.previousBodyStyleOverflow;
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
