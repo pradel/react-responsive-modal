@@ -9,9 +9,15 @@ class ModalDemo extends React.Component {
     this.onCloseSimpleModal = this.onCloseSimpleModal.bind(this);
     this.onOpenBigModal = this.onOpenBigModal.bind(this);
     this.onCloseBigModal = this.onCloseBigModal.bind(this);
+    this.onOpenFirstModal = this.onOpenFirstModal.bind(this);
+    this.onCloseFirstModal = this.onCloseFirstModal.bind(this);
+    this.onOpenSecondModal = this.onOpenSecondModal.bind(this);
+    this.onCloseSecondModal = this.onCloseSecondModal.bind(this);
     this.state = {
       openSimpleModal: false,
       openBigModal: false,
+      openFirstModal: false,
+      openSecondModal: false,
     };
   }
 
@@ -31,8 +37,28 @@ class ModalDemo extends React.Component {
     this.setState({ openBigModal: false });
   }
 
+  onOpenFirstModal() {
+    this.setState({ openFirstModal: true });
+  }
+
+  onCloseFirstModal() {
+    this.setState({ openFirstModal: false });
+  }
+
+  onOpenSecondModal() {
+    this.setState({ openSecondModal: true });
+  }
+
+  onCloseSecondModal() {
+    this.setState({ openSecondModal: false });
+  }
+
   render() {
-    const { openSimpleModal, openBigModal } = this.state;
+    const { openSimpleModal, openBigModal, openFirstModal, openSecondModal } = this.state;
+    const littleLorem = (<p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
+      risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam.
+    </p>);
     const lorem = (<p>
       Mauris ac arcu sit amet dui interdum bibendum a sed diam. Praesent rhoncus congue ipsum
       elementum lobortis. Ut ligula purus, ultrices id condimentum quis, tincidunt quis purus.
@@ -48,18 +74,14 @@ class ModalDemo extends React.Component {
         <button onClick={this.onOpenSimpleModal}>
           Open centered modal
         </button>
+        <Modal open={openSimpleModal} onClose={this.onCloseSimpleModal} little>
+          <h2>Simple centered modal</h2>
+          {littleLorem}
+        </Modal>
+
         <button onClick={this.onOpenBigModal}>
           Open big modal
         </button>
-
-        <Modal open={openSimpleModal} onClose={this.onCloseSimpleModal} little>
-          <h2>Simple centered modal</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-            risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam.
-          </p>
-        </Modal>
-
         <Modal open={openBigModal} onClose={this.onCloseBigModal}>
           <h2>Big modal</h2>
           {lorem}
@@ -68,6 +90,21 @@ class ModalDemo extends React.Component {
           {lorem}
           {lorem}
           {lorem}
+        </Modal>
+
+        <button onClick={this.onOpenFirstModal}>
+          Open multiple modals
+        </button>
+        <Modal open={openFirstModal} onClose={this.onCloseFirstModal} little>
+          <p>First modal</p>
+          {littleLorem}
+          <button onClick={this.onOpenSecondModal}>
+            Open second modal
+          </button>
+        </Modal>
+        <Modal open={openSecondModal} onClose={this.onCloseSecondModal} little>
+          <p>Second modal</p>
+          {littleLorem}
         </Modal>
       </div>
     );

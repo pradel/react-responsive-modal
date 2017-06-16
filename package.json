@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-modal",
-  "version": "1.4.1",
+  "version": "1.6.1",
   "description": "A simple responsive react modal",
   "main": "lib/modal.js",
   "scripts": {
@@ -27,25 +27,28 @@
   "homepage": "https://github.com/pradel/react-responsive-modal#readme",
   "dependencies": {
     "classnames": "^2.2.5",
-    "react-addons-css-transition-group": "^15.4.1",
-    "react-jss": "^4.2.0",
-    "react-minimalist-portal": "^1.0.6"
+    "prop-types": "^15.5.8",
+    "react-jss": "^6.1.1",
+    "react-minimalist-portal": "^1.1.0",
+    "react-transition-group": "^1.1.3"
   },
   "peerDependencies": {
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.18.2",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "babelify": "^7.3.0",
-    "browserify": "^13.1.1",
-    "eslint": "^3.10.2",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.0",
-    "eslint-plugin-react": "^6.7.1"
+    "browserify": "^14.4.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   }
 }

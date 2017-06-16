@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Portal from 'react-minimalist-portal';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransitionGroup } from 'react-transition-group';
 import classNames from 'classnames';
 import injectSheet from 'react-jss';
 import styles from './styles';
@@ -55,7 +56,7 @@ class Modal extends Component {
   }
 
   onClickOverlay(e) {
-    const { sheet: { classes }, closeOnOverlayClick } = this.props;
+    const { classes, closeOnOverlayClick } = this.props;
     if (!closeOnOverlayClick) return;
     const className = e.target.className.split(' ');
     if (className.indexOf(classes.overlay) !== -1) {
@@ -78,7 +79,7 @@ class Modal extends Component {
   render() {
     const {
       little,
-      sheet: { classes },
+      classes,
       overlayClassName,
       modalClassName,
       closeIconClassName,
@@ -91,7 +92,7 @@ class Modal extends Component {
     if (!showPortal) return null;
     return (
       <Portal>
-        <ReactCSSTransitionGroup
+        <CSSTransitionGroup
           transitionName={{
             appear: classes.transitionEnter,
             appearActive: classes.transitionEnterActive,
@@ -122,7 +123,7 @@ class Modal extends Component {
               </div>
             </div>
           }
-        </ReactCSSTransitionGroup>
+        </CSSTransitionGroup>
       </Portal>
     );
   }
@@ -139,7 +140,7 @@ Modal.propTypes = {
   overlayStyle: PropTypes.object,
   modalStyle: PropTypes.object,
   children: PropTypes.node,
-  sheet: PropTypes.object,
+  classes: PropTypes.object.isRequired,
   little: PropTypes.bool,
   showCloseIcon: PropTypes.bool,
   closeIconSize: PropTypes.number,
@@ -150,6 +151,13 @@ Modal.defaultProps = {
   closeOnOverlayClick: true,
   showCloseIcon: true,
   closeIconSize: 28,
+  overlayClassName: null,
+  modalClassName: null,
+  closeIconClassName: null,
+  overlayStyle: null,
+  modalStyle: null,
+  children: null,
+  little: false,
 };
 
 export default injectSheet(styles)(Modal);
