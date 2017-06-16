@@ -40,7 +40,7 @@ class Modal extends Component {
       // Let the animation finish
       this.timeout = setTimeout(() => {
         this.setState({ showPortal: false });
-        document.body.style.overflow = 'initial';
+        document.body.style.overflow = 'auto';
       }, 500);
     }
   }
@@ -49,7 +49,7 @@ class Modal extends Component {
     if (this.props.closeOnEsc) {
       document.removeEventListener('keydown', this.handleKeydown);
     }
-    document.body.style.overflow = 'initial';
+    document.body.style.overflow = 'auto';
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
