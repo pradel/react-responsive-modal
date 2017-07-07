@@ -4,6 +4,7 @@ import Portal from 'react-minimalist-portal';
 import { CSSTransitionGroup } from 'react-transition-group';
 import classNames from 'classnames';
 import injectSheet from 'react-jss';
+import noScroll from 'no-scroll';
 import styles from './styles';
 
 class Modal extends Component {
@@ -26,21 +27,22 @@ class Modal extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (!this.props.open && nextProps.open) {
-      this.setState({
-        open: true,
-        showPortal: true,
-        previousBodyStyleOverflow: document.body.style.overflow,
-      },
-      () => {
-        document.body.style.overflow = 'hidden';
-      });
+      this.setState(
+        {
+          open: true,
+          showPortal: true,
+        },
+        () => {
+          this.blockScroll();
+        }
+      );
     }
     if (this.props.open && !nextProps.open) {
       this.setState({ open: false });
       // Let the animation finish
       this.timeout = setTimeout(() => {
         this.setState({ showPortal: false });
-        document.body.style.overflow = this.state.previousBodyStyleOverflow;
+        this.unblockScroll();
       }, 500);
     }
   }
@@ -49,7 +51,7 @@ class Modal extends Component {
     if (this.props.closeOnEsc) {
       document.removeEventListener('keydown', this.handleKeydown);
     }
-    document.body.style.overflow = this.state.previousBodyStyleOverflow;
+    this.unblockScroll();
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
@@ -73,6 +75,20 @@ class Modal extends Component {
   handleKeydown(e) {
     if (e.keyCode === 27) {
       this.props.onClose();
+    }
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  blockScroll() {
+    noScroll.on();
+  }
+
+  unblockScroll() {
+    const openedModals = document.getElementsByClassName(
+      this.props.classes.modal
+    );
+    if (openedModals.length === 0) {
+      noScroll.off();
     }
   }
 
@@ -109,20 +125,36 @@ class Modal extends Component {
         >
           {open &&
             <div
-              className={
-                classNames(classes.overlay, little ? classes.overlayLittle : null, overlayClassName)
-              }
+              className={classNames(
+                classes.overlay,
+                little ? classes.overlayLittle : null,
+                overlayClassName
+              )}
               onClick={this.onClickOverlay}
               style={overlayStyle}
             >
-              <div className={classNames(classes.modal, modalClassName)} style={modalStyle}>
-                {showCloseIcon ?
-                  <svg className={classNames(classes.closeIcon, closeIconClassName)} onClick={this.onClickCloseIcon} xmlns="http://www.w3.org/2000/svg" width={closeIconSize} height={closeIconSize} viewBox="0 0 36 36"><path d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z" /></svg>
+              <div
+                className={classNames(classes.modal, modalClassName)}
+                style={modalStyle}
+              >
+                {showCloseIcon
+                  ? <svg
+                      className={classNames(
+                        classes.closeIcon,
+                        closeIconClassName
+                      )}
+                      onClick={this.onClickCloseIcon}
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={closeIconSize}
+                      height={closeIconSize}
+                      viewBox="0 0 36 36"
+                    >
+                      <path d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z" />
+                    </svg>
                   : null}
                 {this.props.children}
               </div>
-            </div>
-          }
+            </div>}
         </CSSTransitionGroup>
       </Portal>
     );
