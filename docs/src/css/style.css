@@ -10,3 +10,6 @@
 .btn.btn-action:focus {
   outline: none;
 }
+li {
+  padding: 8px 0;
+}
