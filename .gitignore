@@ -17,3 +17,7 @@ lib
 
 # Examples build
 examples/app.bundle.js
+
+# Docs
+docs/.cache
+docs/public
