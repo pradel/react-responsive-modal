@@ -4,7 +4,7 @@ A simple responsive react modal.
 [![npm version](https://badge.fury.io/js/react-responsive-modal.svg)](https://badge.fury.io/js/react-responsive-modal)
 [![Build Status](https://travis-ci.org/pradel/react-responsive-modal.svg?branch=master)](https://travis-ci.org/pradel/react-responsive-modal)
 
-You can find a demo [here](http://pradel.github.io/react-responsive-modal/).
+You can find a demo [here](https://react-responsive-modal.netlify.com/).
 Or you can run examples
 ```
 git clone https://github.com/pradel/react-responsive-modal
