@@ -31,7 +31,6 @@ class Modal extends Component {
         {
           open: true,
           showPortal: true,
-          previousBodyStyleOverflow: document.body.style.overflow,
         },
         () => {
           this.blockScroll();
