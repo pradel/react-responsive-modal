@@ -57,28 +57,16 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 ## Props
 
-`open`: (Bool) __Required__ Control if the modal is open or not.
-
-`onClose`: (Function) __Required__ Fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
-
-`closeOnEsc`: (Bool) default: true is the modal closable when user press esc key.
-
-`closeOnOverlayClick`: (Bool) default: true is the modal closable when user click on overlay.
-
-`little`: (Bool) Is the dialog centered __When you don't have a lot of content__.
-
-`showCloseIcon`: (Bool) default: true Show the close icon.
-
-`closeIconSize`: (Number) default: 28 Close icon size.
-
-`children`: (Node) The content of the modal.
-
-`overlayClassName`: (String) Classname for overlay div.
-
-`modalClassName`: (String) Classname for modal content div.
-
-`closeIconClassName`: (String) Classname for close icon svg.
-
-`overlayStyle`: (Object) Inline style for overlay div.
-
-`modalStyle`: (Object) Inline style for modal content div.
+- `open`: (Bool) __Required__ Control if the modal is open or not.
+- `onClose`: (Function) __Required__ Fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
+- `closeOnEsc`: (Bool) default: true is the modal closable when user press esc key.
+- `closeOnOverlayClick`: (Bool) default: true is the modal closable when user click on overlay.
+- `little`: (Bool) Is the dialog centered __When you don't have a lot of content__.
+- `showCloseIcon`: (Bool) default: true Show the close icon.
+- `closeIconSize`: (Number) default: 28 Close icon size.
+- `children`: (Node) The content of the modal.
+- `overlayClassName`: (String) Classname for overlay div.
+- `modalClassName`: (String) Classname for modal content div.
+- `closeIconClassName`: (String) Classname for close icon svg.
+- `overlayStyle`: (Object) Inline style for overlay div.
+- `modalStyle`: (Object) Inline style for modal content div.

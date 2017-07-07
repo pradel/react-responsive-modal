@@ -1,85 +1,19 @@
 // eslint-disable-next-line
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import Modal from '../../../src/modal';
 import '../css/normalize.css';
 import '../css/stylesheet.css';
 import '../css/github-light.css';
+import '../css/prism-okaidia.css';
 import '../css/style.css';
 
-const propsLib = [
-  {
-    name: 'open',
-    type: 'Bool',
-    required: true,
-    description: 'Control if the modal is open or not.',
-  },
-  {
-    name: 'onClose',
-    type: 'Function',
-    required: true,
-    description:
-      'Fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.',
-  },
-  {
-    name: 'closeOnEsc',
-    type: 'Bool',
-    description: 'default: true is the modal closable when user press esc key.',
-  },
-  {
-    name: 'closeOnOverlayClick',
-    type: 'Bool',
-    description:
-      'default: true is the modal closable when user click on overlay.',
-  },
-  {
-    name: 'little',
-    type: 'Bool',
-    description: "Is the dialog centered When you don't have a lot of content",
-  },
-  {
-    name: 'showCloseIcon',
-    type: 'Bool',
-    description: 'default: true Show the close icon.',
-  },
-  {
-    name: 'closeIconSize',
-    type: 'Number',
-    description: 'default: 28 Close icon size.',
-  },
-  {
-    name: 'children',
-    type: 'Node',
-    description: 'The content of the modal.',
-  },
-  {
-    name: 'overlayClassName',
-    type: 'String',
-    description: 'Classname for overlay div.',
-  },
-  {
-    name: 'modalClassName',
-    type: 'String',
-    description: 'Classname for modal content div.',
-  },
-  {
-    name: 'closeIconClassName',
-    type: 'String',
-    description: 'Classname for close icon svg.',
-  },
-  {
-    name: 'overlayStyle',
-    type: 'Object',
-    description: 'Inline style for overlay div.',
-  },
-  {
-    name: 'modalStyle',
-    type: 'Object',
-    description: 'Inline style for modal content div.',
-  },
-];
-
 export default class ModalDemo extends React.Component {
+  static propTypes = {
+    data: PropTypes.any.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.onOpenSimpleModal = this.onOpenSimpleModal.bind(this);
@@ -131,6 +65,7 @@ export default class ModalDemo extends React.Component {
   }
 
   render() {
+    const { site, markdownRemark } = this.props.data;
     const {
       openSimpleModal,
       openBigModal,
@@ -162,11 +97,10 @@ export default class ModalDemo extends React.Component {
       <div>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>react-responsive-modal</title>
-          <meta
-            name="description"
-            content="Simple responsive modal for react"
-          />
+          <title>
+            {site.siteMetadata.title}
+          </title>
+          <meta name="description" content={site.siteMetadata.description} />
         </Helmet>
         <section className="page-header">
           <h1 className="project-name">react-responsive-modal</h1>
@@ -180,7 +114,7 @@ export default class ModalDemo extends React.Component {
         </section>
 
         <section className="main-content">
-          <h2>
+          <h1>
             <a
               id="example"
               className="anchor"
@@ -190,7 +124,7 @@ export default class ModalDemo extends React.Component {
               <span className="octicon octicon-link" />
             </a>
             Demo
-          </h2>
+          </h1>
 
           <button className="btn btn-action" onClick={this.onOpenSimpleModal}>
             Open centered modal
@@ -236,32 +170,7 @@ export default class ModalDemo extends React.Component {
             {littleLorem}
           </Modal>
 
-          <h2>
-            <a
-              id="installation"
-              className="anchor"
-              href="#installation"
-              aria-hidden="true"
-            >
-              <span className="octicon octicon-link" />
-            </a>
-            Installation
-          </h2>
-
-          <pre>
-            <code>npm install --save react-responsive-modal</code>
-          </pre>
-
-          <h2>Props</h2>
-
-          <ul>
-            {propsLib.map(prop =>
-              <li key={prop.name}>
-                <code>{prop.name}</code>: ({prop.type}){' '}
-                {prop.required && <b>Required</b>} {prop.description}
-              </li>
-            )}
-          </ul>
+          <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
 
           <footer className="site-footer">
             <span className="site-footer-owner">
@@ -284,3 +193,19 @@ export default class ModalDemo extends React.Component {
     );
   }
 }
+
+// eslint-disable-next-line
+export const pageQuery = graphql`
+  query BlogPostByPath {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+    markdownRemark {
+      id
+      html
+    }
+  }
+`;
