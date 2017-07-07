@@ -6,7 +6,7 @@ A simple responsive react modal.
 
 ## Demo
 
-You can find a demo [here](https://react-responsive-modal.netlify.com/).
+You can find a demo [here](http://react-responsive-modal.leopradel.com/).
 
 ## Installation
 
