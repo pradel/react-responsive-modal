@@ -22,22 +22,17 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-responsive-modal';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onOpenModal = this.onOpenModal.bind(this);
-    this.onCloseModal = this.onCloseModal.bind(this);
-    this.state = {
-      open: false,
-    };
-  }
+  state = {
+    open: false,
+  };
 
-  onOpenModal() {
+  onOpenModal = () => {
     this.setState({ open: true });
-  }
+  };
 
-  onCloseModal() {
+  onCloseModal = () => {
     this.setState({ open: false });
-  }
+  };
 
   render() {
     const { open } = this.state;
