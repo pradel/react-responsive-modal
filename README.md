@@ -1,8 +1,12 @@
 # react-responsive-modal
-A simple responsive react modal.
 
 [![npm version](https://badge.fury.io/js/react-responsive-modal.svg)](https://badge.fury.io/js/react-responsive-modal)
 [![Build Status](https://travis-ci.org/pradel/react-responsive-modal.svg?branch=master)](https://travis-ci.org/pradel/react-responsive-modal)
+
+A simple responsive react modal.
+- Centered modals.
+- Scrolling modals.
+- Multiple modals.
 
 ## Demo
 
