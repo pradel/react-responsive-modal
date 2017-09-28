@@ -12,6 +12,10 @@ A simple responsive react modal.
 
 You can find a demo [here](https://react-responsive-modal.leopradel.com/).
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/TPcxj3ZMAXdSxzhvJ7SzjaQY/pradel/react-responsive-modal'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/TPcxj3ZMAXdSxzhvJ7SzjaQY/pradel/react-responsive-modal.svg' />
+</a>
+
 ## Installation
 
 With npm: `npm install react-responsive-modal --save`
