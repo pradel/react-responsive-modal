@@ -16,14 +16,6 @@ export default class ModalDemo extends React.Component {
 
   constructor(props) {
     super(props);
-    this.onOpenSimpleModal = this.onOpenSimpleModal.bind(this);
-    this.onCloseSimpleModal = this.onCloseSimpleModal.bind(this);
-    this.onOpenBigModal = this.onOpenBigModal.bind(this);
-    this.onCloseBigModal = this.onCloseBigModal.bind(this);
-    this.onOpenFirstModal = this.onOpenFirstModal.bind(this);
-    this.onCloseFirstModal = this.onCloseFirstModal.bind(this);
-    this.onOpenSecondModal = this.onOpenSecondModal.bind(this);
-    this.onCloseSecondModal = this.onCloseSecondModal.bind(this);
     this.state = {
       openSimpleModal: false,
       openBigModal: false,
@@ -32,35 +24,35 @@ export default class ModalDemo extends React.Component {
     };
   }
 
-  onOpenSimpleModal() {
+  onOpenSimpleModal = () => {
     this.setState({ openSimpleModal: true });
   }
 
-  onCloseSimpleModal() {
+  onCloseSimpleModal = () => {
     this.setState({ openSimpleModal: false });
   }
 
-  onOpenBigModal() {
+  onOpenBigModal = () => {
     this.setState({ openBigModal: true });
   }
 
-  onCloseBigModal() {
+  onCloseBigModal = () => {
     this.setState({ openBigModal: false });
   }
 
-  onOpenFirstModal() {
+  onOpenFirstModal = () => {
     this.setState({ openFirstModal: true });
   }
 
-  onCloseFirstModal() {
+  onCloseFirstModal = () => {
     this.setState({ openFirstModal: false });
   }
 
-  onOpenSecondModal() {
+  onOpenSecondModal = () => {
     this.setState({ openSecondModal: true });
   }
 
-  onCloseSecondModal() {
+  onCloseSecondModal = () => {
     this.setState({ openSecondModal: false });
   }
 
