@@ -22,12 +22,13 @@ SOFTWARE.
   color: #969896;
 }
 
-.pl-c1      /* constant, markup.raw, meta.diff.header, meta.module-reference, meta.property-name, support, support.constant, support.variable, variable.other.constant */,
+.pl-c1
+  /* constant, markup.raw, meta.diff.header, meta.module-reference, meta.property-name, support, support.constant, support.variable, variable.other.constant */,
 .pl-s .pl-v {
   color: #0086b3;
 }
 
-.pl-e  /* entity */,
+.pl-e /* entity */,
 .pl-en {
   color: #795da3;
 }
@@ -45,12 +46,12 @@ SOFTWARE.
   color: #a71d5d;
 }
 
-.pl-pds              /* punctuation.definition.string, string.regexp.character-class */,
-.pl-s                /* string */,
+.pl-pds /* punctuation.definition.string, string.regexp.character-class */,
+.pl-s /* string */,
 .pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
-.pl-sr               /* string.regexp */,
-.pl-sr .pl-cce       /* string.regexp constant.character.escape */,
-.pl-sr .pl-sra       /* string.regexp string.regexp.arbitrary-repitition */,
+.pl-sr /* string.regexp */,
+.pl-sr .pl-cce /* string.regexp constant.character.escape */,
+.pl-sr .pl-sra /* string.regexp string.regexp.arbitrary-repitition */,
 .pl-sr .pl-sre {
   color: #183691;
 }
@@ -77,7 +78,7 @@ SOFTWARE.
   color: #693a17;
 }
 
-.pl-mh        /* markup.heading */,
+.pl-mh /* markup.heading */,
 .pl-mh .pl-en /* markup.heading entity.name */,
 .pl-ms {
   color: #1d3e81;

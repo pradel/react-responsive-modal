@@ -97,9 +97,7 @@ export default class ModalDemo extends React.Component {
       <div>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>
-            {site.siteMetadata.title}
-          </title>
+          <title>{site.siteMetadata.title}</title>
           <meta name="description" content={site.siteMetadata.description} />
         </Helmet>
         <section className="page-header">
@@ -170,7 +168,10 @@ export default class ModalDemo extends React.Component {
             {littleLorem}
           </Modal>
 
-          <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+          <div
+            style={{ marginTop: 20 }}
+            dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+          />
 
           <footer className="site-footer">
             <span className="site-footer-owner">
