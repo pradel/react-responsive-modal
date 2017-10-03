@@ -8,7 +8,8 @@
     "build:watch": "npm run build -- --watch",
     "build:examples": "browserify examples/app.js -o examples/app.bundle.js -t [ babelify --presets [ es2015 react ] ]",
     "lint": "eslint src docs/src",
-    "test": "npm run lint && npm run build",
+    "test": "npm run lint && npm run build && npm run size",
+    "size": "size-limit",
     "format": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"docs/src/**/*.{js,css}\""
   },
   "keywords": [
@@ -51,7 +52,14 @@
     "eslint-plugin-react": "^7.4.0",
     "prettier": "^1.7.3",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "size-limit": "^0.11.5"
   },
+  "size-limit": [
+    {
+      "path": "lib/modal.js",
+      "limit": "17 KB"
+    }
+  ],
   "license": "MIT"
 }
