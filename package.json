@@ -28,7 +28,7 @@
     "classnames": "^2.2.5",
     "no-scroll": "^2.1.0",
     "prop-types": "^15.6.0",
-    "react-jss": "^6.1.1",
+    "react-jss": "^7.2.0",
     "react-minimalist-portal": "^2.1.0",
     "react-transition-group": "^1.2.1"
   },
@@ -50,15 +50,15 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.4.0",
-    "prettier": "^1.7.3",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "prettier": "^1.7.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "size-limit": "^0.11.5"
   },
   "size-limit": [
     {
       "path": "lib/modal.js",
-      "limit": "17 KB"
+      "limit": "19 KB"
     }
   ],
   "license": "MIT"
