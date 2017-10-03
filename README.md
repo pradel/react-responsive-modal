@@ -24,6 +24,8 @@ Or with yarn: `yarn add react-responsive-modal`
 
 ## Usage
 
+[![Edit react-responsive-modal](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/9jxp669j2o)
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
