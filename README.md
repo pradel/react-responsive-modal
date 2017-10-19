@@ -75,3 +75,4 @@ ReactDOM.render(<App />, document.getElementById('app'));
 - `closeIconClassName`: (String) Classname for close icon svg.
 - `overlayStyle`: (Object) Inline style for overlay div.
 - `modalStyle`: (Object) Inline style for modal content div.
+- `animationDuration`: (Number) Animation duration in milliseconds.
