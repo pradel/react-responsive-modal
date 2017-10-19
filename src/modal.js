@@ -38,12 +38,12 @@ class Modal extends Component {
       );
     }
     if (this.props.open && !nextProps.open) {
-      this.setState({ open: false });
-      // Let the animation finish
-      this.timeout = setTimeout(() => {
-        this.setState({ showPortal: false });
+      this.setState({
+        open: false,
+        showPortal: false
+      }, () => {
         this.unblockScroll();
-      }, 500);
+      });
     }
   }
 
@@ -103,6 +103,7 @@ class Modal extends Component {
       modalStyle,
       showCloseIcon,
       closeIconSize,
+      animationDuration
     } = this.props;
     const { open, showPortal } = this.state;
     if (!showPortal) return null;
@@ -119,9 +120,9 @@ class Modal extends Component {
           }}
           transitionAppear
           transitionLeave
-          transitionAppearTimeout={500}
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={500}
+          transitionAppearTimeout={animationDuration}
+          transitionEnterTimeout={animationDuration}
+          transitionLeaveTimeout={animationDuration}
         >
           {open && (
             <div
@@ -131,7 +132,9 @@ class Modal extends Component {
                 overlayClassName
               )}
               onClick={this.onClickOverlay}
-              style={overlayStyle}
+              style={Object.assign({}, overlayStyle, {
+                transitionDuration: `${animationDuration}ms`
+              })}
             >
               <div
                 className={classNames(classes.modal, modalClassName)}
@@ -177,6 +180,7 @@ Modal.propTypes = {
   little: PropTypes.bool,
   showCloseIcon: PropTypes.bool,
   closeIconSize: PropTypes.number,
+  animationDuration: PropTypes.number
 };
 
 Modal.defaultProps = {
@@ -191,6 +195,7 @@ Modal.defaultProps = {
   modalStyle: null,
   children: null,
   little: false,
+  animationDuration: 500
 };
 
 export default injectSheet(styles)(Modal);

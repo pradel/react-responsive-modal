@@ -36,13 +36,14 @@ export default {
   },
   transitionEnterActive: {
     opacity: 1,
-    transition: 'opacity 500ms cubic-bezier(0.23, 1, 0.32, 1)',
+    transition: 'opacity cubic-bezier(0.23, 1, 0.32, 1)'
   },
   transitionLeave: {
     opacity: 1,
   },
   transitionLeaveActive: {
     opacity: '0.01',
-    transition: 'opacity 500ms cubic-bezier(0.23, 1, 0.32, 1)',
+    transition: 'opacity cubic-bezier(0.23, 1, 0.32, 1)',
+    transitionDuration: '0ms !important'
   },
 };
