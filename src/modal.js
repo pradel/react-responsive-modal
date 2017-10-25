@@ -130,7 +130,7 @@ class Modal extends Component {
                 little ? classes.overlayLittle : null,
                 overlayClassName
               )}
-              onClick={this.onClickOverlay}
+              onMouseDown={this.onClickOverlay}
               style={overlayStyle}
             >
               <div
