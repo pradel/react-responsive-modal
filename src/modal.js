@@ -23,6 +23,10 @@ class Modal extends Component {
     if (this.props.closeOnEsc) {
       document.addEventListener('keydown', this.handleKeydown);
     }
+    // Block scroll when initial prop is open
+    if (this.props.open) {
+      this.blockScroll();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
