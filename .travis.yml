@@ -4,3 +4,5 @@ cache: yarn
 node_js:
   - "8"
   - "6"
+notifications:
+  email: false
