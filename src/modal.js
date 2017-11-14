@@ -110,12 +110,15 @@ class Modal extends Component {
           in={open}
           appear
           classNames={{
-            appear: classes.transitionEnter,
-            appearActive: classes.transitionEnterActive,
-            enter: classes.transitionEnter,
-            enterActive: classes.transitionEnterActive,
-            exit: classes.transitionExit,
-            exitActive: classes.transitionExitActive,
+            appear: classNames.transitionEnter || classes.transitionEnter,
+            appearActive:
+              classNames.transitionEnterActive || classes.transitionEnterActive,
+            enter: classNames.transitionEnter || classes.transitionEnter,
+            enterActive:
+              classNames.transitionEnterActive || classes.transitionEnterActive,
+            exit: classNames.transitionExit || classes.transitionExit,
+            exitActive:
+              classNames.transitionExitActive || classes.transitionExitActive,
           }}
           timeout={animationDuration}
           onExited={this.handleExited}

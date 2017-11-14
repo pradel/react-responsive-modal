@@ -1,90 +1,25 @@
-// eslint-disable-next-line
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import Modal from '../../../src/modal';
 import '../css/normalize.css';
 import '../css/stylesheet.css';
 import '../css/github-light.css';
 import '../css/prism-okaidia.css';
 import '../css/style.css';
+import Centered from '../examples/centered';
+import Big from '../examples/big';
+import Multiple from '../examples/multiple';
+import CustomStyling from '../examples/custom-styling';
+import CustomAnimation from '../examples/custom-animation';
 
 export default class ModalDemo extends React.Component {
   static propTypes = {
     data: PropTypes.any.isRequired,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      openSimpleModal: false,
-      openBigModal: false,
-      openFirstModal: false,
-      openSecondModal: false,
-    };
-  }
-
-  onOpenSimpleModal = () => {
-    this.setState({ openSimpleModal: true });
-  };
-
-  onCloseSimpleModal = () => {
-    this.setState({ openSimpleModal: false });
-  };
-
-  onOpenBigModal = () => {
-    this.setState({ openBigModal: true });
-  };
-
-  onCloseBigModal = () => {
-    this.setState({ openBigModal: false });
-  };
-
-  onOpenFirstModal = () => {
-    this.setState({ openFirstModal: true });
-  };
-
-  onCloseFirstModal = () => {
-    this.setState({ openFirstModal: false });
-  };
-
-  onOpenSecondModal = () => {
-    this.setState({ openSecondModal: true });
-  };
-
-  onCloseSecondModal = () => {
-    this.setState({ openSecondModal: false });
-  };
-
   render() {
     const { site, markdownRemark } = this.props.data;
-    const {
-      openSimpleModal,
-      openBigModal,
-      openFirstModal,
-      openSecondModal,
-    } = this.state;
-    const littleLorem = (
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
-        risus non risus hendrerit venenatis. Pellentesque sit amet hendrerit
-        risus, sed porttitor quam.
-      </p>
-    );
-    const lorem = (
-      <p>
-        Mauris ac arcu sit amet dui interdum bibendum a sed diam. Praesent
-        rhoncus congue ipsum elementum lobortis. Ut ligula purus, ultrices id
-        condimentum quis, tincidunt quis purus. Proin quis enim metus. Nunc
-        feugiat odio at eros porta, ut rhoncus lorem tristique. Nunc et ipsum eu
-        ex vulputate consectetur vel eu nisi. Donec ultricies rutrum lectus, sit
-        ame feugiat est semper vitae. Proin varius imperdiet consequat. Proin eu
-        metus nisi. In hac habitasse platea dictumst. Vestibulum ac ultrices
-        risus. Pellentesque arcu sapien, aliquet sed orci sit amet, pulvinar
-        interdum velit. Nunc a rhoncus ipsum, maximus fermentum dolor. Praesent
-        aliquet justo vitae rutrum volutpat. Ut quis pulvinar est.
-      </p>
-    );
     return (
       <div>
         <Helmet>
@@ -113,52 +48,16 @@ export default class ModalDemo extends React.Component {
             >
               <span className="octicon octicon-link" />
             </a>
-            Demo
+            Examples
           </h1>
 
-          <button className="btn btn-action" onClick={this.onOpenSimpleModal}>
-            Open centered modal
-          </button>
-          <Modal
-            open={openSimpleModal}
-            onClose={this.onCloseSimpleModal}
-            little
-          >
-            <h2>Simple centered modal</h2>
-            {littleLorem}
-          </Modal>
-
-          <button className="btn btn-action" onClick={this.onOpenBigModal}>
-            Open big modal
-          </button>
-          <Modal open={openBigModal} onClose={this.onCloseBigModal}>
-            <h2>Big modal</h2>
-            {lorem}
-            {lorem}
-            {lorem}
-            {lorem}
-            {lorem}
-            {lorem}
-          </Modal>
-
-          <button className="btn btn-action" onClick={this.onOpenFirstModal}>
-            Open multiple modals
-          </button>
-          <Modal open={openFirstModal} onClose={this.onCloseFirstModal} little>
-            <p>First modal</p>
-            {littleLorem}
-            <button className="btn btn-action" onClick={this.onOpenSecondModal}>
-              Open second modal
-            </button>
-          </Modal>
-          <Modal
-            open={openSecondModal}
-            onClose={this.onCloseSecondModal}
-            little
-          >
-            <p>Second modal</p>
-            {littleLorem}
-          </Modal>
+          <div className="examples">
+            <Centered />
+            <Big />
+            <Multiple />
+            <CustomStyling />
+            <CustomAnimation />
+          </div>
 
           <div
             style={{ marginTop: 20 }}
