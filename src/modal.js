@@ -12,7 +12,6 @@ class Modal extends Component {
     super(props);
     this.state = {
       showPortal: props.open,
-      open: props.open,
     };
   }
 
@@ -30,16 +29,12 @@ class Modal extends Component {
     if (!this.props.open && nextProps.open) {
       this.setState(
         {
-          open: true,
           showPortal: true,
         },
         () => {
           this.blockScroll();
         }
       );
-    }
-    if (this.props.open && !nextProps.open) {
-      this.setState({ open: false });
     }
   }
 
@@ -97,6 +92,7 @@ class Modal extends Component {
 
   render() {
     const {
+      open,
       little,
       classes,
       overlayClassName,
@@ -108,7 +104,7 @@ class Modal extends Component {
       closeIconSize,
       animationDuration,
     } = this.props;
-    const { open, showPortal } = this.state;
+    const { showPortal } = this.state;
     if (!showPortal) return null;
     return (
       <Portal>
