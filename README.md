@@ -1,7 +1,9 @@
 # react-responsive-modal
 
 [![npm version](https://badge.fury.io/js/react-responsive-modal.svg)](https://badge.fury.io/js/react-responsive-modal)
+[![npm](https://img.shields.io/npm/dm/react-minimalist-portal.svg)](https://www.npmjs.com/package/react-minimalist-portal)
 [![Build Status](https://travis-ci.org/pradel/react-responsive-modal.svg?branch=master)](https://travis-ci.org/pradel/react-responsive-modal)
+[![dependencies Status](https://david-dm.org/pradel/react-responsive-modal/status.svg)](https://david-dm.org/pradel/react-responsive-modal)
 
 A simple responsive react modal.
 - Centered modals.
