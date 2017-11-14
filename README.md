@@ -76,14 +76,13 @@ ReactDOM.render(<App />, document.getElementById('app'));
   content**.
 * `showCloseIcon`: (Bool) default: true Show the close icon.
 * `closeIconSize`: (Number) default: 28 Close icon size.
+* `closeIconSvgPath`: (Node) A valid svg path to show as icon.
 * `children`: (Node) The content of the modal.
-* `overlayClassName`: (String) Classname for overlay div.
-* `modalClassName`: (String) Classname for modal content div.
-* `closeIconClassName`: (String) Classname for close icon svg.
-* `overlayStyle`: (Object) Inline style for overlay div.
-* `modalStyle`: (Object) Inline style for modal content div.
-
-- `animationDuration`: (Number) Animation duration in milliseconds.
+* `classNames`: (Object) An object containing classNames to style the modal, can
+  have properties 'overlay' (classname for overlay div), 'modal' (classname for modal content div), 'closeIcon' (classname for close icon svg).
+* `styles`: (Object) An object containing the styles objects to style the modal,
+  can have properties 'overlay', 'modal', 'closeIcon'.
+* `animationDuration`: (Number) Animation duration in milliseconds.
 
 ## License
 
