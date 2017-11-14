@@ -10,9 +10,6 @@ import styles from './styles';
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.handleKeydown = this.handleKeydown.bind(this);
-    this.onClickOverlay = this.onClickOverlay.bind(this);
-    this.onClickCloseIcon = this.onClickCloseIcon.bind(this);
     this.state = {
       showPortal: props.open,
       open: props.open,
@@ -61,7 +58,7 @@ class Modal extends Component {
     }
   }
 
-  onClickOverlay(e) {
+  onClickOverlay = (e) => {
     const { classes, closeOnOverlayClick } = this.props;
     if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
       return;
@@ -73,12 +70,12 @@ class Modal extends Component {
     }
   }
 
-  onClickCloseIcon(e) {
+  onClickCloseIcon = (e) => {
     e.stopPropagation();
     this.props.onClose();
   }
 
-  handleKeydown(e) {
+  handleKeydown = (e) => {
     if (e.keyCode === 27) {
       this.props.onClose();
     }
@@ -89,7 +86,7 @@ class Modal extends Component {
     noScroll.on();
   }
 
-  unblockScroll() {
+  unblockScroll = () => {
     const openedModals = document.getElementsByClassName(
       this.props.classes.modal
     );
