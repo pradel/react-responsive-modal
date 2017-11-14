@@ -16,6 +16,7 @@ li {
 .examples {
   display: flex;
   flex-wrap: wrap;
+  margin-top: -20px;
 }
 .examples .example {
   width: 33%;
