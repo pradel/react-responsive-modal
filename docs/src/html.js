@@ -23,7 +23,7 @@ export default class HTML extends React.Component {
       css = (
         <style
           dangerouslySetInnerHTML={{
-            // eslint-disable-next-line
+            // eslint-disable-next-line global-require,import/no-webpack-loader-syntax
             __html: require('!raw!../public/styles.css'),
           }}
         />

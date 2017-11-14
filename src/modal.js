@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Portal from 'react-minimalist-portal';
 import CSSTransition from 'react-transition-group/CSSTransition';
-import classNames from 'classnames';
+import cx from 'classnames';
 import injectSheet from 'react-jss';
 import noScroll from 'no-scroll';
 import styles from './styles';
@@ -127,7 +127,7 @@ class Modal extends Component {
           onExited={this.handleExited}
         >
           <div
-            className={classNames(
+            className={cx(
               classes.overlay,
               little ? classes.overlayLittle : null,
               overlayClassName
@@ -136,12 +136,12 @@ class Modal extends Component {
             style={overlayStyle}
           >
             <div
-              className={classNames(classes.modal, modalClassName)}
+              className={cx(classes.modal, modalClassName)}
               style={modalStyle}
             >
               {showCloseIcon ? (
                 <svg
-                  className={classNames(classes.closeIcon, closeIconClassName)}
+                  className={cx(classes.closeIcon, closeIconClassName)}
                   onClick={this.onClickCloseIcon}
                   xmlns="http://www.w3.org/2000/svg"
                   width={closeIconSize}
