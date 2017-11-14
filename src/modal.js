@@ -63,7 +63,9 @@ class Modal extends Component {
 
   onClickOverlay(e) {
     const { classes, closeOnOverlayClick } = this.props;
-    if (!closeOnOverlayClick) return;
+    if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
+      return;
+    }
     const className = e.target.className.split(' ');
     if (className.indexOf(classes.overlay) !== -1) {
       e.stopPropagation();
