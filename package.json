@@ -10,7 +10,7 @@
     "lint": "eslint src docs/src",
     "test": "npm run lint && npm run build && npm run size",
     "size": "size-limit",
-    "format": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"docs/src/**/*.{js,css}\""
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"docs/src/**/*.{js,css}\" \"README.md\""
   },
   "keywords": [
     "react",
@@ -28,9 +28,9 @@
     "classnames": "^2.2.5",
     "no-scroll": "^2.1.0",
     "prop-types": "^15.6.0",
-    "react-jss": "^7.2.0",
+    "react-jss": "^8.1.0",
     "react-minimalist-portal": "^2.1.1",
-    "react-transition-group": "^1.2.1"
+    "react-transition-group": "^2.2.1"
   },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0",
@@ -52,15 +52,15 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-jsx-import": "^0.0.1",
     "eslint-plugin-react": "^7.4.0",
-    "prettier": "^1.7.4",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "prettier": "^1.8.2",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "size-limit": "^0.12.1"
   },
   "size-limit": [
     {
       "path": "lib/modal.js",
-      "limit": "19 KB"
+      "limit": "20 KB"
     }
   ],
   "license": "MIT"

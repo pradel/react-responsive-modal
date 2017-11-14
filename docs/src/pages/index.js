@@ -26,35 +26,35 @@ export default class ModalDemo extends React.Component {
 
   onOpenSimpleModal = () => {
     this.setState({ openSimpleModal: true });
-  }
+  };
 
   onCloseSimpleModal = () => {
     this.setState({ openSimpleModal: false });
-  }
+  };
 
   onOpenBigModal = () => {
     this.setState({ openBigModal: true });
-  }
+  };
 
   onCloseBigModal = () => {
     this.setState({ openBigModal: false });
-  }
+  };
 
   onOpenFirstModal = () => {
     this.setState({ openFirstModal: true });
-  }
+  };
 
   onCloseFirstModal = () => {
     this.setState({ openFirstModal: false });
-  }
+  };
 
   onOpenSecondModal = () => {
     this.setState({ openSecondModal: true });
-  }
+  };
 
   onCloseSecondModal = () => {
     this.setState({ openSecondModal: false });
-  }
+  };
 
   render() {
     const { site, markdownRemark } = this.props.data;
