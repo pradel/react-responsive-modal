@@ -9,7 +9,7 @@
     "lint": "eslint src docs/src",
     "test": "npm run lint && npm run build && npm run size",
     "size": "size-limit",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"docs/src/**/*.{js,css}\" \"README.md\""
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"docs/src/**/*.{js,css}\" \"README.md\" \".github/*.md\""
   },
   "keywords": [
     "react",

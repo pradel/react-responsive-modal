@@ -10,6 +10,7 @@ A simple responsive react modal.
 * Centered modals.
 * Scrolling modals.
 * Multiple modals.
+* Easily customizable via props.
 
 ## Demo
 
