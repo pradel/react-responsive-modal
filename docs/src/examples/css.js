@@ -1,5 +1,7 @@
 import React from 'react';
 import Modal from '../../../src/css';
+// On your project you should use:
+// import 'react-responsive-modal/lib/react-responsive-modal.css';
 import '../../../lib/react-responsive-modal.css';
 
 export default class Css extends React.Component {

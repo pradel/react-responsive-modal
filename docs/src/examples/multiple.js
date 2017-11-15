@@ -39,7 +39,7 @@ export default class Centered extends React.Component {
           Open
         </button>{' '}
         <a
-          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/centered.js"
+          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/multiple.js"
           target="_blank"
         >
           See source code
