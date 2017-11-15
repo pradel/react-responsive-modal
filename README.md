@@ -64,7 +64,7 @@ export default class App extends React.Component {
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
-#### Usage with css
+### Usage with css
 
 By default react-responsive-modal is using [react-jss](https://github.com/cssinjs/react-jss).
 
