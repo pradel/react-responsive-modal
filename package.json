@@ -2,14 +2,14 @@
   "name": "react-responsive-modal",
   "version": "1.9.4",
   "description": "A simple responsive react modal",
-  "main": "lib/modal.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "babel src --out-dir lib && node scripts/generate-css-from-jss.js",
     "build:watch": "npm run build -- --watch",
-    "lint": "eslint src docs/src",
+    "lint": "eslint src docs/src scripts",
     "test": "npm run lint && npm run build && npm run size",
     "size": "size-limit",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"docs/src/**/*.{js,css}\" \"README.md\" \".github/*.md\""
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"scripts/**/*.js\" \"docs/src/**/*.{js,css}\" \"README.md\" \".github/*.md\""
   },
   "keywords": [
     "react",
@@ -42,6 +42,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "decamelize": "^1.2.0",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.7.0",
@@ -57,7 +58,7 @@
   "size-limit": [
     {
       "path": "lib/modal.js",
-      "limit": "20 KB"
+      "limit": "6 KB"
     }
   ],
   "license": "MIT"

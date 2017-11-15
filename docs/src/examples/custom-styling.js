@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../../../src/modal';
+import Modal from '../../../src/index';
 import './custom-styling.css';
 
 export default class CustomStyling extends React.Component {

@@ -1,8 +1,8 @@
 import React from 'react';
-import Modal from '../../../src/index';
-import './custom-animation.css';
+import Modal from '../../../src/css';
+import '../../../lib/react-responsive-modal.css';
 
-export default class CustomAnimation extends React.Component {
+export default class Css extends React.Component {
   state = {
     open: false,
   };
@@ -19,28 +19,18 @@ export default class CustomAnimation extends React.Component {
     const { open } = this.state;
     return (
       <div className="example">
-        <h4>Custom animation</h4>
+        <h4>Css modal</h4>
         <button className="btn btn-action" onClick={this.onOpenModal}>
           Open
         </button>{' '}
         <a
-          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/custom-animation.js"
+          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/css.js"
           target="_blank"
         >
           See source code
         </a>
-        <Modal
-          open={open}
-          onClose={this.onCloseModal}
-          little
-          classNames={{
-            transitionEnter: 'transition-enter',
-            transitionEnterActive: 'transition-enter-active',
-            transitionExit: 'transition-exit-active',
-            transitionExitActive: 'transition-exit-active',
-          }}
-          animationDuration={1000}
-        >
+        <Modal open={open} onClose={this.onCloseModal} little>
+          <h2>Simple centered modal</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
             pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet

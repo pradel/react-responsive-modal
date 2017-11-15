@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import Portal from 'react-minimalist-portal';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
-import injectSheet from 'react-jss';
 import noScroll from 'no-scroll';
-import modalStyles from './styles';
 
 class Modal extends Component {
   constructor(props) {
@@ -189,4 +187,4 @@ Modal.defaultProps = {
   animationDuration: 500,
 };
 
-export default injectSheet(modalStyles)(Modal);
+export default Modal;
