@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "react/no-danger": "off",
+    "react/jsx-no-target-blank": "off"
+  }
+}

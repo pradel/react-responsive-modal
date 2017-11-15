@@ -13,3 +13,35 @@
 li {
   padding: 8px 0;
 }
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -20px;
+}
+.examples .example {
+  width: 33%;
+  margin-top: 20px;
+}
+.examples .example a {
+  margin-left: 15px;
+}
+.examples .example .btn {
+  padding: 0.75rem 2rem;
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+  .examples .example {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 42em) {
+  .examples .example {
+    width: 100%;
+  }
+  .examples .example .btn {
+    width: auto;
+    display: inline-block;
+    padding: 0.75rem 2rem;
+  }
+}

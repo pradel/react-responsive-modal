@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Portal from 'react-minimalist-portal';
-import { CSSTransitionGroup } from 'react-transition-group';
-import classNames from 'classnames';
-import injectSheet from 'react-jss';
+import CSSTransition from 'react-transition-group/CSSTransition';
+import cx from 'classnames';
 import noScroll from 'no-scroll';
-import styles from './styles';
 
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.handleKeydown = this.handleKeydown.bind(this);
-    this.onClickOverlay = this.onClickOverlay.bind(this);
-    this.onClickCloseIcon = this.onClickCloseIcon.bind(this);
     this.state = {
       showPortal: props.open,
-      open: props.open,
     };
   }
 
@@ -33,21 +27,12 @@ class Modal extends Component {
     if (!this.props.open && nextProps.open) {
       this.setState(
         {
-          open: true,
           showPortal: true,
         },
         () => {
           this.blockScroll();
         }
       );
-    }
-    if (this.props.open && !nextProps.open) {
-      this.setState({ open: false });
-      // Let the animation finish
-      this.timeout = setTimeout(() => {
-        this.setState({ showPortal: false });
-        this.unblockScroll();
-      }, 500);
     }
   }
 
@@ -61,7 +46,7 @@ class Modal extends Component {
     }
   }
 
-  onClickOverlay(e) {
+  onClickOverlay = e => {
     const { classes, closeOnOverlayClick } = this.props;
     if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
       return;
@@ -71,98 +56,101 @@ class Modal extends Component {
       e.stopPropagation();
       this.props.onClose();
     }
-  }
+  };
 
-  onClickCloseIcon(e) {
+  onClickCloseIcon = e => {
     e.stopPropagation();
     this.props.onClose();
-  }
+  };
 
-  handleKeydown(e) {
+  handleKeydown = e => {
     if (e.keyCode === 27) {
       this.props.onClose();
     }
-  }
+  };
+
+  handleExited = () => {
+    this.setState({ showPortal: false });
+    this.unblockScroll();
+  };
 
   // eslint-disable-next-line class-methods-use-this
   blockScroll() {
     noScroll.on();
   }
 
-  unblockScroll() {
+  unblockScroll = () => {
     const openedModals = document.getElementsByClassName(
       this.props.classes.modal
     );
-    if (openedModals.length === 0) {
+    if (openedModals.length === 1) {
       noScroll.off();
     }
-  }
+  };
 
   render() {
     const {
+      open,
       little,
       classes,
-      overlayClassName,
-      modalClassName,
-      closeIconClassName,
-      overlayStyle,
-      modalStyle,
+      classNames,
+      styles,
       showCloseIcon,
       closeIconSize,
+      closeIconSvgPath,
+      animationDuration,
     } = this.props;
-    const { open, showPortal } = this.state;
+    const { showPortal } = this.state;
     if (!showPortal) return null;
     return (
       <Portal>
-        <CSSTransitionGroup
-          transitionName={{
-            appear: classes.transitionEnter,
-            appearActive: classes.transitionEnterActive,
-            enter: classes.transitionEnter,
-            enterActive: classes.transitionEnterActive,
-            leave: classes.transitionLeave,
-            leaveActive: classes.transitionLeaveActive,
+        <CSSTransition
+          in={open}
+          appear
+          classNames={{
+            appear: classNames.transitionEnter || classes.transitionEnter,
+            appearActive:
+              classNames.transitionEnterActive || classes.transitionEnterActive,
+            enter: classNames.transitionEnter || classes.transitionEnter,
+            enterActive:
+              classNames.transitionEnterActive || classes.transitionEnterActive,
+            exit: classNames.transitionExit || classes.transitionExit,
+            exitActive:
+              classNames.transitionExitActive || classes.transitionExitActive,
           }}
-          transitionAppear
-          transitionLeave
-          transitionAppearTimeout={500}
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={500}
+          timeout={animationDuration}
+          onExited={this.handleExited}
         >
-          {open && (
+          <div
+            className={cx(
+              classes.overlay,
+              little ? classes.overlayLittle : null,
+              classNames.overlay
+            )}
+            onMouseDown={this.onClickOverlay}
+            style={styles.overlay}
+          >
             <div
-              className={classNames(
-                classes.overlay,
-                little ? classes.overlayLittle : null,
-                overlayClassName
-              )}
-              onMouseDown={this.onClickOverlay}
-              style={overlayStyle}
+              className={cx(classes.modal, classNames.modal)}
+              style={styles.modal}
             >
-              <div
-                className={classNames(classes.modal, modalClassName)}
-                style={modalStyle}
-              >
-                {showCloseIcon ? (
-                  <svg
-                    className={classNames(
-                      classes.closeIcon,
-                      closeIconClassName
-                    )}
-                    onClick={this.onClickCloseIcon}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={closeIconSize}
-                    height={closeIconSize}
-                    viewBox="0 0 36 36"
-                  >
-                    <path d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z" />
-                  </svg>
-                ) : null}
-                {this.props.children}
-              </div>
+              {showCloseIcon ? (
+                <svg
+                  className={cx(classes.closeIcon, classNames.closeIcon)}
+                  style={styles.closeIcon}
+                  onClick={this.onClickCloseIcon}
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={closeIconSize}
+                  height={closeIconSize}
+                  viewBox="0 0 36 36"
+                >
+                  {closeIconSvgPath}
+                </svg>
+              ) : null}
+              {this.props.children}
             </div>
-          )}
-        </CSSTransitionGroup>
+          </div>
+        </CSSTransition>
       </Portal>
     );
   }
@@ -173,16 +161,15 @@ Modal.propTypes = {
   closeOnOverlayClick: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
-  overlayClassName: PropTypes.string,
-  modalClassName: PropTypes.string,
-  closeIconClassName: PropTypes.string,
-  overlayStyle: PropTypes.object,
-  modalStyle: PropTypes.object,
+  classNames: PropTypes.object,
+  styles: PropTypes.object,
   children: PropTypes.node,
   classes: PropTypes.object.isRequired,
   little: PropTypes.bool,
   showCloseIcon: PropTypes.bool,
   closeIconSize: PropTypes.number,
+  closeIconSvgPath: PropTypes.node,
+  animationDuration: PropTypes.number,
 };
 
 Modal.defaultProps = {
@@ -190,13 +177,14 @@ Modal.defaultProps = {
   closeOnOverlayClick: true,
   showCloseIcon: true,
   closeIconSize: 28,
-  overlayClassName: null,
-  modalClassName: null,
-  closeIconClassName: null,
-  overlayStyle: null,
-  modalStyle: null,
+  closeIconSvgPath: (
+    <path d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z" />
+  ),
+  classNames: {},
+  styles: {},
   children: null,
   little: false,
+  animationDuration: 500,
 };
 
-export default injectSheet(styles)(Modal);
+export default Modal;

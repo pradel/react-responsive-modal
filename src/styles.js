@@ -38,10 +38,10 @@ export default {
     opacity: 1,
     transition: 'opacity 500ms cubic-bezier(0.23, 1, 0.32, 1)',
   },
-  transitionLeave: {
+  transitionExit: {
     opacity: 1,
   },
-  transitionLeaveActive: {
+  transitionExitActive: {
     opacity: '0.01',
     transition: 'opacity 500ms cubic-bezier(0.23, 1, 0.32, 1)',
   },

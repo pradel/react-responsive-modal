@@ -5,10 +5,12 @@
 [![Build Status](https://travis-ci.org/pradel/react-responsive-modal.svg?branch=master)](https://travis-ci.org/pradel/react-responsive-modal)
 [![dependencies Status](https://david-dm.org/pradel/react-responsive-modal/status.svg)](https://david-dm.org/pradel/react-responsive-modal)
 
-A simple responsive react modal.
-- Centered modals.
-- Scrolling modals.
-- Multiple modals.
+A simple responsive react modal compatible with React 15 and 16.
+
+* Centered modals.
+* Scrolling modals.
+* Multiple modals.
+* Easily customizable via props.
 
 ## Demo
 
@@ -62,21 +64,34 @@ export default class App extends React.Component {
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
+#### Usage with css
+
+By default react-responsive-modal is using [react-jss](https://github.com/cssinjs/react-jss).
+
+If you don't want to add it to your project you can use the css version of this project:
+
+```javascript
+// Import the css file
+import 'react-responsive-modal/lib/react-responsive-modal.css';
+import Modal from 'react-responsive-modal/lib/css';
+```
+
 ## Props
 
-- `open`: (Bool) __Required__ Control if the modal is open or not.
-- `onClose`: (Function) __Required__ Fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
-- `closeOnEsc`: (Bool) default: true is the modal closable when user press esc key.
-- `closeOnOverlayClick`: (Bool) default: true is the modal closable when user click on overlay.
-- `little`: (Bool) Is the dialog centered __When you don't have a lot of content__.
-- `showCloseIcon`: (Bool) default: true Show the close icon.
-- `closeIconSize`: (Number) default: 28 Close icon size.
-- `children`: (Node) The content of the modal.
-- `overlayClassName`: (String) Classname for overlay div.
-- `modalClassName`: (String) Classname for modal content div.
-- `closeIconClassName`: (String) Classname for close icon svg.
-- `overlayStyle`: (Object) Inline style for overlay div.
-- `modalStyle`: (Object) Inline style for modal content div.
+| Property            |   Type   | Default | Description                                                                                                                                                                                                                                                                                                                      |
+| ------------------- | :------: | :-----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **open\***          | Boolean  |         | Control if the modal is open or not.                                                                                                                                                                                                                                                                                             |
+| **onClose\***       | Function |         | Fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.                                                                                                                                                                                                                             |
+| children            |   Node   |         | The content of the modal.                                                                                                                                                                                                                                                                                                        |
+| closeOnEsc          | Boolean  |  true   | Is the modal closable when user press esc key.                                                                                                                                                                                                                                                                                   |
+| closeOnOverlayClick | Boolean  |  true   | Is the modal closable when user click on overlay.                                                                                                                                                                                                                                                                                |
+| little              | Boolean  |  false  | Is the dialog centered (**when you don't have a lot of content**).                                                                                                                                                                                                                                                               |
+| showCloseIcon       | Boolean  |  true   | Show the close icon.                                                                                                                                                                                                                                                                                                             |
+| closeIconSize       |  Number  |   28    | Close icon size.                                                                                                                                                                                                                                                                                                                 |
+| closeIconSvgPath    |   Node   |         | A valid svg path to show as icon.                                                                                                                                                                                                                                                                                                |
+| classNames          |  Object  |   {}    | An object containing classNames to style the modal, can have properties 'overlay' (classname for overlay div), 'modal' (classname for modal content div), 'closeIcon' (classname for close icon svg). You can customize the transition with 'transitionEnter', 'transitionEnterActive', 'transitionExit', 'transitionExitActive' |
+| styles              |  Object  |   {}    | An object containing the styles objects to style the modal, can have properties 'overlay', 'modal', 'closeIcon'.                                                                                                                                                                                                                 |
+| animationDuration   |  Number  |   500   | Animation duration in milliseconds.                                                                                                                                                                                                                                                                                              |
 
 ## License
 
