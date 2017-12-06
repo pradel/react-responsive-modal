@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
+// eslint-disable-next-line react/prefer-stateless-function
 export default class HTML extends React.Component {
   static propTypes = {
     body: PropTypes.string,
