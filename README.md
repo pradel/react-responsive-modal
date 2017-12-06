@@ -16,10 +16,6 @@ A simple responsive react modal compatible with React 15 and 16.
 
 You can find a demo [here](https://react-responsive-modal.leopradel.com/).
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/TPcxj3ZMAXdSxzhvJ7SzjaQY/pradel/react-responsive-modal'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/TPcxj3ZMAXdSxzhvJ7SzjaQY/pradel/react-responsive-modal.svg' />
-</a>
-
 ## Installation
 
 With npm: `npm install react-responsive-modal --save`
@@ -66,9 +62,11 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 ### Usage with css
 
-By default react-responsive-modal is using [react-jss](https://github.com/cssinjs/react-jss).
+By default react-responsive-modal is using
+[react-jss](https://github.com/cssinjs/react-jss).
 
-If you don't want to add it to your project you can use the css version of this project:
+If you don't want to add it to your project you can use the css version of this
+project:
 
 ```javascript
 // Import the css file
