@@ -16,6 +16,10 @@ A simple responsive react modal compatible with React 15 and 16.
 
 You can find a demo [here](https://react-responsive-modal.leopradel.com/).
 
+## Examples
+
+https://react-responsive-modal.leopradel.com/#example
+
 ## Installation
 
 With npm: `npm install react-responsive-modal --save`
