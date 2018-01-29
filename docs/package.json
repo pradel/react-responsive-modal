@@ -6,16 +6,16 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "gatsby": "^1.9.50",
-    "gatsby-link": "^1.6.18",
-    "gatsby-plugin-react-helmet": "^1.0.6",
-    "gatsby-plugin-react-next": "^1.0.4",
-    "gatsby-remark-prismjs": "^1.2.8",
-    "gatsby-source-filesystem": "^1.5.1",
-    "gatsby-transformer-remark": "^1.7.15",
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-helmet": "^5.2.0"
+    "gatsby": "1.9.50",
+    "gatsby-link": "1.6.18",
+    "gatsby-plugin-react-helmet": "1.0.6",
+    "gatsby-plugin-react-next": "1.0.4",
+    "gatsby-remark-prismjs": "1.2.8",
+    "gatsby-source-filesystem": "1.5.1",
+    "gatsby-transformer-remark": "1.7.15",
+    "prop-types": "15.6.0",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "react-helmet": "5.2.0"
   }
 }

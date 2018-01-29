@@ -2963,7 +2963,7 @@ gatsby-1-config-css-modules@^1.0.4:
   dependencies:
     babel-runtime "^6.26.0"
 
-gatsby-link@^1.6.18:
+gatsby-link@1.6.18:
   version "1.6.18"
   resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-1.6.18.tgz#11f043d065758a00e35e05743c27d22569e296bf"
   dependencies:
@@ -2978,14 +2978,14 @@ gatsby-module-loader@^1.0.5:
     babel-runtime "^6.26.0"
     loader-utils "^0.2.16"
 
-gatsby-plugin-react-helmet@^1.0.6:
+gatsby-plugin-react-helmet@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-1.0.6.tgz#32431fbfd072b05453080ed304142f4747868848"
   dependencies:
     babel-runtime "^6.26.0"
     react-helmet "^5.1.3"
 
-gatsby-plugin-react-next@^1.0.4:
+gatsby-plugin-react-next@1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-next/-/gatsby-plugin-react-next-1.0.4.tgz#256e919f01d4af088564a5a975f6613c2a7d1ead"
   dependencies:
@@ -3002,7 +3002,7 @@ gatsby-react-router-scroll@^1.0.1:
     scroll-behavior "^0.9.1"
     warning "^3.0.0"
 
-gatsby-remark-prismjs@^1.2.8:
+gatsby-remark-prismjs@1.2.8:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-1.2.8.tgz#0ca9732c8c5034d1331f420ff75aa380fbc22c91"
   dependencies:
@@ -3011,7 +3011,7 @@ gatsby-remark-prismjs@^1.2.8:
     prismjs "^1.7.0"
     unist-util-visit "^1.1.1"
 
-gatsby-source-filesystem@^1.5.1:
+gatsby-source-filesystem@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.1.tgz#7aae50bdd75cad01641468bc82a99976f8c9de3b"
   dependencies:
@@ -3026,7 +3026,7 @@ gatsby-source-filesystem@^1.5.1:
     pretty-bytes "^4.0.2"
     slash "^1.0.0"
 
-gatsby-transformer-remark@^1.7.15:
+gatsby-transformer-remark@1.7.15:
   version "1.7.15"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-1.7.15.tgz#f7f3756caf4378fef42283b7699dd2277748559b"
   dependencies:
@@ -3043,7 +3043,7 @@ gatsby-transformer-remark@^1.7.15:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.1.1"
 
-gatsby@^1.9.50:
+gatsby@1.9.50:
   version "1.9.50"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.50.tgz#a875f294dd68695e9197178dfa57d02bdec09b93"
   dependencies:
@@ -5982,7 +5982,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@15.6.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -6125,6 +6125,15 @@ react-deep-force-update@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.1.1.tgz#8ea4263cd6455a050b37445b3f08fd839d86e909"
 
+react-dom@16.0.0, react-dom@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0.tgz#9cc3079c3dcd70d4c6e01b84aab2a7e34c303f58"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
+
 react-dom@^15.6.0:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.2.tgz#41cfadf693b757faf2708443a1d1fd5a02bef730"
@@ -6134,16 +6143,7 @@ react-dom@^15.6.0:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react-dom@^16.0.0:
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0.tgz#9cc3079c3dcd70d4c6e01b84aab2a7e34c303f58"
-  dependencies:
-    fbjs "^0.8.16"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
-
-react-helmet@^5.1.3, react-helmet@^5.2.0:
+react-helmet@5.2.0, react-helmet@^5.1.3:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-5.2.0.tgz#a81811df21313a6d55c5f058c4aeba5d6f3d97a7"
   dependencies:
@@ -6199,6 +6199,15 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
+react@16.0.0, react@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.0.0.tgz#ce7df8f1941b036f02b2cca9dbd0cb1f0e855e2d"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
+
 react@^15.6.0:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
@@ -6208,15 +6217,6 @@ react@^15.6.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "^15.5.10"
-
-react@^16.0.0:
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.0.0.tgz#ce7df8f1941b036f02b2cca9dbd0cb1f0e855e2d"
-  dependencies:
-    fbjs "^0.8.16"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
 
 read-cache@^1.0.0:
   version "1.0.0"
