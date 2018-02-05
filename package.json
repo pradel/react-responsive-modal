@@ -43,7 +43,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
     "decamelize": "1.2.0",
-    "eslint": "4.11.0",
+    "eslint": "4.17.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "2.7.0",
