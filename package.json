@@ -50,7 +50,7 @@
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-jsx-import": "0.0.1",
     "eslint-plugin-react": "7.5.1",
-    "prettier": "1.9.1",
+    "prettier": "1.10.2",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "size-limit": "0.13.2"
