@@ -14,8 +14,8 @@
     "gatsby-source-filesystem": "1.5.19",
     "gatsby-transformer-remark": "1.7.32",
     "prop-types": "15.6.0",
-    "react": "16.0.0",
-    "react-dom": "16.0.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
     "react-helmet": "5.2.0"
   }
 }
