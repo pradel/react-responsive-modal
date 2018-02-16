@@ -46,10 +46,6 @@ class Modal extends Component {
     }
   }
   
-  isScrollBarClick = e => {    
-    return e.clientX >= document.documentElement.offsetWidth;
-  }
-
   onClickOverlay = e => {
     const { classes, closeOnOverlayClick } = this.props;
     if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
@@ -66,6 +62,8 @@ class Modal extends Component {
     e.stopPropagation();
     this.props.onClose();
   };
+
+  isScrollBarClick = e => e.clientX >= document.documentElement.offsetWidth;
 
   handleKeydown = e => {
     if (e.keyCode === 27) {
