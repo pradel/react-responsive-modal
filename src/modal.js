@@ -47,7 +47,7 @@ class Modal extends Component {
   }
   
   isScrollBarClick = e => {    
-    const isScrollBarClick = e.clientX >= document.documentElement.offsetWidth;
+    return e.clientX >= document.documentElement.offsetWidth;
   }
 
   onClickOverlay = e => {
