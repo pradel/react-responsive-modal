@@ -56,7 +56,7 @@ class Modal extends Component {
       return;
     }
     const className = e.target.className.split(' ');
-    if (className.indexOf(classes.overlay) !== -1 && !isScrollBarClick(e)) {
+    if (className.indexOf(classes.overlay) !== -1 && !this.isScrollBarClick(e)) {
       e.stopPropagation();
       this.props.onClose();
     }
