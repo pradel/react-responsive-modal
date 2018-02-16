@@ -45,6 +45,10 @@ class Modal extends Component {
       clearTimeout(this.timeout);
     }
   }
+  
+  isScrollBarClick = e => {    
+    const isScrollBarClick = e.clientX >= document.documentElement.offsetWidth;
+  }
 
   onClickOverlay = e => {
     const { classes, closeOnOverlayClick } = this.props;
@@ -52,7 +56,7 @@ class Modal extends Component {
       return;
     }
     const className = e.target.className.split(' ');
-    if (className.indexOf(classes.overlay) !== -1) {
+    if (className.indexOf(classes.overlay) !== -1 && !isScrollBarClick(e)) {
       e.stopPropagation();
       this.props.onClose();
     }
