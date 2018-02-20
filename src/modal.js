@@ -45,7 +45,7 @@ class Modal extends Component {
       clearTimeout(this.timeout);
     }
   }
-  
+
   onClickOverlay = e => {
     const { classes, closeOnOverlayClick } = this.props;
     if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
