@@ -142,6 +142,7 @@ class Modal extends Component {
                   style={styles.closeIcon}
                   onClick={this.onClickCloseIcon}
                   xmlns="http://www.w3.org/2000/svg"
+                  tabIndex={0}
                   width={closeIconSize}
                   height={closeIconSize}
                   viewBox="0 0 36 36"
