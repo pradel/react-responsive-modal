@@ -1,6 +1,6 @@
 {
-  "name": "gat-react-responsive-modal",
-  "version": "2.0.6",
+  "name": "react-responsive-modal",
+  "version": "2.0.1",
   "description": "A simple responsive react modal",
   "main": "lib/index.js",
   "scripts": {
