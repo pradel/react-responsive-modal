@@ -45,7 +45,7 @@ class Modal extends Component {
       clearTimeout(this.timeout);
     }
   }
-
+  
   onClickOverlay = e => {
     const { classes, closeOnOverlayClick } = this.props;
     if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
@@ -136,6 +136,7 @@ class Modal extends Component {
               className={cx(classes.modal, classNames.modal)}
               style={styles.modal}
             >
+              {this.props.children}
               {showCloseIcon ? (
                 <svg
                   className={cx(classes.closeIcon, classNames.closeIcon)}
@@ -150,7 +151,6 @@ class Modal extends Component {
                   {closeIconSvgPath}
                 </svg>
               ) : null}
-              {this.props.children}
             </div>
           </div>
         </CSSTransition>
