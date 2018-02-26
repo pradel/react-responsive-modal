@@ -3090,9 +3090,9 @@ gatsby-1-config-css-modules@^1.0.9:
   dependencies:
     babel-runtime "^6.26.0"
 
-gatsby-cli@^1.1.40:
-  version "1.1.40"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-1.1.40.tgz#6d81d245092f1eb983a2c3015875c3750c7d7db8"
+gatsby-cli@^1.1.44:
+  version "1.1.44"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-1.1.44.tgz#74c881e01e09d406bb8cd81d3397c2950d3560d9"
   dependencies:
     babel-code-frame "^6.26.0"
     babel-runtime "^6.26.0"
@@ -3161,9 +3161,9 @@ gatsby-remark-prismjs@1.2.15:
     prismjs "^1.11.0"
     unist-util-visit "^1.3.0"
 
-gatsby-source-filesystem@1.5.20:
-  version "1.5.20"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.20.tgz#5f5bc8989497795adee7302451174ef5eaf6086d"
+gatsby-source-filesystem@1.5.24:
+  version "1.5.24"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.24.tgz#5d1ff9b3994fff967be92f6fea27e6cf1ba75fbe"
   dependencies:
     babel-cli "^6.26.0"
     babel-runtime "^6.26.0"
@@ -3202,9 +3202,9 @@ gatsby-transformer-remark@1.7.33:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.1.1"
 
-gatsby@1.9.203:
-  version "1.9.203"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.203.tgz#de632e1faace1a9a0d1d99f0430739784c4260a0"
+gatsby@1.9.215:
+  version "1.9.215"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.215.tgz#c918c782ceeba013d484322a179b38bcb5b1402d"
   dependencies:
     async "^2.1.2"
     babel-code-frame "^6.22.0"
@@ -3245,7 +3245,7 @@ gatsby@1.9.203:
     front-matter "^2.1.0"
     fs-extra "^4.0.1"
     gatsby-1-config-css-modules "^1.0.9"
-    gatsby-cli "^1.1.40"
+    gatsby-cli "^1.1.44"
     gatsby-link "^1.6.37"
     gatsby-module-loader "^1.0.10"
     gatsby-react-router-scroll "^1.0.11"
@@ -3290,7 +3290,7 @@ gatsby@1.9.203:
     react-router "^4.1.1"
     react-router-dom "^4.1.1"
     redux "^3.6.0"
-    relay-compiler "^1.4.1"
+    relay-compiler "1.4.1"
     remote-redux-devtools "^0.5.7"
     serve "^6.4.0"
     shallow-compare "^1.2.2"
@@ -6826,7 +6826,7 @@ regjsparser@^0.1.4:
   dependencies:
     jsesc "~0.5.0"
 
-relay-compiler@^1.4.1:
+relay-compiler@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-1.4.1.tgz#10e83f0f5de8db3d000851a4c0e435e7dd1deb95"
   dependencies:
