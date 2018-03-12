@@ -4958,9 +4958,9 @@ signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-size-limit@0.15.2:
-  version "0.15.2"
-  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-0.15.2.tgz#f16a9238f5e10d2f7f0c03f19a01829b63d7eca4"
+size-limit@0.16.2:
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-0.16.2.tgz#687b318e1f43ca2eef7f65d437f9b2a1e0813649"
   dependencies:
     bytes "^3.0.0"
     chalk "^2.3.2"
@@ -4975,8 +4975,7 @@ size-limit@0.15.2:
     memory-fs "^0.4.1"
     read-pkg-up "^3.0.0"
     style-loader "^0.20.2"
-    uglifyjs-webpack-plugin "^1.2.2"
-    webpack "^4.0.1"
+    webpack "^4.1.1"
     webpack-bundle-analyzer "^2.11.1"
     yargs "^11.0.0"
 
@@ -5430,7 +5429,7 @@ uglify-es@^3.3.4:
     commander "~2.14.1"
     source-map "~0.6.1"
 
-uglifyjs-webpack-plugin@^1.1.1, uglifyjs-webpack-plugin@^1.2.2:
+uglifyjs-webpack-plugin@^1.1.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.2.2.tgz#e7516d4367afdb715c3847841eb46f94c45ca2b9"
   dependencies:
@@ -5620,9 +5619,9 @@ webpack-sources@^1.1.0:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.0.1:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.1.0.tgz#91b6862e56eb3b18b79bb10b51866987ff10d2d6"
+webpack@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.1.1.tgz#44e4d6a869dd36fdfc0b227f9bd865a4bccfd81c"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^3.0.0"
