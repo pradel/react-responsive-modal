@@ -63,7 +63,7 @@ class Modal extends Component {
     this.props.onClose();
   };
 
-  isScrollBarClick = e => e.clientX >= document.documentElement.offsetWidth;
+  isScrollBarClick = e => e.clientX >= e.target.scrollWidth;
 
   handleKeydown = e => {
     if (e.keyCode === 27) {
