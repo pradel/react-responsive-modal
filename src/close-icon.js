@@ -1,7 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 
-export const CloseIcon = ({
+const CloseIcon = ({
   classes,
   classNames,
   styles,
@@ -26,3 +27,14 @@ export const CloseIcon = ({
     </svg>
   </button>
 );
+
+CloseIcon.propTypes = {
+  classNames: PropTypes.object.isRequired,
+  styles: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
+  closeIconSize: PropTypes.number.isRequired,
+  closeIconSvgPath: PropTypes.node.isRequired,
+  onClickCloseIcon: PropTypes.func.isRequired,
+};
+
+export default CloseIcon;

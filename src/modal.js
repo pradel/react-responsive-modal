@@ -4,7 +4,7 @@ import Portal from 'react-minimalist-portal';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
-import { CloseIcon } from './close-icon';
+import CloseIcon from './close-icon';
 
 class Modal extends Component {
   constructor(props) {
