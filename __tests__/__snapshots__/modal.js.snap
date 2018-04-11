@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modal render should render the content 1`] = `
+<Modal
+  animationDuration={50}
+  classNames={Object {}}
+  classes={
+    Object {
+      "closeButton": "test-react-responsive-modal-close-button",
+      "closeIcon": "test-react-responsive-modal-close-icon",
+      "modal": "test-react-responsive-modal-modal",
+      "overlay": "test-react-responsive-modal-overlay",
+      "overlayLittle": "test-react-responsive-modal-overlay-little",
+      "transitionEnter": "test-react-responsive-modal-transition-enter",
+      "transitionEnterActive": "test-react-responsive-modal-transition-enter-active",
+      "transitionExit": "test-react-responsive-modal-transition-exit",
+      "transitionExitActive": "test-react-responsive-modal-transition-exit-active",
+    }
+  }
+  closeIconSize={28}
+  closeIconSvgPath={
+    <path
+      d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z"
+    />
+  }
+  closeOnEsc={true}
+  closeOnOverlayClick={true}
+  little={false}
+  onClose={[MockFunction]}
+  open={true}
+  showCloseIcon={true}
+  styles={Object {}}
+>
+  <Portal>
+    <CSSTransition
+      appear={true}
+      classNames={
+        Object {
+          "appear": "test-react-responsive-modal-transition-enter",
+          "appearActive": "test-react-responsive-modal-transition-enter-active",
+          "enter": "test-react-responsive-modal-transition-enter",
+          "enterActive": "test-react-responsive-modal-transition-enter-active",
+          "exit": "test-react-responsive-modal-transition-exit",
+          "exitActive": "test-react-responsive-modal-transition-exit-active",
+        }
+      }
+      in={true}
+      onExited={[Function]}
+      timeout={50}
+    >
+      <Transition
+        appear={true}
+        enter={true}
+        exit={true}
+        in={true}
+        mountOnEnter={false}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={50}
+        unmountOnExit={false}
+      >
+        <div
+          className="test-react-responsive-modal-overlay"
+          onMouseDown={[Function]}
+        >
+          <div
+            className="test-react-responsive-modal-modal"
+          >
+            <div>
+              modal content
+            </div>
+            <CloseIcon
+              classNames={Object {}}
+              classes={
+                Object {
+                  "closeButton": "test-react-responsive-modal-close-button",
+                  "closeIcon": "test-react-responsive-modal-close-icon",
+                  "modal": "test-react-responsive-modal-modal",
+                  "overlay": "test-react-responsive-modal-overlay",
+                  "overlayLittle": "test-react-responsive-modal-overlay-little",
+                  "transitionEnter": "test-react-responsive-modal-transition-enter",
+                  "transitionEnterActive": "test-react-responsive-modal-transition-enter-active",
+                  "transitionExit": "test-react-responsive-modal-transition-exit",
+                  "transitionExitActive": "test-react-responsive-modal-transition-exit-active",
+                }
+              }
+              closeIconSize={28}
+              closeIconSvgPath={
+                <path
+                  d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z"
+                />
+              }
+              onClickCloseIcon={[Function]}
+              styles={Object {}}
+            >
+              <button
+                className="test-react-responsive-modal-close-button"
+                onClick={[Function]}
+              >
+                <svg
+                  className="test-react-responsive-modal-close-icon"
+                  height={28}
+                  viewBox="0 0 36 36"
+                  width={28}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z"
+                  />
+                </svg>
+              </button>
+            </CloseIcon>
+          </div>
+        </div>
+      </Transition>
+    </CSSTransition>
+  </Portal>
+</Modal>
+`;

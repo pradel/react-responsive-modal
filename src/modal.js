@@ -55,9 +55,6 @@ class Modal extends Component {
   handleClose = () => {
     this.unblockScroll();
     document.removeEventListener('keydown', this.handleKeydown);
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
   };
 
   handleClickOverlay = e => {
@@ -118,7 +115,11 @@ class Modal extends Component {
       animationDuration,
     } = this.props;
     const { showPortal } = this.state;
-    if (!showPortal) return null;
+
+    if (!showPortal) {
+      return null;
+    }
+
     return (
       <Portal>
         <CSSTransition
