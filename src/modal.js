@@ -45,21 +45,6 @@ class Modal extends Component {
     }
   }
 
-  onClickOverlay = e => {
-    const { classes, closeOnOverlayClick } = this.props;
-    if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
-      return;
-    }
-    const className = e.target.className.split(' ');
-    if (
-      className.indexOf(classes.overlay) !== -1 &&
-      !this.isScrollBarClick(e)
-    ) {
-      e.stopPropagation();
-      this.props.onClose();
-    }
-  };
-
   isScrollBarClick = e => e.clientX >= document.documentElement.offsetWidth;
 
   handleOpen = () => {
@@ -72,6 +57,21 @@ class Modal extends Component {
     document.removeEventListener('keydown', this.handleKeydown);
     if (this.timeout) {
       clearTimeout(this.timeout);
+    }
+  };
+
+  handleClickOverlay = e => {
+    const { classes, closeOnOverlayClick } = this.props;
+    if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
+      return;
+    }
+    const className = e.target.className.split(' ');
+    if (
+      className.indexOf(classes.overlay) !== -1 &&
+      !this.isScrollBarClick(e)
+    ) {
+      e.stopPropagation();
+      this.props.onClose();
     }
   };
 
@@ -144,7 +144,7 @@ class Modal extends Component {
               little ? classes.overlayLittle : null,
               classNames.overlay
             )}
-            onMouseDown={this.onClickOverlay}
+            onMouseDown={this.handleClickOverlay}
             style={styles.overlay}
           >
             <div
