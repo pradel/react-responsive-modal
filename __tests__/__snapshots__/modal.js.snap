@@ -2,7 +2,7 @@
 
 exports[`modal render should render the content 1`] = `
 <Modal
-  animationDuration={500}
+  animationDuration={50}
   classNames={Object {}}
   classes={
     Object {
@@ -46,7 +46,7 @@ exports[`modal render should render the content 1`] = `
       }
       in={true}
       onExited={[Function]}
-      timeout={500}
+      timeout={50}
     >
       <Transition
         appear={true}
@@ -60,7 +60,7 @@ exports[`modal render should render the content 1`] = `
         onExit={[Function]}
         onExited={[Function]}
         onExiting={[Function]}
-        timeout={500}
+        timeout={50}
         unmountOnExit={false}
       >
         <div

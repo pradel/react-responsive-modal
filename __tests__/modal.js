@@ -18,12 +18,15 @@ const defaultProps = {
   },
   open: false,
   onClose: jest.fn(),
+  animationDuration: 50,
 };
 
 const mockEvent = {
   stopPropagation: jest.fn(),
   target: {},
 };
+
+const wait = (time = 100) => new Promise((resolve) => setTimeout(resolve, time));
 
 describe('modal', () => {
   beforeEach(() => {
@@ -46,6 +49,7 @@ describe('modal', () => {
       const transitionWrapper = wrapper.find(CSSTransition);
       expect(transitionWrapper.length).toBe(1);
       expect(transitionWrapper.props().timeout).toBe(123);
+      wrapper.unmount();
     });
 
     it('should attach a handler to the overlay that fire onClose', () => {
@@ -65,6 +69,7 @@ describe('modal', () => {
       handler(mockEvent);
       expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
       expect(defaultProps.onClose).toHaveBeenCalled();
+      wrapper.unmount();
     });
 
     it('should disable the handler when closeOnOverlayClick is false', () => {
@@ -84,6 +89,7 @@ describe('modal', () => {
       handler(mockEvent);
       expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
       expect(defaultProps.onClose).not.toHaveBeenCalled();
+      wrapper.unmount();
     });
 
     it('should ignore the overlay click if the event does not come from the overlay', () => {
@@ -103,6 +109,7 @@ describe('modal', () => {
       handler(mockEvent);
       expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
       expect(defaultProps.onClose).not.toHaveBeenCalled();
+      wrapper.unmount();
     });
   });
 
@@ -117,6 +124,7 @@ describe('modal', () => {
       const handler = wrapper.instance().handleKeydown;
       handler({ keyCode: 10 });
       expect(defaultProps.onClose).not.toHaveBeenCalled();
+      wrapper.unmount();
     });
 
     it('should not call onClose when closeOnEsc is false', () => {
@@ -129,6 +137,7 @@ describe('modal', () => {
       const handler = wrapper.instance().handleKeydown;
       handler({ keyCode: 27 });
       expect(defaultProps.onClose).not.toHaveBeenCalled();
+      wrapper.unmount();
     });
 
     it('should call onClose', () => {
@@ -141,6 +150,7 @@ describe('modal', () => {
       const handler = wrapper.instance().handleKeydown;
       handler({ keyCode: 27 });
       expect(defaultProps.onClose).toHaveBeenCalled();
+      wrapper.unmount();
     });
   });
 
@@ -153,6 +163,7 @@ describe('modal', () => {
       );
 
       expect(wrapper.find('CloseIcon').length).toBe(0);
+      wrapper.unmount();
     });
 
     it('should call onClose', () => {
@@ -165,6 +176,7 @@ describe('modal', () => {
       wrapper.find('CloseIcon').simulate('click');
       expect(wrapper.find('CloseIcon').length).toBe(1);
       expect(defaultProps.onClose).toHaveBeenCalled();
+      wrapper.unmount();
     });
   });
 
@@ -178,6 +190,7 @@ describe('modal', () => {
 
       expect(wrapper.find(Modal).length).toBe(1);
       expect(wrapper.find(Modal)).toBeEmptyRender();
+      wrapper.unmount();
     });
 
     it('should render the content', () => {
@@ -189,6 +202,46 @@ describe('modal', () => {
 
       expect(wrapper.find(Modal).length).toBe(1);
       expect(wrapper.find(Modal)).toMatchSnapshot();
+      wrapper.unmount();
+    });
+  });
+
+  describe('lifecycle', () => {
+    it('should show modal when prop open change to true', () => {
+      const wrapper = mount(
+        <Modal {...defaultProps}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      expect(wrapper.find(Modal)).toBeEmptyRender();
+      expect(wrapper.state().showPortal).toBe(false);
+
+      wrapper.setProps({ open: true });
+
+      expect(wrapper.find(Modal).length).toBe(1);
+      expect(wrapper.find(Modal)).not.toBeEmptyRender();
+      expect(wrapper.state().showPortal).toBe(true);
+      wrapper.unmount();
+    });
+
+    it('should hide modal when prop open change to false', async () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      expect(wrapper.find(Modal).length).toBe(1);
+      expect(wrapper.find(Modal)).not.toBeEmptyRender();
+      expect(wrapper.state().showPortal).toBe(true);
+
+      wrapper.setProps({ open: false });
+      await wait(200);
+
+      expect(wrapper.find(Modal).html()).toBe(null);
+      expect(wrapper.state().showPortal).toBe(false);
+      wrapper.unmount();
     });
   });
 });
