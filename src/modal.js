@@ -45,7 +45,8 @@ class Modal extends Component {
     }
   }
 
-  isScrollBarClick = event => event.clientX >= document.documentElement.offsetWidth;
+  isScrollBarClick = event =>
+    event.clientX >= document.documentElement.offsetWidth;
 
   handleOpen = () => {
     this.blockScroll();
