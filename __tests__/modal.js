@@ -106,6 +106,44 @@ describe('modal', () => {
     });
   });
 
+  describe('esc key down', () => {
+    it('an invalid event should not call onClose', () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const handler = wrapper.instance().handleKeydown;
+      handler({ keyCode: 10 });
+      expect(defaultProps.onClose).not.toHaveBeenCalled();
+    });
+
+    it('should not call onClose when closeOnEsc is false', () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open closeOnEsc={false}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const handler = wrapper.instance().handleKeydown;
+      handler({ keyCode: 27 });
+      expect(defaultProps.onClose).not.toHaveBeenCalled();
+    });
+
+    it('should call onClose', () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const handler = wrapper.instance().handleKeydown;
+      handler({ keyCode: 27 });
+      expect(defaultProps.onClose).toHaveBeenCalled();
+    });
+  });
+
   describe('render', () => {
     it('should render null when then modal is not opened', () => {
       const wrapper = mount(
