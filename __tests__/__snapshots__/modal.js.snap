@@ -28,6 +28,7 @@ exports[`modal render should render the content 1`] = `
   little={false}
   onClose={[MockFunction]}
   onExited={null}
+  onOverlayClick={null}
   open={true}
   showCloseIcon={true}
   styles={Object {}}
