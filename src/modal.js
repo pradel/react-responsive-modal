@@ -118,7 +118,11 @@ class Modal extends Component {
       animationDuration,
     } = this.props;
     const { showPortal } = this.state;
-    if (!showPortal) return null;
+
+    if (!showPortal) {
+      return null;
+    }
+
     return (
       <Portal>
         <CSSTransition

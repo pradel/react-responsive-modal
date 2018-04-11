@@ -144,6 +144,30 @@ describe('modal', () => {
     });
   });
 
+  describe('closeIcon', () => {
+    it('should hide closeIcon when showCloseIcon is false', () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open showCloseIcon={false}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      expect(wrapper.find('CloseIcon').length).toBe(0);
+    });
+
+    it('should call onClose', () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      wrapper.find('CloseIcon').simulate('click');
+      expect(wrapper.find('CloseIcon').length).toBe(1);
+      expect(defaultProps.onClose).toHaveBeenCalled();
+    });
+  });
+
   describe('render', () => {
     it('should render null when then modal is not opened', () => {
       const wrapper = mount(
