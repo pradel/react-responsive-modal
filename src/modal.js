@@ -59,17 +59,25 @@ class Modal extends Component {
 
   handleClickOverlay = e => {
     const { classes, closeOnOverlayClick } = this.props;
-    if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
+    if (typeof e.target.className !== 'string') {
       return;
     }
+
     const className = e.target.className.split(' ');
     if (
-      className.indexOf(classes.overlay) !== -1 &&
-      !this.isScrollBarClick(e)
+      className.indexOf(classes.overlay) === -1 ||
+      this.isScrollBarClick(e) ||
+      !closeOnOverlayClick
     ) {
-      e.stopPropagation();
-      this.props.onClose();
+      return;
     }
+
+    if (this.props.onOverlayClick) {
+      this.props.onOverlayClick(e);
+    }
+
+    e.stopPropagation();
+    this.props.onClose();
   };
 
   handleClickCloseIcon = e => {
@@ -185,13 +193,17 @@ Modal.propTypes = {
    */
   closeOnOverlayClick: PropTypes.bool,
   /**
+   * Callback fired when the Modal has exited and the animation is finished.
+   */
+  onExited: PropTypes.func,
+  /**
    * Callback fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
    */
   onClose: PropTypes.func.isRequired,
   /**
-   * Callback fired when the Modal has exited and the animation is finished.
+   * Callback fired when the overlay is clicked.
    */
-  onExited: PropTypes.func,
+  onOverlayClick: PropTypes.func,
   /**
    * Control if the modal is open or not.
    */
@@ -238,6 +250,7 @@ Modal.defaultProps = {
   closeOnEsc: true,
   closeOnOverlayClick: true,
   onExited: null,
+  onOverlayClick: null,
   showCloseIcon: true,
   closeIconSize: 28,
   closeIconSvgPath: (

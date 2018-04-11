@@ -294,4 +294,27 @@ describe('modal', () => {
       wrapper.unmount();
     });
   });
+
+  describe('prop: onOverlayClick', () => {
+    it('should be called', async () => {
+      const onOverlayClick = jest.fn();
+      const wrapper = mount(
+        <Modal {...defaultProps} open onOverlayClick={onOverlayClick}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const handler = wrapper.instance().handleClickOverlay;
+      const overlayWrapper = wrapper
+        .childAt(0)
+        .childAt(0)
+        .childAt(0)
+        .childAt(0);
+      mockEvent.target.className = overlayWrapper.prop('className');
+      handler(mockEvent);
+      expect(onOverlayClick).toHaveBeenCalled();
+      expect(defaultProps.onClose).toHaveBeenCalled();
+      wrapper.unmount();
+    });
+  });
 });
