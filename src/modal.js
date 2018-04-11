@@ -84,6 +84,10 @@ class Modal extends Component {
   };
 
   handleExited = () => {
+    if (this.props.onExited) {
+      this.props.onExited();
+    }
+
     this.setState({ showPortal: false });
     this.unblockScroll();
   };
@@ -185,6 +189,10 @@ Modal.propTypes = {
    */
   onClose: PropTypes.func.isRequired,
   /**
+   * Fired when the Modal has exited and the animation is finished.
+   */
+  onExited: PropTypes.func,
+  /**
    * Control if the modal is open or not.
    */
   open: PropTypes.bool.isRequired,
@@ -229,6 +237,7 @@ Modal.propTypes = {
 Modal.defaultProps = {
   closeOnEsc: true,
   closeOnOverlayClick: true,
+  onExited: null,
   showCloseIcon: true,
   closeIconSize: 28,
   closeIconSvgPath: (
