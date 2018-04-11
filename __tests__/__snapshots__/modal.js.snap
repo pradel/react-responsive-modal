@@ -4,7 +4,19 @@ exports[`modal render should render the content 1`] = `
 <Modal
   animationDuration={500}
   classNames={Object {}}
-  classes={Object {}}
+  classes={
+    Object {
+      "closeButton": "test-react-responsive-modal-close-button",
+      "closeIcon": "test-react-responsive-modal-close-icon",
+      "modal": "test-react-responsive-modal-modal",
+      "overlay": "test-react-responsive-modal-overlay",
+      "overlayLittle": "test-react-responsive-modal-overlay-little",
+      "transitionEnter": "test-react-responsive-modal-transition-enter",
+      "transitionEnterActive": "test-react-responsive-modal-transition-enter-active",
+      "transitionExit": "test-react-responsive-modal-transition-exit",
+      "transitionExitActive": "test-react-responsive-modal-transition-exit-active",
+    }
+  }
   closeIconSize={28}
   closeIconSvgPath={
     <path
@@ -24,12 +36,12 @@ exports[`modal render should render the content 1`] = `
       appear={true}
       classNames={
         Object {
-          "appear": undefined,
-          "appearActive": undefined,
-          "enter": undefined,
-          "enterActive": undefined,
-          "exit": undefined,
-          "exitActive": undefined,
+          "appear": "test-react-responsive-modal-transition-enter",
+          "appearActive": "test-react-responsive-modal-transition-enter-active",
+          "enter": "test-react-responsive-modal-transition-enter",
+          "enterActive": "test-react-responsive-modal-transition-enter-active",
+          "exit": "test-react-responsive-modal-transition-exit",
+          "exitActive": "test-react-responsive-modal-transition-exit-active",
         }
       }
       in={true}
@@ -52,18 +64,30 @@ exports[`modal render should render the content 1`] = `
         unmountOnExit={false}
       >
         <div
-          className=""
+          className="test-react-responsive-modal-overlay"
           onMouseDown={[Function]}
         >
           <div
-            className=""
+            className="test-react-responsive-modal-modal"
           >
             <div>
               modal content
             </div>
             <CloseIcon
               classNames={Object {}}
-              classes={Object {}}
+              classes={
+                Object {
+                  "closeButton": "test-react-responsive-modal-close-button",
+                  "closeIcon": "test-react-responsive-modal-close-icon",
+                  "modal": "test-react-responsive-modal-modal",
+                  "overlay": "test-react-responsive-modal-overlay",
+                  "overlayLittle": "test-react-responsive-modal-overlay-little",
+                  "transitionEnter": "test-react-responsive-modal-transition-enter",
+                  "transitionEnterActive": "test-react-responsive-modal-transition-enter-active",
+                  "transitionExit": "test-react-responsive-modal-transition-exit",
+                  "transitionExitActive": "test-react-responsive-modal-transition-exit-active",
+                }
+              }
               closeIconSize={28}
               closeIconSvgPath={
                 <path
@@ -74,11 +98,11 @@ exports[`modal render should render the content 1`] = `
               styles={Object {}}
             >
               <button
-                className=""
+                className="test-react-responsive-modal-close-button"
                 onClick={[Function]}
               >
                 <svg
-                  className=""
+                  className="test-react-responsive-modal-close-icon"
                   height={28}
                   viewBox="0 0 36 36"
                   width={28}
