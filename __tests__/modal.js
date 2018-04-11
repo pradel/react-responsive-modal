@@ -26,7 +26,7 @@ const mockEvent = {
   target: {},
 };
 
-const wait = (time = 100) => new Promise((resolve) => setTimeout(resolve, time));
+const wait = (time = 100) => new Promise(resolve => setTimeout(resolve, time));
 
 describe('modal', () => {
   beforeEach(() => {
@@ -237,11 +237,43 @@ describe('modal', () => {
       expect(wrapper.state().showPortal).toBe(true);
 
       wrapper.setProps({ open: false });
-      await wait(200);
+      await wait();
 
       expect(wrapper.find(Modal).html()).toBe(null);
       expect(wrapper.state().showPortal).toBe(false);
       wrapper.unmount();
+    });
+  });
+
+  describe('block scroll', () => {
+    let wrapper;
+
+    beforeAll(() => {
+      wrapper = mount(
+        <Modal {...defaultProps}>
+          <div>modal content</div>
+        </Modal>
+      );
+    });
+
+    afterAll(() => {
+      wrapper.unmount();
+    });
+
+    it('should not block the scroll when closed', () => {
+      expect(document.documentElement.style.overflow).toBe('');
+    });
+
+    it('should block the scroll when opened', () => {
+      wrapper.setProps({ open: true });
+      expect(document.documentElement.style.overflow).toBe('hidden');
+    });
+
+    it('should unblock the scroll after animation', async () => {
+      wrapper.setProps({ open: false });
+      expect(document.documentElement.style.overflow).toBe('hidden');
+      await wait();
+      expect(document.documentElement.style.overflow).toBe('');
     });
   });
 });
