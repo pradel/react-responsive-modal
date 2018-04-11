@@ -7,7 +7,7 @@
     "build": "babel src --out-dir lib && node scripts/generate-css-from-jss.js",
     "build:watch": "yarn build --watch",
     "lint": "eslint src docs/src scripts __tests__",
-    "test": "yarn lint && yarn build && yarn size",
+    "test": "yarn test:coverage && yarn lint && yarn build && yarn size",
     "test:only": "jest",
     "test:coverage": "yarn test:only --coverage",
     "size": "size-limit",
