@@ -87,7 +87,15 @@ class Modal extends Component {
   };
 
   handleKeydown = event => {
-    if (event.keyCode === 27 && this.props.closeOnEsc) {
+    if (event.keyCode !== 27) {
+      return;
+    }
+
+    if (this.props.onEscKeyDown) {
+      this.props.onEscKeyDown(event);
+    }
+
+    if (this.props.closeOnEsc) {
       this.props.onClose(event);
     }
   };
@@ -202,6 +210,10 @@ Modal.propTypes = {
    */
   onClose: PropTypes.func.isRequired,
   /**
+   * Callback fired when the escape key is pressed.
+   */
+  onEscKeyDown: PropTypes.func,
+  /**
    * Callback fired when the overlay is clicked.
    */
   onOverlayClick: PropTypes.func,
@@ -251,6 +263,7 @@ Modal.defaultProps = {
   closeOnEsc: true,
   closeOnOverlayClick: true,
   onExited: null,
+  onEscKeyDown: null,
   onOverlayClick: null,
   showCloseIcon: true,
   closeIconSize: 28,

@@ -299,6 +299,23 @@ describe('modal', () => {
     });
   });
 
+  describe('prop: onEscKeyDown', () => {
+    it('should be called', async () => {
+      const onEscKeyDown = jest.fn();
+      const wrapper = mount(
+        <Modal {...defaultProps} open onEscKeyDown={onEscKeyDown}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const handler = wrapper.instance().handleKeydown;
+      handler({ keyCode: 27 });
+      expect(onEscKeyDown).toHaveBeenCalled();
+      expect(defaultProps.onClose).toHaveBeenCalled();
+      wrapper.unmount();
+    });
+  });
+
   describe('prop: onOverlayClick', () => {
     it('should be called', async () => {
       const onOverlayClick = jest.fn();
