@@ -8,6 +8,7 @@ export default function ReactResponsiveModalCss({ ...props }) {
         overlay: 'react-responsive-modal-overlay',
         overlayLittle: 'react-responsive-modal-overlay-little',
         modal: 'react-responsive-modal-modal',
+        closeButton: 'react-responsive-modal-close-button',
         closeIcon: 'react-responsive-modal-close-icon',
         transitionEnter: 'react-responsive-modal-transition-enter',
         transitionEnterActive: 'react-responsive-modal-transition-enter-active',
