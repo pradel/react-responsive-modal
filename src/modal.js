@@ -171,18 +171,57 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
+  /**
+   * Is the modal closable when user press esc key.
+   */
   closeOnEsc: PropTypes.bool,
+  /**
+   * Is the modal closable when user click on overlay.
+   */
   closeOnOverlayClick: PropTypes.bool,
+  /**
+   * Fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
+   */
   onClose: PropTypes.func.isRequired,
+  /**
+   * Control if the modal is open or not.
+   */
   open: PropTypes.bool.isRequired,
+  /**
+   * An object containing classNames to style the modal, can have properties 'overlay' (classname for overlay div), 'modal' (classname for modal content div), 'closeButton' (classname for the button that contain the close icon), 'closeIcon' (classname for close icon svg). You can customize the transition with 'transitionEnter', 'transitionEnterActive', 'transitionExit', 'transitionExitActive'
+   */
   classNames: PropTypes.object,
+  /**
+   * An object containing the styles objects to style the modal, can have properties 'overlay', 'modal', 'closeButton', 'closeIcon'.
+   */
   styles: PropTypes.object,
+  /**
+   * The content of the modal.
+   */
   children: PropTypes.node,
+  /**
+   * @internal
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * Is the dialog centered (**when you don't have a lot of content**).
+   */
   little: PropTypes.bool,
+  /**
+   * Show the close icon.
+   */
   showCloseIcon: PropTypes.bool,
+  /**
+   * Close icon size.
+   */
   closeIconSize: PropTypes.number,
+  /**
+   * A valid svg path to show as icon.
+   */
   closeIconSvgPath: PropTypes.node,
+  /**
+   * Animation duration in milliseconds.
+   */
   animationDuration: PropTypes.number,
 };
 
