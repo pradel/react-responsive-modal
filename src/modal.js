@@ -55,9 +55,6 @@ class Modal extends Component {
   handleClose = () => {
     this.unblockScroll();
     document.removeEventListener('keydown', this.handleKeydown);
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
   };
 
   handleClickOverlay = e => {
