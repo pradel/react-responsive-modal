@@ -185,11 +185,11 @@ Modal.propTypes = {
    */
   closeOnOverlayClick: PropTypes.bool,
   /**
-   * Fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
+   * Callback fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
    */
   onClose: PropTypes.func.isRequired,
   /**
-   * Fired when the Modal has exited and the animation is finished.
+   * Callback fired when the Modal has exited and the animation is finished.
    */
   onExited: PropTypes.func,
   /**
