@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { polyfill } from 'react-lifecycles-compat';
 import Portal from 'react-minimalist-portal';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
@@ -7,6 +8,15 @@ import noScroll from 'no-scroll';
 import CloseIcon from './close-icon';
 
 class Modal extends Component {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (!prevState.showPortal && nextProps.open) {
+      return {
+        showPortal: true,
+      };
+    }
+    return null;
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,39 +25,42 @@ class Modal extends Component {
   }
 
   componentDidMount() {
-    if (this.props.closeOnEsc) {
-      document.addEventListener('keydown', this.handleKeydown);
-    }
     // Block scroll when initial prop is open
     if (this.props.open) {
-      this.blockScroll();
+      this.handleOpen();
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!this.props.open && nextProps.open) {
-      this.setState(
-        {
-          showPortal: true,
-        },
-        () => {
-          this.blockScroll();
-        }
-      );
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.showPortal && !this.state.showPortal) {
+      this.handleClose();
+    } else if (!prevProps.open && this.props.open) {
+      this.handleOpen();
     }
   }
 
   componentWillUnmount() {
-    if (this.props.closeOnEsc) {
-      document.removeEventListener('keydown', this.handleKeydown);
-    }
-    this.unblockScroll();
-    if (this.timeout) {
-      clearTimeout(this.timeout);
+    if (this.props.open) {
+      this.handleClose();
     }
   }
 
-  onClickOverlay = e => {
+  isScrollBarClick = e => e.clientX >= document.documentElement.offsetWidth;
+
+  handleOpen = () => {
+    this.blockScroll();
+    document.addEventListener('keydown', this.handleKeydown);
+  };
+
+  handleClose = () => {
+    this.unblockScroll();
+    document.removeEventListener('keydown', this.handleKeydown);
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+  };
+
+  handleClickOverlay = e => {
     const { classes, closeOnOverlayClick } = this.props;
     if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
       return;
@@ -62,15 +75,13 @@ class Modal extends Component {
     }
   };
 
-  isScrollBarClick = e => e.clientX >= document.documentElement.offsetWidth;
-
   handleClickCloseIcon = e => {
     e.stopPropagation();
     this.props.onClose();
   };
 
   handleKeydown = e => {
-    if (e.keyCode === 27) {
+    if (e.keyCode === 27 && this.props.closeOnEsc) {
       this.props.onClose();
     }
   };
@@ -133,7 +144,7 @@ class Modal extends Component {
               little ? classes.overlayLittle : null,
               classNames.overlay
             )}
-            onMouseDown={this.onClickOverlay}
+            onMouseDown={this.handleClickOverlay}
             style={styles.overlay}
           >
             <div
@@ -189,5 +200,7 @@ Modal.defaultProps = {
   little: false,
   animationDuration: 500,
 };
+
+polyfill(Modal);
 
 export default Modal;

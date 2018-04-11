@@ -4513,6 +4513,10 @@ react-jss@^8.1.0:
     prop-types "^15.6.0"
     theming "^1.2.1"
 
+react-lifecycles-compat@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.1.tgz#75b341421a307d9f67d0130d612dedb47d2ef494"
+
 react-minimalist-portal@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-minimalist-portal/-/react-minimalist-portal-2.1.1.tgz#d32c403f446c5cb91060e3a3c70beba8c3d08c8f"

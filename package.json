@@ -28,6 +28,7 @@
     "no-scroll": "^2.1.0",
     "prop-types": "^15.6.0",
     "react-jss": "^8.1.0",
+    "react-lifecycles-compat": "^3.0.1",
     "react-minimalist-portal": "^2.1.1",
     "react-transition-group": "^2.2.1"
   },
