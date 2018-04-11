@@ -45,14 +45,17 @@ class Modal extends Component {
       clearTimeout(this.timeout);
     }
   }
-  
+
   onClickOverlay = e => {
     const { classes, closeOnOverlayClick } = this.props;
     if (!closeOnOverlayClick || typeof e.target.className !== 'string') {
       return;
     }
     const className = e.target.className.split(' ');
-    if (className.indexOf(classes.overlay) !== -1 && !this.isScrollBarClick(e)) {
+    if (
+      className.indexOf(classes.overlay) !== -1 &&
+      !this.isScrollBarClick(e)
+    ) {
       e.stopPropagation();
       this.props.onClose();
     }
@@ -138,18 +141,22 @@ class Modal extends Component {
             >
               {this.props.children}
               {showCloseIcon ? (
-                <svg
-                  className={cx(classes.closeIcon, classNames.closeIcon)}
-                  style={styles.closeIcon}
+                <button
+                  className={cx(classes.closeButton, classNames.closeButton)}
+                  style={styles.closeButton}
                   onClick={this.onClickCloseIcon}
-                  xmlns="http://www.w3.org/2000/svg"
-                  tabIndex={0}
-                  width={closeIconSize}
-                  height={closeIconSize}
-                  viewBox="0 0 36 36"
                 >
-                  {closeIconSvgPath}
-                </svg>
+                  <svg
+                    className={cx(classes.closeIcon, classNames.closeIcon)}
+                    style={styles.closeIcon}
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={closeIconSize}
+                    height={closeIconSize}
+                    viewBox="0 0 36 36"
+                  >
+                    {closeIconSvgPath}
+                  </svg>
+                </button>
               ) : null}
             </div>
           </div>
