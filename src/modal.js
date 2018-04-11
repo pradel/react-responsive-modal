@@ -45,7 +45,7 @@ class Modal extends Component {
     }
   }
 
-  isScrollBarClick = e => e.clientX >= document.documentElement.offsetWidth;
+  isScrollBarClick = event => event.clientX >= document.documentElement.offsetWidth;
 
   handleOpen = () => {
     this.blockScroll();
@@ -57,37 +57,37 @@ class Modal extends Component {
     document.removeEventListener('keydown', this.handleKeydown);
   };
 
-  handleClickOverlay = e => {
+  handleClickOverlay = event => {
     const { classes, closeOnOverlayClick } = this.props;
-    if (typeof e.target.className !== 'string') {
+    if (typeof event.target.className !== 'string') {
       return;
     }
 
-    const className = e.target.className.split(' ');
+    const className = event.target.className.split(' ');
     if (
       className.indexOf(classes.overlay) === -1 ||
-      this.isScrollBarClick(e) ||
+      this.isScrollBarClick(event) ||
       !closeOnOverlayClick
     ) {
       return;
     }
 
     if (this.props.onOverlayClick) {
-      this.props.onOverlayClick(e);
+      this.props.onOverlayClick(event);
     }
 
-    e.stopPropagation();
-    this.props.onClose();
+    event.stopPropagation();
+    this.props.onClose(event);
   };
 
-  handleClickCloseIcon = e => {
-    e.stopPropagation();
-    this.props.onClose();
+  handleClickCloseIcon = event => {
+    event.stopPropagation();
+    this.props.onClose(event);
   };
 
-  handleKeydown = e => {
-    if (e.keyCode === 27 && this.props.closeOnEsc) {
-      this.props.onClose();
+  handleKeydown = event => {
+    if (event.keyCode === 27 && this.props.closeOnEsc) {
+      this.props.onClose(event);
     }
   };
 
