@@ -99,6 +99,22 @@ describe('modal', () => {
       expect(defaultProps.onClose).not.toHaveBeenCalled();
       wrapper.unmount();
     });
+
+    it('should ignore the overlay click if the className event is not a string', () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const handler = wrapper.instance().handleClickOverlay;
+      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
+      mockEvent.target.className = 'content-class';
+      handler({ target: {} });
+      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
+      expect(defaultProps.onClose).not.toHaveBeenCalled();
+      wrapper.unmount();
+    });
   });
 
   describe('esc key down', () => {
