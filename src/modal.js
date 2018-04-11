@@ -4,6 +4,7 @@ import Portal from 'react-minimalist-portal';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
+import { CloseIcon } from './close-icon';
 
 class Modal extends Component {
   constructor(props) {
@@ -61,12 +62,12 @@ class Modal extends Component {
     }
   };
 
-  onClickCloseIcon = e => {
+  isScrollBarClick = e => e.clientX >= document.documentElement.offsetWidth;
+
+  handleClickCloseIcon = e => {
     e.stopPropagation();
     this.props.onClose();
   };
-
-  isScrollBarClick = e => e.clientX >= document.documentElement.offsetWidth;
 
   handleKeydown = e => {
     if (e.keyCode === 27) {
@@ -140,24 +141,16 @@ class Modal extends Component {
               style={styles.modal}
             >
               {this.props.children}
-              {showCloseIcon ? (
-                <button
-                  className={cx(classes.closeButton, classNames.closeButton)}
-                  style={styles.closeButton}
-                  onClick={this.onClickCloseIcon}
-                >
-                  <svg
-                    className={cx(classes.closeIcon, classNames.closeIcon)}
-                    style={styles.closeIcon}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={closeIconSize}
-                    height={closeIconSize}
-                    viewBox="0 0 36 36"
-                  >
-                    {closeIconSvgPath}
-                  </svg>
-                </button>
-              ) : null}
+              {showCloseIcon && (
+                <CloseIcon
+                  classes={classes}
+                  classNames={classNames}
+                  styles={styles}
+                  closeIconSize={closeIconSize}
+                  closeIconSvgPath={closeIconSvgPath}
+                  onClickCloseIcon={this.handleClickCloseIcon}
+                />
+              )}
             </div>
           </div>
         </CSSTransition>
