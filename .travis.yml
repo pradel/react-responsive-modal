@@ -11,4 +11,4 @@ notifications:
   email: false
 
 after_success:
-  - yarn codecov
+  - codecov
