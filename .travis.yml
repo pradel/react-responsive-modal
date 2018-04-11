@@ -6,3 +6,5 @@ node_js:
   - "6"
 notifications:
   email: false
+after_success:
+  - codecov
