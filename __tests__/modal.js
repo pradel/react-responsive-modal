@@ -11,17 +11,18 @@ const defaultProps = {
     closeButton: 'test-react-responsive-modal-close-button',
     closeIcon: 'test-react-responsive-modal-close-icon',
     transitionEnter: 'test-react-responsive-modal-transition-enter',
-    transitionEnterActive: 'test-react-responsive-modal-transition-enter-active',
+    transitionEnterActive:
+      'test-react-responsive-modal-transition-enter-active',
     transitionExit: 'test-react-responsive-modal-transition-exit',
     transitionExitActive: 'test-react-responsive-modal-transition-exit-active',
   },
   open: false,
-  onClose: jest.fn()
+  onClose: jest.fn(),
 };
 
 const mockEvent = {
   stopPropagation: jest.fn(),
-  target: {}
+  target: {},
 };
 
 describe('modal', () => {
@@ -41,7 +42,7 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-  
+
       const transitionWrapper = wrapper.find(CSSTransition);
       expect(transitionWrapper.length).toBe(1);
       expect(transitionWrapper.props().timeout).toBe(123);
@@ -53,9 +54,13 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-  
+
       const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper.childAt(0).childAt(0).childAt(0).childAt(0);
+      const overlayWrapper = wrapper
+        .childAt(0)
+        .childAt(0)
+        .childAt(0)
+        .childAt(0);
       mockEvent.target.className = overlayWrapper.prop('className');
       handler(mockEvent);
       expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
@@ -68,10 +73,33 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-  
+
       const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper.childAt(0).childAt(0).childAt(0).childAt(0);
+      const overlayWrapper = wrapper
+        .childAt(0)
+        .childAt(0)
+        .childAt(0)
+        .childAt(0);
       mockEvent.target.className = overlayWrapper.prop('className');
+      handler(mockEvent);
+      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
+      expect(defaultProps.onClose).not.toHaveBeenCalled();
+    });
+
+    it('should ignore the overlay click if the event does not come from the overlay', () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const handler = wrapper.instance().handleClickOverlay;
+      const overlayWrapper = wrapper
+        .childAt(0)
+        .childAt(0)
+        .childAt(0)
+        .childAt(0);
+      mockEvent.target.className = 'content-class';
       handler(mockEvent);
       expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
       expect(defaultProps.onClose).not.toHaveBeenCalled();
@@ -85,18 +113,18 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-  
+
       expect(wrapper.find(Modal).length).toBe(1);
       expect(wrapper.find(Modal)).toBeEmptyRender();
     });
-  
+
     it('should render the content', () => {
       const wrapper = mount(
         <Modal {...defaultProps} open>
           <div>modal content</div>
         </Modal>
       );
-  
+
       expect(wrapper.find(Modal).length).toBe(1);
       expect(wrapper.find(Modal)).toMatchSnapshot();
     });
