@@ -60,11 +60,7 @@ describe('modal', () => {
       );
 
       const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper
-        .childAt(0)
-        .childAt(0)
-        .childAt(0)
-        .childAt(0);
+      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
       mockEvent.target.className = overlayWrapper.prop('className');
       handler(mockEvent);
       expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
@@ -80,11 +76,7 @@ describe('modal', () => {
       );
 
       const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper
-        .childAt(0)
-        .childAt(0)
-        .childAt(0)
-        .childAt(0);
+      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
       mockEvent.target.className = overlayWrapper.prop('className');
       handler(mockEvent);
       expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
@@ -100,11 +92,7 @@ describe('modal', () => {
       );
 
       const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper
-        .childAt(0)
-        .childAt(0)
-        .childAt(0)
-        .childAt(0);
+      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
       mockEvent.target.className = 'content-class';
       handler(mockEvent);
       expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
@@ -305,11 +293,7 @@ describe('modal', () => {
       );
 
       const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper
-        .childAt(0)
-        .childAt(0)
-        .childAt(0)
-        .childAt(0);
+      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
       mockEvent.target.className = overlayWrapper.prop('className');
       handler(mockEvent);
       expect(onOverlayClick).toHaveBeenCalled();
