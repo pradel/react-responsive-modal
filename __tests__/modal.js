@@ -276,4 +276,22 @@ describe('modal', () => {
       expect(document.documentElement.style.overflow).toBe('');
     });
   });
+
+  describe('prop: onExited', () => {
+    it('should be called when component animation is finished', async () => {
+      const onExited = jest.fn();
+      const wrapper = mount(
+        <Modal {...defaultProps} open onExited={onExited}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      wrapper.setProps({ open: false });
+      expect(onExited).not.toHaveBeenCalled();
+      await wait();
+
+      expect(onExited).toHaveBeenCalled();
+      wrapper.unmount();
+    });
+  });
 });

@@ -84,6 +84,10 @@ class Modal extends Component {
   };
 
   handleExited = () => {
+    if (this.props.onExited) {
+      this.props.onExited();
+    }
+
     this.setState({ showPortal: false });
     this.unblockScroll();
   };
@@ -181,9 +185,13 @@ Modal.propTypes = {
    */
   closeOnOverlayClick: PropTypes.bool,
   /**
-   * Fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
+   * Callback fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
    */
   onClose: PropTypes.func.isRequired,
+  /**
+   * Callback fired when the Modal has exited and the animation is finished.
+   */
+  onExited: PropTypes.func,
   /**
    * Control if the modal is open or not.
    */
@@ -229,6 +237,7 @@ Modal.propTypes = {
 Modal.defaultProps = {
   closeOnEsc: true,
   closeOnOverlayClick: true,
+  onExited: null,
   showCloseIcon: true,
   closeIconSize: 28,
   closeIconSvgPath: (
