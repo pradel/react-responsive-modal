@@ -5,11 +5,21 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib && node scripts/generate-css-from-jss.js",
-    "build:watch": "npm run build -- --watch",
+    "build:watch": "yarn build --watch",
     "lint": "eslint src docs/src scripts __tests__",
-    "test": "npm run lint && npm run build && npm run size",
+    "test": "yarn lint && yarn build && yarn size",
+    "test:only": "jest",
+    "test:coverage": "yarn test:only --coverage",
     "size": "size-limit",
     "prettier": "prettier --single-quote --trailing-comma es5 --write \"{src,scripts,docs/src,__tests__}/**/*.{js,css}\" \"README.md\" \".github/*.md\""
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./__tests__/setupTests.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/docs/",
+      "<rootDir>/__tests__/setupTests.js"
+    ]
   },
   "keywords": [
     "react",
@@ -54,6 +64,7 @@
     "eslint-plugin-jsx-import": "0.0.1",
     "eslint-plugin-react": "7.7.0",
     "jest": "^22.4.3",
+    "jest-enzyme": "^6.0.0",
     "prettier": "1.11.1",
     "react": "16.3.1",
     "react-dom": "16.3.1",

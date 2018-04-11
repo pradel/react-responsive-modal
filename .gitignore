@@ -18,3 +18,6 @@ lib
 # Docs
 docs/.cache
 docs/public
+
+# Jest
+coverage
