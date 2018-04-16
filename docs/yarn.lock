@@ -3237,9 +3237,9 @@ gatsby-remark-prismjs@1.2.24:
     prismjs "^1.12.2"
     unist-util-visit "^1.3.0"
 
-gatsby-source-filesystem@1.5.29:
-  version "1.5.29"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.29.tgz#27efb1214d8a326f7a1cb8f0cdee579f96a2be69"
+gatsby-source-filesystem@1.5.32:
+  version "1.5.32"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.32.tgz#113cc50eba459d24ecb4c136ef77ec091d05d295"
   dependencies:
     babel-cli "^6.26.0"
     babel-runtime "^6.26.0"
@@ -3253,9 +3253,9 @@ gatsby-source-filesystem@1.5.29:
     slash "^1.0.0"
     valid-url "^1.0.9"
 
-gatsby-transformer-remark@1.7.39:
-  version "1.7.39"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-1.7.39.tgz#1a3e2fcba317c379466ed39cfb1273c5b2737c62"
+gatsby-transformer-remark@1.7.40:
+  version "1.7.40"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-1.7.40.tgz#199296ba084c4931be91e5637a7eca13711f212e"
   dependencies:
     babel-runtime "^6.26.0"
     bluebird "^3.5.0"
@@ -3278,9 +3278,9 @@ gatsby-transformer-remark@1.7.39:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.1.1"
 
-gatsby@1.9.247:
-  version "1.9.247"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.247.tgz#e5d52c88c8bc23e5f0fc137946a8f5ec4f967923"
+gatsby@1.9.250:
+  version "1.9.250"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.250.tgz#e0d25bfad6a95e472c109db7da0f4e3a1e1c28f4"
   dependencies:
     async "^2.1.2"
     babel-code-frame "^6.22.0"
