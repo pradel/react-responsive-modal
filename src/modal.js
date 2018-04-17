@@ -87,7 +87,7 @@ class Modal extends Component {
   };
 
   handleKeydown = event => {
-    if (event.keyCode !== 27) {
+    if (event.keyCode !== 27 || !this.props.open) {
       return;
     }
 
