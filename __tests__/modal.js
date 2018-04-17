@@ -156,6 +156,19 @@ describe('modal', () => {
       expect(defaultProps.onClose).toHaveBeenCalled();
       wrapper.unmount();
     });
+
+    it('should not call onClose when open is false', () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open={false}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const handler = wrapper.instance().handleKeydown;
+      handler({ keyCode: 27 });
+      expect(defaultProps.onClose).not.toHaveBeenCalled();
+      wrapper.unmount();
+    });
   });
 
   describe('closeIcon', () => {
