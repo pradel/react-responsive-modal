@@ -52,7 +52,10 @@ class Modal extends Component {
       return;
     }
     const className = e.target.className.split(' ');
-    if (className.indexOf(classes.overlay) !== -1 && !this.isScrollBarClick(e)) {
+    if (
+      className.indexOf(classes.overlay) !== -1 &&
+      !this.isScrollBarClick(e)
+    ) {
       e.stopPropagation();
       this.props.onClose();
     }
@@ -72,6 +75,10 @@ class Modal extends Component {
   };
 
   handleExited = () => {
+    if (this.props.onExited) {
+      this.props.onExited();
+    }
+
     this.setState({ showPortal: false });
     this.unblockScroll();
   };
@@ -168,6 +175,7 @@ Modal.propTypes = {
   children: PropTypes.node,
   classes: PropTypes.object.isRequired,
   little: PropTypes.bool,
+  onExited: PropTypes.func,
   showCloseIcon: PropTypes.bool,
   closeIconSize: PropTypes.number,
   closeIconSvgPath: PropTypes.node,
@@ -186,6 +194,7 @@ Modal.defaultProps = {
   styles: {},
   children: null,
   little: false,
+  onExited: null,
   animationDuration: 500,
 };
 
