@@ -6,12 +6,12 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "gatsby": "1.9.250",
-    "gatsby-link": "1.6.40",
-    "gatsby-plugin-react-helmet": "2.0.10",
+    "gatsby": "1.9.253",
+    "gatsby-link": "1.6.41",
+    "gatsby-plugin-react-helmet": "2.0.11",
     "gatsby-plugin-react-next": "1.0.11",
-    "gatsby-remark-prismjs": "1.2.24",
-    "gatsby-source-filesystem": "1.5.32",
+    "gatsby-remark-prismjs": "2.0.1",
+    "gatsby-source-filesystem": "1.5.33",
     "gatsby-transformer-remark": "1.7.40",
     "prop-types": "15.6.1",
     "react": "16.3.1",
