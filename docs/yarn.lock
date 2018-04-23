@@ -1741,14 +1741,6 @@ cli-width@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
 
-clipboard@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.0.tgz#4661dc972fb72a4c4770b8db78aa9b1caef52b50"
-  dependencies:
-    good-listener "^1.2.2"
-    select "^1.1.2"
-    tiny-emitter "^2.0.0"
-
 clipboardy@1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/clipboardy/-/clipboardy-1.2.2.tgz#2ce320b9ed9be1514f79878b53ff9765420903e2"
@@ -2308,10 +2300,6 @@ del@^3.0.0:
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
-
-delegate@^3.1.2:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.1.3.tgz#9a8251a777d7025faa55737bc3b071742127a9fd"
 
 delegates@^1.0.0:
   version "1.0.0"
@@ -3188,9 +3176,9 @@ gatsby-cli@^1.1.50:
     yargs "^8.0.2"
     yurnalist "^0.2.1"
 
-gatsby-link@1.6.40, gatsby-link@^1.6.40:
-  version "1.6.40"
-  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-1.6.40.tgz#e60ab2b36452c7478f1359a7f03f7e0fc35cd847"
+gatsby-link@1.6.41, gatsby-link@^1.6.41:
+  version "1.6.41"
+  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-1.6.41.tgz#26e81e3cbb841b6843fd720152c48d5c43feb7b5"
   dependencies:
     "@types/history" "^4.6.2"
     "@types/react-router-dom" "^4.2.2"
@@ -3205,9 +3193,9 @@ gatsby-module-loader@^1.0.11:
     babel-runtime "^6.26.0"
     loader-utils "^0.2.16"
 
-gatsby-plugin-react-helmet@2.0.10:
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-2.0.10.tgz#8eddb40ebbb03f334c119f40112b020325706735"
+gatsby-plugin-react-helmet@2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-2.0.11.tgz#a2db81755f5b41d54e0e535ca1d9a008d3ccff0a"
   dependencies:
     babel-runtime "^6.26.0"
 
@@ -3228,18 +3216,17 @@ gatsby-react-router-scroll@^1.0.14:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-remark-prismjs@1.2.24:
-  version "1.2.24"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-1.2.24.tgz#b2cc4e9c4e71c08d89a32fd847244f927f4a7b79"
+gatsby-remark-prismjs@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-2.0.1.tgz#04955d9a0c9f9b251f973093d462d4230803d55a"
   dependencies:
     babel-runtime "^6.26.0"
     parse-numeric-range "0.0.2"
-    prismjs "^1.12.2"
     unist-util-visit "^1.3.0"
 
-gatsby-source-filesystem@1.5.32:
-  version "1.5.32"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.32.tgz#113cc50eba459d24ecb4c136ef77ec091d05d295"
+gatsby-source-filesystem@1.5.33:
+  version "1.5.33"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.33.tgz#c93df7bdb9ec9d016e2d9b6ab7d9863e50af669a"
   dependencies:
     babel-cli "^6.26.0"
     babel-runtime "^6.26.0"
@@ -3278,9 +3265,9 @@ gatsby-transformer-remark@1.7.40:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.1.1"
 
-gatsby@1.9.250:
-  version "1.9.250"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.250.tgz#e0d25bfad6a95e472c109db7da0f4e3a1e1c28f4"
+gatsby@1.9.253:
+  version "1.9.253"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.253.tgz#77b458f74bfe0d1c20f1d4d4da5257dca8a0433b"
   dependencies:
     async "^2.1.2"
     babel-code-frame "^6.22.0"
@@ -3323,7 +3310,7 @@ gatsby@1.9.250:
     gatsby-1-config-css-modules "^1.0.11"
     gatsby-1-config-extract-plugin "^1.0.3"
     gatsby-cli "^1.1.50"
-    gatsby-link "^1.6.40"
+    gatsby-link "^1.6.41"
     gatsby-module-loader "^1.0.11"
     gatsby-react-router-scroll "^1.0.14"
     glob "^7.1.1"
@@ -3562,12 +3549,6 @@ globby@^6.1.0:
     object-assign "^4.0.1"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
-
-good-listener@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
-  dependencies:
-    delegate "^3.1.2"
 
 got@^6.7.1:
   version "6.7.1"
@@ -6377,12 +6358,6 @@ pretty-error@^2.1.1:
     renderkid "^2.0.1"
     utila "~0.4"
 
-prismjs@^1.12.2:
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.12.2.tgz#a40a6cd5bf36716e316cb75df91976a7d5d694e6"
-  optionalDependencies:
-    clipboard "^2.0.0"
-
 private@^0.1.6, private@^0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.7.tgz#68ce5e8a1ef0a23bb570cc28537b5332aba63ef1"
@@ -7323,10 +7298,6 @@ scroll-behavior@^0.9.9:
     dom-helpers "^3.2.1"
     invariant "^2.2.2"
 
-select@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
-
 semver-diff@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/semver-diff/-/semver-diff-2.1.0.tgz#4bbb8437c8d37e4b0cf1a68fd726ec6d645d6d36"
@@ -8066,10 +8037,6 @@ timers-browserify@^2.0.2:
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.4.tgz#96ca53f4b794a5e7c0e1bd7cc88a372298fa01e6"
   dependencies:
     setimmediate "^1.0.4"
-
-tiny-emitter@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.0.2.tgz#82d27468aca5ade8e5fd1e6d22b57dd43ebdfb7c"
 
 tmp@^0.0.31:
   version "0.0.31"
