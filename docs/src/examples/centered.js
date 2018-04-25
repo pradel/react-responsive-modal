@@ -28,7 +28,7 @@ export default class Centered extends React.Component {
         >
           See source code
         </a>
-        <Modal open={open} onClose={this.onCloseModal} little>
+        <Modal open={open} onClose={this.onCloseModal} center>
           <h2>Simple centered modal</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam

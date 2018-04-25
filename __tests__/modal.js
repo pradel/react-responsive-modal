@@ -6,7 +6,7 @@ import Modal from '../src/modal';
 const defaultProps = {
   classes: {
     overlay: 'test-react-responsive-modal-overlay',
-    overlayLittle: 'test-react-responsive-modal-overlay-little',
+    overlayCenter: 'test-react-responsive-modal-overlay-center',
     modal: 'test-react-responsive-modal-modal',
     closeButton: 'test-react-responsive-modal-close-button',
     closeIcon: 'test-react-responsive-modal-close-icon',

@@ -32,7 +32,7 @@ export default class CustomStyling extends React.Component {
         <Modal
           open={open}
           onClose={this.onCloseModal}
-          little
+          center
           classNames={{ overlay: 'custom-overlay', modal: 'custom-modal' }}
         >
           <h2>Modal</h2>

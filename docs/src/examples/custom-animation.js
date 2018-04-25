@@ -32,7 +32,7 @@ export default class CustomAnimation extends React.Component {
         <Modal
           open={open}
           onClose={this.onCloseModal}
-          little
+          center
           classNames={{
             transitionEnter: 'transition-enter',
             transitionEnterActive: 'transition-enter-active',
