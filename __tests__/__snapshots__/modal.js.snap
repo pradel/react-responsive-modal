@@ -3,6 +3,7 @@
 exports[`modal render should render the content 1`] = `
 <Modal
   animationDuration={50}
+  center={false}
   classNames={Object {}}
   classes={
     Object {
@@ -25,7 +26,6 @@ exports[`modal render should render the content 1`] = `
   }
   closeOnEsc={true}
   closeOnOverlayClick={true}
-  little={false}
   onClose={[MockFunction]}
   onEscKeyDown={null}
   onExited={null}
