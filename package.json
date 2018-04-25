@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "lint": "eslint 'src' 'docs/src' 'scripts' '__tests__'",
+    "lint": "eslint 'src' 'docs/src' '__tests__'",
     "test": "yarn test:coverage && yarn lint && yarn build && yarn size",
     "test:only": "jest",
     "test:coverage": "yarn test:only --coverage",
