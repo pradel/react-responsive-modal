@@ -6,7 +6,7 @@ import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
 import CloseIcon from './close-icon';
-import classes from './styles.css';
+import cssClasses from './styles.css';
 
 class Modal extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -60,7 +60,7 @@ class Modal extends Component {
   };
 
   handleClickOverlay = event => {
-    const { closeOnOverlayClick } = this.props;
+    const { classes, closeOnOverlayClick } = this.props;
     if (typeof event.target.className !== 'string') {
       return;
     }
@@ -116,7 +116,9 @@ class Modal extends Component {
   }
 
   unblockScroll = () => {
-    const openedModals = document.getElementsByClassName(classes.modal);
+    const openedModals = document.getElementsByClassName(
+      this.props.classes.modal
+    );
     if (openedModals.length === 1) {
       noScroll.off();
     }
@@ -126,6 +128,7 @@ class Modal extends Component {
     const {
       open,
       little,
+      classes,
       classNames,
       styles,
       showCloseIcon,
@@ -174,6 +177,7 @@ class Modal extends Component {
               {this.props.children}
               {showCloseIcon && (
                 <CloseIcon
+                  classes={classes}
                   classNames={classNames}
                   styles={styles}
                   closeIconSize={closeIconSize}
@@ -231,6 +235,10 @@ Modal.propTypes = {
    */
   children: PropTypes.node,
   /**
+   * @internal
+   */
+  classes: PropTypes.object,
+  /**
    * Is the dialog centered (**when you don't have a lot of content**).
    */
   little: PropTypes.bool,
@@ -253,6 +261,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
+  classes: cssClasses,
   closeOnEsc: true,
   closeOnOverlayClick: true,
   onExited: null,

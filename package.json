@@ -30,12 +30,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "keywords": [
-    "react",
-    "responsive",
-    "modal",
-    "flex"
-  ],
+  "keywords": ["react", "responsive", "modal", "flex"],
   "repository": "git+https://github.com/pradel/react-responsive-modal.git",
   "author": "Léo Pradel",
   "bugs": {

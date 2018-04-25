@@ -1,9 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import classes from './styles.css';
 
 const CloseIcon = ({
+  classes,
   classNames,
   styles,
   closeIconSize,
@@ -31,6 +31,7 @@ const CloseIcon = ({
 CloseIcon.propTypes = {
   classNames: PropTypes.object.isRequired,
   styles: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
   closeIconSize: PropTypes.number.isRequired,
   closeIconSvgPath: PropTypes.node.isRequired,
   onClickCloseIcon: PropTypes.func.isRequired,
