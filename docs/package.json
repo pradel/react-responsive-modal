@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "test": "yarn build"
   },
   "dependencies": {
     "react-responsive-modal": "link:..",
