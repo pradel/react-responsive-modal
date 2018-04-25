@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/pradel/react-responsive-modal/branch/master/graph/badge.svg)](https://codecov.io/gh/pradel/react-responsive-modal)
 [![dependencies Status](https://david-dm.org/pradel/react-responsive-modal/status.svg)](https://david-dm.org/pradel/react-responsive-modal)
 
-A simple responsive react modal compatible with React 15 and 16.
+A simple responsive react modal compatible with React 15, 16 and ready for React 17.
 
 * Centered modals.
 * Scrolling modals.
@@ -63,20 +63,6 @@ export default class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-```
-
-### Usage with css
-
-By default react-responsive-modal is using
-[react-jss](https://github.com/cssinjs/react-jss).
-
-If you don't want to add it to your project you can use the css version of this
-project:
-
-```javascript
-// Import the css file
-import 'react-responsive-modal/lib/react-responsive-modal.css';
-import Modal from 'react-responsive-modal/lib/css';
 ```
 
 ## Props
