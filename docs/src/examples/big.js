@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../../../src/index';
+import Modal from 'react-responsive-modal';
 
 export default class Big extends React.Component {
   state = {
