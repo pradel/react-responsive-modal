@@ -21,13 +21,21 @@
       "<rootDir>/node_modules/",
       "<rootDir>/docs/",
       "<rootDir>/__tests__/setupTests.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(css)$": "identity-obj-proxy"
+    }
   },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "keywords": ["react", "responsive", "modal", "flex"],
+  "keywords": [
+    "react",
+    "responsive",
+    "modal",
+    "flex"
+  ],
   "repository": "git+https://github.com/pradel/react-responsive-modal.git",
   "author": "Léo Pradel",
   "bugs": {
@@ -65,6 +73,7 @@
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-jsx-import": "0.0.1",
     "eslint-plugin-react": "7.7.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "22.4.3",
     "jest-enzyme": "6.0.0",
     "prettier": "1.12.1",

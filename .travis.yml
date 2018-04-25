@@ -9,7 +9,7 @@ node_js:
 
 install:
   - yarn
-  - cd docs && yarn
+  - cd docs && yarn && cd ..
 
 script:
   - yarn test
