@@ -127,7 +127,7 @@ class Modal extends Component {
   render() {
     const {
       open,
-      little,
+      center,
       classes,
       classNames,
       styles,
@@ -164,7 +164,7 @@ class Modal extends Component {
           <div
             className={cx(
               classes.overlay,
-              little ? classes.overlayLittle : null,
+              center ? classes.overlayCenter : null,
               classNames.overlay
             )}
             onMouseDown={this.handleClickOverlay}
@@ -241,7 +241,7 @@ Modal.propTypes = {
   /**
    * Is the dialog centered (**when you don't have a lot of content**).
    */
-  little: PropTypes.bool,
+  center: PropTypes.bool,
   /**
    * Show the close icon.
    */
@@ -275,7 +275,7 @@ Modal.defaultProps = {
   classNames: {},
   styles: {},
   children: null,
-  little: false,
+  center: false,
   animationDuration: 500,
 };
 
