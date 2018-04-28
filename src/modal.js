@@ -23,6 +23,7 @@ class Modal extends Component {
     this.state = {
       showPortal: props.open,
     };
+    this.shouldClose = true;
   }
 
   componentDidMount() {
@@ -60,17 +61,14 @@ class Modal extends Component {
   };
 
   handleClickOverlay = event => {
-    const { classes, closeOnOverlayClick } = this.props;
-    if (typeof event.target.className !== 'string') {
-      return;
+    // TODO this.isScrollBarClick(event)
+
+    if (this.shouldClose === null) {
+      this.shouldClose = true;
     }
 
-    const className = event.target.className.split(' ');
-    if (
-      className.indexOf(classes.overlay) === -1 ||
-      this.isScrollBarClick(event) ||
-      !closeOnOverlayClick
-    ) {
+    if (!this.shouldClose) {
+      this.shouldClose = null;
       return;
     }
 
@@ -78,12 +76,14 @@ class Modal extends Component {
       this.props.onOverlayClick(event);
     }
 
-    event.stopPropagation();
-    this.props.onClose(event);
+    if (this.props.closeOnOverlayClick) {
+      this.props.onClose(event);
+    }
+
+    this.shouldClose = null;    
   };
 
   handleClickCloseIcon = event => {
-    event.stopPropagation();
     this.props.onClose(event);
   };
 
@@ -99,6 +99,10 @@ class Modal extends Component {
     if (this.props.closeOnEsc) {
       this.props.onClose(event);
     }
+  };
+
+  handleModalEvent = () => {
+    this.shouldClose = false;
   };
 
   handleExited = () => {
@@ -167,12 +171,15 @@ class Modal extends Component {
               center ? classes.overlayCenter : null,
               classNames.overlay
             )}
-            onMouseDown={this.handleClickOverlay}
+            onClick={this.handleClickOverlay}
             style={styles.overlay}
           >
             <div
               className={cx(classes.modal, classNames.modal)}
               style={styles.modal}
+              onMouseDown={this.handleModalEvent}
+              onMouseUp={this.handleModalEvent}
+              onClick={this.handleModalEvent}
             >
               {this.props.children}
               {showCloseIcon && (
