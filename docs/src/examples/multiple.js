@@ -44,14 +44,14 @@ export default class Centered extends React.Component {
         >
           See source code
         </a>
-        <Modal open={openFirstModal} onClose={this.onCloseFirstModal} little>
+        <Modal open={openFirstModal} onClose={this.onCloseFirstModal} center>
           <p>First modal</p>
           {littleLorem}
           <button className="btn btn-action" onClick={this.onOpenSecondModal}>
             Open second modal
           </button>
         </Modal>
-        <Modal open={openSecondModal} onClose={this.onCloseSecondModal} little>
+        <Modal open={openSecondModal} onClose={this.onCloseSecondModal} center>
           <p>Second modal</p>
           {littleLorem}
         </Modal>
