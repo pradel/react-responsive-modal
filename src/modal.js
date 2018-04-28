@@ -23,7 +23,7 @@ class Modal extends Component {
     this.state = {
       showPortal: props.open,
     };
-    this.shouldClose = true;
+    this.shouldClose = null;
   }
 
   componentDidMount() {

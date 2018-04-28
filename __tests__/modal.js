@@ -309,4 +309,18 @@ describe('modal', () => {
       wrapper.unmount();
     });
   });
+
+  describe('prop: center', () => {
+    it('should apply center class to overlay', async () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open center>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
+      expect(overlayWrapper.hasClass(defaultProps.classes.overlayCenter)).toBeTruthy();
+      wrapper.unmount();
+    });
+  });
 });
