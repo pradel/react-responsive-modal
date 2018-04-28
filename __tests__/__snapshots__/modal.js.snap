@@ -68,10 +68,13 @@ exports[`modal render should render the content 1`] = `
       >
         <div
           className="test-react-responsive-modal-overlay"
-          onMouseDown={[Function]}
+          onClick={[Function]}
         >
           <div
             className="test-react-responsive-modal-modal"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
           >
             <div>
               modal content

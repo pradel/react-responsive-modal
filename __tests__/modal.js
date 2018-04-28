@@ -52,18 +52,15 @@ describe('modal', () => {
       wrapper.unmount();
     });
 
-    it('should attach a handler to the overlay that fire onClose', () => {
+    it('should call onClose when click on the overlay', () => {
       const wrapper = mount(
         <Modal {...defaultProps} open>
           <div>modal content</div>
         </Modal>
       );
 
-      const handler = wrapper.instance().handleClickOverlay;
       const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      mockEvent.target.className = overlayWrapper.prop('className');
-      handler(mockEvent);
-      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
+      overlayWrapper.simulate('click');
       expect(defaultProps.onClose).toHaveBeenCalled();
       wrapper.unmount();
     });
@@ -75,11 +72,8 @@ describe('modal', () => {
         </Modal>
       );
 
-      const handler = wrapper.instance().handleClickOverlay;
       const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      mockEvent.target.className = overlayWrapper.prop('className');
-      handler(mockEvent);
-      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
+      overlayWrapper.simulate('click');
       expect(defaultProps.onClose).not.toHaveBeenCalled();
       wrapper.unmount();
     });
@@ -91,27 +85,8 @@ describe('modal', () => {
         </Modal>
       );
 
-      const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      mockEvent.target.className = 'content-class';
-      handler(mockEvent);
-      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
-      expect(defaultProps.onClose).not.toHaveBeenCalled();
-      wrapper.unmount();
-    });
-
-    it('should ignore the overlay click if the className event is not a string', () => {
-      const wrapper = mount(
-        <Modal {...defaultProps} open>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      mockEvent.target.className = 'content-class';
-      handler({ target: {} });
-      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
+      const modalWrapper = wrapper.find(`.${defaultProps.classes.modal}`);
+      modalWrapper.simulate('click');
       expect(defaultProps.onClose).not.toHaveBeenCalled();
       wrapper.unmount();
     });
