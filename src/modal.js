@@ -47,9 +47,6 @@ class Modal extends Component {
     }
   }
 
-  isScrollBarClick = event =>
-    event.clientX >= document.documentElement.offsetWidth;
-
   handleOpen = () => {
     this.blockScroll();
     document.addEventListener('keydown', this.handleKeydown);
@@ -61,8 +58,6 @@ class Modal extends Component {
   };
 
   handleClickOverlay = event => {
-    // TODO this.isScrollBarClick(event)
-
     if (this.shouldClose === null) {
       this.shouldClose = true;
     }
