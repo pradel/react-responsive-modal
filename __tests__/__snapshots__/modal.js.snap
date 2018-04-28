@@ -27,6 +27,7 @@ exports[`modal render should render the content 1`] = `
   closeOnEsc={true}
   closeOnOverlayClick={true}
   onClose={[MockFunction]}
+  onEntered={null}
   onEscKeyDown={null}
   onExited={null}
   onOverlayClick={null}
@@ -48,6 +49,7 @@ exports[`modal render should render the content 1`] = `
         }
       }
       in={true}
+      onEntered={[Function]}
       onExited={[Function]}
       timeout={50}
     >

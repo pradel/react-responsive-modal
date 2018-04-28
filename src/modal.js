@@ -75,7 +75,7 @@ class Modal extends Component {
       this.props.onClose(event);
     }
 
-    this.shouldClose = null;    
+    this.shouldClose = null;
   };
 
   handleClickCloseIcon = event => {
@@ -98,6 +98,12 @@ class Modal extends Component {
 
   handleModalEvent = () => {
     this.shouldClose = false;
+  };
+
+  handleEntered = () => {
+    if (this.props.onEntered) {
+      this.props.onEntered();
+    }
   };
 
   handleExited = () => {
@@ -158,6 +164,7 @@ class Modal extends Component {
               classNames.transitionExitActive || classes.transitionExitActive,
           }}
           timeout={animationDuration}
+          onEntered={this.handleEntered}
           onExited={this.handleExited}
         >
           <div
@@ -204,6 +211,10 @@ Modal.propTypes = {
    * Is the modal closable when user click on overlay.
    */
   closeOnOverlayClick: PropTypes.bool,
+  /**
+   * Callback fired when the Modal is open and the animation is finished.
+   */
+  onEntered: PropTypes.func,
   /**
    * Callback fired when the Modal has exited and the animation is finished.
    */
@@ -266,6 +277,7 @@ Modal.defaultProps = {
   classes: cssClasses,
   closeOnEsc: true,
   closeOnOverlayClick: true,
+  onEntered: null,
   onExited: null,
   onEscKeyDown: null,
   onOverlayClick: null,

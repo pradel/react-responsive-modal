@@ -256,6 +256,23 @@ describe('modal', () => {
     });
   });
 
+  describe('prop: onEntered', () => {
+    it('should be called when component animation is finished', async () => {
+      const onEntered = jest.fn();
+      const wrapper = mount(
+        <Modal {...defaultProps} open onEntered={onEntered}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      expect(onEntered).not.toHaveBeenCalled();
+      await wait();
+
+      expect(onEntered).toHaveBeenCalled();
+      wrapper.unmount();
+    });
+  });
+
   describe('prop: onExited', () => {
     it('should be called when component animation is finished', async () => {
       const onExited = jest.fn();
@@ -265,6 +282,7 @@ describe('modal', () => {
         </Modal>
       );
 
+      await wait();
       wrapper.setProps({ open: false });
       expect(onExited).not.toHaveBeenCalled();
       await wait();
@@ -319,7 +337,9 @@ describe('modal', () => {
       );
 
       const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      expect(overlayWrapper.hasClass(defaultProps.classes.overlayCenter)).toBeTruthy();
+      expect(
+        overlayWrapper.hasClass(defaultProps.classes.overlayCenter)
+      ).toBeTruthy();
       wrapper.unmount();
     });
   });
