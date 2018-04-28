@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "jsx": "react",
+    "types": [],
+    "noEmit": true,
+    "baseUrl": "./",
+    "paths": { "react-responsive-modal": ["."] }
+  },
+  "files": ["index.d.ts", "test.tsx"]
+}
