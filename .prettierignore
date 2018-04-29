@@ -1,0 +1,4 @@
+lib
+docs/.cache
+docs/public
+coverage

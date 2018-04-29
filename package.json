@@ -3,15 +3,22 @@
   "version": "2.0.1",
   "description": "A simple responsive react modal",
   "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "jsnext:main": "lib/index.es.js",
+  "types": "types",
   "scripts": {
-    "build": "babel src --out-dir lib && node scripts/generate-css-from-jss.js",
-    "build:watch": "yarn build --watch",
-    "lint": "eslint src docs/src scripts __tests__",
-    "test": "yarn test:coverage && yarn lint && yarn build && yarn size",
+    "build": "rollup -c",
+    "build:watch": "rollup -c -w",
+    "lint": "eslint 'src' 'docs/src' '__tests__'",
+    "test":
+      "yarn test:coverage && yarn lint && yarn build && yarn dtslint && yarn size",
     "test:only": "jest",
     "test:coverage": "yarn test:only --coverage",
     "size": "size-limit",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{src,scripts,docs/src,__tests__}/**/*.{js,css}\" \"README.md\" \".github/*.md\""
+    "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md}\"",
+    "dtslint": "dtslint types",
+    "generate-props":
+      "node scripts/generateReactPropsTable.js src/modal.js && yarn prettier"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./__tests__/setupTests.js",
@@ -19,14 +26,16 @@
       "<rootDir>/node_modules/",
       "<rootDir>/docs/",
       "<rootDir>/__tests__/setupTests.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(css)$": "identity-obj-proxy"
+    }
   },
-  "keywords": [
-    "react",
-    "responsive",
-    "modal",
-    "flex"
-  ],
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "keywords": ["react", "responsive", "modal", "flex"],
   "repository": "git+https://github.com/pradel/react-responsive-modal.git",
   "author": "Léo Pradel",
   "bugs": {
@@ -37,24 +46,26 @@
     "classnames": "^2.2.5",
     "no-scroll": "^2.1.0",
     "prop-types": "^15.6.1",
-    "react-jss": "^8.4.0",
     "react-lifecycles-compat": "^3.0.2",
     "react-minimalist-portal": "^2.1.1",
-    "react-transition-group": "^2.3.0"
+    "react-transition-group": "^2.3.1"
   },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
+    "@types/react": "^16.3.13",
+    "@types/react-dom": "^16.0.5",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.2.3",
-    "babel-preset-es2015": "6.24.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
-    "codecov": "3.0.0",
-    "decamelize": "2.0.0",
+    "codecov": "3.0.1",
+    "dtslint": "^0.3.0",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.19.1",
@@ -64,17 +75,27 @@
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-jsx-import": "0.0.1",
     "eslint-plugin-react": "7.7.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "22.4.3",
     "jest-enzyme": "6.0.0",
     "prettier": "1.12.1",
     "react": "16.3.2",
+    "react-docgen": "^2.20.1",
     "react-dom": "16.3.2",
+    "rollup": "^0.58.2",
+    "rollup-plugin-auto-external": "^1.2.0",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-peer-deps-external": "^2.1.0",
+    "rollup-plugin-postcss": "^1.6.1",
+    "rollup-plugin-url": "^1.4.0",
     "size-limit": "0.17.0"
   },
   "size-limit": [
     {
-      "path": "lib/modal.js",
-      "limit": "6 KB"
+      "path": "lib/index.js",
+      "limit": "7 KB"
     }
   ],
   "license": "MIT"

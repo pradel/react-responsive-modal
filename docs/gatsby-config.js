@@ -9,15 +9,13 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/../README.md`,
-        name: "readme",
+        name: 'readme',
       },
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-          "gatsby-remark-prismjs",
-        ],
+        plugins: ['gatsby-remark-prismjs'],
       },
     },
     'gatsby-plugin-react-helmet',

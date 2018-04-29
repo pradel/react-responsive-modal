@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../../../src/index';
+import Modal from 'react-responsive-modal';
 import './custom-animation.css';
 
 export default class CustomAnimation extends React.Component {
@@ -32,7 +32,7 @@ export default class CustomAnimation extends React.Component {
         <Modal
           open={open}
           onClose={this.onCloseModal}
-          little
+          center
           classNames={{
             transitionEnter: 'transition-enter',
             transitionEnterActive: 'transition-enter-active',

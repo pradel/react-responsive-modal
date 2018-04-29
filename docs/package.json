@@ -3,9 +3,11 @@
   "private": true,
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "test": "yarn build"
   },
   "dependencies": {
+    "react-responsive-modal": "link:..",
     "gatsby": "1.9.253",
     "gatsby-link": "1.6.41",
     "gatsby-plugin-react-helmet": "2.0.11",
@@ -17,5 +19,8 @@
     "react": "16.3.2",
     "react-dom": "16.3.2",
     "react-helmet": "5.2.0"
+  },
+  "devDependencies": {
+    "prismjs": "^1.14.0"
   }
 }

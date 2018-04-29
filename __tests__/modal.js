@@ -6,7 +6,7 @@ import Modal from '../src/modal';
 const defaultProps = {
   classes: {
     overlay: 'test-react-responsive-modal-overlay',
-    overlayLittle: 'test-react-responsive-modal-overlay-little',
+    overlayCenter: 'test-react-responsive-modal-overlay-center',
     modal: 'test-react-responsive-modal-modal',
     closeButton: 'test-react-responsive-modal-close-button',
     closeIcon: 'test-react-responsive-modal-close-icon',
@@ -52,18 +52,15 @@ describe('modal', () => {
       wrapper.unmount();
     });
 
-    it('should attach a handler to the overlay that fire onClose', () => {
+    it('should call onClose when click on the overlay', () => {
       const wrapper = mount(
         <Modal {...defaultProps} open>
           <div>modal content</div>
         </Modal>
       );
 
-      const handler = wrapper.instance().handleClickOverlay;
       const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      mockEvent.target.className = overlayWrapper.prop('className');
-      handler(mockEvent);
-      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
+      overlayWrapper.simulate('click');
       expect(defaultProps.onClose).toHaveBeenCalled();
       wrapper.unmount();
     });
@@ -75,11 +72,8 @@ describe('modal', () => {
         </Modal>
       );
 
-      const handler = wrapper.instance().handleClickOverlay;
       const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      mockEvent.target.className = overlayWrapper.prop('className');
-      handler(mockEvent);
-      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
+      overlayWrapper.simulate('click');
       expect(defaultProps.onClose).not.toHaveBeenCalled();
       wrapper.unmount();
     });
@@ -91,27 +85,8 @@ describe('modal', () => {
         </Modal>
       );
 
-      const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      mockEvent.target.className = 'content-class';
-      handler(mockEvent);
-      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
-      expect(defaultProps.onClose).not.toHaveBeenCalled();
-      wrapper.unmount();
-    });
-
-    it('should ignore the overlay click if the className event is not a string', () => {
-      const wrapper = mount(
-        <Modal {...defaultProps} open>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      mockEvent.target.className = 'content-class';
-      handler({ target: {} });
-      expect(overlayWrapper.prop('onMouseDown')).toEqual(handler);
+      const modalWrapper = wrapper.find(`.${defaultProps.classes.modal}`);
+      modalWrapper.simulate('click');
       expect(defaultProps.onClose).not.toHaveBeenCalled();
       wrapper.unmount();
     });
@@ -281,6 +256,23 @@ describe('modal', () => {
     });
   });
 
+  describe('prop: onEntered', () => {
+    it('should be called when component animation is finished', async () => {
+      const onEntered = jest.fn();
+      const wrapper = mount(
+        <Modal {...defaultProps} open onEntered={onEntered}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      expect(onEntered).not.toHaveBeenCalled();
+      await wait();
+
+      expect(onEntered).toHaveBeenCalled();
+      wrapper.unmount();
+    });
+  });
+
   describe('prop: onExited', () => {
     it('should be called when component animation is finished', async () => {
       const onExited = jest.fn();
@@ -290,6 +282,7 @@ describe('modal', () => {
         </Modal>
       );
 
+      await wait();
       wrapper.setProps({ open: false });
       expect(onExited).not.toHaveBeenCalled();
       await wait();
@@ -331,6 +324,22 @@ describe('modal', () => {
       handler(mockEvent);
       expect(onOverlayClick).toHaveBeenCalled();
       expect(defaultProps.onClose).toHaveBeenCalled();
+      wrapper.unmount();
+    });
+  });
+
+  describe('prop: center', () => {
+    it('should apply center class to overlay', async () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open center>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
+      expect(
+        overlayWrapper.hasClass(defaultProps.classes.overlayCenter)
+      ).toBeTruthy();
       wrapper.unmount();
     });
   });

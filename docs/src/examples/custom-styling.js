@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../../../src/index';
+import Modal from 'react-responsive-modal';
 import './custom-styling.css';
 
 export default class CustomStyling extends React.Component {
@@ -32,7 +32,7 @@ export default class CustomStyling extends React.Component {
         <Modal
           open={open}
           onClose={this.onCloseModal}
-          little
+          center
           classNames={{ overlay: 'custom-overlay', modal: 'custom-modal' }}
         >
           <h2>Modal</h2>

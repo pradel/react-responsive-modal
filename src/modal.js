@@ -6,6 +6,7 @@ import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
 import CloseIcon from './close-icon';
+import cssClasses from './styles.css';
 
 class Modal extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -22,6 +23,7 @@ class Modal extends Component {
     this.state = {
       showPortal: props.open,
     };
+    this.shouldClose = null;
   }
 
   componentDidMount() {
@@ -45,9 +47,6 @@ class Modal extends Component {
     }
   }
 
-  isScrollBarClick = event =>
-    event.clientX >= document.documentElement.offsetWidth;
-
   handleOpen = () => {
     this.blockScroll();
     document.addEventListener('keydown', this.handleKeydown);
@@ -59,17 +58,12 @@ class Modal extends Component {
   };
 
   handleClickOverlay = event => {
-    const { classes, closeOnOverlayClick } = this.props;
-    if (typeof event.target.className !== 'string') {
-      return;
+    if (this.shouldClose === null) {
+      this.shouldClose = true;
     }
 
-    const className = event.target.className.split(' ');
-    if (
-      className.indexOf(classes.overlay) === -1 ||
-      this.isScrollBarClick(event) ||
-      !closeOnOverlayClick
-    ) {
+    if (!this.shouldClose) {
+      this.shouldClose = null;
       return;
     }
 
@@ -77,12 +71,14 @@ class Modal extends Component {
       this.props.onOverlayClick(event);
     }
 
-    event.stopPropagation();
-    this.props.onClose(event);
+    if (this.props.closeOnOverlayClick) {
+      this.props.onClose(event);
+    }
+
+    this.shouldClose = null;
   };
 
   handleClickCloseIcon = event => {
-    event.stopPropagation();
     this.props.onClose(event);
   };
 
@@ -97,6 +93,16 @@ class Modal extends Component {
 
     if (this.props.closeOnEsc) {
       this.props.onClose(event);
+    }
+  };
+
+  handleModalEvent = () => {
+    this.shouldClose = false;
+  };
+
+  handleEntered = () => {
+    if (this.props.onEntered) {
+      this.props.onEntered();
     }
   };
 
@@ -126,7 +132,7 @@ class Modal extends Component {
   render() {
     const {
       open,
-      little,
+      center,
       classes,
       classNames,
       styles,
@@ -158,20 +164,24 @@ class Modal extends Component {
               classNames.transitionExitActive || classes.transitionExitActive,
           }}
           timeout={animationDuration}
+          onEntered={this.handleEntered}
           onExited={this.handleExited}
         >
           <div
             className={cx(
               classes.overlay,
-              little ? classes.overlayLittle : null,
+              center ? classes.overlayCenter : null,
               classNames.overlay
             )}
-            onMouseDown={this.handleClickOverlay}
+            onClick={this.handleClickOverlay}
             style={styles.overlay}
           >
             <div
               className={cx(classes.modal, classNames.modal)}
               style={styles.modal}
+              onMouseDown={this.handleModalEvent}
+              onMouseUp={this.handleModalEvent}
+              onClick={this.handleModalEvent}
             >
               {this.props.children}
               {showCloseIcon && (
@@ -201,6 +211,10 @@ Modal.propTypes = {
    * Is the modal closable when user click on overlay.
    */
   closeOnOverlayClick: PropTypes.bool,
+  /**
+   * Callback fired when the Modal is open and the animation is finished.
+   */
+  onEntered: PropTypes.func,
   /**
    * Callback fired when the Modal has exited and the animation is finished.
    */
@@ -236,11 +250,11 @@ Modal.propTypes = {
   /**
    * @internal
    */
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
   /**
    * Is the dialog centered (**when you don't have a lot of content**).
    */
-  little: PropTypes.bool,
+  center: PropTypes.bool,
   /**
    * Show the close icon.
    */
@@ -260,8 +274,10 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
+  classes: cssClasses,
   closeOnEsc: true,
   closeOnOverlayClick: true,
+  onEntered: null,
   onExited: null,
   onEscKeyDown: null,
   onOverlayClick: null,
@@ -273,7 +289,7 @@ Modal.defaultProps = {
   classNames: {},
   styles: {},
   children: null,
-  little: false,
+  center: false,
   animationDuration: 500,
 };
 

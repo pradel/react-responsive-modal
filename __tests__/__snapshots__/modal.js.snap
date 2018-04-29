@@ -3,6 +3,7 @@
 exports[`modal render should render the content 1`] = `
 <Modal
   animationDuration={50}
+  center={false}
   classNames={Object {}}
   classes={
     Object {
@@ -10,7 +11,7 @@ exports[`modal render should render the content 1`] = `
       "closeIcon": "test-react-responsive-modal-close-icon",
       "modal": "test-react-responsive-modal-modal",
       "overlay": "test-react-responsive-modal-overlay",
-      "overlayLittle": "test-react-responsive-modal-overlay-little",
+      "overlayCenter": "test-react-responsive-modal-overlay-center",
       "transitionEnter": "test-react-responsive-modal-transition-enter",
       "transitionEnterActive": "test-react-responsive-modal-transition-enter-active",
       "transitionExit": "test-react-responsive-modal-transition-exit",
@@ -25,8 +26,8 @@ exports[`modal render should render the content 1`] = `
   }
   closeOnEsc={true}
   closeOnOverlayClick={true}
-  little={false}
   onClose={[MockFunction]}
+  onEntered={null}
   onEscKeyDown={null}
   onExited={null}
   onOverlayClick={null}
@@ -48,6 +49,7 @@ exports[`modal render should render the content 1`] = `
         }
       }
       in={true}
+      onEntered={[Function]}
       onExited={[Function]}
       timeout={50}
     >
@@ -68,10 +70,13 @@ exports[`modal render should render the content 1`] = `
       >
         <div
           className="test-react-responsive-modal-overlay"
-          onMouseDown={[Function]}
+          onClick={[Function]}
         >
           <div
             className="test-react-responsive-modal-modal"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
           >
             <div>
               modal content
@@ -84,7 +89,7 @@ exports[`modal render should render the content 1`] = `
                   "closeIcon": "test-react-responsive-modal-close-icon",
                   "modal": "test-react-responsive-modal-modal",
                   "overlay": "test-react-responsive-modal-overlay",
-                  "overlayLittle": "test-react-responsive-modal-overlay-little",
+                  "overlayCenter": "test-react-responsive-modal-overlay-center",
                   "transitionEnter": "test-react-responsive-modal-transition-enter",
                   "transitionEnterActive": "test-react-responsive-modal-transition-enter-active",
                   "transitionExit": "test-react-responsive-modal-transition-exit",

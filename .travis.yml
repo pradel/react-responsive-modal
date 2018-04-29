@@ -7,6 +7,14 @@ cache: yarn
 node_js:
   - "8"
 
+install:
+  - yarn
+  - cd docs && yarn && cd ..
+
+script:
+  - yarn test
+  - cd docs && yarn test && cd ..
+
 notifications:
   email: false
 
