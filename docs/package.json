@@ -21,6 +21,6 @@
     "react-helmet": "5.2.0"
   },
   "devDependencies": {
-    "prismjs": "^1.14.0"
+    "prismjs": "1.14.0"
   }
 }
