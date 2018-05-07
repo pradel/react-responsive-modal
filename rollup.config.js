@@ -33,6 +33,9 @@ export default {
   plugins: [
     postcss({
       modules: true,
+      inject: {
+        insertAt: 'top'
+      }
     }),
     url(),
     babel({
