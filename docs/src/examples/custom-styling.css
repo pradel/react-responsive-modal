@@ -1,8 +1,8 @@
 .custom-overlay {
-  background: rgba(36, 123, 160, 0.7) !important;
+  background: rgba(36, 123, 160, 0.7);
 }
 .custom-modal {
-  background: #b2dbbf !important;
-  max-width: 500px !important;
+  background: #b2dbbf;
+  max-width: 500px;
   width: 100%;
 }
