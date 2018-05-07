@@ -10,13 +10,15 @@
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
     "lint": "eslint 'src' 'docs/src' '__tests__'",
-    "test": "yarn test:coverage && yarn lint && yarn build && yarn dtslint && yarn size",
+    "test":
+      "yarn test:coverage && yarn lint && yarn build && yarn dtslint && yarn size",
     "test:only": "jest",
     "test:coverage": "yarn test:only --coverage",
     "size": "size-limit",
     "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md}\"",
     "dtslint": "dtslint types",
-    "generate-props": "node scripts/generateReactPropsTable.js src/modal.js && yarn prettier"
+    "generate-props":
+      "node scripts/generateReactPropsTable.js src/modal.js && yarn prettier"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./__tests__/setupTests.js",
@@ -33,12 +35,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "keywords": [
-    "react",
-    "responsive",
-    "modal",
-    "flex"
-  ],
+  "keywords": ["react", "responsive", "modal", "flex"],
   "repository": "git+https://github.com/pradel/react-responsive-modal.git",
   "author": "Léo Pradel",
   "bugs": {

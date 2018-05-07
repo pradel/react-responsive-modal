@@ -34,8 +34,8 @@ export default {
     postcss({
       modules: true,
       inject: {
-        insertAt: 'top'
-      }
+        insertAt: 'top',
+      },
     }),
     url(),
     babel({
