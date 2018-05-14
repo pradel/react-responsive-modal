@@ -93,7 +93,7 @@
     "rollup-plugin-peer-deps-external": "2.1.1",
     "rollup-plugin-postcss": "1.6.1",
     "rollup-plugin-url": "1.4.0",
-    "size-limit": "0.17.0"
+    "size-limit": "0.18.0"
   },
   "size-limit": [
     {
