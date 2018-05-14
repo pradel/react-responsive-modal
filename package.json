@@ -77,7 +77,7 @@
     "eslint-plugin-import": "2.11.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-jsx-import": "0.0.1",
-    "eslint-plugin-react": "7.7.0",
+    "eslint-plugin-react": "7.8.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "22.4.3",
     "jest-enzyme": "6.0.0",
