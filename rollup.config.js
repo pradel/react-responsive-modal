@@ -1,13 +1,13 @@
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
-import autoExternal from 'rollup-plugin-auto-external';
 import resolve from 'rollup-plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
-import url from 'rollup-plugin-url';
 import pkg from './package.json';
 
+const external = id => !id.startsWith('.') && !id.startsWith('/');
+
 export default {
-  input: 'src/index.js',
+  input: './src/index.js',
   output: [
     {
       file: pkg.main,
@@ -20,16 +20,7 @@ export default {
       sourcemap: true,
     },
   ],
-  external: [
-    'react',
-    'react-dom',
-    'prop-types',
-    'react-lifecycles-compat',
-    'react-transition-group/CSSTransition',
-    'classnames',
-    'no-scroll',
-    'react-minimalist-portal',
-  ],
+  external,
   plugins: [
     postcss({
       modules: true,
@@ -37,12 +28,9 @@ export default {
         insertAt: 'top',
       },
     }),
-    url(),
     babel({
       exclude: 'node_modules/**',
-      plugins: ['external-helpers'],
+      runtimeHelpers: true,
     }),
-    resolve(),
-    commonjs(),
   ],
 };
