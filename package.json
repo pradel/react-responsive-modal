@@ -18,6 +18,11 @@
     "dtslint": "dtslint types",
     "generate-props": "node scripts/generateReactPropsTable.js src/modal.js && yarn prettier"
   },
+  "files": [
+    "lib",
+    "types",
+    "src"
+  ],
   "jest": {
     "setupTestFrameworkScriptFile": "./__tests__/setupTests.js",
     "testPathIgnorePatterns": [
@@ -47,9 +52,9 @@
   "homepage": "https://github.com/pradel/react-responsive-modal#readme",
   "dependencies": {
     "classnames": "^2.2.5",
-    "no-scroll": "^2.1.0",
+    "no-scroll": "^2.1.1",
     "prop-types": "^15.6.1",
-    "react-lifecycles-compat": "^3.0.2",
+    "react-lifecycles-compat": "^3.0.4",
     "react-minimalist-portal": "^2.2.0",
     "react-transition-group": "^2.3.1"
   },
@@ -86,13 +91,9 @@
     "react-docgen": "2.20.1",
     "react-dom": "16.3.2",
     "rollup": "0.59.1",
-    "rollup-plugin-auto-external": "1.2.0",
     "rollup-plugin-babel": "3.0.4",
-    "rollup-plugin-commonjs": "9.1.3",
-    "rollup-plugin-node-resolve": "3.3.0",
     "rollup-plugin-peer-deps-external": "2.1.1",
     "rollup-plugin-postcss": "1.6.1",
-    "rollup-plugin-url": "1.4.0",
     "size-limit": "0.18.0"
   },
   "size-limit": [
