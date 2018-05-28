@@ -94,7 +94,7 @@
     "rollup-plugin-babel": "3.0.4",
     "rollup-plugin-peer-deps-external": "2.1.1",
     "rollup-plugin-postcss": "1.6.1",
-    "size-limit": "0.18.0"
+    "size-limit": "0.18.1"
   },
   "size-limit": [
     {
