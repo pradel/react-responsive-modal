@@ -1944,9 +1944,9 @@ cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
     parse-json "^2.2.0"
     require-from-string "^1.1.0"
 
-cosmiconfig@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-5.0.2.tgz#03f8965ae4675317a0015b4a5a48a470d9baeada"
+cosmiconfig@^5.0.4:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-5.0.5.tgz#a809e3c2306891ce17ab70359dc8bdf661fe2cd0"
   dependencies:
     is-directory "^0.3.1"
     js-yaml "^3.9.0"
@@ -6775,15 +6775,15 @@ signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-size-limit@0.18.0:
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-0.18.0.tgz#ed2f07cb66e5a209f1d873104b7f4a7a9f19efc7"
+size-limit@0.18.1:
+  version "0.18.1"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-0.18.1.tgz#9d1abc4ad936c37a94987cb5fc1c0eefa0e7d5b9"
   dependencies:
     bytes "^3.0.0"
     chalk "^2.4.1"
     ci-job-number "^0.3.0"
     compression-webpack-plugin "^1.1.11"
-    cosmiconfig "^5.0.2"
+    cosmiconfig "^5.0.4"
     css-loader "^0.28.11"
     escape-string-regexp "^1.0.5"
     file-loader "^1.1.11"
@@ -6793,7 +6793,7 @@ size-limit@0.18.0:
     read-pkg-up "^3.0.0"
     style-loader "^0.21.0"
     webpack "^4.1.1"
-    webpack-bundle-analyzer "^2.11.2"
+    webpack-bundle-analyzer "^2.13.0"
     yargs "^11.0.0"
 
 slash@^1.0.0:
@@ -7594,9 +7594,9 @@ webidl-conversions@^4.0.1, webidl-conversions@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
 
-webpack-bundle-analyzer@^2.11.2:
-  version "2.11.3"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.11.3.tgz#4b442c9bd23f1853af4c9af3a90e21646f16afc3"
+webpack-bundle-analyzer@^2.13.0:
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.13.1.tgz#07d2176c6e86c3cdce4c23e56fae2a7b6b4ad526"
   dependencies:
     acorn "^5.3.0"
     bfj-node4 "^5.2.0"
