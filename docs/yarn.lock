@@ -3203,9 +3203,9 @@ gatsby-1-config-extract-plugin@^1.0.3:
     babel-runtime "^6.26.0"
     extract-text-webpack-plugin "^1.0.1"
 
-gatsby-cli@^1.1.52:
-  version "1.1.52"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-1.1.52.tgz#1bb09671b774a49202ea5bb90aa49bfeebaa2fc3"
+gatsby-cli@^1.1.57:
+  version "1.1.57"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-1.1.57.tgz#0a17684006f879775f5a0aa5173985a035b38d45"
   dependencies:
     babel-code-frame "^6.26.0"
     babel-runtime "^6.26.0"
@@ -3265,17 +3265,17 @@ gatsby-react-router-scroll@^1.0.17:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-remark-prismjs@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-2.0.2.tgz#c8bf8ac0c061db7305deebf75ca7a8250a2b65ea"
+gatsby-remark-prismjs@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-2.0.3.tgz#0a3414e3c2c822b3010807acd9ac190546113c23"
   dependencies:
     babel-runtime "^6.26.0"
     parse-numeric-range "0.0.2"
     unist-util-visit "^1.3.0"
 
-gatsby-source-filesystem@1.5.36:
-  version "1.5.36"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.36.tgz#273a9940eacdff3bea6d58f114d8478e7ae3a0de"
+gatsby-source-filesystem@1.5.38:
+  version "1.5.38"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.38.tgz#9bf74c7bab280f552b074c72aff99f7bca45f927"
   dependencies:
     babel-cli "^6.26.0"
     babel-runtime "^6.26.0"
@@ -3315,9 +3315,9 @@ gatsby-transformer-remark@1.7.41:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.1.1"
 
-gatsby@1.9.261:
-  version "1.9.261"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.261.tgz#ca5352874de3ec359150d1ce592e19ed564d0fc0"
+gatsby@1.9.269:
+  version "1.9.269"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-1.9.269.tgz#70258c4b8ae449736348e1fdbbcb3a6aa89c7f04"
   dependencies:
     async "^2.1.2"
     babel-code-frame "^6.22.0"
@@ -3359,7 +3359,7 @@ gatsby@1.9.261:
     fs-extra "^4.0.1"
     gatsby-1-config-css-modules "^1.0.11"
     gatsby-1-config-extract-plugin "^1.0.3"
-    gatsby-cli "^1.1.52"
+    gatsby-cli "^1.1.57"
     gatsby-link "^1.6.44"
     gatsby-module-loader "^1.0.11"
     gatsby-react-router-scroll "^1.0.17"
@@ -5267,9 +5267,9 @@ nlcst-to-string@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/nlcst-to-string/-/nlcst-to-string-2.0.1.tgz#f90f3cf905c137dc8edd8727fbcde73e73c2a1d9"
 
-no-scroll@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/no-scroll/-/no-scroll-2.1.0.tgz#f8643b3ddb6a3bf94430e5ff31d26f21d082a695"
+no-scroll@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/no-scroll/-/no-scroll-2.1.1.tgz#f37e08cb159b75a5bdbfc0a87cd9223e120e6e27"
 
 node-emoji@^1.0.4:
   version "1.8.1"
@@ -6690,9 +6690,9 @@ react-hot-loader@^3.0.0-beta.6:
     redbox-react "^1.3.6"
     source-map "^0.4.4"
 
-react-lifecycles-compat@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.2.tgz#7279047275bd727a912e25f734c0559527e84eff"
+react-lifecycles-compat@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
 react-minimalist-portal@^2.2.0:
   version "2.2.0"
@@ -6707,12 +6707,12 @@ react-proxy@^3.0.0-alpha.0:
     lodash "^4.6.1"
 
 "react-responsive-modal@link:..":
-  version "3.0.1"
+  version "3.0.2"
   dependencies:
     classnames "^2.2.5"
-    no-scroll "^2.1.0"
+    no-scroll "^2.1.1"
     prop-types "^15.6.1"
-    react-lifecycles-compat "^3.0.2"
+    react-lifecycles-compat "^3.0.4"
     react-minimalist-portal "^2.2.0"
     react-transition-group "^2.3.1"
 
