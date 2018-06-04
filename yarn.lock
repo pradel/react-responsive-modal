@@ -5349,6 +5349,10 @@ p-locate@^2.0.0:
   dependencies:
     p-limit "^1.1.0"
 
+p-queue@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/p-queue/-/p-queue-2.4.2.tgz#03609826682b743be9a22dba25051bd46724fc34"
+
 pako@~0.2.0:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/pako/-/pako-0.2.9.tgz#f3f7522f4ef782348da8161bad9ecfd51bf83a75"
@@ -6548,9 +6552,9 @@ rollup-plugin-peer-deps-external@2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/rollup-plugin-peer-deps-external/-/rollup-plugin-peer-deps-external-2.1.1.tgz#49bba4965bedd0b8e1aa613bec4c4ab718b39360"
 
-rollup-plugin-postcss@1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-1.6.1.tgz#8251104b9d9eedacbb56e87fb8fb9f226daaf716"
+rollup-plugin-postcss@1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-1.6.2.tgz#f3422a56dab21bcb2e9b7182763733d4ff2c1b4c"
   dependencies:
     "@vue/component-compiler-utils" "^1.0.0"
     chalk "^2.0.0"
@@ -6558,6 +6562,7 @@ rollup-plugin-postcss@1.6.1:
     cssnano "^3.10.0"
     fs-extra "^5.0.0"
     import-cwd "^2.1.0"
+    p-queue "^2.4.2"
     pify "^3.0.0"
     postcss "^6.0.21"
     postcss-load-config "^1.2.0"
