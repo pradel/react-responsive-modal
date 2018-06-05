@@ -69,4 +69,4 @@ interface Props {
 
 declare const ReactReponsiveModal: React.ComponentType<Props>;
 
-export = ReactReponsiveModal;
+export default ReactReponsiveModal;
