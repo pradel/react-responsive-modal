@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Modal = require('react-responsive-modal');
+import Modal from 'react-responsive-modal';
 
 const onClose = () => null;
 const open = true;
