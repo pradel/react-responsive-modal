@@ -6422,9 +6422,9 @@ pretty-error@^2.1.1:
     renderkid "^2.0.1"
     utila "~0.4"
 
-prismjs@1.14.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.14.0.tgz#bbccfdb8be5d850d26453933cb50122ca0362ae0"
+prismjs@1.15.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.15.0.tgz#8801d332e472091ba8def94976c8877ad60398d9"
   optionalDependencies:
     clipboard "^2.0.0"
 
@@ -6707,7 +6707,7 @@ react-proxy@^3.0.0-alpha.0:
     lodash "^4.6.1"
 
 "react-responsive-modal@link:..":
-  version "3.0.2"
+  version "3.0.3"
   dependencies:
     classnames "^2.2.5"
     no-scroll "^2.1.1"
