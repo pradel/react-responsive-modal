@@ -85,7 +85,7 @@
     "eslint-plugin-react": "7.8.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "22.4.4",
-    "jest-enzyme": "6.0.1",
+    "jest-enzyme": "6.0.2",
     "prettier": "1.13.5",
     "react": "16.4.1",
     "react-docgen": "2.20.1",
