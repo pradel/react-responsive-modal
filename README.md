@@ -8,10 +8,10 @@
 
 A simple responsive react modal compatible with React 15, 16 and ready for React 17.
 
-* Centered modals.
-* Scrolling modals.
-* Multiple modals.
-* Easily customizable via props.
+- Centered modals.
+- Scrolling modals.
+- Multiple modals.
+- Easily customizable via props.
 
 ## Demo
 
@@ -89,6 +89,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 | closeIconSize       | `number` | `28`                                                                                                                               | Close icon size.                                                                                                                                                                                                                                                                                                                                                                                       |
 | closeIconSvgPath    | `node`   | `<path d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z" />` | A valid svg path to show as icon.                                                                                                                                                                                                                                                                                                                                                                      |
 | animationDuration   | `number` | `500`                                                                                                                              | Animation duration in milliseconds.                                                                                                                                                                                                                                                                                                                                                                    |
+| container           | `object` |                                                                                                                                    | You can specify a container prop which should be of type `Element`. The portal will be rendered inside that element. The default behavior will create a div node and render it at the at the end of document.body.                                                                                                                                                                                     |
 
 <!-- --end-insert-props-- -->
 
