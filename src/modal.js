@@ -140,6 +140,7 @@ class Modal extends Component {
       closeIconSize,
       closeIconSvgPath,
       animationDuration,
+      container,
     } = this.props;
     const { showPortal } = this.state;
 
@@ -148,7 +149,7 @@ class Modal extends Component {
     }
 
     return (
-      <Portal>
+      <Portal container={container}>
         <CSSTransition
           in={open}
           appear
@@ -271,6 +272,10 @@ Modal.propTypes = {
    * Animation duration in milliseconds.
    */
   animationDuration: PropTypes.number,
+  /**
+   * You can specify a container prop which should be of type `Element`. The portal will be rendered inside that element. The default behavior will create a div node and render it at the at the end of document.body.
+   */
+  container: PropTypes.object, // eslint-disable-line
 };
 
 Modal.defaultProps = {

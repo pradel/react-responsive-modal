@@ -51,12 +51,12 @@
   },
   "homepage": "https://github.com/pradel/react-responsive-modal#readme",
   "dependencies": {
-    "classnames": "^2.2.5",
+    "classnames": "^2.2.6",
     "no-scroll": "^2.1.1",
-    "prop-types": "^15.6.1",
+    "prop-types": "^15.6.2",
     "react-lifecycles-compat": "^3.0.4",
-    "react-minimalist-portal": "^2.2.0",
-    "react-transition-group": "^2.3.1"
+    "react-minimalist-portal": "^2.3.1",
+    "react-transition-group": "^2.4.0"
   },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0",
