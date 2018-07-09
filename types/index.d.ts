@@ -65,6 +65,11 @@ interface Props {
    * Animation duration in milliseconds.
    */
   animationDuration?: number;
+  /**
+   * You can specify a container prop which should be of type `Element`. The portal will be rendered inside that element.
+   * The default behavior will create a div node and render it at the at the end of document.body.
+   */
+  container?: any;
 }
 
 declare const ReactReponsiveModal: React.ComponentType<Props>;
