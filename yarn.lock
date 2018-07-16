@@ -7062,9 +7062,9 @@ signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-size-limit@0.18.4:
-  version "0.18.4"
-  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-0.18.4.tgz#58e13648ca1a21e4b62a2dac04421768e5e14df3"
+size-limit@0.18.5:
+  version "0.18.5"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-0.18.5.tgz#97ccd048f275e1f6bccd3db6a889da1a8e97cbf8"
   dependencies:
     bytes "^3.0.0"
     chalk "^2.4.1"
