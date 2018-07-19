@@ -40,7 +40,8 @@ export default class CustomContainer extends React.Component {
           container={this.myRef.current}
         >
           <p>
-            Take a look with the devtools you will see that this modal is rendered in a custom container.
+            Take a look with the devtools you will see that this modal is
+            rendered in a custom container.
           </p>
         </Modal>
       </div>

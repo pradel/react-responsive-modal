@@ -6,6 +6,7 @@ import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
 import CloseIcon from './close-icon';
+import modalManager from './modal-manager';
 import cssClasses from './styles.css';
 
 class Modal extends Component {
@@ -48,11 +49,13 @@ class Modal extends Component {
   }
 
   handleOpen = () => {
+    modalManager.add(this);
     this.blockScroll();
     document.addEventListener('keydown', this.handleKeydown);
   };
 
   handleClose = () => {
+    modalManager.remove(this);
     this.unblockScroll();
     document.removeEventListener('keydown', this.handleKeydown);
   };
@@ -83,7 +86,8 @@ class Modal extends Component {
   };
 
   handleKeydown = event => {
-    if (event.keyCode !== 27) {
+    // Only the last modal need to be escaped when pressing the esc key
+    if (event.keyCode !== 27 || !modalManager.isTopModal(this)) {
       return;
     }
 
@@ -116,10 +120,8 @@ class Modal extends Component {
   };
 
   unblockScroll = () => {
-    const openedModals = document.getElementsByClassName(
-      this.props.classes.modal
-    );
-    if (openedModals.length === 1) {
+    // Restore the scroll only if there is no modal on the screen
+    if (modalManager.modals().length === 0) {
       noScroll.off();
     }
   };
