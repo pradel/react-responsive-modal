@@ -12,6 +12,7 @@ import Big from '../examples/big';
 import Multiple from '../examples/multiple';
 import CustomStyling from '../examples/custom-styling';
 import CustomAnimation from '../examples/custom-animation';
+import CustomContainer from '../examples/custom-container';
 
 export default class ModalDemo extends React.Component {
   static propTypes = {
@@ -57,6 +58,7 @@ export default class ModalDemo extends React.Component {
             <Multiple />
             <CustomStyling />
             <CustomAnimation />
+            <CustomContainer />
           </div>
 
           <div
