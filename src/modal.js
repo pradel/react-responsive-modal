@@ -9,15 +9,6 @@ import CloseIcon from './close-icon';
 import cssClasses from './styles.css';
 
 class Modal extends Component {
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (!prevState.showPortal && nextProps.open) {
-      return {
-        showPortal: true,
-      };
-    }
-    return null;
-  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -45,6 +36,15 @@ class Modal extends Component {
     if (this.props.open) {
       this.handleClose();
     }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (!prevState.showPortal && nextProps.open) {
+      return {
+        showPortal: true,
+      };
+    }
+    return null;
   }
 
   handleOpen = () => {
@@ -115,11 +115,6 @@ class Modal extends Component {
     this.unblockScroll();
   };
 
-  // eslint-disable-next-line class-methods-use-this
-  blockScroll() {
-    noScroll.on();
-  }
-
   unblockScroll = () => {
     const openedModals = document.getElementsByClassName(
       this.props.classes.modal
@@ -128,6 +123,11 @@ class Modal extends Component {
       noScroll.off();
     }
   };
+
+  // eslint-disable-next-line class-methods-use-this
+  blockScroll() {
+    noScroll.on();
+  }
 
   render() {
     const {
