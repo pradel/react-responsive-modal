@@ -90,7 +90,7 @@
     "react": "16.4.1",
     "react-docgen": "2.21.0",
     "react-dom": "16.4.1",
-    "rollup": "0.63.4",
+    "rollup": "0.63.5",
     "rollup-plugin-babel": "3.0.7",
     "rollup-plugin-peer-deps-external": "2.2.0",
     "rollup-plugin-postcss": "1.6.2",
