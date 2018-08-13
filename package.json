@@ -75,7 +75,7 @@
     "codecov": "3.0.4",
     "dtslint": "0.3.0",
     "enzyme": "3.4.1",
-    "enzyme-adapter-react-16": "1.1.1",
+    "enzyme-adapter-react-16": "1.2.0",
     "eslint": "5.3.0",
     "eslint-config-airbnb": "17.0.0",
     "eslint-config-prettier": "2.9.0",
