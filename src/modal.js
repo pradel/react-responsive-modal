@@ -50,13 +50,17 @@ class Modal extends Component {
 
   handleOpen = () => {
     modalManager.add(this);
-    this.blockScroll();
+    if (this.props.blockScroll) {
+      this.blockScroll();
+    }
     document.addEventListener('keydown', this.handleKeydown);
   };
 
   handleClose = () => {
     modalManager.remove(this);
-    this.unblockScroll();
+    if (this.props.blockScroll) {
+      this.unblockScroll();
+    }
     document.removeEventListener('keydown', this.handleKeydown);
   };
 
@@ -116,7 +120,10 @@ class Modal extends Component {
     }
 
     this.setState({ showPortal: false });
-    this.unblockScroll();
+
+    if (this.props.blockScroll) {
+      this.unblockScroll();
+    }
   };
 
   unblockScroll = () => {
@@ -278,6 +285,10 @@ Modal.propTypes = {
    * You can specify a container prop which should be of type `Element`. The portal will be rendered inside that element. The default behavior will create a div node and render it at the at the end of document.body.
    */
   container: PropTypes.object, // eslint-disable-line
+  /**
+   * Whether to block scrolling when dialog is open
+   */
+  blockScroll: PropTypes.bool,
 };
 
 Modal.defaultProps = {
@@ -298,6 +309,7 @@ Modal.defaultProps = {
   children: null,
   center: false,
   animationDuration: 500,
+  blockScroll: true,
 };
 
 polyfill(Modal);

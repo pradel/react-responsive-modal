@@ -3,6 +3,7 @@
 exports[`modal render should render the content 1`] = `
 <Modal
   animationDuration={50}
+  blockScroll={true}
   center={false}
   classNames={Object {}}
   classes={

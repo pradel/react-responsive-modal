@@ -70,6 +70,10 @@ interface Props {
    * The default behavior will create a div node and render it at the at the end of document.body.
    */
   container?: any;
+  /**
+   * Whether to block scrolling when dialog is open
+   */
+  blockScroll?: boolean;
 }
 
 declare const ReactReponsiveModal: React.ComponentType<Props>;
