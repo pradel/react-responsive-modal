@@ -343,4 +343,36 @@ describe('modal', () => {
       wrapper.unmount();
     });
   });
+
+  describe('prop: blockScroll', () => {
+    let wrapper;
+
+    beforeAll(() => {
+      wrapper = mount(
+        <Modal {...defaultProps} blockScroll={false}>
+          <div>modal content</div>
+        </Modal>
+      );
+    });
+
+    afterAll(() => {
+      wrapper.unmount();
+    });
+
+    it('should not block the scroll when closed', () => {
+      expect(document.documentElement.style.overflow).toBe('');
+    });
+
+    it('should not block the scroll when opened', () => {
+      wrapper.setProps({ open: true });
+      expect(document.documentElement.style.overflow).toBe('');
+    });
+
+    it('should not block the scroll before or after animation', async () => {
+      wrapper.setProps({ open: false });
+      expect(document.documentElement.style.overflow).toBe('');
+      await wait();
+      expect(document.documentElement.style.overflow).toBe('');
+    });
+  });
 });
