@@ -1,6 +1,6 @@
 import React from 'react';
-import Modal from 'react-responsive-modal';
-import './custom-styling.css';
+import Modal from '../../src';
+import styles from './custom-styling.css';
 
 export default class CustomStyling extends React.Component {
   state = {
@@ -24,7 +24,7 @@ export default class CustomStyling extends React.Component {
           Open
         </button>{' '}
         <a
-          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/custom-styling.js"
+          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/examples/custom-styling.js"
           target="_blank"
         >
           See source code
@@ -33,7 +33,7 @@ export default class CustomStyling extends React.Component {
           open={open}
           onClose={this.onCloseModal}
           center
-          classNames={{ overlay: 'custom-overlay', modal: 'custom-modal' }}
+          classNames={{ overlay: styles.customOverlay, modal: styles.customModal }}
         >
           <h2>Modal</h2>
         </Modal>

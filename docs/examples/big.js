@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-responsive-modal';
+import Modal from '../../src';
 
 export default class Big extends React.Component {
   state = {
@@ -32,12 +32,11 @@ export default class Big extends React.Component {
     );
     return (
       <div className="example">
-        <h4>Big modal</h4>
         <button className="btn btn-action" onClick={this.onOpenModal}>
           Open
         </button>{' '}
         <a
-          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/big.js"
+          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/examples/big.js"
           target="_blank"
         >
           See source code

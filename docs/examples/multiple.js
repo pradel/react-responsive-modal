@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-responsive-modal';
+import Modal from '../../src';
 
 export default class Centered extends React.Component {
   state = {
@@ -34,12 +34,11 @@ export default class Centered extends React.Component {
     );
     return (
       <div className="example">
-        <h4>Multiple modals</h4>
         <button className="btn btn-action" onClick={this.onOpenFirstModal}>
           Open
         </button>{' '}
         <a
-          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/multiple.js"
+          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/examples/multiple.js"
           target="_blank"
         >
           See source code
