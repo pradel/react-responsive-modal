@@ -15,9 +15,8 @@ lib
 # Webstorm
 .idea
 
-# Docs
-docs/.cache
-docs/public
+# Docz
+.docz
 
 # Jest
 coverage

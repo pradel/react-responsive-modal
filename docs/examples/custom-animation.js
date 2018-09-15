@@ -1,6 +1,6 @@
 import React from 'react';
-import Modal from 'react-responsive-modal';
-import './custom-animation.css';
+import Modal from '../../src';
+import styles from './custom-animation.css';
 
 export default class CustomAnimation extends React.Component {
   state = {
@@ -24,8 +24,9 @@ export default class CustomAnimation extends React.Component {
           Open
         </button>{' '}
         <a
-          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/custom-animation.js"
+          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/examples/custom-animation.js"
           target="_blank"
+          rel="noopener noreferrer"
         >
           See source code
         </a>
@@ -34,10 +35,10 @@ export default class CustomAnimation extends React.Component {
           onClose={this.onCloseModal}
           center
           classNames={{
-            transitionEnter: 'transition-enter',
-            transitionEnterActive: 'transition-enter-active',
-            transitionExit: 'transition-exit-active',
-            transitionExitActive: 'transition-exit-active',
+            transitionEnter: styles.transitionEnter,
+            transitionEnterActive: styles.transitionEnterActive,
+            transitionExit: styles.transitionExitActive,
+            transitionExitActive: styles.transitionExitActive,
           }}
           animationDuration={1000}
         >

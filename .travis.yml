@@ -9,11 +9,9 @@ node_js:
 
 install:
   - yarn
-  - cd docs && yarn && cd ..
 
 script:
   - yarn test
-  - cd docs && yarn test && cd ..
 
 notifications:
   email: false

@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-responsive-modal';
+import Modal from '../../src';
 
 export default class CustomContainer extends React.Component {
   constructor(props) {
@@ -28,8 +28,9 @@ export default class CustomContainer extends React.Component {
           Open
         </button>{' '}
         <a
-          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/custom-container.js"
+          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/examples/custom-container.js"
           target="_blank"
+          rel="noopener noreferrer"
         >
           See source code
         </a>

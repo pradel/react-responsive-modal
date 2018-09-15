@@ -1,14 +1,14 @@
-.transition-enter {
+.transitionEnter {
   transform: scale(0);
 }
-.transition-enter-active {
+.transitionEnterActive {
   transform: scale(1);
   transition: transform 1000ms ease;
 }
-.transition-exit {
+.transitionExit {
   transform: scale(1);
 }
-.transition-exit-active {
+.transitionExitActive {
   transform: scale(0);
   transition: transform 1000ms ease;
 }

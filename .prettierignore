@@ -1,4 +1,3 @@
 lib
-docs/.cache
-docs/public
+.docz
 coverage

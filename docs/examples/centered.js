@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-responsive-modal';
+import Modal from '../../src';
 
 export default class Centered extends React.Component {
   state = {
@@ -18,13 +18,13 @@ export default class Centered extends React.Component {
     const { open } = this.state;
     return (
       <div className="example">
-        <h4>Centered modal</h4>
         <button className="btn btn-action" onClick={this.onOpenModal}>
           Open
         </button>{' '}
         <a
-          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/src/examples/centered.js"
+          href="https://github.com/pradel/react-responsive-modal/blob/master/docs/examples/centered.js"
           target="_blank"
+          rel="noopener noreferrer"
         >
           See source code
         </a>
