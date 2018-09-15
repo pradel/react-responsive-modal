@@ -38,6 +38,7 @@ export default class Big extends React.Component {
         <a
           href="https://github.com/pradel/react-responsive-modal/blob/master/docs/examples/big.js"
           target="_blank"
+          rel="noopener noreferrer"
         >
           See source code
         </a>

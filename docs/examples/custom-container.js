@@ -30,6 +30,7 @@ export default class CustomContainer extends React.Component {
         <a
           href="https://github.com/pradel/react-responsive-modal/blob/master/docs/examples/custom-container.js"
           target="_blank"
+          rel="noopener noreferrer"
         >
           See source code
         </a>
