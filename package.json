@@ -79,6 +79,7 @@
     "codecov": "3.1.0",
     "docz": "^0.11.2",
     "docz-plugin-css": "^0.11.0",
+    "docz-plugin-netlify": "^1.1.4",
     "dtslint": "0.3.0",
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
