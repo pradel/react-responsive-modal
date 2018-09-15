@@ -46,7 +46,7 @@ interface Props {
    */
   styles?: object;
   /**
-   * Is the dialog centered (**when you don't have a lot of content**).
+   * Should the dialog be centered.
    */
   center?: boolean;
   /**
