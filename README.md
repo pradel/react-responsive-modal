@@ -1,15 +1,8 @@
-<p align="center">
-  <h1>react-responsive-modal</h1>
-</p>
+#react-responsive-modal
 
-<p align="center">
-  <a href="https://npmjs.org/package/react-responsive-modal"><img alt="NPM version" src="https://img.shields.io/npm/v/react-responsive-modal.svg" /></a>
-</p>
-
-[![npm version](https://badge.fury.io/js/react-responsive-modal.svg)](https://badge.fury.io/js/react-responsive-modal)
-[![npm](https://img.shields.io/npm/dm/react-responsive-modal.svg)](https://www.npmjs.com/package/react-responsive-modal)
-[![Build Status](https://travis-ci.org/pradel/react-responsive-modal.svg?branch=master)](https://travis-ci.org/pradel/react-responsive-modal)
-[![codecov](https://codecov.io/gh/pradel/react-responsive-modal/branch/master/graph/badge.svg)](https://codecov.io/gh/pradel/react-responsive-modal)
+[![npm version](https://img.shields.io/npm/v/react-responsive-modal.svg)](https://www.npmjs.com/package/react-responsive-modal)
+[![npm downloads per month](https://img.shields.io/npm/dm/react-responsive-modal.svg)](https://www.npmjs.com/package/react-responsive-modal)
+[![codecov](https://img.shields.io/codecov/c/github/pradel/react-responsive-modal/master.svg)](https://codecov.io/gh/pradel/react-responsive-modal)
 [![dependencies Status](https://david-dm.org/pradel/react-responsive-modal/status.svg)](https://david-dm.org/pradel/react-responsive-modal)
 
 A simple responsive react modal compatible with React 15, 16 and ready for React 17.
@@ -19,13 +12,19 @@ A simple responsive react modal compatible with React 15, 16 and ready for React
 - Multiple modals.
 - Easily customizable via props.
 
-## Demo
+## Documentation
 
-You can find a demo [here](https://react-responsive-modal.leopradel.com/).
-
-## Examples
-
-https://react-responsive-modal.leopradel.com/#example
+- [Getting started](https://react-responsive-modal.leopradel.com/)
+  - [Installation](https://react-responsive-modal.leopradel.com/#installation)
+  - [Usage](https://react-responsive-modal.leopradel.com/#usage)
+  - [Props](https://react-responsive-modal.leopradel.com/#props)
+  - [Licence](https://react-responsive-modal.leopradel.com/#license)
+- [Examples](https://react-responsive-modal.leopradel.com/examples)
+  - [Centered modal](https://react-responsive-modal.leopradel.com/examples#centered-modal)
+  - [Multiple modal](https://react-responsive-modal.leopradel.com/examples#multiple-modal)
+  - [Custom styling](https://react-responsive-modal.leopradel.com/examples#custom-styling)
+  - [Custom animation](https://react-responsive-modal.leopradel.com/examples#custom-animation)
+  - [Custom container](https://react-responsive-modal.leopradel.com/examples#custom-container)
 
 ## Installation
 
