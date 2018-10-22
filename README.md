@@ -1,4 +1,4 @@
-#react-responsive-modal
+# react-responsive-modal
 
 [![npm version](https://img.shields.io/npm/v/react-responsive-modal.svg)](https://www.npmjs.com/package/react-responsive-modal)
 [![npm downloads per month](https://img.shields.io/npm/dm/react-responsive-modal.svg)](https://www.npmjs.com/package/react-responsive-modal)
