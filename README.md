@@ -1,4 +1,10 @@
-# react-responsive-modal
+<p align="center">
+  <h1>react-responsive-modal</h1>
+</p>
+
+<p align="center">
+  <a href="https://npmjs.org/package/react-responsive-modal"><img alt="NPM version" src="https://img.shields.io/npm/v/react-responsive-modal.svg" /></a>
+</p>
 
 [![npm version](https://badge.fury.io/js/react-responsive-modal.svg)](https://badge.fury.io/js/react-responsive-modal)
 [![npm](https://img.shields.io/npm/dm/react-responsive-modal.svg)](https://www.npmjs.com/package/react-responsive-modal)
