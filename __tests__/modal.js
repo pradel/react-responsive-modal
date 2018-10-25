@@ -376,6 +376,7 @@ describe('modal', () => {
       expect(document.documentElement.style.overflow).toBe('');
     });
   });
+});
 
 describe('ConditionalWrap', () => {
   it('Should wrap when true', () => {
