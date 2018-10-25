@@ -5,18 +5,22 @@ import Portal from 'react-minimalist-portal';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
+import FocusTrap from 'focus-trap-react';
 import CloseIcon from './close-icon';
 import modalManager from './modal-manager';
 import cssClasses from './styles.css';
+import ConditionalWrap from './conditional-wrap';
 
 class Modal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showPortal: props.open,
-    };
-    this.shouldClose = null;
+  static blockScroll() {
+    noScroll.on();
   }
+
+  shouldClose = null;
+
+  state = {
+    showPortal: this.props.open,
+  };
 
   componentDidMount() {
     // Block scroll when initial prop is open
@@ -51,7 +55,7 @@ class Modal extends Component {
   handleOpen = () => {
     modalManager.add(this);
     if (this.props.blockScroll) {
-      this.blockScroll();
+      Modal.blockScroll();
     }
     document.addEventListener('keydown', this.handleKeydown);
   };
@@ -133,11 +137,6 @@ class Modal extends Component {
     }
   };
 
-  // eslint-disable-next-line class-methods-use-this
-  blockScroll() {
-    noScroll.on();
-  }
-
   render() {
     const {
       open,
@@ -193,17 +192,26 @@ class Modal extends Component {
               onMouseUp={this.handleModalEvent}
               onClick={this.handleModalEvent}
             >
-              {this.props.children}
-              {showCloseIcon && (
-                <CloseIcon
-                  classes={classes}
-                  classNames={classNames}
-                  styles={styles}
-                  closeIconSize={closeIconSize}
-                  closeIconSvgPath={closeIconSvgPath}
-                  onClickCloseIcon={this.handleClickCloseIcon}
-                />
-              )}
+              <ConditionalWrap
+                condition={this.props.focusTrapped}
+                wrap={children => (
+                  <FocusTrap focusTrapOptions={this.props.focusTrapOptions}>
+                    {children}
+                  </FocusTrap>
+                )}
+              >
+                {this.props.children}
+                {showCloseIcon && (
+                  <CloseIcon
+                    classes={classes}
+                    classNames={classNames}
+                    styles={styles}
+                    closeIconSize={closeIconSize}
+                    closeIconSvgPath={closeIconSvgPath}
+                    onClickCloseIcon={this.handleClickCloseIcon}
+                  />
+                )}
+              </ConditionalWrap>
             </div>
           </div>
         </CSSTransition>
@@ -289,6 +297,14 @@ Modal.propTypes = {
    * Whether to block scrolling when dialog is open
    */
   blockScroll: PropTypes.bool,
+  /**
+   * When the modal is open, trap focus within it
+   */
+  focusTrapped: PropTypes.bool,
+  /**
+   * Options to be passed to the focus trap, details available at https://github.com/davidtheclark/focus-trap#focustrap--createfocustrapelement-createoptions
+   */
+  focusTrapOptions: PropTypes.object,
 };
 
 Modal.defaultProps = {
@@ -310,6 +326,8 @@ Modal.defaultProps = {
   center: false,
   animationDuration: 500,
   blockScroll: true,
+  focusTrapped: false,
+  focusTrapOptions: {},
 };
 
 polyfill(Modal);
