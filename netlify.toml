@@ -1,0 +1,9 @@
+
+[build]
+  publish = ".docz/dist"
+  command = "yarn docz:build"
+
+[build.environment]
+  NODE_VERSION = "9"
+  YARN_VERSION = "1.10.1"
+  YARN_FLAGS = "--pure-lockfile"
