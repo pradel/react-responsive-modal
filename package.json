@@ -107,7 +107,7 @@
   "size-limit": [
     {
       "path": "lib/index.js",
-      "limit": "7 KB"
+      "limit": "10 KB"
     }
   ],
   "license": "MIT"
