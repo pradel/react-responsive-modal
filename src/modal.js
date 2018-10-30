@@ -195,7 +195,7 @@ class Modal extends Component {
               <ConditionalWrap
                 condition={this.props.focusTrapped}
                 wrap={children => (
-                  <FocusTrap focusTrapOptions={this.props.focusTrapOptions}>
+                  <FocusTrap focusTrapOptions={{ ...{clickOutsideDeactivates: true}, ...this.props.focusTrapOptions}}>
                     {children}
                   </FocusTrap>
                 )}
