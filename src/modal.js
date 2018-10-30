@@ -149,6 +149,8 @@ class Modal extends Component {
       closeIconSvgPath,
       animationDuration,
       container,
+      focusTrapped,
+      focusTrapOptions
     } = this.props;
     const { showPortal } = this.state;
 
@@ -193,9 +195,9 @@ class Modal extends Component {
               onClick={this.handleModalEvent}
             >
               <ConditionalWrap
-                condition={this.props.focusTrapped}
+                condition={focusTrapped}
                 wrap={children => (
-                  <FocusTrap focusTrapOptions={{ ...{clickOutsideDeactivates: true}, ...this.props.focusTrapOptions}}>
+                  <FocusTrap focusTrapOptions={{ ...{clickOutsideDeactivates: true}, ...focusTrapOptions}}>
                     {children}
                   </FocusTrap>
                 )}
