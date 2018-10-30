@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import FocusTrap from 'focus-trap-react';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import Modal from '../src/modal';
 
@@ -373,6 +374,56 @@ describe('modal', () => {
       expect(document.documentElement.style.overflow).toBe('');
       await wait();
       expect(document.documentElement.style.overflow).toBe('');
+    });
+  });
+
+  describe('prop: focusTrapped', () => {
+    let wrapper;
+
+    beforeAll(() => {
+      wrapper = mount(
+        <Modal {...defaultProps} open focusTrapped={false}>
+          <div>modal content</div>
+        </Modal>
+      );
+    });
+
+    afterAll(() => {
+      wrapper.unmount();
+    });
+
+    it('should not contain focus trap component when false', () => {
+      expect(wrapper.find(FocusTrap).exists()).toBe(false);
+    });
+
+    it('should contain focus trap component when true', () => {
+      wrapper.setProps({ focusTrapped: true });
+      expect(wrapper.find(FocusTrap).exists()).toBe(true);
+    });
+
+    describe('prop: focusTrapOptions', () => {
+      it('should have a default option for clickOutsideDeactivates true', () => {
+        wrapper.setProps({ focusTrapped: true });
+        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual({clickOutsideDeactivates: true});
+      });
+
+      it('should override clickOutsideDeactivates if specified', () => {
+        const focusTrapOptions = { 
+          clickOutsideDeactivates: false
+        };
+        wrapper.setProps({ focusTrapOptions, focusTrapped: true });
+        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(focusTrapOptions);
+      });
+
+      it('should pass focusTrapOptions thru', () => {
+        const focusTrapOptions = { 
+          clickOutsideDeactivates: false,
+          escapeDeactivates: false,
+          returnFocusOnDeactivate: false
+        };
+        wrapper.setProps({ focusTrapOptions, focusTrapped: true });
+        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(focusTrapOptions);
+      });
     });
   });
 });

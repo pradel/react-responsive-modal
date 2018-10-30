@@ -74,6 +74,14 @@ interface Props {
    * Whether to block scrolling when dialog is open
    */
   blockScroll?: boolean;
+  /**
+   * When the modal is open, trap focus within it
+   */
+  focusTrapped?: boolean;
+  /**
+   * Options to be passed to the focus trap, details available at https://github.com/davidtheclark/focus-trap#focustrap--createfocustrapelement-createoptions
+   */
+  focusTrapOptions?: object;
 }
 
 declare const ReactReponsiveModal: React.ComponentType<Props>;
