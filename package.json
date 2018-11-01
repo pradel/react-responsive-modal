@@ -78,7 +78,7 @@
     "babel-jest": "23.6.0",
     "babel-plugin-external-helpers": "6.22.0",
     "codecov": "3.1.0",
-    "docz": "0.12.5",
+    "docz": "0.12.9",
     "docz-plugin-css": "0.11.0",
     "docz-plugin-netlify": "1.1.4",
     "dtslint": "0.3.0",
@@ -107,7 +107,7 @@
   "size-limit": [
     {
       "path": "lib/index.js",
-      "limit": "10 KB"
+      "limit": "9 KB"
     }
   ],
   "license": "MIT"
