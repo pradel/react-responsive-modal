@@ -404,25 +404,31 @@ describe('modal', () => {
     describe('prop: focusTrapOptions', () => {
       it('should have a default option for clickOutsideDeactivates true', () => {
         wrapper.setProps({ focusTrapped: true });
-        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual({clickOutsideDeactivates: true});
+        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual({
+          clickOutsideDeactivates: true,
+        });
       });
 
       it('should override clickOutsideDeactivates if specified', () => {
-        const focusTrapOptions = { 
-          clickOutsideDeactivates: false
+        const focusTrapOptions = {
+          clickOutsideDeactivates: false,
         };
         wrapper.setProps({ focusTrapOptions, focusTrapped: true });
-        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(focusTrapOptions);
+        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(
+          focusTrapOptions
+        );
       });
 
       it('should pass focusTrapOptions thru', () => {
-        const focusTrapOptions = { 
+        const focusTrapOptions = {
           clickOutsideDeactivates: false,
           escapeDeactivates: false,
-          returnFocusOnDeactivate: false
+          returnFocusOnDeactivate: false,
         };
         wrapper.setProps({ focusTrapOptions, focusTrapped: true });
-        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(focusTrapOptions);
+        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(
+          focusTrapOptions
+        );
       });
     });
   });

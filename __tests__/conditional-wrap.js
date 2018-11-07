@@ -4,15 +4,13 @@ import ConditionalWrap from '../src/conditional-wrap';
 
 describe('ConditionalWrap', () => {
   it('Should work with no props', () => {
-    const wrapper = shallow(
-      <ConditionalWrap />
-    );
+    const wrapper = shallow(<ConditionalWrap />);
 
     expect(wrapper.find('div').length).toBe(1);
   });
   it('Should wrap when true', () => {
     const wrapper = shallow(
-      <ConditionalWrap condition wrap={children => <a href='/'>{children}</a>} >
+      <ConditionalWrap condition wrap={children => <a href="/">{children}</a>}>
         <p>content</p>
       </ConditionalWrap>
     );
@@ -22,7 +20,10 @@ describe('ConditionalWrap', () => {
   });
   it('Should not wrap when false', () => {
     const wrapper = shallow(
-      <ConditionalWrap condition={false} wrap={children => <a href='/'>{children}</a>} >
+      <ConditionalWrap
+        condition={false}
+        wrap={children => <a href="/">{children}</a>}
+      >
         <p>content</p>
       </ConditionalWrap>
     );
@@ -32,7 +33,7 @@ describe('ConditionalWrap', () => {
   });
   it('Should not wrap when undefined', () => {
     const wrapper = shallow(
-      <ConditionalWrap wrap={children => <a href='/'>{children}</a>} >
+      <ConditionalWrap wrap={children => <a href="/">{children}</a>}>
         <p>content</p>
       </ConditionalWrap>
     );
@@ -42,7 +43,7 @@ describe('ConditionalWrap', () => {
   });
   it('Should only have one child when true', () => {
     const wrapper = mount(
-      <ConditionalWrap condition wrap={children => <a href='/'>{children}</a>} >
+      <ConditionalWrap condition wrap={children => <a href="/">{children}</a>}>
         <p>content</p>
         <p>content</p>
       </ConditionalWrap>
@@ -53,7 +54,10 @@ describe('ConditionalWrap', () => {
   });
   it('Should only have one child when false', () => {
     const wrapper = mount(
-      <ConditionalWrap condition={false} wrap={children => <a href='/'>{children}</a>} >
+      <ConditionalWrap
+        condition={false}
+        wrap={children => <a href="/">{children}</a>}
+      >
         <p>content</p>
         <p>content</p>
       </ConditionalWrap>

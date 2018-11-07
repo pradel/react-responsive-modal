@@ -7,13 +7,13 @@ const ConditionalWrap = ({ condition, wrap, children }) =>
 ConditionalWrap.propTypes = {
   condition: PropTypes.bool,
   wrap: PropTypes.func,
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
 ConditionalWrap.defaultProps = {
   condition: false,
   wrap: null,
-  children: null
-}
+  children: null,
+};
 
 export default ConditionalWrap;
