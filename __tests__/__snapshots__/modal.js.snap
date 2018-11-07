@@ -45,10 +45,10 @@ exports[`modal render should render the content 1`] = `
           <div
             class="test-react-responsive-modal-overlay test-react-responsive-modal-transition-enter test-react-responsive-modal-transition-enter-active"
           >
-            <div
-              class="test-react-responsive-modal-modal"
-            >
-              <div>
+            <div>
+              <div
+                class="test-react-responsive-modal-modal"
+              >
                 <div>
                   modal content
                 </div>
@@ -109,17 +109,17 @@ exports[`modal render should render the content 1`] = `
             className="test-react-responsive-modal-overlay"
             onClick={[Function]}
           >
-            <div
-              className="test-react-responsive-modal-modal"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
+            <ConditionalWrap
+              condition={false}
+              wrap={[Function]}
             >
-              <ConditionalWrap
-                condition={false}
-                wrap={[Function]}
-              >
-                <div>
+              <div>
+                <div
+                  className="test-react-responsive-modal-modal"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
                   <div>
                     modal content
                   </div>
@@ -165,8 +165,8 @@ exports[`modal render should render the content 1`] = `
                     </button>
                   </CloseIcon>
                 </div>
-              </ConditionalWrap>
-            </div>
+              </div>
+            </ConditionalWrap>
           </div>
         </Transition>
       </CSSTransition>

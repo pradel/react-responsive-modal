@@ -150,7 +150,7 @@ class Modal extends Component {
       animationDuration,
       container,
       focusTrapped,
-      focusTrapOptions
+      focusTrapOptions,
     } = this.props;
     const { showPortal } = this.state;
 
@@ -187,20 +187,25 @@ class Modal extends Component {
             onClick={this.handleClickOverlay}
             style={styles.overlay}
           >
-            <div
-              className={cx(classes.modal, classNames.modal)}
-              style={styles.modal}
-              onMouseDown={this.handleModalEvent}
-              onMouseUp={this.handleModalEvent}
-              onClick={this.handleModalEvent}
+            <ConditionalWrap
+              condition={focusTrapped}
+              wrap={children => (
+                <FocusTrap
+                  focusTrapOptions={{
+                    ...{ clickOutsideDeactivates: true },
+                    ...focusTrapOptions,
+                  }}
+                >
+                  {children}
+                </FocusTrap>
+              )}
             >
-              <ConditionalWrap
-                condition={focusTrapped}
-                wrap={children => (
-                  <FocusTrap focusTrapOptions={{ ...{clickOutsideDeactivates: true}, ...focusTrapOptions}}>
-                    {children}
-                  </FocusTrap>
-                )}
+              <div
+                className={cx(classes.modal, classNames.modal)}
+                style={styles.modal}
+                onMouseDown={this.handleModalEvent}
+                onMouseUp={this.handleModalEvent}
+                onClick={this.handleModalEvent}
               >
                 {this.props.children}
                 {showCloseIcon && (
@@ -213,8 +218,8 @@ class Modal extends Component {
                     onClickCloseIcon={this.handleClickCloseIcon}
                   />
                 )}
-              </ConditionalWrap>
-            </div>
+              </div>
+            </ConditionalWrap>
           </div>
         </CSSTransition>
       </Portal>
