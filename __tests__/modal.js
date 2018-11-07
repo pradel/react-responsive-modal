@@ -181,6 +181,7 @@ describe('modal', () => {
     });
 
     it('should render the content', () => {
+      wrapper.setProps({ open: true });
       expect(wrapper.find(Modal).length).toBe(1);
       expect(wrapper.find(Modal)).toMatchSnapshot();
     });
