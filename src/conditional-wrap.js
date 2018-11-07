@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 const ConditionalWrap = ({ condition, wrap, children }) =>
-  condition ? wrap(children) : <div>{children}</div>;
+  condition ? wrap(children) : children;
 
 ConditionalWrap.propTypes = {
   condition: PropTypes.bool,

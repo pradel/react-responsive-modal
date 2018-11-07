@@ -161,28 +161,42 @@ describe('modal', () => {
   });
 
   describe('render', () => {
-    it('should render null when then modal is not opened', () => {
-      const wrapper = mount(
+    let wrapper;
+
+    beforeAll(() => {
+      wrapper = mount(
         <Modal {...defaultProps}>
           <div>modal content</div>
         </Modal>
       );
+    });
 
-      expect(wrapper.find(Modal).length).toBe(1);
-      expect(wrapper.find(Modal)).toBeEmptyRender();
+    afterAll(() => {
       wrapper.unmount();
     });
 
-    it('should render the content', () => {
-      const wrapper = mount(
-        <Modal {...defaultProps} open>
-          <div>modal content</div>
-        </Modal>
-      );
+    it('should render null when then modal is not opened', () => {
+      expect(wrapper.find(Modal).length).toBe(1);
+      expect(wrapper.find(Modal)).toBeEmptyRender();
+    });
 
+    it('should render the content', () => {
       expect(wrapper.find(Modal).length).toBe(1);
       expect(wrapper.find(Modal)).toMatchSnapshot();
-      wrapper.unmount();
+    });
+
+    it('should only render one child if focusTrapped is false', () => {
+      wrapper.setProps({ focusTrapped: false, open: true });
+      expect(
+        wrapper.find(`.${defaultProps.classes.overlay}`).children().length
+      ).toBe(1);
+    });
+
+    it('should only render one child if focusTrapped is true', () => {
+      wrapper.setProps({ focusTrapped: true, open: true });
+      expect(
+        wrapper.find(`.${defaultProps.classes.overlay}`).children().length
+      ).toBe(1);
     });
   });
 

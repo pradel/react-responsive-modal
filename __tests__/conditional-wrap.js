@@ -3,11 +3,6 @@ import { shallow, mount } from 'enzyme';
 import ConditionalWrap from '../src/conditional-wrap';
 
 describe('ConditionalWrap', () => {
-  it('Should work with no props', () => {
-    const wrapper = shallow(<ConditionalWrap />);
-
-    expect(wrapper.find('div').length).toBe(1);
-  });
   it('Should wrap when true', () => {
     const wrapper = shallow(
       <ConditionalWrap condition wrap={children => <a href="/">{children}</a>}>
@@ -44,20 +39,6 @@ describe('ConditionalWrap', () => {
   it('Should only have one child when true', () => {
     const wrapper = mount(
       <ConditionalWrap condition wrap={children => <a href="/">{children}</a>}>
-        <p>content</p>
-        <p>content</p>
-      </ConditionalWrap>
-    );
-
-    expect(wrapper.find(ConditionalWrap).children().length).toBe(1);
-    wrapper.unmount();
-  });
-  it('Should only have one child when false', () => {
-    const wrapper = mount(
-      <ConditionalWrap
-        condition={false}
-        wrap={children => <a href="/">{children}</a>}
-      >
         <p>content</p>
         <p>content</p>
       </ConditionalWrap>
