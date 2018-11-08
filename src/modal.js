@@ -9,7 +9,6 @@ import FocusTrap from 'focus-trap-react';
 import CloseIcon from './close-icon';
 import modalManager from './modal-manager';
 import cssClasses from './styles.css';
-import ConditionalWrap from './conditional-wrap';
 
 class Modal extends Component {
   static blockScroll() {
@@ -187,19 +186,34 @@ class Modal extends Component {
             onClick={this.handleClickOverlay}
             style={styles.overlay}
           >
-            <ConditionalWrap
-              condition={focusTrapped}
-              wrap={children => (
+            {focusTrapped ? (
+              <div
+                className={cx(classes.modal, classNames.modal)}
+                style={styles.modal}
+                onMouseDown={this.handleModalEvent}
+                onMouseUp={this.handleModalEvent}
+                onClick={this.handleModalEvent}
+              >
                 <FocusTrap
                   focusTrapOptions={{
                     ...{ clickOutsideDeactivates: true },
                     ...focusTrapOptions,
                   }}
                 >
-                  {children}
+                  {this.props.children}
+                  {showCloseIcon && (
+                    <CloseIcon
+                      classes={classes}
+                      classNames={classNames}
+                      styles={styles}
+                      closeIconSize={closeIconSize}
+                      closeIconSvgPath={closeIconSvgPath}
+                      onClickCloseIcon={this.handleClickCloseIcon}
+                    />
+                  )}
                 </FocusTrap>
-              )}
-            >
+              </div>
+            ) : (
               <div
                 className={cx(classes.modal, classNames.modal)}
                 style={styles.modal}
@@ -219,7 +233,7 @@ class Modal extends Component {
                   />
                 )}
               </div>
-            </ConditionalWrap>
+            )}
           </div>
         </CSSTransition>
       </Portal>

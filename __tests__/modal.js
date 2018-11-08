@@ -185,20 +185,6 @@ describe('modal', () => {
       expect(wrapper.find(Modal).length).toBe(1);
       expect(wrapper.find(Modal)).toMatchSnapshot();
     });
-
-    it('should only render one child if focusTrapped is false', () => {
-      wrapper.setProps({ focusTrapped: false, open: true });
-      expect(
-        wrapper.find(`.${defaultProps.classes.overlay}`).children().length
-      ).toBe(1);
-    });
-
-    it('should only render one child if focusTrapped is true', () => {
-      wrapper.setProps({ focusTrapped: true, open: true });
-      expect(
-        wrapper.find(`.${defaultProps.classes.overlay}`).children().length
-      ).toBe(1);
-    });
   });
 
   describe('lifecycle', () => {
