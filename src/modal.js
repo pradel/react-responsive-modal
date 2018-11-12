@@ -9,7 +9,6 @@ import FocusTrap from 'focus-trap-react';
 import CloseIcon from './close-icon';
 import modalManager from './modal-manager';
 import cssClasses from './styles.css';
-import ConditionalWrap from './conditional-wrap';
 
 class Modal extends Component {
   static blockScroll() {
@@ -150,7 +149,7 @@ class Modal extends Component {
       animationDuration,
       container,
       focusTrapped,
-      focusTrapOptions
+      focusTrapOptions,
     } = this.props;
     const { showPortal } = this.state;
 
@@ -187,20 +186,40 @@ class Modal extends Component {
             onClick={this.handleClickOverlay}
             style={styles.overlay}
           >
-            <div
-              className={cx(classes.modal, classNames.modal)}
-              style={styles.modal}
-              onMouseDown={this.handleModalEvent}
-              onMouseUp={this.handleModalEvent}
-              onClick={this.handleModalEvent}
-            >
-              <ConditionalWrap
-                condition={focusTrapped}
-                wrap={children => (
-                  <FocusTrap focusTrapOptions={{ ...{clickOutsideDeactivates: true}, ...focusTrapOptions}}>
-                    {children}
-                  </FocusTrap>
-                )}
+            {focusTrapped ? (
+              <div
+                className={cx(classes.modal, classNames.modal)}
+                style={styles.modal}
+                onMouseDown={this.handleModalEvent}
+                onMouseUp={this.handleModalEvent}
+                onClick={this.handleModalEvent}
+              >
+                <FocusTrap
+                  focusTrapOptions={{
+                    ...{ clickOutsideDeactivates: true },
+                    ...focusTrapOptions,
+                  }}
+                >
+                  {this.props.children}
+                  {showCloseIcon && (
+                    <CloseIcon
+                      classes={classes}
+                      classNames={classNames}
+                      styles={styles}
+                      closeIconSize={closeIconSize}
+                      closeIconSvgPath={closeIconSvgPath}
+                      onClickCloseIcon={this.handleClickCloseIcon}
+                    />
+                  )}
+                </FocusTrap>
+              </div>
+            ) : (
+              <div
+                className={cx(classes.modal, classNames.modal)}
+                style={styles.modal}
+                onMouseDown={this.handleModalEvent}
+                onMouseUp={this.handleModalEvent}
+                onClick={this.handleModalEvent}
               >
                 {this.props.children}
                 {showCloseIcon && (
@@ -213,8 +232,8 @@ class Modal extends Component {
                     onClickCloseIcon={this.handleClickCloseIcon}
                   />
                 )}
-              </ConditionalWrap>
-            </div>
+              </div>
+            )}
           </div>
         </CSSTransition>
       </Portal>

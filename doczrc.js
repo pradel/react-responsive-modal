@@ -1,5 +1,5 @@
 import { css } from 'docz-plugin-css';
-import doczPluginNetlify from "docz-plugin-netlify";
+import doczPluginNetlify from 'docz-plugin-netlify';
 
 export default {
   title: 'react-responsive-modal',

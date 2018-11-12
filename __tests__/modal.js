@@ -161,28 +161,29 @@ describe('modal', () => {
   });
 
   describe('render', () => {
-    it('should render null when then modal is not opened', () => {
-      const wrapper = mount(
+    let wrapper;
+
+    beforeAll(() => {
+      wrapper = mount(
         <Modal {...defaultProps}>
           <div>modal content</div>
         </Modal>
       );
+    });
 
-      expect(wrapper.find(Modal).length).toBe(1);
-      expect(wrapper.find(Modal)).toBeEmptyRender();
+    afterAll(() => {
       wrapper.unmount();
     });
 
-    it('should render the content', () => {
-      const wrapper = mount(
-        <Modal {...defaultProps} open>
-          <div>modal content</div>
-        </Modal>
-      );
+    it('should render null when then modal is not opened', () => {
+      expect(wrapper.find(Modal).length).toBe(1);
+      expect(wrapper.find(Modal)).toBeEmptyRender();
+    });
 
+    it('should render the content', () => {
+      wrapper.setProps({ open: true });
       expect(wrapper.find(Modal).length).toBe(1);
       expect(wrapper.find(Modal)).toMatchSnapshot();
-      wrapper.unmount();
     });
   });
 
@@ -404,25 +405,31 @@ describe('modal', () => {
     describe('prop: focusTrapOptions', () => {
       it('should have a default option for clickOutsideDeactivates true', () => {
         wrapper.setProps({ focusTrapped: true });
-        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual({clickOutsideDeactivates: true});
+        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual({
+          clickOutsideDeactivates: true,
+        });
       });
 
       it('should override clickOutsideDeactivates if specified', () => {
-        const focusTrapOptions = { 
-          clickOutsideDeactivates: false
+        const focusTrapOptions = {
+          clickOutsideDeactivates: false,
         };
         wrapper.setProps({ focusTrapOptions, focusTrapped: true });
-        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(focusTrapOptions);
+        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(
+          focusTrapOptions
+        );
       });
 
       it('should pass focusTrapOptions thru', () => {
-        const focusTrapOptions = { 
+        const focusTrapOptions = {
           clickOutsideDeactivates: false,
           escapeDeactivates: false,
-          returnFocusOnDeactivate: false
+          returnFocusOnDeactivate: false,
         };
         wrapper.setProps({ focusTrapOptions, focusTrapped: true });
-        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(focusTrapOptions);
+        expect(wrapper.find(FocusTrap).prop('focusTrapOptions')).toEqual(
+          focusTrapOptions
+        );
       });
     });
   });
