@@ -8,7 +8,7 @@ node_js:
   - "8"
 
 install:
-  - yarn
+  - yarn install --frozen-lockfile
 
 script:
   - yarn test
