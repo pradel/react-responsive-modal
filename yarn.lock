@@ -7523,10 +7523,10 @@ enzyme-adapter-utils@^1.9.0:
     prop-types "^15.6.2"
     semver "^5.6.0"
 
-enzyme-matchers@^6.1.2:
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/enzyme-matchers/-/enzyme-matchers-6.1.2.tgz#cd70e45dbcff34d47406797998d55d06ceb822de"
-  integrity sha512-cP9p+HMOZ1ZXQ+k2H4dCkxmTZzIvpEy5zv0ZjgoBl6D0U43v+bJGH5IeWHdIovCzgJ0dVcMCKJ6lNu83lYUCAA==
+enzyme-matchers@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/enzyme-matchers/-/enzyme-matchers-7.0.1.tgz#02e8c3b2bc80a32f19015d058e9a971329519652"
+  integrity sha512-1HmUK3frVSt7kim8icdx5LimuQm+DlklBRfy+dSlKd4SRxwlDGEM1LYTxL21/2kUZNl1XVUT5k5mec/D3k5jWw==
   dependencies:
     circular-json-es6 "^2.0.1"
     deep-equal-ident "^1.1.1"
@@ -10389,10 +10389,10 @@ jest-each@^23.6.0:
     chalk "^2.0.1"
     pretty-format "^23.6.0"
 
-jest-environment-enzyme@^6.1.2:
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/jest-environment-enzyme/-/jest-environment-enzyme-6.1.2.tgz#2612805a3cc0fa6934f9c3e62cf6255077d1b16b"
-  integrity sha512-WHeBKgBYOdryuOTEoK55lJwjg7Raery1OgXHLwukI3mSYgOkm2UrCDDT+vneqVgy7F8KuRHyStfD+TC/m2b7Kg==
+jest-environment-enzyme@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/jest-environment-enzyme/-/jest-environment-enzyme-7.0.1.tgz#03c5bdf40577be2fd117863928a05a881dd38eb2"
+  integrity sha512-sZm/6tKC+//S4ASPefXSZJDkflzvxMRQKt24GYuXO+34IUTmpT5LzYJETtd4KJI8W42qMcc1F4qHV5Itb6romg==
   dependencies:
     jest-environment-jsdom "^22.4.1"
 
@@ -10422,14 +10422,14 @@ jest-environment-node@^23.4.0:
     jest-mock "^23.2.0"
     jest-util "^23.4.0"
 
-jest-enzyme@6.1.2:
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/jest-enzyme/-/jest-enzyme-6.1.2.tgz#89da43da19b4d8ddbfb49e153c2884f22954d330"
-  integrity sha512-+ds7r2ru3QkNJxelQ2tnC6d33pjUSsZHPD3v4TlnHlNMuGX3UKdxm5C46yZBvJICYBvIF+RFKBhLMM4evNM95Q==
+jest-enzyme@7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/jest-enzyme/-/jest-enzyme-7.0.1.tgz#f6c82df31b19ad520300961fa89b2c40c7026745"
+  integrity sha512-IpHjNin+7bsRthciMMo5HVA9TTKZCsBkOPsS4qdIZvImZx94no362wwPeustn0SY/REyXm39wHPsORknuXUWmA==
   dependencies:
-    enzyme-matchers "^6.1.2"
+    enzyme-matchers "^7.0.1"
     enzyme-to-json "^3.3.0"
-    jest-environment-enzyme "^6.1.2"
+    jest-environment-enzyme "^7.0.1"
 
 jest-get-type@^22.1.0:
   version "22.4.3"
