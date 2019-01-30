@@ -37,7 +37,7 @@ CloseIcon.propTypes = {
   closeIconSize: PropTypes.number.isRequired,
   closeIconSvgPath: PropTypes.node.isRequired,
   onClickCloseIcon: PropTypes.func.isRequired,
-  id: PropTypes.string
+  id: PropTypes.string.isRequired
 };
 
 export default CloseIcon;
