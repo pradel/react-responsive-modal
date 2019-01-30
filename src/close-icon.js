@@ -9,11 +9,13 @@ const CloseIcon = ({
   closeIconSize,
   closeIconSvgPath,
   onClickCloseIcon,
+  id
 }) => (
   <button
     className={cx(classes.closeButton, classNames.closeButton)}
     style={styles.closeButton}
     onClick={onClickCloseIcon}
+    id={id}
   >
     <svg
       className={cx(classes.closeIcon, classNames.closeIcon)}
@@ -35,6 +37,7 @@ CloseIcon.propTypes = {
   closeIconSize: PropTypes.number.isRequired,
   closeIconSvgPath: PropTypes.node.isRequired,
   onClickCloseIcon: PropTypes.func.isRequired,
+  id: PropTypes.string
 };
 
 export default CloseIcon;

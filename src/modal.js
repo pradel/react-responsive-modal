@@ -150,6 +150,9 @@ class Modal extends Component {
       container,
       focusTrapped,
       focusTrapOptions,
+      overlayId,
+      modalId,
+      closeIconId
     } = this.props;
     const { showPortal } = this.state;
 
@@ -185,6 +188,7 @@ class Modal extends Component {
             )}
             onClick={this.handleClickOverlay}
             style={styles.overlay}
+            id={overlayId}
           >
             {focusTrapped ? (
               <div
@@ -193,6 +197,7 @@ class Modal extends Component {
                 onMouseDown={this.handleModalEvent}
                 onMouseUp={this.handleModalEvent}
                 onClick={this.handleModalEvent}
+                id={modalId}
               >
                 <FocusTrap
                   focusTrapOptions={{
@@ -209,6 +214,7 @@ class Modal extends Component {
                       closeIconSize={closeIconSize}
                       closeIconSvgPath={closeIconSvgPath}
                       onClickCloseIcon={this.handleClickCloseIcon}
+                      id={closeIconId}
                     />
                   )}
                 </FocusTrap>
@@ -220,6 +226,7 @@ class Modal extends Component {
                 onMouseDown={this.handleModalEvent}
                 onMouseUp={this.handleModalEvent}
                 onClick={this.handleModalEvent}
+                id={modalId}
               >
                 {this.props.children}
                 {showCloseIcon && (
@@ -230,6 +237,7 @@ class Modal extends Component {
                     closeIconSize={closeIconSize}
                     closeIconSvgPath={closeIconSvgPath}
                     onClickCloseIcon={this.handleClickCloseIcon}
+                    id={closeIconId}
                   />
                 )}
               </div>
@@ -326,6 +334,19 @@ Modal.propTypes = {
    * Options to be passed to the focus trap, details available at https://github.com/davidtheclark/focus-trap#focustrap--createfocustrapelement-createoptions
    */
   focusTrapOptions: PropTypes.object,
+  /**
+   * id attribute for overlay
+   */
+  overlayId: PropTypes.string,
+  /**
+   * id attribute for modal
+   */
+  modalId: PropTypes.string,
+  /**
+   * id attribute for close icon
+   */
+  closeIconId: PropTypes.string,
+
 };
 
 Modal.defaultProps = {
@@ -349,6 +370,9 @@ Modal.defaultProps = {
   blockScroll: true,
   focusTrapped: false,
   focusTrapOptions: {},
+  overlayId: null,
+  modalId: null,
+  closeIconId: null
 };
 
 polyfill(Modal);
