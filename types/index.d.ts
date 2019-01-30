@@ -82,6 +82,18 @@ interface Props {
    * Options to be passed to the focus trap, details available at https://github.com/davidtheclark/focus-trap#focustrap--createfocustrapelement-createoptions
    */
   focusTrapOptions?: object;
+  /**
+   * id attribute for overlay
+   */
+  overlayId?: string;
+  /**
+   * id attribute for modal
+   */
+  modalId?: string;
+  /**
+   * id attribute for close icon
+   */
+  closeIconId?: string;
 }
 
 declare const ReactReponsiveModal: React.ComponentType<Props>;
