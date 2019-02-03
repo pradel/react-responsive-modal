@@ -95,7 +95,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "23.6.0",
     "jest-enzyme": "7.0.1",
-    "prettier": "1.15.3",
+    "prettier": "1.16.4",
     "react": "16.7.0",
     "react-docgen": "2.21.0",
     "react-dom": "16.7.0",
