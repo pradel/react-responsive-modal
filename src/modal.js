@@ -152,7 +152,10 @@ class Modal extends Component {
       focusTrapOptions,
       overlayId,
       modalId,
-      closeIconId
+      closeIconId,
+      ariaLabelledby,
+      ariaDescribedby,
+
     } = this.props;
     const { showPortal } = this.state;
 
@@ -198,6 +201,9 @@ class Modal extends Component {
                 onMouseUp={this.handleModalEvent}
                 onClick={this.handleModalEvent}
                 id={modalId}
+                role={'dialog'}
+                aria-labelledby={ariaLabelledby}
+                aria-describedby={ariaDescribedby}
               >
                 <FocusTrap
                   focusTrapOptions={{
@@ -227,6 +233,9 @@ class Modal extends Component {
                 onMouseUp={this.handleModalEvent}
                 onClick={this.handleModalEvent}
                 id={modalId}
+                role={'dialog'}
+                aria-labelledby={ariaLabelledby}
+                aria-describedby={ariaDescribedby}
               >
                 {this.props.children}
                 {showCloseIcon && (
@@ -346,6 +355,14 @@ Modal.propTypes = {
    * id attribute for close icon
    */
   closeIconId: PropTypes.string,
+  /**
+   * aria label for modal content
+   */
+  'aria-labelledby': PropTypes.string,
+    /**
+   * aria description for modal content
+   */
+  'aria-describedby': PropTypes.string,
 
 };
 
@@ -372,7 +389,9 @@ Modal.defaultProps = {
   focusTrapOptions: {},
   overlayId: null,
   modalId: null,
-  closeIconId: null
+  closeIconId: null,
+  'aria-labelledby': 'dialog label',
+  'aria-describedby': 'dialog description'
 };
 
 polyfill(Modal);
