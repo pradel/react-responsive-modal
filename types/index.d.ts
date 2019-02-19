@@ -95,6 +95,10 @@ interface Props {
    */
   closeIconId?: string;
   /**
+   * role for dialog
+   */
+  role?: string;
+  /**
    * aria attribute to label modal title
    */
   ariaLabelledby?: string;
