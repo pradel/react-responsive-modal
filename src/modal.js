@@ -153,6 +153,7 @@ class Modal extends Component {
       overlayId,
       modalId,
       closeIconId,
+      role,
       ariaLabelledby,
       ariaDescribedby,
 
@@ -201,7 +202,7 @@ class Modal extends Component {
                 onMouseUp={this.handleModalEvent}
                 onClick={this.handleModalEvent}
                 id={modalId}
-                role={'dialog'}
+                role={role}
                 aria-labelledby={ariaLabelledby}
                 aria-describedby={ariaDescribedby}
               >
@@ -233,7 +234,7 @@ class Modal extends Component {
                 onMouseUp={this.handleModalEvent}
                 onClick={this.handleModalEvent}
                 id={modalId}
-                role={'dialog'}
+                role={role}
                 aria-labelledby={ariaLabelledby}
                 aria-describedby={ariaDescribedby}
               >
@@ -356,13 +357,17 @@ Modal.propTypes = {
    */
   closeIconId: PropTypes.string,
   /**
+   * role for dialog
+   */
+  role: PropTypes.string,
+  /**
    * aria label for modal content
    */
-  'aria-labelledby': PropTypes.string,
+  ariaLabelledby: PropTypes.string,
     /**
    * aria description for modal content
    */
-  'aria-describedby': PropTypes.string,
+  ariaDescribedby: PropTypes.string,
 
 };
 
@@ -390,8 +395,9 @@ Modal.defaultProps = {
   overlayId: null,
   modalId: null,
   closeIconId: null,
-  'aria-labelledby': 'dialog label',
-  'aria-describedby': 'dialog description'
+  role: 'dialog',
+  ariaLabelledby: null,
+  ariaDescribedby: null
 };
 
 polyfill(Modal);
