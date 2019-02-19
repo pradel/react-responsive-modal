@@ -395,7 +395,7 @@ Modal.defaultProps = {
   overlayId: null,
   modalId: null,
   closeIconId: null,
-  role: 'dialog',
+  role: ('dialog'),
   ariaLabelledby: null,
   ariaDescribedby: null
 };
