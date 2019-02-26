@@ -5,7 +5,7 @@ sudo: false
 cache: yarn
 
 node_js:
-  - "8"
+  - "10"
 
 install:
   - yarn install --frozen-lockfile
