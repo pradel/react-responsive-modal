@@ -54,7 +54,7 @@
   "homepage": "https://github.com/pradel/react-responsive-modal#readme",
   "dependencies": {
     "classnames": "^2.2.6",
-    "focus-trap-react": "^4.0.1",
+    "focus-trap-react": "^6.0.0",
     "no-scroll": "^2.1.1",
     "prop-types": "^15.6.2",
     "react-lifecycles-compat": "^3.0.4",
