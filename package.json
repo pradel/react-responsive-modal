@@ -66,10 +66,10 @@
     "react-dom": "^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.2.3",
-    "@babel/core": "7.4.0",
-    "@babel/plugin-proposal-class-properties": "7.4.0",
-    "@babel/preset-env": "7.4.2",
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.4",
+    "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/preset-env": "7.4.4",
     "@babel/preset-react": "7.0.0",
     "@types/react": "16.8.10",
     "@types/react-dom": "16.8.2",
