@@ -84,7 +84,7 @@
     "docz-theme-default": "0.13.7",
     "dtslint": "0.7.1",
     "enzyme": "3.9.0",
-    "enzyme-adapter-react-16": "1.10.0",
+    "enzyme-adapter-react-16": "1.12.1",
     "eslint": "5.14.1",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "4.0.0",
