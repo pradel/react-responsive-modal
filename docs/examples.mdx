@@ -4,7 +4,7 @@ route: /examples
 order: 2
 ---
 
-import { Playground } from 'docz'
+import { Playground } from 'docz';
 import Modal from '../src';
 
 # Examples
@@ -31,7 +31,9 @@ import Modal from '../src';
         </Modal>
       </div>
     );
-  }}
+
+}}
+
 </Playground>
 
 ## Big modal
@@ -72,7 +74,9 @@ import Modal from '../src';
         </Modal>
       </div>
     );
-  }}
+
+}}
+
 </Playground>
 
 ## Multiple modal
@@ -110,7 +114,9 @@ import Modal from '../src';
         </Modal>
       </div>
     );
-  }}
+
+}}
+
 </Playground>
 
 ## Focus Trapped modal
@@ -146,7 +152,9 @@ import Modal from '../src';
         </Modal>
       </div>
     );
-  }}
+
+}}
+
 </Playground>
 
 ## Custom styling
@@ -165,7 +173,7 @@ import customStyles from './examples/custom-styling.css';
 
         <Modal
           open={open}
-          onClose={() => setOpen(false)} 
+          onClose={() => setOpen(false)}
           center
           classNames={{
             overlay: customStyles.customOverlay,
@@ -180,7 +188,9 @@ import customStyles from './examples/custom-styling.css';
         </Modal>
       </div>
     );
-  }}
+
+}}
+
 </Playground>
 
 ## Custom animation
@@ -199,7 +209,7 @@ import customAnimationStyles from './examples/custom-animation.css';
 
         <Modal
           open={open}
-          onClose={() => setOpen(false)} 
+          onClose={() => setOpen(false)}
           center
           classNames={{
             transitionEnter: customAnimationStyles.transitionEnter,
@@ -217,7 +227,9 @@ import customAnimationStyles from './examples/custom-animation.css';
         </Modal>
       </div>
     );
-  }}
+
+}}
+
 </Playground>
 
 ## Custom container
@@ -243,5 +255,7 @@ import customAnimationStyles from './examples/custom-animation.css';
         </Modal>
       </div>
     );
-  }}
+
+}}
+
 </Playground>
