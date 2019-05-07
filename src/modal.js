@@ -152,7 +152,7 @@ class Modal extends Component {
       focusTrapOptions,
       overlayId,
       modalId,
-      closeIconId
+      closeIconId,
     } = this.props;
     const { showPortal } = this.state;
 
@@ -346,7 +346,6 @@ Modal.propTypes = {
    * id attribute for close icon
    */
   closeIconId: PropTypes.string,
-
 };
 
 Modal.defaultProps = {
@@ -372,7 +371,7 @@ Modal.defaultProps = {
   focusTrapOptions: {},
   overlayId: null,
   modalId: null,
-  closeIconId: null
+  closeIconId: null,
 };
 
 polyfill(Modal);

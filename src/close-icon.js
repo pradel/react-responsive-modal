@@ -9,7 +9,7 @@ const CloseIcon = ({
   closeIconSize,
   closeIconSvgPath,
   onClickCloseIcon,
-  id
+  id,
 }) => (
   <button
     className={cx(classes.closeButton, classNames.closeButton)}
@@ -37,11 +37,11 @@ CloseIcon.propTypes = {
   closeIconSize: PropTypes.number.isRequired,
   closeIconSvgPath: PropTypes.node.isRequired,
   onClickCloseIcon: PropTypes.func.isRequired,
-  id: PropTypes.string
+  id: PropTypes.string,
 };
 
 CloseIcon.defaultProps = {
-  id: null
-}
+  id: null,
+};
 
 export default CloseIcon;
