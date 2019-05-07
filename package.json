@@ -101,7 +101,7 @@
     "react": "16.8.6",
     "react-docgen": "2.21.0",
     "react-dom": "16.8.6",
-    "react-hot-loader": "^4.8.4",
+    "react-hot-loader": "4.8.4",
     "rollup": "1.11.3",
     "rollup-plugin-babel": "4.3.2",
     "rollup-plugin-peer-deps-external": "2.2.0",
