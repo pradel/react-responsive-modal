@@ -4,40 +4,244 @@ route: /examples
 order: 2
 ---
 
-import Centered from './examples/centered';
-import Big from './examples/big';
-import FocusTrapped from './examples/focus-trapped';
-import Multiple from './examples/multiple';
-import CustomStyling from './examples/custom-styling';
-import CustomAnimation from './examples/custom-animation';
-import CustomContainer from './examples/custom-container';
+import { Playground } from 'docz'
+import Modal from '../src';
 
 # Examples
 
 ## Centered modal
 
-<Centered />
+<Playground>
+  {() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+      <div>
+        <button onClick={() => setOpen(true)}>
+          Open centered modal
+        </button>
+
+        <Modal open={open} onClose={() => setOpen(false)} center>
+          <h2>Simple centered modal</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+            hendrerit risus, sed porttitor quam.
+          </p>
+        </Modal>
+      </div>
+    );
+  }}
+</Playground>
 
 ## Big modal
 
-<Big />
+<Playground>
+  {() => {
+    const [open, setOpen] = React.useState(false);
+
+    const lorem = (
+      <p>
+        Mauris ac arcu sit amet dui interdum bibendum a sed diam. Praesent
+        rhoncus congue ipsum elementum lobortis. Ut ligula purus, ultrices id
+        condimentum quis, tincidunt quis purus. Proin quis enim metus. Nunc
+        feugiat odio at eros porta, ut rhoncus lorem tristique. Nunc et ipsum eu
+        ex vulputate consectetur vel eu nisi. Donec ultricies rutrum lectus, sit
+        ame feugiat est semper vitae. Proin varius imperdiet consequat. Proin eu
+        metus nisi. In hac habitasse platea dictumst. Vestibulum ac ultrices
+        risus. Pellentesque arcu sapien, aliquet sed orci sit amet, pulvinar
+        interdum velit. Nunc a rhoncus ipsum, maximus fermentum dolor. Praesent
+        aliquet justo vitae rutrum volutpat. Ut quis pulvinar est.
+      </p>
+    );
+
+    return (
+      <div>
+        <button onClick={() => setOpen(true)}>
+          Open big modal
+        </button>
+
+        <Modal open={open} onClose={() => setOpen(false)}>
+          <h2>Big modal</h2>
+          {lorem}
+          {lorem}
+          {lorem}
+          {lorem}
+          {lorem}
+          {lorem}
+        </Modal>
+      </div>
+    );
+  }}
+</Playground>
 
 ## Multiple modal
 
-<Multiple />
+<Playground>
+  {() => {
+    const [openFirst, setOpenFirst] = React.useState(false);
+    const [openSecond, setOpenSecond] = React.useState(false);
+
+    const littleLorem = (
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
+        risus non risus hendrerit venenatis. Pellentesque sit amet hendrerit
+        risus, sed porttitor quam.
+      </p>
+    );
+
+    return (
+      <div>
+        <button onClick={() => setOpenFirst(true)}>
+          Open first modal
+        </button>
+
+        <Modal open={openFirst} onClose={() => setOpenFirst(false)} center>
+          <p>First modal</p>
+          {littleLorem}
+          <button onClick={() => setOpenSecond(true)}>
+            Open second modal
+          </button>
+        </Modal>
+
+        <Modal open={openSecond} onClose={() => setOpenSecond(false)} center>
+          <p>Second modal</p>
+          {littleLorem}
+        </Modal>
+      </div>
+    );
+  }}
+</Playground>
 
 ## Focus Trapped modal
 
-<FocusTrapped />
+<Playground>
+  {() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+      <div>
+        <button onClick={() => setOpen(true)}>
+          Open modal
+        </button>
+
+        <Modal open={open} onClose={() => setOpen(false)} focusTrapped>
+          <h2>Try tabbing/shift-tabbing thru elements</h2>
+          <form action="">
+            <p>
+              <label htmlFor="firstName">
+                First name
+                <input type="text" />
+              </label>
+            </p>
+            <p>
+              <label htmlFor="lastName">
+                Last name
+                <input type="text" />
+              </label>
+            </p>
+            <button>test</button>
+            <input type="submit" value="Submit" />
+          </form>
+        </Modal>
+      </div>
+    );
+  }}
+</Playground>
 
 ## Custom styling
 
-<CustomStyling />
+import customStyles from './examples/custom-styling.css';
+
+<Playground>
+  {() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+      <div>
+        <button onClick={() => setOpen(true)}>
+          Open modal
+        </button>
+
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)} 
+          center
+          classNames={{
+            overlay: customStyles.customOverlay,
+            modal: customStyles.customModal,
+          }}
+        >
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+            hendrerit risus, sed porttitor quam.
+          </p>
+        </Modal>
+      </div>
+    );
+  }}
+</Playground>
 
 ## Custom animation
 
-<CustomAnimation />
+import customAnimationStyles from './examples/custom-animation.css';
+
+<Playground>
+  {() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+      <div>
+        <button onClick={() => setOpen(true)}>
+          Open modal
+        </button>
+
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)} 
+          center
+          classNames={{
+            transitionEnter: customAnimationStyles.transitionEnter,
+            transitionEnterActive: customAnimationStyles.transitionEnterActive,
+            transitionExit: customAnimationStyles.transitionExitActive,
+            transitionExitActive: customAnimationStyles.transitionExitActive,
+          }}
+          animationDuration={1000}
+        >
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+            hendrerit risus, sed porttitor quam.
+          </p>
+        </Modal>
+      </div>
+    );
+  }}
+</Playground>
 
 ## Custom container
 
-<CustomContainer />
+<Playground>
+  {() => {
+    const [open, setOpen] = React.useState(false);
+    const myRef = React.useRef();
+
+    return (
+      <div>
+        <div ref={myRef} />
+
+        <button onClick={() => setOpen(true)}>
+          Open modal
+        </button>
+
+        <Modal open={open} onClose={() => setOpen(false)} center container={myRef.current}>
+          <p>
+            Take a look with the devtools you will see that this modal is
+            rendered in a custom container.
+          </p>
+        </Modal>
+      </div>
+    );
+  }}
+</Playground>
