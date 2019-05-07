@@ -11,7 +11,7 @@
     "docz:build": "docz build",
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "lint": "eslint 'src' '__tests__' 'docs'",
+    "lint": "eslint 'src' '__tests__'",
     "test": "yarn test:coverage && yarn lint && yarn build && yarn dtslint && yarn size && yarn docz:build",
     "test:only": "jest __tests__",
     "test:coverage": "yarn test:only --coverage",
