@@ -357,10 +357,10 @@ Modal.defaultProps = {
   classes: cssClasses,
   closeOnEsc: true,
   closeOnOverlayClick: true,
-  onEntered: null,
-  onExited: null,
-  onEscKeyDown: null,
-  onOverlayClick: null,
+  onEntered: undefined,
+  onExited: undefined,
+  onEscKeyDown: undefined,
+  onOverlayClick: undefined,
   showCloseIcon: true,
   closeIconSize: 28,
   closeIconSvgPath: (
@@ -374,10 +374,12 @@ Modal.defaultProps = {
   blockScroll: true,
   focusTrapped: false,
   focusTrapOptions: {},
-  overlayId: null,
-  modalId: null,
-  closeIconId: null,
+  overlayId: undefined,
+  modalId: undefined,
+  closeIconId: undefined,
   role: 'dialog',
+  ariaLabelledby: undefined,
+  ariaDescribedby: undefined,
 };
 
 polyfill(Modal);

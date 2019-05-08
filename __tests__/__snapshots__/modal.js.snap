@@ -19,7 +19,6 @@ exports[`modal render should render the content 1`] = `
       "transitionExitActive": "test-react-responsive-modal-transition-exit-active",
     }
   }
-  closeIconId={null}
   closeIconSize={28}
   closeIconSvgPath={
     <path
@@ -30,14 +29,8 @@ exports[`modal render should render the content 1`] = `
   closeOnOverlayClick={true}
   focusTrapOptions={Object {}}
   focusTrapped={false}
-  modalId={null}
   onClose={[MockFunction]}
-  onEntered={null}
-  onEscKeyDown={null}
-  onExited={null}
-  onOverlayClick={null}
   open={true}
-  overlayId={null}
   role="dialog"
   showCloseIcon={true}
   styles={Object {}}
@@ -111,13 +104,11 @@ exports[`modal render should render the content 1`] = `
         >
           <div
             className="test-react-responsive-modal-overlay"
-            id={null}
             onClick={[Function]}
           >
             <div
               aria-modal="true"
               className="test-react-responsive-modal-modal"
-              id={null}
               onClick={[Function]}
               onMouseDown={[Function]}
               onMouseUp={[Function]}
