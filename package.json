@@ -59,8 +59,6 @@
     "focus-trap-react": "^4.0.1",
     "no-scroll": "^2.1.1",
     "prop-types": "^15.6.2",
-    "react-lifecycles-compat": "^3.0.4",
-    "react-minimalist-portal": "^2.3.1",
     "react-transition-group": "^4.0.0"
   },
   "peerDependencies": {

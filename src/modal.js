@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
+import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
-import { polyfill } from 'react-lifecycles-compat';
-import Portal from 'react-minimalist-portal';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
@@ -10,16 +9,29 @@ import CloseIcon from './close-icon';
 import modalManager from './modal-manager';
 import cssClasses from './styles.css';
 
+const isBrowser = typeof window !== 'undefined';
+
 class Modal extends Component {
   static blockScroll() {
     noScroll.on();
   }
 
+  static unblockScroll = () => {
+    // Restore the scroll only if there is no modal on the screen
+    if (modalManager.modals().length === 0) {
+      noScroll.off();
+    }
+  };
+
   shouldClose = null;
 
-  state = {
-    showPortal: this.props.open,
-  };
+  constructor(props) {
+    super(props);
+    this.container = isBrowser && document.createElement('div');
+    this.state = {
+      showPortal: this.props.open,
+    };
+  }
 
   componentDidMount() {
     // Block scroll when initial prop is open
@@ -53,6 +65,9 @@ class Modal extends Component {
 
   handleOpen = () => {
     modalManager.add(this);
+    if (isBrowser && !this.props.container) {
+      document.body.appendChild(this.container);
+    }
     if (this.props.blockScroll) {
       Modal.blockScroll();
     }
@@ -62,7 +77,10 @@ class Modal extends Component {
   handleClose = () => {
     modalManager.remove(this);
     if (this.props.blockScroll) {
-      this.unblockScroll();
+      Modal.unblockScroll();
+    }
+    if (isBrowser && !this.props.container) {
+      document.body.removeChild(this.container);
     }
     document.removeEventListener('keydown', this.handleKeydown);
   };
@@ -125,14 +143,7 @@ class Modal extends Component {
     this.setState({ showPortal: false });
 
     if (this.props.blockScroll) {
-      this.unblockScroll();
-    }
-  };
-
-  unblockScroll = () => {
-    // Restore the scroll only if there is no modal on the screen
-    if (modalManager.modals().length === 0) {
-      noScroll.off();
+      Modal.unblockScroll();
     }
   };
 
@@ -147,7 +158,6 @@ class Modal extends Component {
       closeIconSize,
       closeIconSvgPath,
       animationDuration,
-      container,
       focusTrapped,
       focusTrapOptions,
       overlayId,
@@ -180,64 +190,63 @@ class Modal extends Component {
       </React.Fragment>
     );
 
-    return (
-      <Portal container={container}>
-        <CSSTransition
-          in={open}
-          appear
-          classNames={{
-            appear: classNames.transitionEnter || classes.transitionEnter,
-            appearActive:
-              classNames.transitionEnterActive || classes.transitionEnterActive,
-            enter: classNames.transitionEnter || classes.transitionEnter,
-            enterActive:
-              classNames.transitionEnterActive || classes.transitionEnterActive,
-            exit: classNames.transitionExit || classes.transitionExit,
-            exitActive:
-              classNames.transitionExitActive || classes.transitionExitActive,
-          }}
-          timeout={animationDuration}
-          onEntered={this.handleEntered}
-          onExited={this.handleExited}
+    return ReactDom.createPortal(
+      <CSSTransition
+        in={open}
+        appear
+        classNames={{
+          appear: classNames.transitionEnter || classes.transitionEnter,
+          appearActive:
+            classNames.transitionEnterActive || classes.transitionEnterActive,
+          enter: classNames.transitionEnter || classes.transitionEnter,
+          enterActive:
+            classNames.transitionEnterActive || classes.transitionEnterActive,
+          exit: classNames.transitionExit || classes.transitionExit,
+          exitActive:
+            classNames.transitionExitActive || classes.transitionExitActive,
+        }}
+        timeout={animationDuration}
+        onEntered={this.handleEntered}
+        onExited={this.handleExited}
+      >
+        <div
+          className={cx(
+            classes.overlay,
+            center ? classes.overlayCenter : null,
+            classNames.overlay
+          )}
+          onClick={this.handleClickOverlay}
+          style={styles.overlay}
+          id={overlayId}
         >
           <div
-            className={cx(
-              classes.overlay,
-              center ? classes.overlayCenter : null,
-              classNames.overlay
-            )}
-            onClick={this.handleClickOverlay}
-            style={styles.overlay}
-            id={overlayId}
+            className={cx(classes.modal, classNames.modal)}
+            style={styles.modal}
+            onMouseDown={this.handleModalEvent}
+            onMouseUp={this.handleModalEvent}
+            onClick={this.handleModalEvent}
+            id={modalId}
+            role={role}
+            aria-modal="true"
+            aria-labelledby={ariaLabelledby}
+            aria-describedby={ariaDescribedby}
           >
-            <div
-              className={cx(classes.modal, classNames.modal)}
-              style={styles.modal}
-              onMouseDown={this.handleModalEvent}
-              onMouseUp={this.handleModalEvent}
-              onClick={this.handleModalEvent}
-              id={modalId}
-              role={role}
-              aria-modal="true"
-              aria-labelledby={ariaLabelledby}
-              aria-describedby={ariaDescribedby}
-            >
-              {focusTrapped ? (
-                <FocusTrap
-                  focusTrapOptions={{
-                    ...{ clickOutsideDeactivates: true },
-                    ...focusTrapOptions,
-                  }}
-                >
-                  {content}
-                </FocusTrap>
-              ) : (
-                content
-              )}
-            </div>
+            {focusTrapped ? (
+              <FocusTrap
+                focusTrapOptions={{
+                  ...{ clickOutsideDeactivates: true },
+                  ...focusTrapOptions,
+                }}
+              >
+                {content}
+              </FocusTrap>
+            ) : (
+              content
+            )}
           </div>
-        </CSSTransition>
-      </Portal>
+        </div>
+      </CSSTransition>,
+      this.container
     );
   }
 }
@@ -381,7 +390,5 @@ Modal.defaultProps = {
   ariaLabelledby: undefined,
   ariaDescribedby: undefined,
 };
-
-polyfill(Modal);
 
 export default Modal;
