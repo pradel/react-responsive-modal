@@ -154,6 +154,8 @@ class Modal extends Component {
       modalId,
       closeIconId,
       role,
+      ariaLabelledby,
+      ariaDescribedby,
     } = this.props;
     const { showPortal } = this.state;
 
@@ -216,6 +218,9 @@ class Modal extends Component {
               onClick={this.handleModalEvent}
               id={modalId}
               role={role}
+              aria-modal="true"
+              aria-labelledby={ariaLabelledby}
+              aria-describedby={ariaDescribedby}
             >
               {focusTrapped ? (
                 <FocusTrap
@@ -335,9 +340,17 @@ Modal.propTypes = {
    */
   closeIconId: PropTypes.string,
   /**
-   * role for dialog
+   * ARIA role for modal
    */
   role: PropTypes.string,
+  /**
+   * ARIA label for modal
+   */
+  ariaLabelledby: PropTypes.string,
+  /**
+   * ARIA description for modal
+   */
+  ariaDescribedby: PropTypes.string,
 };
 
 Modal.defaultProps = {
