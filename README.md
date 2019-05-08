@@ -5,8 +5,9 @@
 [![codecov](https://img.shields.io/codecov/c/github/pradel/react-responsive-modal/master.svg)](https://codecov.io/gh/pradel/react-responsive-modal)
 [![dependencies Status](https://david-dm.org/pradel/react-responsive-modal/status.svg)](https://david-dm.org/pradel/react-responsive-modal)
 
-A simple responsive react modal compatible with React 15, 16 and ready for React 17.
+A simple responsive and accessible react modal compatible with React 16 and ready for React 17.
 
+- Focus trap inside the modal.
 - Centered modals.
 - Scrolling modals.
 - Multiple modals.
