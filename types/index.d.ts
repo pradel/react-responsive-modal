@@ -94,6 +94,18 @@ interface Props {
    * id attribute for close icon
    */
   closeIconId?: string;
+  /**
+   * ARIA role for modal
+   */
+  role?: string;
+  /**
+   * ARIA label for modal
+   */
+  ariaLabelledby?: string;
+  /**
+   * ARIA description for modal
+   */
+  ariaDescribedby?: string;
 }
 
 declare const ReactReponsiveModal: React.ComponentType<Props>;
