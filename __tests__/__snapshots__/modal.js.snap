@@ -38,6 +38,7 @@ exports[`modal render should render the content 1`] = `
   onOverlayClick={null}
   open={true}
   overlayId={null}
+  role="dialog"
   showCloseIcon={true}
   styles={Object {}}
 >
@@ -49,7 +50,9 @@ exports[`modal render should render the content 1`] = `
             class="test-react-responsive-modal-overlay test-react-responsive-modal-transition-enter test-react-responsive-modal-transition-enter-active"
           >
             <div
+              aria-modal="true"
               class="test-react-responsive-modal-modal"
+              role="dialog"
             >
               <div>
                 modal content
@@ -112,11 +115,13 @@ exports[`modal render should render the content 1`] = `
             onClick={[Function]}
           >
             <div
+              aria-modal="true"
               className="test-react-responsive-modal-modal"
               id={null}
               onClick={[Function]}
               onMouseDown={[Function]}
               onMouseUp={[Function]}
+              role="dialog"
             >
               <div>
                 modal content
