@@ -153,6 +153,7 @@ class Modal extends Component {
       overlayId,
       modalId,
       closeIconId,
+      role,
     } = this.props;
     const { showPortal } = this.state;
 
@@ -214,6 +215,7 @@ class Modal extends Component {
               onMouseUp={this.handleModalEvent}
               onClick={this.handleModalEvent}
               id={modalId}
+              role={role}
             >
               {focusTrapped ? (
                 <FocusTrap
@@ -332,6 +334,10 @@ Modal.propTypes = {
    * id attribute for close icon
    */
   closeIconId: PropTypes.string,
+  /**
+   * role for dialog
+   */
+  role: PropTypes.string,
 };
 
 Modal.defaultProps = {
@@ -358,6 +364,7 @@ Modal.defaultProps = {
   overlayId: null,
   modalId: null,
   closeIconId: null,
+  role: 'dialog',
 };
 
 polyfill(Modal);
