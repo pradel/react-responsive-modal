@@ -137,7 +137,12 @@ describe('modal', () => {
   describe('closeIcon', () => {
     it('should hide closeIcon when showCloseIcon is false', () => {
       const wrapper = mount(
-        <Modal {...defaultProps} open showCloseIcon={false}>
+        <Modal
+          {...defaultProps}
+          open
+          showCloseIcon={false}
+          focusTrapped={false}
+        >
           <div>modal content</div>
         </Modal>
       );
