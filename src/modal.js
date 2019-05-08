@@ -160,6 +160,23 @@ class Modal extends Component {
       return null;
     }
 
+    const content = (
+      <React.Fragment>
+        {this.props.children}
+        {showCloseIcon && (
+          <CloseIcon
+            classes={classes}
+            classNames={classNames}
+            styles={styles}
+            closeIconSize={closeIconSize}
+            closeIconSvgPath={closeIconSvgPath}
+            onClickCloseIcon={this.handleClickCloseIcon}
+            id={closeIconId}
+          />
+        )}
+      </React.Fragment>
+    );
+
     return (
       <Portal container={container}>
         <CSSTransition
@@ -190,58 +207,27 @@ class Modal extends Component {
             style={styles.overlay}
             id={overlayId}
           >
-            {focusTrapped ? (
-              <div
-                className={cx(classes.modal, classNames.modal)}
-                style={styles.modal}
-                onMouseDown={this.handleModalEvent}
-                onMouseUp={this.handleModalEvent}
-                onClick={this.handleModalEvent}
-                id={modalId}
-              >
+            <div
+              className={cx(classes.modal, classNames.modal)}
+              style={styles.modal}
+              onMouseDown={this.handleModalEvent}
+              onMouseUp={this.handleModalEvent}
+              onClick={this.handleModalEvent}
+              id={modalId}
+            >
+              {focusTrapped ? (
                 <FocusTrap
                   focusTrapOptions={{
                     ...{ clickOutsideDeactivates: true },
                     ...focusTrapOptions,
                   }}
                 >
-                  {this.props.children}
-                  {showCloseIcon && (
-                    <CloseIcon
-                      classes={classes}
-                      classNames={classNames}
-                      styles={styles}
-                      closeIconSize={closeIconSize}
-                      closeIconSvgPath={closeIconSvgPath}
-                      onClickCloseIcon={this.handleClickCloseIcon}
-                      id={closeIconId}
-                    />
-                  )}
+                  {content}
                 </FocusTrap>
-              </div>
-            ) : (
-              <div
-                className={cx(classes.modal, classNames.modal)}
-                style={styles.modal}
-                onMouseDown={this.handleModalEvent}
-                onMouseUp={this.handleModalEvent}
-                onClick={this.handleModalEvent}
-                id={modalId}
-              >
-                {this.props.children}
-                {showCloseIcon && (
-                  <CloseIcon
-                    classes={classes}
-                    classNames={classNames}
-                    styles={styles}
-                    closeIconSize={closeIconSize}
-                    closeIconSvgPath={closeIconSvgPath}
-                    onClickCloseIcon={this.handleClickCloseIcon}
-                    id={closeIconId}
-                  />
-                )}
-              </div>
-            )}
+              ) : (
+                content
+              )}
+            </div>
           </div>
         </CSSTransition>
       </Portal>

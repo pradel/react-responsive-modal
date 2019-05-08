@@ -61,11 +61,11 @@
     "prop-types": "^15.6.2",
     "react-lifecycles-compat": "^3.0.4",
     "react-minimalist-portal": "^2.3.1",
-    "react-transition-group": "^2.4.0"
+    "react-transition-group": "^4.0.0"
   },
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
@@ -73,7 +73,7 @@
     "@babel/plugin-proposal-class-properties": "7.4.4",
     "@babel/preset-env": "7.4.4",
     "@babel/preset-react": "7.0.0",
-    "@types/react": "16.8.16",
+    "@types/react": "16.8.17",
     "@types/react-dom": "16.8.4",
     "babel-eslint": "10.0.1",
     "babel-jest": "24.8.0",
