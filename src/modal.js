@@ -246,7 +246,7 @@ class Modal extends Component {
           </div>
         </div>
       </CSSTransition>,
-      this.container
+      this.props.container || this.container
     );
   }
 }
