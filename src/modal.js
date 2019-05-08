@@ -49,7 +49,7 @@ class Modal extends Component {
   }
 
   componentWillUnmount() {
-    if (this.props.open) {
+    if (this.state.showPortal) {
       this.handleClose();
     }
   }
