@@ -372,7 +372,7 @@ Modal.defaultProps = {
   center: false,
   animationDuration: 500,
   blockScroll: true,
-  focusTrapped: false,
+  focusTrapped: true,
   focusTrapOptions: {},
   overlayId: undefined,
   modalId: undefined,
