@@ -7,8 +7,8 @@ import Modal from '../src/modal';
 const defaultProps = {
   classes: {
     overlay: 'test-react-responsive-modal-overlay',
-    overlayCenter: 'test-react-responsive-modal-overlay-center',
     modal: 'test-react-responsive-modal-modal',
+    modalCenter: 'test-react-responsive-modal-modal-center',
     closeButton: 'test-react-responsive-modal-close-button',
     closeIcon: 'test-react-responsive-modal-close-icon',
     transitionEnter: 'test-react-responsive-modal-transition-enter',
@@ -336,17 +336,34 @@ describe('modal', () => {
   });
 
   describe('prop: center', () => {
-    it('should apply center class to overlay', async () => {
+    it('should apply center class to modal', async () => {
       const wrapper = mount(
         <Modal {...defaultProps} open center>
           <div>modal content</div>
         </Modal>
       );
 
-      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
+      const modalWrapper = wrapper.find(`.${defaultProps.classes.modal}`);
       expect(
-        overlayWrapper.hasClass(defaultProps.classes.overlayCenter)
+        modalWrapper.hasClass(defaultProps.classes.modalCenter)
       ).toBeTruthy();
+      wrapper.unmount();
+    });
+  });
+
+  describe('prop: classes', () => {
+    it('should apply custom classes to the modal', async () => {
+      const wrapper = mount(
+        <Modal {...defaultProps} open center>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      expect(wrapper.find(`.${defaultProps.classes.overlay}`)).toBeTruthy();
+      expect(wrapper.find(`.${defaultProps.classes.modal}`)).toBeTruthy();
+      expect(wrapper.find(`.${defaultProps.classes.modalCenter}`)).toBeTruthy();
+      expect(wrapper.find(`.${defaultProps.classes.closeButton}`)).toBeTruthy();
+      expect(wrapper.find(`.${defaultProps.classes.closeIcon}`)).toBeTruthy();
       wrapper.unmount();
     });
   });
@@ -388,7 +405,7 @@ describe('modal', () => {
 
     beforeAll(() => {
       wrapper = mount(
-        <Modal {...defaultProps} open focusTrapped={false}>
+        <Modal {...defaultProps} open>
           <div>modal content</div>
         </Modal>
       );
@@ -398,13 +415,13 @@ describe('modal', () => {
       wrapper.unmount();
     });
 
-    it('should not contain focus trap component when false', () => {
-      expect(wrapper.find(FocusTrap).exists()).toBe(false);
+    it('should contain focus trap component when true (default)', () => {
+      expect(wrapper.find(FocusTrap).exists()).toBe(true);
     });
 
-    it('should contain focus trap component when true', () => {
-      wrapper.setProps({ focusTrapped: true });
-      expect(wrapper.find(FocusTrap).exists()).toBe(true);
+    it('should not contain focus trap component when false', () => {
+      wrapper.setProps({ focusTrapped: false });
+      expect(wrapper.find(FocusTrap).exists()).toBe(false);
     });
 
     describe('prop: focusTrapOptions', () => {
@@ -425,7 +442,7 @@ describe('modal', () => {
         );
       });
 
-      it('should pass focusTrapOptions thru', () => {
+      it('should pass focusTrapOptions', () => {
         const focusTrapOptions = {
           clickOutsideDeactivates: false,
           escapeDeactivates: false,

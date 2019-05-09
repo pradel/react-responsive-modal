@@ -210,17 +210,17 @@ class Modal extends Component {
         onExited={this.handleExited}
       >
         <div
-          className={cx(
-            classes.overlay,
-            center ? classes.overlayCenter : null,
-            classNames.overlay
-          )}
+          className={cx(classes.overlay, classNames.overlay)}
           onClick={this.handleClickOverlay}
           style={styles.overlay}
           id={overlayId}
         >
           <div
-            className={cx(classes.modal, classNames.modal)}
+            className={cx(
+              classes.modal,
+              center && classes.modalCenter,
+              classNames.modal
+            )}
             style={styles.modal}
             onMouseDown={this.handleModalEvent}
             onMouseUp={this.handleModalEvent}
