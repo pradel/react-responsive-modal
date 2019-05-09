@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-modal",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A simple responsive and accessible react modal",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
