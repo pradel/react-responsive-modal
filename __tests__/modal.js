@@ -405,7 +405,7 @@ describe('modal', () => {
 
     beforeAll(() => {
       wrapper = mount(
-        <Modal {...defaultProps} open focusTrapped={false}>
+        <Modal {...defaultProps} open>
           <div>modal content</div>
         </Modal>
       );
@@ -415,13 +415,13 @@ describe('modal', () => {
       wrapper.unmount();
     });
 
-    it('should not contain focus trap component when false', () => {
-      expect(wrapper.find(FocusTrap).exists()).toBe(false);
+    it('should contain focus trap component when true (default)', () => {
+      expect(wrapper.find(FocusTrap).exists()).toBe(true);
     });
 
-    it('should contain focus trap component when true', () => {
-      wrapper.setProps({ focusTrapped: true });
-      expect(wrapper.find(FocusTrap).exists()).toBe(true);
+    it('should not contain focus trap component when false', () => {
+      wrapper.setProps({ focusTrapped: false });
+      expect(wrapper.find(FocusTrap).exists()).toBe(false);
     });
 
     describe('prop: focusTrapOptions', () => {
@@ -442,7 +442,7 @@ describe('modal', () => {
         );
       });
 
-      it('should pass focusTrapOptions thru', () => {
+      it('should pass focusTrapOptions', () => {
         const focusTrapOptions = {
           clickOutsideDeactivates: false,
           escapeDeactivates: false,
