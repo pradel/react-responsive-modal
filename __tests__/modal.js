@@ -7,8 +7,8 @@ import Modal from '../src/modal';
 const defaultProps = {
   classes: {
     overlay: 'test-react-responsive-modal-overlay',
-    overlayCenter: 'test-react-responsive-modal-overlay-center',
     modal: 'test-react-responsive-modal-modal',
+    modalCenter: 'test-react-responsive-modal-modal-center',
     closeButton: 'test-react-responsive-modal-close-button',
     closeIcon: 'test-react-responsive-modal-close-icon',
     transitionEnter: 'test-react-responsive-modal-transition-enter',
@@ -336,16 +336,16 @@ describe('modal', () => {
   });
 
   describe('prop: center', () => {
-    it('should apply center class to overlay', async () => {
+    it('should apply center class to modal', async () => {
       const wrapper = mount(
         <Modal {...defaultProps} open center>
           <div>modal content</div>
         </Modal>
       );
 
-      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
+      const modalWrapper = wrapper.find(`.${defaultProps.classes.modal}`);
       expect(
-        overlayWrapper.hasClass(defaultProps.classes.overlayCenter)
+        modalWrapper.hasClass(defaultProps.classes.modalCenter)
       ).toBeTruthy();
       wrapper.unmount();
     });
