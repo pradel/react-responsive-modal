@@ -97,7 +97,7 @@
     "jest-enzyme": "7.0.2",
     "prettier": "1.17.0",
     "react": "16.8.6",
-    "react-docgen": "2.21.0",
+    "react-docgen": "4.1.1",
     "react-dom": "16.8.6",
     "react-hot-loader": "4.8.4",
     "rollup": "1.11.3",
