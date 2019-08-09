@@ -38,7 +38,8 @@ interface Props {
   /**
    * An object containing classNames to style the modal, can have properties 'overlay' (classname for overlay div), 'modal' (classname for modal content div),
    * 'closeButton' (classname for the button that contain the close icon), 'closeIcon' (classname for close icon svg).
-   * You can customize the transition with 'transitionEnter', 'transitionEnterActive', 'transitionExit', 'transitionExitActive', 'overlayTransitionEnter', 'overlayTransitionEnterActive', 'overlayTransitionExit', 'overlayTransitionExitActive'
+   * You can customize the transition with 'transitionEnter', 'transitionEnterActive', 'transitionExit', 'transitionExitActive',
+   * 'overlayTransitionEnter', 'overlayTransitionEnterActive', 'overlayTransitionExit', 'overlayTransitionExitActive'
    */
   classNames?: object;
   /**
