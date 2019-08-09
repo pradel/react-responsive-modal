@@ -13,6 +13,10 @@ exports[`modal render should render the content 1`] = `
       "modal": "test-react-responsive-modal-modal",
       "modalCenter": "test-react-responsive-modal-modal-center",
       "overlay": "test-react-responsive-modal-overlay",
+      "overlayTransitionEnter": "test-react-responsive-modal-overlay-transition-enter",
+      "overlayTransitionEnterActive": "test-react-responsive-modal-overlay-transition-enter-active",
+      "overlayTransitionExit": "test-react-responsive-modal-overlay-transition-exit",
+      "overlayTransitionExitActive": "test-react-responsive-modal-overlay-transition-exit-active",
       "transitionEnter": "test-react-responsive-modal-transition-enter",
       "transitionEnterActive": "test-react-responsive-modal-transition-enter-active",
       "transitionExit": "test-react-responsive-modal-transition-exit",
@@ -39,11 +43,11 @@ exports[`modal render should render the content 1`] = `
     containerInfo={
       <div>
         <div
-          class="test-react-responsive-modal-overlay test-react-responsive-modal-transition-enter test-react-responsive-modal-transition-enter-active"
+          class="test-react-responsive-modal-overlay test-react-responsive-modal-overlay-transition-enter test-react-responsive-modal-overlay-transition-enter-active"
         >
           <div
             aria-modal="true"
-            class="test-react-responsive-modal-modal"
+            class="test-react-responsive-modal-modal test-react-responsive-modal-transition-enter test-react-responsive-modal-transition-enter-active"
             role="dialog"
           >
             <div>
@@ -75,12 +79,12 @@ exports[`modal render should render the content 1`] = `
       appear={true}
       classNames={
         Object {
-          "appear": "test-react-responsive-modal-transition-enter",
-          "appearActive": "test-react-responsive-modal-transition-enter-active",
-          "enter": "test-react-responsive-modal-transition-enter",
-          "enterActive": "test-react-responsive-modal-transition-enter-active",
-          "exit": "test-react-responsive-modal-transition-exit",
-          "exitActive": "test-react-responsive-modal-transition-exit-active",
+          "appear": "test-react-responsive-modal-overlay-transition-enter",
+          "appearActive": "test-react-responsive-modal-overlay-transition-enter-active",
+          "enter": "test-react-responsive-modal-overlay-transition-enter",
+          "enterActive": "test-react-responsive-modal-overlay-transition-enter-active",
+          "exit": "test-react-responsive-modal-overlay-transition-exit",
+          "exitActive": "test-react-responsive-modal-overlay-transition-exit-active",
         }
       }
       in={true}
@@ -107,75 +111,111 @@ exports[`modal render should render the content 1`] = `
           className="test-react-responsive-modal-overlay"
           onClick={[Function]}
         >
-          <div
-            aria-modal="true"
-            className="test-react-responsive-modal-modal"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-            role="dialog"
-          >
-            <FocusTrap
-              _createFocusTrap={[Function]}
-              active={true}
-              focusTrapOptions={
-                Object {
-                  "clickOutsideDeactivates": true,
-                }
+          <CSSTransition
+            appear={true}
+            classNames={
+              Object {
+                "appear": "test-react-responsive-modal-transition-enter",
+                "appearActive": "test-react-responsive-modal-transition-enter-active",
+                "enter": "test-react-responsive-modal-transition-enter",
+                "enterActive": "test-react-responsive-modal-transition-enter-active",
+                "exit": "test-react-responsive-modal-transition-exit",
+                "exitActive": "test-react-responsive-modal-transition-exit-active",
               }
-              paused={false}
-              tag="div"
+            }
+            in={true}
+            timeout={50}
+          >
+            <Transition
+              appear={true}
+              enter={true}
+              exit={true}
+              in={true}
+              mountOnEnter={false}
+              onEnter={[Function]}
+              onEntered={[Function]}
+              onEntering={[Function]}
+              onExit={[Function]}
+              onExited={[Function]}
+              onExiting={[Function]}
+              timeout={50}
+              unmountOnExit={false}
             >
-              <div>
-                <div>
-                  modal content
-                </div>
-                <CloseIcon
-                  classNames={Object {}}
-                  classes={
+              <div
+                aria-modal="true"
+                className="test-react-responsive-modal-modal"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                role="dialog"
+              >
+                <FocusTrap
+                  _createFocusTrap={[Function]}
+                  active={true}
+                  focusTrapOptions={
                     Object {
-                      "closeButton": "test-react-responsive-modal-close-button",
-                      "closeIcon": "test-react-responsive-modal-close-icon",
-                      "modal": "test-react-responsive-modal-modal",
-                      "modalCenter": "test-react-responsive-modal-modal-center",
-                      "overlay": "test-react-responsive-modal-overlay",
-                      "transitionEnter": "test-react-responsive-modal-transition-enter",
-                      "transitionEnterActive": "test-react-responsive-modal-transition-enter-active",
-                      "transitionExit": "test-react-responsive-modal-transition-exit",
-                      "transitionExitActive": "test-react-responsive-modal-transition-exit-active",
+                      "clickOutsideDeactivates": true,
                     }
                   }
-                  closeIconSize={28}
-                  closeIconSvgPath={
-                    <path
-                      d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z"
-                    />
-                  }
-                  id={null}
-                  onClickCloseIcon={[Function]}
-                  styles={Object {}}
+                  paused={false}
+                  tag="div"
                 >
-                  <button
-                    className="test-react-responsive-modal-close-button"
-                    id={null}
-                    onClick={[Function]}
-                  >
-                    <svg
-                      className="test-react-responsive-modal-close-icon"
-                      height={28}
-                      viewBox="0 0 36 36"
-                      width={28}
-                      xmlns="http://www.w3.org/2000/svg"
+                  <div>
+                    <div>
+                      modal content
+                    </div>
+                    <CloseIcon
+                      classNames={Object {}}
+                      classes={
+                        Object {
+                          "closeButton": "test-react-responsive-modal-close-button",
+                          "closeIcon": "test-react-responsive-modal-close-icon",
+                          "modal": "test-react-responsive-modal-modal",
+                          "modalCenter": "test-react-responsive-modal-modal-center",
+                          "overlay": "test-react-responsive-modal-overlay",
+                          "overlayTransitionEnter": "test-react-responsive-modal-overlay-transition-enter",
+                          "overlayTransitionEnterActive": "test-react-responsive-modal-overlay-transition-enter-active",
+                          "overlayTransitionExit": "test-react-responsive-modal-overlay-transition-exit",
+                          "overlayTransitionExitActive": "test-react-responsive-modal-overlay-transition-exit-active",
+                          "transitionEnter": "test-react-responsive-modal-transition-enter",
+                          "transitionEnterActive": "test-react-responsive-modal-transition-enter-active",
+                          "transitionExit": "test-react-responsive-modal-transition-exit",
+                          "transitionExitActive": "test-react-responsive-modal-transition-exit-active",
+                        }
+                      }
+                      closeIconSize={28}
+                      closeIconSvgPath={
+                        <path
+                          d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z"
+                        />
+                      }
+                      id={null}
+                      onClickCloseIcon={[Function]}
+                      styles={Object {}}
                     >
-                      <path
-                        d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z"
-                      />
-                    </svg>
-                  </button>
-                </CloseIcon>
+                      <button
+                        className="test-react-responsive-modal-close-button"
+                        id={null}
+                        onClick={[Function]}
+                      >
+                        <svg
+                          className="test-react-responsive-modal-close-icon"
+                          height={28}
+                          viewBox="0 0 36 36"
+                          width={28}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M28.5 9.62L26.38 7.5 18 15.88 9.62 7.5 7.5 9.62 15.88 18 7.5 26.38l2.12 2.12L18 20.12l8.38 8.38 2.12-2.12L20.12 18z"
+                          />
+                        </svg>
+                      </button>
+                    </CloseIcon>
+                  </div>
+                </FocusTrap>
               </div>
-            </FocusTrap>
-          </div>
+            </Transition>
+          </CSSTransition>
         </div>
       </Transition>
     </CSSTransition>

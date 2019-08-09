@@ -16,6 +16,10 @@ const defaultProps = {
       'test-react-responsive-modal-transition-enter-active',
     transitionExit: 'test-react-responsive-modal-transition-exit',
     transitionExitActive: 'test-react-responsive-modal-transition-exit-active',
+    overlayTransitionEnter: 'test-react-responsive-modal-overlay-transition-enter',
+    overlayTransitionEnterActive: 'test-react-responsive-modal-overlay-transition-enter-active',
+    overlayTransitionExit: 'test-react-responsive-modal-overlay-transition-exit',
+    overlayTransitionExitActive: 'test-react-responsive-modal-overlay-transition-exit-active',
   },
   open: false,
   onClose: jest.fn(),
@@ -48,8 +52,8 @@ describe('modal', () => {
       );
 
       const transitionWrapper = wrapper.find(CSSTransition);
-      expect(transitionWrapper.length).toBe(1);
-      expect(transitionWrapper.props().timeout).toBe(123);
+      expect(transitionWrapper.length).toBe(2);
+      transitionWrapper.forEach(t => expect(t.props().timeout).toBe(123));
       wrapper.unmount();
     });
 
@@ -345,7 +349,7 @@ describe('modal', () => {
 
       const modalWrapper = wrapper.find(`.${defaultProps.classes.modal}`);
       expect(
-        modalWrapper.hasClass(defaultProps.classes.modalCenter)
+        modalWrapper.hasClass(defaultProps.classes.modalCenter),
       ).toBeTruthy();
       wrapper.unmount();
     });
