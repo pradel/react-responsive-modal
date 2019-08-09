@@ -20,3 +20,6 @@ lib
 
 # Jest
 coverage
+
+# Dev env
+dev

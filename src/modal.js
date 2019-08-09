@@ -195,15 +195,15 @@ class Modal extends Component {
         in={open}
         appear
         classNames={{
-          appear: classNames.transitionEnter || classes.transitionEnter,
+          appear: classNames.overlayTransitionEnter || classes.overlayTransitionEnter,
           appearActive:
-            classNames.transitionEnterActive || classes.transitionEnterActive,
-          enter: classNames.transitionEnter || classes.transitionEnter,
+            classNames.overlayTransitionEnterActive || classes.overlayTransitionEnterActive,
+          enter: classNames.overlayTransitionEnter || classes.overlayTransitionEnter,
           enterActive:
-            classNames.transitionEnterActive || classes.transitionEnterActive,
-          exit: classNames.transitionExit || classes.transitionExit,
+            classNames.overlayTransitionEnterActive || classes.overlayTransitionEnterActive,
+          exit: classNames.overlayTransitionExit || classes.overlayTransitionExit,
           exitActive:
-            classNames.transitionExitActive || classes.transitionExitActive,
+            classNames.overlayTransitionExitActive || classes.overlayTransitionExitActive,
         }}
         timeout={animationDuration}
         onEntered={this.handleEntered}
@@ -215,38 +215,55 @@ class Modal extends Component {
           style={styles.overlay}
           id={overlayId}
         >
-          <div
-            className={cx(
-              classes.modal,
-              center && classes.modalCenter,
-              classNames.modal
-            )}
-            style={styles.modal}
-            onMouseDown={this.handleModalEvent}
-            onMouseUp={this.handleModalEvent}
-            onClick={this.handleModalEvent}
-            id={modalId}
-            role={role}
-            aria-modal="true"
-            aria-labelledby={ariaLabelledby}
-            aria-describedby={ariaDescribedby}
+          <CSSTransition
+            in={open}
+            appear={open}
+            classNames={{
+              appear: classNames.transitionEnter || classes.transitionEnter,
+              appearActive:
+                classNames.transitionEnterActive || classes.transitionEnterActive,
+              enter: classNames.transitionEnter || classes.transitionEnter,
+              enterActive:
+                classNames.transitionEnterActive || classes.transitionEnterActive,
+              exit: classNames.transitionExit || classes.transitionExit,
+              exitActive:
+                classNames.transitionExitActive || classes.transitionExitActive,
+            }}
+            timeout={animationDuration}
           >
-            {focusTrapped ? (
-              <FocusTrap
-                focusTrapOptions={{
-                  ...{ clickOutsideDeactivates: true },
-                  ...focusTrapOptions,
-                }}
-              >
-                {content}
-              </FocusTrap>
-            ) : (
-              content
-            )}
-          </div>
+            <div
+              className={cx(
+                classes.modal,
+                center && classes.modalCenter,
+                classNames.modal,
+              )}
+              style={styles.modal}
+              onMouseDown={this.handleModalEvent}
+              onMouseUp={this.handleModalEvent}
+              onClick={this.handleModalEvent}
+              id={modalId}
+              role={role}
+              aria-modal="true"
+              aria-labelledby={ariaLabelledby}
+              aria-describedby={ariaDescribedby}
+            >
+              {focusTrapped ? (
+                <FocusTrap
+                  focusTrapOptions={{
+                    ...{ clickOutsideDeactivates: true },
+                    ...focusTrapOptions,
+                  }}
+                >
+                  {content}
+                </FocusTrap>
+              ) : (
+                content
+              )}
+            </div>
+          </CSSTransition>
         </div>
       </CSSTransition>,
-      this.props.container || this.container
+      this.props.container || this.container,
     );
   }
 }
@@ -285,7 +302,7 @@ Modal.propTypes = {
    */
   open: PropTypes.bool.isRequired,
   /**
-   * An object containing classNames to style the modal, can have properties 'overlay' (classname for overlay div), 'modal' (classname for modal content div), 'closeButton' (classname for the button that contain the close icon), 'closeIcon' (classname for close icon svg). You can customize the transition with 'transitionEnter', 'transitionEnterActive', 'transitionExit', 'transitionExitActive'
+   * An object containing classNames to style the modal, can have properties 'overlay' (classname for overlay div), 'modal' (classname for modal content div), 'closeButton' (classname for the button that contain the close icon), 'closeIcon' (classname for close icon svg). You can customize the transition with 'transitionEnter', 'transitionEnterActive', 'transitionExit', 'transitionExitActive', 'overlayTransitionEnter', 'overlayTransitionEnterActive', 'overlayTransitionExit', 'overlayTransitionExitActive'
    */
   classNames: PropTypes.object,
   /**
