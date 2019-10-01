@@ -66,10 +66,10 @@
     "react-dom": "^16.6.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.5.5",
-    "@babel/core": "7.5.5",
+    "@babel/cli": "7.6.2",
+    "@babel/core": "7.6.2",
     "@babel/plugin-proposal-class-properties": "7.5.5",
-    "@babel/preset-env": "7.5.5",
+    "@babel/preset-env": "7.6.2",
     "@babel/preset-react": "7.0.0",
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
