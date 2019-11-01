@@ -78,7 +78,7 @@
     "babel-plugin-external-helpers": "6.22.0",
     "babel-polyfill": "6.26.0",
     "codecov": "3.6.1",
-    "docz": "1.2.0",
+    "docz": "1.3.2",
     "docz-plugin-css": "0.11.0",
     "docz-plugin-netlify": "1.1.4",
     "docz-theme-default": "1.2.0",
