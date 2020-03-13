@@ -9,7 +9,7 @@ import CloseIcon from './close-icon';
 import modalManager from './modal-manager';
 import cssClasses from './styles.css';
 
-const isBrowser = typeof window !== 'undefined';
+const isBrowser = typeof window !== 'undefined' || typeof document !== 'undefined';
 
 class Modal extends Component {
   static blockScroll() {
