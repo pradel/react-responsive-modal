@@ -40,13 +40,12 @@ class Modal extends Component {
   //   }
   // }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.showPortal && !this.state.showPortal) {
-      this.handleClose();
-    } else if (!prevProps.open && this.props.open) {
-      this.handleOpen();
-    }
-  }
+  //   if (prevState.showPortal && !this.state.showPortal) {
+  //     this.handleClose();
+  //   } else if (!prevProps.open && this.props.open) {
+  //     this.handleOpen();
+  //   }
+  // }
 
   // componentWillUnmount() {
   //   if (this.state.showPortal) {
@@ -54,14 +53,14 @@ class Modal extends Component {
   //   }
   // }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (!prevState.showPortal && nextProps.open) {
-      return {
-        showPortal: true,
-      };
-    }
-    return null;
-  }
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   if (!prevState.showPortal && nextProps.open) {
+  //     return {
+  //       showPortal: true,
+  //     };
+  //   }
+  //   return null;
+  // }
 
   // handleOpen = () => {
   //   modalManager.add(this);
@@ -110,20 +109,20 @@ class Modal extends Component {
     this.props.onClose(event);
   };
 
-  handleKeydown = event => {
-    // Only the last modal need to be escaped when pressing the esc key
-    if (event.keyCode !== 27 || !modalManager.isTopModal(this)) {
-      return;
-    }
+  // handleKeydown = event => {
+  //   // Only the last modal need to be escaped when pressing the esc key
+  //   if (event.keyCode !== 27 || !modalManager.isTopModal(this)) {
+  //     return;
+  //   }
 
-    if (this.props.onEscKeyDown) {
-      this.props.onEscKeyDown(event);
-    }
+  //   if (this.props.onEscKeyDown) {
+  //     this.props.onEscKeyDown(event);
+  //   }
 
-    if (this.props.closeOnEsc) {
-      this.props.onClose(event);
-    }
-  };
+  //   if (this.props.closeOnEsc) {
+  //     this.props.onClose(event);
+  //   }
+  // };
 
   handleModalEvent = () => {
     this.shouldClose = false;

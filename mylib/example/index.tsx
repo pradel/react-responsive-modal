@@ -7,11 +7,14 @@ import '../src/styles.css';
 
 const App = () => {
   const [open, setOpen] = useState(false);
+
   return (
     <div>
       Hey
       <button onClick={() => setOpen(!open)}>Open</button>
-      <Modal open={open} onClose={() => setOpen(false)} />
+      <Modal open={open} onClose={() => setOpen(false)}>
+        Hey modal
+      </Modal>
     </div>
   );
 };

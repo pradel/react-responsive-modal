@@ -85,7 +85,7 @@ class Modal extends Component {
     document.removeEventListener('keydown', this.handleKeydown);
   };
 
-  handleClickOverlay = event => {
+  handleClickOverlay = (event) => {
     if (this.shouldClose === null) {
       this.shouldClose = true;
     }
@@ -106,11 +106,11 @@ class Modal extends Component {
     this.shouldClose = null;
   };
 
-  handleClickCloseIcon = event => {
+  handleClickCloseIcon = (event) => {
     this.props.onClose(event);
   };
 
-  handleKeydown = event => {
+  handleKeydown = (event) => {
     // Only the last modal need to be escaped when pressing the esc key
     if (event.keyCode !== 27 || !modalManager.isTopModal(this)) {
       return;

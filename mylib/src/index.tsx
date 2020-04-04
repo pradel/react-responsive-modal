@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ReactDom from 'react-dom';
-// import cx from 'classnames';
-import CSSTransition from 'react-transition-group/CSSTransition';
+import cx from 'classnames';
 import noScroll from 'no-scroll';
 import modalManager from './modalManager';
 
@@ -18,16 +17,30 @@ const unblockNoScroll = () => {
   }
 };
 
+const classes = {
+  overlay: 'react-responsive-modal-overlay',
+  modal: 'react-responsive-modal-modal',
+  modalCenter: 'react-responsive-modal-modalCenter',
+};
+
 interface ModalProps {
   /**
    * Control if the modal is open or not.
    */
   open: boolean;
   /**
+   * Should the dialog be centered.
+   */
+  center: boolean;
+  /**
    * Is the modal closable when user press esc key.
    * Default to true.
    */
   closeOnEsc?: boolean;
+  /**
+   * Is the modal closable when user click on overlay.
+   */
+  closeOnOverlayClick: boolean;
   /**
    * Whether to block scrolling when dialog is open.
    */
@@ -39,9 +52,39 @@ interface ModalProps {
    */
   container?: Element;
   /**
+   * An object containing classNames to style the modal.
+   */
+  classNames?: {
+    overlay?: string;
+    modal?: string;
+  };
+  /**
+   * An object containing the styles objects to style the modal.
+   */
+  styles?: {
+    overlay?: React.CSSProperties;
+    modal?: React.CSSProperties;
+  };
+  /**
    * Animation duration in milliseconds.
    */
   animationDuration?: number;
+  /**
+   * ARIA role for modal
+   */
+  role?: string;
+  /**
+   * ARIA label for modal
+   */
+  ariaLabelledby?: string;
+  /**
+   * ARIA description for modal
+   */
+  ariaDescribedby?: string;
+  /**
+   * id attribute for modal
+   */
+  modalId: string;
   /**
    * Callback fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
    */
@@ -51,6 +94,10 @@ interface ModalProps {
    */
   onEscKeyDown?: (event: KeyboardEvent) => void;
   /**
+   * Callback fired when the overlay is clicked.
+   */
+  onOverlayClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  /**
    * Callback fired when the Modal is open and the animation is finished.
    */
   onEntered?: () => void;
@@ -58,19 +105,34 @@ interface ModalProps {
    * Callback fired when the Modal has exited and the animation is finished.
    */
   onExited?: () => void;
+  /**
+   *
+   */
+  children: React.ReactNode;
 }
 
 export const Modal = ({
   open,
+  center,
   blockScroll = true,
   closeOnEsc = true,
+  closeOnOverlayClick = true,
   container,
   animationDuration = 500,
+  classNames,
+  styles = {},
+  role = 'dialog',
+  ariaDescribedby,
+  ariaLabelledby,
+  modalId,
   onClose,
   onEscKeyDown,
-  onEntered,
-  onExited,
+  onOverlayClick,
+  // onEntered,
+  // onExited,
+  children,
 }: ModalProps) => {
+  const refShouldClose = useRef<boolean | null>(null);
   const refContainer = useRef<HTMLDivElement | null>(null);
   // Lazily create the ref instance
   // https://reactjs.org/docs/hooks-faq.html#how-to-create-expensive-objects-lazily
@@ -85,7 +147,11 @@ export const Modal = ({
     if (blockScroll) {
       blockNoScroll();
     }
-    if (refContainer.current && !container) {
+    if (
+      refContainer.current &&
+      !container &&
+      !document.body.contains(refContainer.current)
+    ) {
       document.body.appendChild(refContainer.current);
     }
     document.addEventListener('keydown', handleKeydown);
@@ -96,7 +162,11 @@ export const Modal = ({
     if (blockScroll) {
       unblockNoScroll();
     }
-    if (refContainer.current && !container) {
+    if (
+      refContainer.current &&
+      !container &&
+      document.body.contains(refContainer.current)
+    ) {
       document.body.removeChild(refContainer.current);
     }
     document.removeEventListener('keydown', handleKeydown);
@@ -138,24 +208,40 @@ export const Modal = ({
     if (open && !showPortal) {
       setShowPortal(true);
       handleOpen();
-    } else if (!open && showPortal) {
-      handleClose();
     }
   }, [open]);
 
-  const handleEntered = () => {
-    if (onEntered) {
-      onEntered();
+  const handleClickOverlay = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (refShouldClose.current === null) {
+      refShouldClose.current = true;
     }
+
+    if (!refShouldClose.current) {
+      refShouldClose.current = null;
+      return;
+    }
+
+    if (onOverlayClick) {
+      onOverlayClick(event);
+    }
+
+    if (closeOnOverlayClick) {
+      onClose();
+    }
+
+    refShouldClose.current = null;
   };
 
-  const handleExited = () => {
-    if (onExited) {
-      onExited();
-    }
+  const handleModalEvent = () => {
+    refShouldClose.current = false;
+  };
 
+  const handleAnimationEnd = () => {
     if (!open) {
       setShowPortal(false);
+      handleClose();
     }
 
     if (blockScroll) {
@@ -163,32 +249,42 @@ export const Modal = ({
     }
   };
 
-  console.log('open', open);
-  console.log('showPortal', showPortal);
-  console.log('refContainer.current', refContainer.current);
-
-  if (!showPortal) {
-    return null;
-  }
-
-  return ReactDom.createPortal(
-    <CSSTransition
-      in={open}
-      appear
-      classNames={{
-        appear: 'transitionEnter',
-        appearActive: 'transitionEnterActive',
-        enter: 'transitionEnter',
-        enterActive: 'transitionEnterActive',
-        exit: 'transitionExit',
-        exitActive: 'transitionExitActive',
-      }}
-      timeout={animationDuration}
-      onEntered={handleEntered}
-      onExited={handleExited}
-    >
-      <div>Hey show me that modal</div>
-    </CSSTransition>,
-    container || refContainer.current!
+  return (
+    showPortal &&
+    ReactDom.createPortal(
+      <div
+        style={{
+          animation: `${
+            open
+              ? 'react-responsive-modal-fadeIn'
+              : 'react-responsive-modal-fadeOut'
+          } ${animationDuration}ms`,
+          ...styles?.overlay,
+        }}
+        className={cx(classes.overlay, classNames?.overlay)}
+        onClick={handleClickOverlay}
+        onAnimationEnd={handleAnimationEnd}
+      >
+        <div
+          className={cx(
+            classes.modal,
+            center && classes.modalCenter,
+            classNames?.modal
+          )}
+          style={styles.modal}
+          onMouseDown={handleModalEvent}
+          onMouseUp={handleModalEvent}
+          onClick={handleModalEvent}
+          id={modalId}
+          role={role}
+          aria-modal="true"
+          aria-labelledby={ariaLabelledby}
+          aria-describedby={ariaDescribedby}
+        >
+          {children}
+        </div>
+      </div>,
+      container || refContainer.current!
+    )
   );
 };

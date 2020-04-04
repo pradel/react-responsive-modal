@@ -29,13 +29,13 @@ formatProps(component.props);
 
 // Separate shape props
 if (config.shape) {
-  Object.keys(config.shape).map(name => {
+  Object.keys(config.shape).map((name) => {
     markdown += `\n### ${config.shape[name].name}\n\n`;
 
     formatHeader();
     const formatedProps = Object.keys(
       component.props.src.type.value.value
-    ).forEach(name => {
+    ).forEach((name) => {
       const elem = component.props.src.type.value.value[name];
       elem.type = { name: elem.name };
     });
@@ -106,7 +106,7 @@ function formatProps(props) {
     }
   );
 
-  props = props.filter(value => value !== false);
+  props = props.filter((value) => value !== false);
 
   for (const { name, defaultValue, type, description } of props) {
     markdown += `|${name}|${type}|${defaultValue}|${description}|\n`;
