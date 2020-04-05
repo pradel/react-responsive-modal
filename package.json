@@ -9,11 +9,9 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test:only": "tsdx test --passWithNoTests",
-    "test:coverage": "yarn test:only --coverage",
+    "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "test": "yarn test:coverage && yarn lint && yarn build && yarn dtslint && yarn size && yarn docz:build",
     "size": "size-limit",
     "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx}\"",
     "generate-props": "node scripts/generateReactPropsTable.js src/modal.js && yarn prettier"
@@ -55,7 +53,7 @@
   "homepage": "https://react-responsive-modal.leopradel.com/",
   "size-limit": [
     {
-      "path": "lib/index.js",
+      "path": "dist/index.js",
       "limit": "8 KB"
     }
   ],
