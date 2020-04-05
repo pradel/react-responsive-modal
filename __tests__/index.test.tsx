@@ -4,61 +4,41 @@ import { Modal } from '../src';
 
 describe('modal', () => {
   describe('overlay', () => {
-    // it('should pass the animationDuration prop to react-transition-group', () => {
-    //   const wrapper = mount(
-    //     <Modal {...defaultProps} open animationDuration={123}>
-    //       <div>modal content</div>
-    //     </Modal>
-    //   );
-
-    //   const transitionWrapper = wrapper.find(CSSTransition);
-    //   expect(transitionWrapper.length).toBe(1);
-    //   expect(transitionWrapper.props().timeout).toBe(123);
-    //   wrapper.unmount();
-    // });
-
     it('should call onClose when click on the overlay', () => {
       const onClose = jest.fn();
-      const { container } = render(
+      const { getByTestId } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
         </Modal>
       );
 
-      fireEvent.click(getByTestId('close-icon'));
+      fireEvent.click(getByTestId('overlay'));
       expect(onClose).toHaveBeenCalled();
-
-      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      overlayWrapper.simulate('click');
-      expect(defaultProps.onClose).toHaveBeenCalled();
-      wrapper.unmount();
     });
 
-    // it('should disable the handler when closeOnOverlayClick is false', () => {
-    //   const wrapper = mount(
-    //     <Modal {...defaultProps} open closeOnOverlayClick={false}>
-    //       <div>modal content</div>
-    //     </Modal>
-    //   );
+    it('should disable the handler when closeOnOverlayClick is false', () => {
+      const onClose = jest.fn();
+      const { getByTestId } = render(
+        <Modal open onClose={onClose} closeOnOverlayClick={false}>
+          <div>modal content</div>
+        </Modal>
+      );
 
-    //   const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-    //   overlayWrapper.simulate('click');
-    //   expect(defaultProps.onClose).not.toHaveBeenCalled();
-    //   wrapper.unmount();
-    // });
+      fireEvent.click(getByTestId('overlay'));
+      expect(onClose).not.toHaveBeenCalled();
+    });
 
-    // it('should ignore the overlay click if the event does not come from the overlay', () => {
-    //   const wrapper = mount(
-    //     <Modal {...defaultProps} open>
-    //       <div>modal content</div>
-    //     </Modal>
-    //   );
+    it('should ignore the overlay click if the event does not come from the overlay', () => {
+      const onClose = jest.fn();
+      const { getByTestId } = render(
+        <Modal open onClose={onClose}>
+          <div>modal content</div>
+        </Modal>
+      );
 
-    //   const modalWrapper = wrapper.find(`.${defaultProps.classes.modal}`);
-    //   modalWrapper.simulate('click');
-    //   expect(defaultProps.onClose).not.toHaveBeenCalled();
-    //   wrapper.unmount();
-    // });
+      fireEvent.click(getByTestId('modal'));
+      expect(onClose).not.toHaveBeenCalled();
+    });
   });
 
   describe('key events', () => {

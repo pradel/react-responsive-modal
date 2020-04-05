@@ -320,6 +320,7 @@ export const Modal = ({
           className={cx(classes.overlay, classNames?.overlay)}
           onClick={handleClickOverlay}
           onAnimationEnd={handleAnimationEnd}
+          data-testid="overlay"
         >
           <div
             ref={refModal}
@@ -337,6 +338,7 @@ export const Modal = ({
             aria-modal="true"
             aria-labelledby={ariaLabelledby}
             aria-describedby={ariaDescribedby}
+            data-testid="modal"
           >
             {children}
             {showCloseIcon && (
