@@ -149,20 +149,21 @@ describe('modal', () => {
       expect(queryByTestId('modal')).toBeTruthy();
     });
 
-    // it('should hide modal when prop open change to false', async () => {
-    //   const { queryByTestId, rerender } = render(
-    //     <Modal open={true} onClose={() => null} animationDuration={0.01}>
-    //       <div>modal content</div>
-    //     </Modal>
-    //   );
-    //   expect(queryByTestId('modal')).toBeTruthy();
-    //   rerender(
-    //     <Modal open={false} onClose={() => null} animationDuration={0.01}>
-    //       <div>modal content</div>
-    //     </Modal>
-    //   );
-    //   expect(queryByTestId('modal')).toBeNull();
-    // });
+    it('should hide modal when prop open change to false', async () => {
+      const { getByTestId, queryByTestId, rerender } = render(
+        <Modal open={true} onClose={() => null} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(queryByTestId('modal')).toBeTruthy();
+      rerender(
+        <Modal open={false} onClose={() => null} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>
+      );
+      fireEvent.animationEnd(getByTestId('overlay'));
+      expect(queryByTestId('modal')).toBeNull();
+    });
   });
 
   describe('prop: onEscKeyDown', () => {
