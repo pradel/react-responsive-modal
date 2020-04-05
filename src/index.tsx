@@ -35,19 +35,26 @@ interface ModalProps {
   open: boolean;
   /**
    * Should the dialog be centered.
+   *
+   * Default to false.
    */
   center?: boolean;
   /**
    * Is the modal closable when user press esc key.
+   *
    * Default to true.
    */
   closeOnEsc?: boolean;
   /**
    * Is the modal closable when user click on overlay.
+   *
+   * Default to true.
    */
   closeOnOverlayClick?: boolean;
   /**
    * Whether to block scrolling when dialog is open.
+   *
+   * Default to true.
    */
   blockScroll?: boolean;
   /**
@@ -60,6 +67,8 @@ interface ModalProps {
   closeIconId?: string;
   /**
    * When the modal is open, trap focus within it.
+   *
+   * Default to true.
    */
   focusTrapped?: boolean;
   /**
@@ -90,10 +99,14 @@ interface ModalProps {
   };
   /**
    * Animation duration in milliseconds.
+   *
+   * Default to 500.
    */
   animationDuration?: number;
   /**
    * ARIA role for modal
+   *
+   * Default to 'dialog'.
    */
   role?: string;
   /**
@@ -126,9 +139,6 @@ interface ModalProps {
    * Callback fired when the Modal has exited and the animation is finished.
    */
   onAnimationEnd?: () => void;
-  /**
-   *
-   */
   children?: React.ReactNode;
 }
 
