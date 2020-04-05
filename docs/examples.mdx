@@ -5,7 +5,8 @@ order: 2
 ---
 
 import { Playground } from 'docz';
-import Modal from '../src';
+import '../src/styles.css';
+import { Modal } from '../src/index.tsx';
 
 # Examples
 
@@ -14,13 +15,9 @@ import Modal from '../src';
 <Playground>
   {() => {
     const [open, setOpen] = React.useState(false);
-
     return (
-      <div>
-        <button onClick={() => setOpen(true)}>
-          Open centered modal
-        </button>
-
+      <>
+        <button onClick={() => setOpen(true)}>Open centered modal</button>
         <Modal open={open} onClose={() => setOpen(false)} center>
           <h2>Simple centered modal</h2>
           <p>
@@ -29,11 +26,9 @@ import Modal from '../src';
             hendrerit risus, sed porttitor quam.
           </p>
         </Modal>
-      </div>
+      </>
     );
-
-}}
-
+  }}
 </Playground>
 
 ## Big modal
@@ -41,7 +36,6 @@ import Modal from '../src';
 <Playground>
   {() => {
     const [open, setOpen] = React.useState(false);
-
     const lorem = (
       <p>
         Mauris ac arcu sit amet dui interdum bibendum a sed diam. Praesent
@@ -56,13 +50,9 @@ import Modal from '../src';
         aliquet justo vitae rutrum volutpat. Ut quis pulvinar est.
       </p>
     );
-
     return (
-      <div>
-        <button onClick={() => setOpen(true)}>
-          Open big modal
-        </button>
-
+      <>
+        <button onClick={() => setOpen(true)}>Open big modal</button>
         <Modal open={open} onClose={() => setOpen(false)}>
           <h2>Big modal</h2>
           {lorem}
@@ -72,11 +62,9 @@ import Modal from '../src';
           {lorem}
           {lorem}
         </Modal>
-      </div>
+      </>
     );
-
-}}
-
+  }}
 </Playground>
 
 ## Multiple modal
@@ -85,7 +73,6 @@ import Modal from '../src';
   {() => {
     const [openFirst, setOpenFirst] = React.useState(false);
     const [openSecond, setOpenSecond] = React.useState(false);
-
     const littleLorem = (
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
@@ -93,30 +80,21 @@ import Modal from '../src';
         risus, sed porttitor quam.
       </p>
     );
-
     return (
-      <div>
-        <button onClick={() => setOpenFirst(true)}>
-          Open first modal
-        </button>
-
+      <>
+        <button onClick={() => setOpenFirst(true)}>Open first modal</button>
         <Modal open={openFirst} onClose={() => setOpenFirst(false)} center>
           <p>First modal</p>
           {littleLorem}
-          <button onClick={() => setOpenSecond(true)}>
-            Open second modal
-          </button>
+          <button onClick={() => setOpenSecond(true)}>Open second modal</button>
         </Modal>
-
         <Modal open={openSecond} onClose={() => setOpenSecond(false)} center>
           <p>Second modal</p>
           {littleLorem}
         </Modal>
-      </div>
+      </>
     );
-
-}}
-
+  }}
 </Playground>
 
 ## Focus Trapped modal
@@ -124,13 +102,9 @@ import Modal from '../src';
 <Playground>
   {() => {
     const [open, setOpen] = React.useState(false);
-
     return (
-      <div>
-        <button onClick={() => setOpen(true)}>
-          Open modal
-        </button>
-
+      <>
+        <button onClick={() => setOpen(true)}>Open modal</button>
         <Modal open={open} onClose={() => setOpen(false)} focusTrapped>
           <h2>Try tabbing/shift-tabbing thru elements</h2>
           <form action="">
@@ -150,34 +124,29 @@ import Modal from '../src';
             <input type="submit" value="Submit" />
           </form>
         </Modal>
-      </div>
+      </>
     );
-
-}}
-
+  }}
 </Playground>
 
-## Custom styling
+## Custom styling with css
 
-import customStyles from './examples/custom-styling.css';
+import './examples/custom-styling.css';
 
 <Playground>
   {() => {
+    // import './examples/custom-styling.css';
     const [open, setOpen] = React.useState(false);
-
     return (
-      <div>
-        <button onClick={() => setOpen(true)}>
-          Open modal
-        </button>
-
+      <>
+        <button onClick={() => setOpen(true)}>Open modal</button>
         <Modal
           open={open}
           onClose={() => setOpen(false)}
           center
           classNames={{
-            overlay: customStyles.customOverlay,
-            modal: customStyles.customModal,
+            overlay: 'customOverlay',
+            modal: 'customModal',
           }}
         >
           <p>
@@ -186,36 +155,31 @@ import customStyles from './examples/custom-styling.css';
             hendrerit risus, sed porttitor quam.
           </p>
         </Modal>
-      </div>
+      </>
     );
-
-}}
-
+  }}
 </Playground>
 
 ## Custom animation
 
-import customAnimationStyles from './examples/custom-animation.css';
+import './examples/custom-animation.css';
 
 <Playground>
   {() => {
+    // import './examples/custom-animation.css';
     const [open, setOpen] = React.useState(false);
-
     return (
-      <div>
+      <>
         <button onClick={() => setOpen(true)}>
           Open modal
         </button>
-
         <Modal
           open={open}
           onClose={() => setOpen(false)}
           center
           classNames={{
-            transitionEnter: customAnimationStyles.transitionEnter,
-            transitionEnterActive: customAnimationStyles.transitionEnterActive,
-            transitionExit: customAnimationStyles.transitionExitActive,
-            transitionExitActive: customAnimationStyles.transitionExitActive,
+            animationIn: "customEnterAnimation",
+            animationOut: "customLeaveAnimation"
           }}
           animationDuration={1000}
         >
@@ -225,9 +189,8 @@ import customAnimationStyles from './examples/custom-animation.css';
             hendrerit risus, sed porttitor quam.
           </p>
         </Modal>
-      </div>
+      </>
     );
-
 }}
 
 </Playground>
@@ -238,24 +201,22 @@ import customAnimationStyles from './examples/custom-animation.css';
   {() => {
     const [open, setOpen] = React.useState(false);
     const myRef = React.useRef();
-
     return (
-      <div>
+      <>
         <div ref={myRef} />
-
-        <button onClick={() => setOpen(true)}>
-          Open modal
-        </button>
-
-        <Modal open={open} onClose={() => setOpen(false)} center container={myRef.current}>
+        <button onClick={() => setOpen(true)}>Open modal</button>
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+          center
+          container={myRef.current}
+        >
           <p>
-            Take a look with the devtools you will see that this modal is
-            rendered in a custom container.
+            Take a look with the devtools, you can see that the modal is inside
+            the div we are targeting and not at the end of the body tag.
           </p>
         </Modal>
-      </div>
+      </>
     );
-
-}}
-
+  }}
 </Playground>

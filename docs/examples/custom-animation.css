@@ -1,14 +1,17 @@
-.transitionEnter {
-  transform: scale(0);
+@keyframes customEnterAnimation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-.transitionEnterActive {
-  transform: scale(1);
-  transition: transform 1000ms ease;
-}
-.transitionExit {
-  transform: scale(1);
-}
-.transitionExitActive {
-  transform: scale(0);
-  transition: transform 1000ms ease;
+
+@keyframes customLeaveAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
 }

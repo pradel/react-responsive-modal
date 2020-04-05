@@ -24,6 +24,8 @@ const classes = {
   modal: 'react-responsive-modal-modal',
   modalCenter: 'react-responsive-modal-modalCenter',
   closeButton: 'react-responsive-modal-closeButton',
+  animationIn: 'react-responsive-modal-fadeIn',
+  animationOut: 'react-responsive-modal-fadeOut',
 };
 
 interface ModalProps {
@@ -59,7 +61,7 @@ interface ModalProps {
   /**
    * When the modal is open, trap focus within it.
    */
-  focusTrapped: boolean;
+  focusTrapped?: boolean;
   /**
    * You can specify a container prop which should be of type `Element`.
    * The portal will be rendered inside that element.
@@ -74,6 +76,8 @@ interface ModalProps {
     modal?: string;
     closeButton?: string;
     closeIcon?: string;
+    animationIn?: string;
+    animationOut?: string;
   };
   /**
    * An object containing the styles objects to style the modal.
@@ -115,7 +119,9 @@ interface ModalProps {
   /**
    * Callback fired when the overlay is clicked.
    */
-  onOverlayClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onOverlayClick?: (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => void;
   /**
    * Callback fired when the Modal is open and the animation is finished.
    */
@@ -303,8 +309,12 @@ export const Modal = ({
         style={{
           animation: `${
             open
-              ? 'react-responsive-modal-fadeIn'
-              : 'react-responsive-modal-fadeOut'
+              ? classNames?.animationIn
+                ? classNames?.animationIn
+                : classes.animationIn
+              : classNames?.animationOut
+              ? classNames?.animationOut
+              : classes.animationOut
           } ${animationDuration}ms`,
           ...styles?.overlay,
         }}
