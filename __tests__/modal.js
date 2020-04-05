@@ -36,71 +36,7 @@ describe('modal', () => {
     mockEvent.target = {};
   });
 
-  describe('render', () => {
-    let wrapper;
-
-    beforeAll(() => {
-      wrapper = mount(
-        <Modal {...defaultProps}>
-          <div>modal content</div>
-        </Modal>
-      );
-    });
-
-    afterAll(() => {
-      wrapper.unmount();
-    });
-
-    it('should render null when then modal is not opened', () => {
-      expect(wrapper.find(Modal).length).toBe(1);
-      expect(wrapper.find(Modal)).toBeEmptyRender();
-    });
-
-    it('should render the content', () => {
-      wrapper.setProps({ open: true });
-      expect(wrapper.find(Modal).length).toBe(1);
-      expect(wrapper.find(Modal)).toMatchSnapshot();
-    });
-  });
-
-  describe('lifecycle', () => {
-    it('should show modal when prop open change to true', () => {
-      const wrapper = mount(
-        <Modal {...defaultProps}>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      expect(wrapper.find(Modal)).toBeEmptyRender();
-      expect(wrapper.state().showPortal).toBe(false);
-
-      wrapper.setProps({ open: true });
-
-      expect(wrapper.find(Modal).length).toBe(1);
-      expect(wrapper.find(Modal)).not.toBeEmptyRender();
-      expect(wrapper.state().showPortal).toBe(true);
-      wrapper.unmount();
-    });
-
-    it('should hide modal when prop open change to false', async () => {
-      const wrapper = mount(
-        <Modal {...defaultProps} open>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      expect(wrapper.find(Modal).length).toBe(1);
-      expect(wrapper.find(Modal)).not.toBeEmptyRender();
-      expect(wrapper.state().showPortal).toBe(true);
-
-      wrapper.setProps({ open: false });
-      await wait();
-
-      expect(wrapper.find(Modal).html()).toBe(null);
-      expect(wrapper.state().showPortal).toBe(false);
-      wrapper.unmount();
-    });
-  });
+ 
 
   describe('block scroll', () => {
     let wrapper;
@@ -166,42 +102,6 @@ describe('modal', () => {
       await wait();
 
       expect(onExited).toHaveBeenCalled();
-      wrapper.unmount();
-    });
-  });
-
-  describe('prop: onEscKeyDown', () => {
-    it('should be called', async () => {
-      const onEscKeyDown = jest.fn();
-      const wrapper = mount(
-        <Modal {...defaultProps} open onEscKeyDown={onEscKeyDown}>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      const handler = wrapper.instance().handleKeydown;
-      handler({ keyCode: 27 });
-      expect(onEscKeyDown).toHaveBeenCalled();
-      expect(defaultProps.onClose).toHaveBeenCalled();
-      wrapper.unmount();
-    });
-  });
-
-  describe('prop: onOverlayClick', () => {
-    it('should be called', async () => {
-      const onOverlayClick = jest.fn();
-      const wrapper = mount(
-        <Modal {...defaultProps} open onOverlayClick={onOverlayClick}>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      const handler = wrapper.instance().handleClickOverlay;
-      const overlayWrapper = wrapper.find(`.${defaultProps.classes.overlay}`);
-      mockEvent.target.className = overlayWrapper.prop('className');
-      handler(mockEvent);
-      expect(onOverlayClick).toHaveBeenCalled();
-      expect(defaultProps.onClose).toHaveBeenCalled();
       wrapper.unmount();
     });
   });

@@ -164,4 +164,32 @@ describe('modal', () => {
     //   expect(queryByTestId('modal')).toBeNull();
     // });
   });
+
+  describe('prop: onEscKeyDown', () => {
+    it('should be called', async () => {
+      const onEscKeyDown = jest.fn();
+      const { container } = render(
+        <Modal open onClose={() => null} onEscKeyDown={onEscKeyDown}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      fireEvent.keyDown(container, { keyCode: 27 });
+      expect(onEscKeyDown).toHaveBeenCalled();
+    });
+  });
+
+  describe('prop: onOverlayClick', () => {
+    it('should be called', async () => {
+      const onOverlayClick = jest.fn();
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} onOverlayClick={onOverlayClick}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      fireEvent.click(getByTestId('overlay'));
+      expect(onOverlayClick).toHaveBeenCalled();
+    });
+  });
 });
