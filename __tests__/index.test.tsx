@@ -6,7 +6,6 @@ describe('modal', () => {
   describe('closeIcon', () => {
     it('should render the closeIcon by default', () => {
       const { getByTestId } = render(
-        // @ts-ignore
         <Modal open onClose={() => null}>
           <div>modal content</div>
         </Modal>
@@ -17,7 +16,6 @@ describe('modal', () => {
 
     it('should hide closeIcon when showCloseIcon is false', () => {
       const { queryByTestId } = render(
-        // @ts-ignore
         <Modal open onClose={() => null} showCloseIcon={false}>
           <div>modal content</div>
         </Modal>
@@ -29,7 +27,6 @@ describe('modal', () => {
     it('should call onClose when clicking on the icon', () => {
       const onClose = jest.fn();
       const { getByTestId } = render(
-        // @ts-ignore
         <Modal open onClose={onClose}>
           <div>modal content</div>
         </Modal>

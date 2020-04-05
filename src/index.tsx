@@ -302,56 +302,55 @@ export const Modal = ({
     }
   };
 
-  return (
-    showPortal &&
-    ReactDom.createPortal(
-      <div
-        style={{
-          animation: `${
-            open
-              ? classNames?.animationIn
-                ? classNames?.animationIn
-                : classes.animationIn
-              : classNames?.animationOut
-              ? classNames?.animationOut
-              : classes.animationOut
-          } ${animationDuration}ms`,
-          ...styles?.overlay,
-        }}
-        className={cx(classes.overlay, classNames?.overlay)}
-        onClick={handleClickOverlay}
-        onAnimationEnd={handleAnimationEnd}
-      >
+  return showPortal
+    ? ReactDom.createPortal(
         <div
-          ref={refModal}
-          className={cx(
-            classes.modal,
-            center && classes.modalCenter,
-            classNames?.modal
-          )}
-          style={styles?.modal}
-          onMouseDown={handleModalEvent}
-          onMouseUp={handleModalEvent}
-          onClick={handleModalEvent}
-          id={modalId}
-          role={role}
-          aria-modal="true"
-          aria-labelledby={ariaLabelledby}
-          aria-describedby={ariaDescribedby}
+          style={{
+            animation: `${
+              open
+                ? classNames?.animationIn
+                  ? classNames?.animationIn
+                  : classes.animationIn
+                : classNames?.animationOut
+                ? classNames?.animationOut
+                : classes.animationOut
+            } ${animationDuration}ms`,
+            ...styles?.overlay,
+          }}
+          className={cx(classes.overlay, classNames?.overlay)}
+          onClick={handleClickOverlay}
+          onAnimationEnd={handleAnimationEnd}
         >
-          {children}
-          {showCloseIcon && (
-            <CloseIcon
-              classes={classes}
-              classNames={classNames}
-              styles={styles}
-              onClickCloseIcon={handleClickCloseIcon}
-              id={closeIconId}
-            />
-          )}
-        </div>
-      </div>,
-      container || refContainer.current!
-    )
-  );
+          <div
+            ref={refModal}
+            className={cx(
+              classes.modal,
+              center && classes.modalCenter,
+              classNames?.modal
+            )}
+            style={styles?.modal}
+            onMouseDown={handleModalEvent}
+            onMouseUp={handleModalEvent}
+            onClick={handleModalEvent}
+            id={modalId}
+            role={role}
+            aria-modal="true"
+            aria-labelledby={ariaLabelledby}
+            aria-describedby={ariaDescribedby}
+          >
+            {children}
+            {showCloseIcon && (
+              <CloseIcon
+                classes={classes}
+                classNames={classNames}
+                styles={styles}
+                onClickCloseIcon={handleClickCloseIcon}
+                id={closeIconId}
+              />
+            )}
+          </div>
+        </div>,
+        container || refContainer.current!
+      )
+    : null;
 };
