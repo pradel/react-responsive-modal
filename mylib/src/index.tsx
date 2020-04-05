@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
+import CloseIcon from './closeIcon';
 import modalManager from './modalManager';
 
 const isBrowser = typeof window !== 'undefined';
@@ -21,6 +22,7 @@ const classes = {
   overlay: 'react-responsive-modal-overlay',
   modal: 'react-responsive-modal-modal',
   modalCenter: 'react-responsive-modal-modalCenter',
+  closeButton: 'react-responsive-modal-closeButton',
 };
 
 interface ModalProps {
@@ -31,7 +33,7 @@ interface ModalProps {
   /**
    * Should the dialog be centered.
    */
-  center: boolean;
+  center?: boolean;
   /**
    * Is the modal closable when user press esc key.
    * Default to true.
@@ -40,11 +42,19 @@ interface ModalProps {
   /**
    * Is the modal closable when user click on overlay.
    */
-  closeOnOverlayClick: boolean;
+  closeOnOverlayClick?: boolean;
   /**
    * Whether to block scrolling when dialog is open.
    */
   blockScroll?: boolean;
+  /**
+   * Show the close icon.
+   */
+  showCloseIcon?: boolean;
+  /**
+   * id attribute for close icon
+   */
+  closeIconId?: string;
   /**
    * You can specify a container prop which should be of type `Element`.
    * The portal will be rendered inside that element.
@@ -57,6 +67,8 @@ interface ModalProps {
   classNames?: {
     overlay?: string;
     modal?: string;
+    closeButton?: string;
+    closeIcon?: string;
   };
   /**
    * An object containing the styles objects to style the modal.
@@ -64,6 +76,8 @@ interface ModalProps {
   styles?: {
     overlay?: React.CSSProperties;
     modal?: React.CSSProperties;
+    closeButton?: React.CSSProperties;
+    closeIcon?: React.CSSProperties;
   };
   /**
    * Animation duration in milliseconds.
@@ -84,7 +98,7 @@ interface ModalProps {
   /**
    * id attribute for modal
    */
-  modalId: string;
+  modalId?: string;
   /**
    * Callback fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.
    */
@@ -118,9 +132,11 @@ export const Modal = ({
   closeOnEsc = true,
   closeOnOverlayClick = true,
   container,
+  showCloseIcon = true,
+  closeIconId,
   animationDuration = 500,
   classNames,
-  styles = {},
+  styles,
   role = 'dialog',
   ariaDescribedby,
   ariaLabelledby,
@@ -238,6 +254,10 @@ export const Modal = ({
     refShouldClose.current = false;
   };
 
+  const handleClickCloseIcon = () => {
+    onClose();
+  };
+
   const handleAnimationEnd = () => {
     if (!open) {
       setShowPortal(false);
@@ -248,6 +268,21 @@ export const Modal = ({
       unblockNoScroll();
     }
   };
+
+  const content = (
+    <React.Fragment>
+      {children}
+      {showCloseIcon && (
+        <CloseIcon
+          classes={classes}
+          classNames={classNames}
+          styles={styles}
+          onClickCloseIcon={handleClickCloseIcon}
+          id={closeIconId}
+        />
+      )}
+    </React.Fragment>
+  );
 
   return (
     showPortal &&
@@ -271,7 +306,7 @@ export const Modal = ({
             center && classes.modalCenter,
             classNames?.modal
           )}
-          style={styles.modal}
+          style={styles?.modal}
           onMouseDown={handleModalEvent}
           onMouseUp={handleModalEvent}
           onClick={handleModalEvent}
@@ -281,7 +316,7 @@ export const Modal = ({
           aria-labelledby={ariaLabelledby}
           aria-describedby={ariaDescribedby}
         >
-          {children}
+          {content}
         </div>
       </div>,
       container || refContainer.current!

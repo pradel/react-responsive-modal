@@ -40,6 +40,7 @@ class Modal extends Component {
   //   }
   // }
 
+  // componentDidUpdate(prevProps, prevState) {
   //   if (prevState.showPortal && !this.state.showPortal) {
   //     this.handleClose();
   //   } else if (!prevProps.open && this.props.open) {

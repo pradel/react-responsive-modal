@@ -33,6 +33,7 @@
   right: 14px;
   border: none;
   padding: 0;
+  cursor: pointer;
   background-color: transparent;
   display: flex;
 }
