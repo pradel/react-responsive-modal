@@ -192,4 +192,29 @@ describe('modal', () => {
       expect(onOverlayClick).toHaveBeenCalled();
     });
   });
+
+  describe('prop: center', () => {
+    it('should not apply center class by default', async () => {
+      const { getByTestId } = render(
+        <Modal open onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      expect(getByTestId('modal').classList.length).toBe(1);
+    });
+
+    it('should apply center class to modal', async () => {
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} center>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      expect(getByTestId('modal').classList.length).toBe(2);
+      expect(getByTestId('modal').classList[1]).toBe(
+        'react-responsive-modal-modalCenter'
+      );
+    });
+  });
 });

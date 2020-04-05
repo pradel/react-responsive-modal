@@ -106,22 +106,6 @@ describe('modal', () => {
     });
   });
 
-  describe('prop: center', () => {
-    it('should apply center class to modal', async () => {
-      const wrapper = mount(
-        <Modal {...defaultProps} open center>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      const modalWrapper = wrapper.find(`.${defaultProps.classes.modal}`);
-      expect(
-        modalWrapper.hasClass(defaultProps.classes.modalCenter)
-      ).toBeTruthy();
-      wrapper.unmount();
-    });
-  });
-
   describe('prop: classes', () => {
     it('should apply custom classes to the modal', async () => {
       const wrapper = mount(
