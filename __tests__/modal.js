@@ -70,42 +70,6 @@ describe('modal', () => {
     });
   });
 
-  describe('prop: onEntered', () => {
-    it('should be called when component animation is finished', async () => {
-      const onEntered = jest.fn();
-      const wrapper = mount(
-        <Modal {...defaultProps} open onEntered={onEntered}>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      expect(onEntered).not.toHaveBeenCalled();
-      await wait();
-
-      expect(onEntered).toHaveBeenCalled();
-      wrapper.unmount();
-    });
-  });
-
-  describe('prop: onExited', () => {
-    it('should be called when component animation is finished', async () => {
-      const onExited = jest.fn();
-      const wrapper = mount(
-        <Modal {...defaultProps} open onExited={onExited}>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      await wait();
-      wrapper.setProps({ open: false });
-      expect(onExited).not.toHaveBeenCalled();
-      await wait();
-
-      expect(onExited).toHaveBeenCalled();
-      wrapper.unmount();
-    });
-  });
-
   describe('prop: blockScroll', () => {
     let wrapper;
 
