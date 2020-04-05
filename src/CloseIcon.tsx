@@ -29,6 +29,7 @@ const CloseIcon = ({
     className={cx(classes.closeButton, classNames?.closeButton)}
     style={styles?.closeButton}
     onClick={onClickCloseIcon}
+    data-testid="close-icon"
   >
     <svg
       className={classNames?.closeIcon}

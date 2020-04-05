@@ -133,7 +133,7 @@ interface ModalProps {
   /**
    *
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Modal = ({
