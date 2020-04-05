@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
 import focusTrap from 'focus-trap-js';
-import CloseIcon from './closeIcon';
+import CloseIcon from './CloseIcon';
 import modalManager from './modalManager';
 
 const isBrowser = typeof window !== 'undefined';
