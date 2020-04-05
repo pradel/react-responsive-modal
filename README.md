@@ -11,6 +11,7 @@ A simple responsive and accessible react modal compatible with React 16 and read
 - Centered modals.
 - Scrolling modals.
 - Multiple modals.
+- Accessible modals.
 - Easily customizable via props.
 
 ## Documentation
@@ -73,7 +74,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 ## Props
 
-TODO link documentation
+Check the documentation: https://react-responsive-modal.leopradel.com/#props.
 
 ## License
 

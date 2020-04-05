@@ -123,13 +123,9 @@ interface ModalProps {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => void;
   /**
-   * Callback fired when the Modal is open and the animation is finished.
-   */
-  onEntered?: () => void;
-  /**
    * Callback fired when the Modal has exited and the animation is finished.
    */
-  onExited?: () => void;
+  onAnimationEnd?: () => void;
   /**
    *
    */
@@ -156,8 +152,7 @@ export const Modal = ({
   onClose,
   onEscKeyDown,
   onOverlayClick,
-  // onEntered,
-  // onExited,
+  onAnimationEnd,
   children,
 }: ModalProps) => {
   const refModal = useRef<HTMLDivElement>(null);
@@ -299,6 +294,10 @@ export const Modal = ({
 
     if (blockScroll) {
       unblockNoScroll();
+    }
+
+    if (onAnimationEnd) {
+      onAnimationEnd();
     }
   };
 

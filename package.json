@@ -1,7 +1,7 @@
 {
   "name": "react-responsive-modal",
   "version": "4.0.1",
-  "description": "A simple responsive and accessible react modal",
+  "description": "A simple responsive and accessible react modal compatible with React 16 and ready for React 17",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/mylib.esm.js",
