@@ -112,4 +112,56 @@ describe('modal', () => {
       expect(onClose).toHaveBeenCalled();
     });
   });
+
+  describe('render', () => {
+    it('should render null when then modal is not open', () => {
+      const { queryByText } = render(
+        <Modal open={false} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(queryByText(/modal content/)).toBeNull();
+    });
+
+    it('should render the content when modal is open', () => {
+      const { queryByText } = render(
+        <Modal open onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(queryByText(/modal content/)).toBeTruthy();
+    });
+  });
+
+  describe('lifecycle', () => {
+    it('should show modal when prop open change to true', () => {
+      const { queryByTestId, rerender } = render(
+        <Modal open={false} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(queryByTestId('modal')).toBeNull();
+      rerender(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(queryByTestId('modal')).toBeTruthy();
+    });
+
+    // it('should hide modal when prop open change to false', async () => {
+    //   const { queryByTestId, rerender } = render(
+    //     <Modal open={true} onClose={() => null} animationDuration={0.01}>
+    //       <div>modal content</div>
+    //     </Modal>
+    //   );
+    //   expect(queryByTestId('modal')).toBeTruthy();
+    //   rerender(
+    //     <Modal open={false} onClose={() => null} animationDuration={0.01}>
+    //       <div>modal content</div>
+    //     </Modal>
+    //   );
+    //   expect(queryByTestId('modal')).toBeNull();
+    // });
+  });
 });
