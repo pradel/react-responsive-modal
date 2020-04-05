@@ -106,23 +106,6 @@ describe('modal', () => {
     });
   });
 
-  describe('prop: classes', () => {
-    it('should apply custom classes to the modal', async () => {
-      const wrapper = mount(
-        <Modal {...defaultProps} open center>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      expect(wrapper.find(`.${defaultProps.classes.overlay}`)).toBeTruthy();
-      expect(wrapper.find(`.${defaultProps.classes.modal}`)).toBeTruthy();
-      expect(wrapper.find(`.${defaultProps.classes.modalCenter}`)).toBeTruthy();
-      expect(wrapper.find(`.${defaultProps.classes.closeButton}`)).toBeTruthy();
-      expect(wrapper.find(`.${defaultProps.classes.closeIcon}`)).toBeTruthy();
-      wrapper.unmount();
-    });
-  });
-
   describe('prop: blockScroll', () => {
     let wrapper;
 

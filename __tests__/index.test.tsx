@@ -87,7 +87,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      expect(getByTestId('close-icon')).toMatchSnapshot();
+      expect(getByTestId('close-button')).toMatchSnapshot();
     });
 
     it('should hide closeIcon when showCloseIcon is false', () => {
@@ -97,7 +97,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      expect(queryByTestId('close-icon')).toBeNull();
+      expect(queryByTestId('close-button')).toBeNull();
     });
 
     it('should call onClose when clicking on the icon', () => {
@@ -108,7 +108,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      fireEvent.click(getByTestId('close-icon'));
+      fireEvent.click(getByTestId('close-button'));
       expect(onClose).toHaveBeenCalled();
     });
   });
@@ -202,6 +202,11 @@ describe('modal', () => {
       );
 
       expect(getByTestId('modal').classList.length).toBe(1);
+      expect(
+        getByTestId('modal').classList.contains(
+          'react-responsive-modal-modalCenter'
+        )
+      ).toBeFalsy();
     });
 
     it('should apply center class to modal', async () => {
@@ -212,9 +217,43 @@ describe('modal', () => {
       );
 
       expect(getByTestId('modal').classList.length).toBe(2);
-      expect(getByTestId('modal').classList[1]).toBe(
-        'react-responsive-modal-modalCenter'
+      expect(
+        getByTestId('modal').classList.contains(
+          'react-responsive-modal-modalCenter'
+        )
+      ).toBeTruthy();
+    });
+  });
+
+  describe('prop: classNames', () => {
+    it('should apply custom classes to the modal', async () => {
+      const { getByTestId } = render(
+        <Modal
+          open
+          onClose={() => null}
+          classNames={{
+            overlay: 'custom-overlay',
+            modal: 'custom-modal',
+            closeButton: 'custom-closeButton',
+            closeIcon: 'custom-closeIcon',
+          }}
+        >
+          <div>modal content</div>
+        </Modal>
       );
+
+      expect(
+        getByTestId('overlay').classList.contains('custom-overlay')
+      ).toBeTruthy();
+      expect(
+        getByTestId('modal').classList.contains('custom-modal')
+      ).toBeTruthy();
+      expect(
+        getByTestId('close-button').classList.contains('custom-closeButton')
+      ).toBeTruthy();
+      expect(
+        getByTestId('close-icon').classList.contains('custom-closeIcon')
+      ).toBeTruthy();
     });
   });
 });

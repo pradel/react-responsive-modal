@@ -3,9 +3,10 @@
 exports[`modal closeIcon should render the closeIcon by default 1`] = `
 <button
   class="react-responsive-modal-closeButton"
-  data-testid="close-icon"
+  data-testid="close-button"
 >
   <svg
+    data-testid="close-icon"
     height="28"
     viewBox="0 0 36 36"
     width="28"
