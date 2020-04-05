@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
 import noScroll from 'no-scroll';
+import focusTrap from 'focus-trap-js';
 import CloseIcon from './closeIcon';
 import modalManager from './modalManager';
 
@@ -52,9 +53,13 @@ interface ModalProps {
    */
   showCloseIcon?: boolean;
   /**
-   * id attribute for close icon
+   * id attribute for close icon.
    */
   closeIconId?: string;
+  /**
+   * When the modal is open, trap focus within it.
+   */
+  focusTrapped: boolean;
   /**
    * You can specify a container prop which should be of type `Element`.
    * The portal will be rendered inside that element.
@@ -134,6 +139,7 @@ export const Modal = ({
   container,
   showCloseIcon = true,
   closeIconId,
+  focusTrapped = true,
   animationDuration = 500,
   classNames,
   styles,
@@ -148,6 +154,7 @@ export const Modal = ({
   // onExited,
   children,
 }: ModalProps) => {
+  const refModal = useRef<HTMLDivElement>(null);
   const refShouldClose = useRef<boolean | null>(null);
   const refContainer = useRef<HTMLDivElement | null>(null);
   // Lazily create the ref instance
@@ -227,6 +234,26 @@ export const Modal = ({
     }
   }, [open]);
 
+  /**
+   * Handle focus lock on the modal
+   */
+  useEffect(() => {
+    const handleKeyEvent = (event: KeyboardEvent) => {
+      if (refModal.current) {
+        focusTrap(event, refModal.current);
+      }
+    };
+
+    if (isBrowser && focusTrapped) {
+      document.addEventListener('keydown', handleKeyEvent);
+    }
+    return () => {
+      if (isBrowser && focusTrapped) {
+        document.removeEventListener('keydown', handleKeyEvent);
+      }
+    };
+  }, [refModal]);
+
   const handleClickOverlay = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -269,21 +296,6 @@ export const Modal = ({
     }
   };
 
-  const content = (
-    <React.Fragment>
-      {children}
-      {showCloseIcon && (
-        <CloseIcon
-          classes={classes}
-          classNames={classNames}
-          styles={styles}
-          onClickCloseIcon={handleClickCloseIcon}
-          id={closeIconId}
-        />
-      )}
-    </React.Fragment>
-  );
-
   return (
     showPortal &&
     ReactDom.createPortal(
@@ -301,6 +313,7 @@ export const Modal = ({
         onAnimationEnd={handleAnimationEnd}
       >
         <div
+          ref={refModal}
           className={cx(
             classes.modal,
             center && classes.modalCenter,
@@ -316,7 +329,16 @@ export const Modal = ({
           aria-labelledby={ariaLabelledby}
           aria-describedby={ariaDescribedby}
         >
-          {content}
+          {children}
+          {showCloseIcon && (
+            <CloseIcon
+              classes={classes}
+              classNames={classNames}
+              styles={styles}
+              onClickCloseIcon={handleClickCloseIcon}
+              id={closeIconId}
+            />
+          )}
         </div>
       </div>,
       container || refContainer.current!

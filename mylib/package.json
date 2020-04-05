@@ -36,6 +36,7 @@
   "module": "dist/mylib.esm.js",
   "dependencies": {
     "classnames": "2.2.6",
+    "focus-trap-js": "^1.0.9",
     "no-scroll": "^2.1.1"
   },
   "devDependencies": {
