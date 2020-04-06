@@ -1,6 +1,6 @@
 // https://github.com/alexandrzavalii/focus-trap-js/blob/master/src/index.js v1.0.9
 
-var candidateSelectors = [
+export const candidateSelectors = [
   'input',
   'select',
   'textarea',
@@ -12,7 +12,7 @@ var candidateSelectors = [
   '[contenteditable]:not([contenteditable="false"])',
 ];
 
-function isHidden(node) {
+function isHidden(node: any) {
   // offsetParent being null will allow detecting cases where an element is invisible or inside an invisible element,
   // as long as the element does not use position: fixed. For them, their visibility has to be checked directly as well.
   return (
@@ -20,7 +20,7 @@ function isHidden(node) {
   );
 }
 
-function getAllTabbingElements(parentElem) {
+export function getAllTabbingElements(parentElem: any) {
   var tabbableNodes = parentElem.querySelectorAll(candidateSelectors.join(','));
   var onlyTabbable = [];
   for (var i = 0; i < tabbableNodes.length; i++) {
@@ -32,7 +32,7 @@ function getAllTabbingElements(parentElem) {
   return onlyTabbable;
 }
 
-function tabTrappingKey(event, parentElem) {
+export function tabTrappingKey(event: any, parentElem: any) {
   // check if current event keyCode is tab
   if (!event || event.key !== 'Tab') return;
 
@@ -63,7 +63,7 @@ function tabTrappingKey(event, parentElem) {
   return false;
 }
 
-function getTabindex(node) {
+function getTabindex(node: any) {
   var tabindexAttr = parseInt(node.getAttribute('tabindex'), 10);
 
   if (!isNaN(tabindexAttr)) return tabindexAttr;
@@ -74,10 +74,6 @@ function getTabindex(node) {
   return node.tabIndex;
 }
 
-function isContentEditable(node) {
+function isContentEditable(node: any) {
   return node.getAttribute('contentEditable');
 }
-
-exports.candidateSelectors = candidateSelectors;
-exports.getAllTabbingElements = getAllTabbingElements;
-exports.tabTrappingKey = tabTrappingKey;
