@@ -1,23 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
-import noScroll from 'no-scroll';
-import focusTrap from 'focus-trap-js';
 import CloseIcon from './CloseIcon';
+import { FocusTrap } from './FocusTrap';
 import modalManager from './modalManager';
-
-const isBrowser = typeof window !== 'undefined';
-
-const blockNoScroll = () => {
-  noScroll.on();
-};
-
-const unblockNoScroll = () => {
-  // Restore the scroll only if there is no modal on the screen
-  if (modalManager.modals().length === 0) {
-    noScroll.off();
-  }
-};
+import { isBrowser, blockNoScroll, unblockNoScroll } from './utils';
 
 const classes = {
   overlay: 'react-responsive-modal-overlay',
@@ -245,26 +232,6 @@ export const Modal = ({
     }
   }, [open]);
 
-  /**
-   * Handle focus lock on the modal
-   */
-  useEffect(() => {
-    const handleKeyEvent = (event: KeyboardEvent) => {
-      if (refModal.current) {
-        focusTrap(event, refModal.current);
-      }
-    };
-
-    if (isBrowser && focusTrapped) {
-      document.addEventListener('keydown', handleKeyEvent);
-    }
-    return () => {
-      if (isBrowser && focusTrapped) {
-        document.removeEventListener('keydown', handleKeyEvent);
-      }
-    };
-  }, [refModal]);
-
   const handleClickOverlay = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -349,6 +316,7 @@ export const Modal = ({
             aria-describedby={ariaDescribedby}
             data-testid="modal"
           >
+            {focusTrapped && <FocusTrap container={refModal} />}
             {children}
             {showCloseIcon && (
               <CloseIcon

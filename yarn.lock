@@ -6335,11 +6335,6 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-focus-trap-js@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/focus-trap-js/-/focus-trap-js-1.0.9.tgz#edb0d5f9415a668771e10c679dc056a21cf2916a"
-  integrity sha512-xdLjGwN/QpvKvmwOs3t6hCLXAfBpBYulhe6sRdo9lEo/hWTDXKVHgUcA3gPkYe1b/bfqa21JAm35+ynLA8nM1g==
-
 follow-redirects@1.5.10:
   version "1.5.10"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"

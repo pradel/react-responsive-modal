@@ -20,6 +20,7 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "baseUrl": "./",
+    "allowJs": true,
     "paths": {
       "*": ["src/*", "node_modules/*"]
     },
