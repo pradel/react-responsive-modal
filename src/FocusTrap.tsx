@@ -4,7 +4,7 @@ import {
   tabTrappingKey,
   candidateSelectors,
   getAllTabbingElements,
-} from './focusTrap';
+} from './focusTrapJs';
 
 interface FocusTrapProps {
   container?: React.RefObject<HTMLElement> | null;
