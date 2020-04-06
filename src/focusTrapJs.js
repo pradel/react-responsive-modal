@@ -78,5 +78,6 @@ function isContentEditable(node) {
   return node.getAttribute('contentEditable');
 }
 
+exports.candidateSelectors = candidateSelectors;
 exports.getAllTabbingElements = getAllTabbingElements;
 exports.tabTrappingKey = tabTrappingKey;
