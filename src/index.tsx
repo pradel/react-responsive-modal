@@ -284,12 +284,8 @@ export const Modal = ({
           style={{
             animation: `${
               open
-                ? classNames?.animationIn
-                  ? classNames?.animationIn
-                  : classes.animationIn
-                : classNames?.animationOut
-                ? classNames?.animationOut
-                : classes.animationOut
+                ? classNames?.animationIn ?? classes.animationIn
+                : classNames?.animationOut ?? classes.animationOut
             } ${animationDuration}ms`,
             ...styles?.overlay,
           }}

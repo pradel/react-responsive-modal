@@ -218,16 +218,14 @@ For example if you add the following css to your app you will get the following 
     const [open, setOpen] = React.useState(false);
     return (
       <>
-        <button onClick={() => setOpen(true)}>
-          Open modal
-        </button>
+        <button onClick={() => setOpen(true)}>Open modal</button>
         <Modal
           open={open}
           onClose={() => setOpen(false)}
           center
           classNames={{
-            animationIn: "customEnterAnimation",
-            animationOut: "customLeaveAnimation"
+            animationIn: 'customEnterAnimation',
+            animationOut: 'customLeaveAnimation',
           }}
           animationDuration={1000}
         >
@@ -239,8 +237,39 @@ For example if you add the following css to your app you will get the following 
         </Modal>
       </>
     );
-}}
+  }}
+</Playground>
 
+If you want to apply a custom animation to the modal body you can do like this:
+
+<Playground>
+  {() => {
+    // import './examples/custom-animation.css';
+    const [open, setOpen] = React.useState(false);
+    return (
+      <>
+        <button onClick={() => setOpen(true)}>Open modal</button>
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+          center
+          styles={{
+            modal: {
+              animation: `${
+                open ? 'customEnterAnimation' : 'customLeaveAnimation'
+              } 500ms`,
+            },
+          }}
+        >
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+            hendrerit risus, sed porttitor quam.
+          </p>
+        </Modal>
+      </>
+    );
+  }}
 </Playground>
 
 ## Custom container
