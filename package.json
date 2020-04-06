@@ -20,7 +20,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "styles.css"
   ],
   "jest": {
     "setupFilesAfterEnv": [
