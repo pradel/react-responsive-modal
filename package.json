@@ -15,8 +15,7 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "size": "size-limit",
-    "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx}\"",
-    "generate-props": "node scripts/generateReactPropsTable.js src/modal.js && yarn prettier"
+    "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx}\""
   },
   "files": [
     "dist",
