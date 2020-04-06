@@ -166,34 +166,6 @@ describe('modal', () => {
     });
   });
 
-  describe('prop: onEscKeyDown', () => {
-    it('should be called', async () => {
-      const onEscKeyDown = jest.fn();
-      const { container } = render(
-        <Modal open onClose={() => null} onEscKeyDown={onEscKeyDown}>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      fireEvent.keyDown(container, { keyCode: 27 });
-      expect(onEscKeyDown).toHaveBeenCalled();
-    });
-  });
-
-  describe('prop: onOverlayClick', () => {
-    it('should be called', async () => {
-      const onOverlayClick = jest.fn();
-      const { getByTestId } = render(
-        <Modal open onClose={() => null} onOverlayClick={onOverlayClick}>
-          <div>modal content</div>
-        </Modal>
-      );
-
-      fireEvent.click(getByTestId('overlay'));
-      expect(onOverlayClick).toHaveBeenCalled();
-    });
-  });
-
   describe('prop: center', () => {
     it('should not apply center class by default', async () => {
       const { getByTestId } = render(
@@ -226,6 +198,23 @@ describe('modal', () => {
     });
   });
 
+  describe('prop: closeIcon', () => {
+    it('should render custom icon instead of the default one', async () => {
+      const { queryByTestId, getByTestId } = render(
+        <Modal
+          open
+          onClose={() => null}
+          closeIcon={<div data-testid="custom-icon">custom icon</div>}
+        >
+          <div>modal content</div>
+        </Modal>
+      );
+
+      expect(queryByTestId('close-icon')).toBeNull();
+      expect(getByTestId('custom-icon')).toMatchSnapshot();
+    });
+  });
+
   describe('prop: classNames', () => {
     it('should apply custom classes to the modal', async () => {
       const { getByTestId } = render(
@@ -255,6 +244,48 @@ describe('modal', () => {
       expect(
         getByTestId('close-icon').classList.contains('custom-closeIcon')
       ).toBeTruthy();
+    });
+  });
+
+  describe('prop: onEscKeyDown', () => {
+    it('should be called', async () => {
+      const onEscKeyDown = jest.fn();
+      const { container } = render(
+        <Modal open onClose={() => null} onEscKeyDown={onEscKeyDown}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      fireEvent.keyDown(container, { keyCode: 27 });
+      expect(onEscKeyDown).toHaveBeenCalled();
+    });
+  });
+
+  describe('prop: onOverlayClick', () => {
+    it('should be called', async () => {
+      const onOverlayClick = jest.fn();
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} onOverlayClick={onOverlayClick}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      fireEvent.click(getByTestId('overlay'));
+      expect(onOverlayClick).toHaveBeenCalled();
+    });
+  });
+
+  describe('prop: onAnimationEnd', () => {
+    it('should be called', async () => {
+      const onAnimationEnd = jest.fn();
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} onAnimationEnd={onAnimationEnd}>
+          <div>modal content</div>
+        </Modal>
+      );
+
+      fireEvent.animationEnd(getByTestId('overlay'));
+      expect(onAnimationEnd).toHaveBeenCalled();
     });
   });
 });

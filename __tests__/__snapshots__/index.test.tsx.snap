@@ -18,3 +18,11 @@ exports[`modal closeIcon should render the closeIcon by default 1`] = `
   </svg>
 </button>
 `;
+
+exports[`modal prop: closeIcon should render custom icon instead of the default one 1`] = `
+<div
+  data-testid="custom-icon"
+>
+  custom icon
+</div>
+`;
