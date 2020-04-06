@@ -12,6 +12,8 @@ import { Modal } from '../src/index.tsx';
 
 ## Centered modal
 
+If you want your modal to be centered in the screen just pass the `center` prop.
+
 <Playground>
   {() => {
     const [open, setOpen] = React.useState(false);
@@ -32,6 +34,8 @@ import { Modal } from '../src/index.tsx';
 </Playground>
 
 ## Big modal
+
+When a big modal is open, you can scroll the content of the modal but you will see that the body scroll is locked until you actually close the modal.
 
 <Playground>
   {() => {
@@ -55,6 +59,9 @@ import { Modal } from '../src/index.tsx';
         <button onClick={() => setOpen(true)}>Open big modal</button>
         <Modal open={open} onClose={() => setOpen(false)}>
           <h2>Big modal</h2>
+          {lorem}
+          {lorem}
+          {lorem}
           {lorem}
           {lorem}
           {lorem}
@@ -99,13 +106,15 @@ import { Modal } from '../src/index.tsx';
 
 ## Focus Trapped modal
 
+By default, when the modal open, the first focusable element will be focused. Press Tab to navigate between the focusable elements in the modal. You can notice that when the modal is open, you can't focus the elements outside of it.
+
 <Playground>
   {() => {
     const [open, setOpen] = React.useState(false);
     return (
       <>
         <button onClick={() => setOpen(true)}>Open modal</button>
-        <Modal open={open} onClose={() => setOpen(false)} focusTrapped>
+        <Modal open={open} onClose={() => setOpen(false)}>
           <h2>Try tabbing/shift-tabbing thru elements</h2>
           <form action="">
             <p>
@@ -132,6 +141,21 @@ import { Modal } from '../src/index.tsx';
 ## Custom styling with css
 
 import './examples/custom-styling.css';
+
+It's really easy to add your own style to the modal.
+For example if you add the following css to your app you will get the following result:
+
+```css
+/* examples/custom-styling.css */
+.customOverlay {
+  background: rgba(36, 123, 160, 0.7);
+}
+.customModal {
+  background: #b2dbbf;
+  max-width: 500px;
+  width: 100%;
+}
+```
 
 <Playground>
   {() => {
@@ -163,6 +187,30 @@ import './examples/custom-styling.css';
 ## Custom animation
 
 import './examples/custom-animation.css';
+
+If you want to change the default animation, you can do so by creating your own css animation.
+For example if you add the following css to your app you will get the following result:
+
+```css
+/* examples/custom-animation.css */
+@keyframes customEnterAnimation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes customLeaveAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+```
 
 <Playground>
   {() => {
@@ -196,6 +244,8 @@ import './examples/custom-animation.css';
 </Playground>
 
 ## Custom container
+
+By default, the modal will be rendered at the end of the html body tag. If you want to render the modal in your own container, you can pass a valid `Element` to the `container` prop.
 
 <Playground>
   {() => {
