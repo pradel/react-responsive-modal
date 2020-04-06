@@ -41,7 +41,8 @@ Or with yarn: `yarn add react-responsive-modal`
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 export default class App extends React.Component {
   state = {
