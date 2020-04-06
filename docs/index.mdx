@@ -5,7 +5,7 @@ order: 1
 ---
 
 import { Props } from 'docz';
-import Modal from '../src/modal.js';
+import { Modal } from '../src/index.tsx';
 
 # react-responsive-modal
 
@@ -15,6 +15,7 @@ A simple responsive and accessible react modal compatible with React 16 and read
 - Centered modals.
 - Scrolling modals.
 - Multiple modals.
+- Accessible modals.
 - Easily customizable via props.
 
 ## Installation
@@ -34,7 +35,8 @@ Or with yarn:
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 export default class App extends React.Component {
   state = {

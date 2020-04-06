@@ -1,4 +1,4 @@
-.overlay {
+.react-responsive-modal-overlay {
   background: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: flex-start;
@@ -12,7 +12,8 @@
   z-index: 1000;
   padding: 1.2rem;
 }
-.modal {
+
+.react-responsive-modal-modal {
   max-width: 800px;
   position: relative;
   padding: 1.2rem;
@@ -21,31 +22,36 @@
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
   margin: 0 auto;
 }
-.modalCenter {
+
+.react-responsive-modal-modalCenter {
   margin: auto;
 }
-.closeButton {
+
+.react-responsive-modal-closeButton {
   position: absolute;
   top: 14px;
   right: 14px;
   border: none;
   padding: 0;
+  cursor: pointer;
   background-color: transparent;
   display: flex;
 }
-.closeIcon {
+
+@keyframes react-responsive-modal-fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-.transitionEnter {
-  opacity: 0.01;
-}
-.transitionEnterActive {
-  opacity: 1;
-  transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-.transitionExit {
-  opacity: 1;
-}
-.transitionExitActive {
-  opacity: 0.01;
-  transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1);
+
+@keyframes react-responsive-modal-fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
