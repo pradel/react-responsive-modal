@@ -169,7 +169,7 @@ export const Modal = ({
   const [showPortal, setShowPortal] = useState(open);
 
   const handleOpen = () => {
-    modalManager.add(refContainer.current);
+    modalManager.add(refContainer.current!);
     if (blockScroll) {
       blockNoScroll();
     }
@@ -184,7 +184,7 @@ export const Modal = ({
   };
 
   const handleClose = () => {
-    modalManager.remove(refContainer.current);
+    modalManager.remove(refContainer.current!);
     if (blockScroll) {
       unblockNoScroll();
     }
@@ -202,7 +202,7 @@ export const Modal = ({
     // Only the last modal need to be escaped when pressing the esc key
     if (
       event.keyCode !== 27 ||
-      !modalManager.isTopModal(refContainer.current)
+      !modalManager.isTopModal(refContainer.current!)
     ) {
       return;
     }
