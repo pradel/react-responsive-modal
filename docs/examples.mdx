@@ -272,6 +272,41 @@ If you want to apply a custom animation to the modal body you can do like this:
   }}
 </Playground>
 
+## Custom close icon
+
+You can specify a custom close icon (svg, img..).
+
+<Playground>
+  {() => {
+    const [open, setOpen] = React.useState(false);
+    const closeIcon = (
+      <svg fill="currentColor" viewBox="0 0 20 20" width={28} height={28}>
+        <path
+          fillRule="evenodd"
+          d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+          clipRule="evenodd"
+        ></path>
+      </svg>
+    );
+    return (
+      <>
+        <button onClick={() => setOpen(true)}>Open modal</button>
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+          center
+          closeIcon={closeIcon}
+        >
+          <p>
+            Take a look with the devtools, you can see that the modal is inside
+            the div we are targeting and not at the end of the body tag.
+          </p>
+        </Modal>
+      </>
+    );
+  }}
+</Playground>
+
 ## Custom container
 
 By default, the modal will be rendered at the end of the html body tag. If you want to render the modal in your own container, you can pass a valid `Element` to the `container` prop.
