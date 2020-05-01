@@ -75,7 +75,7 @@
     "@types/react-transition-group": "4.2.4",
     "codecov": "3.6.5",
     "docz": "2.3.1",
-    "husky": "4.2.3",
+    "husky": "4.2.5",
     "prettier": "2.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
