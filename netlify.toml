@@ -4,6 +4,6 @@
   command = "yarn docz:build"
 
 [build.environment]
-  NODE_VERSION = "10"
-  YARN_VERSION = "1.13.0"
-  YARN_FLAGS = "--pure-lockfile"
+  NODE_VERSION = "12"
+  YARN_VERSION = "1.22.4"
+  YARN_FLAGS = "--immutable"

@@ -5,3 +5,7 @@ node_modules
 dist
 coverage
 .docz
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
