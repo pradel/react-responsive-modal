@@ -20,7 +20,9 @@ If you want your modal to be centered in the screen just pass the `center` prop.
     const [open, setOpen] = React.useState(false);
     return (
       <>
-        <button className="button" onClick={() => setOpen(true)}>Open centered modal</button>
+        <button className="button" onClick={() => setOpen(true)}>
+          Open centered modal
+        </button>
         <Modal open={open} onClose={() => setOpen(false)} center>
           <h2>Simple centered modal</h2>
           <p>
@@ -57,7 +59,9 @@ When a big modal is open, you can scroll the content of the modal but you will s
     );
     return (
       <>
-        <button className="button" onClick={() => setOpen(true)}>Open big modal</button>
+        <button className="button" onClick={() => setOpen(true)}>
+          Open big modal
+        </button>
         <Modal open={open} onClose={() => setOpen(false)}>
           <h2>Big modal</h2>
           {lorem}
@@ -90,11 +94,15 @@ When a big modal is open, you can scroll the content of the modal but you will s
     );
     return (
       <>
-        <button className="button" onClick={() => setOpenFirst(true)}>Open first modal</button>
+        <button className="button" onClick={() => setOpenFirst(true)}>
+          Open first modal
+        </button>
         <Modal open={openFirst} onClose={() => setOpenFirst(false)} center>
           <p>First modal</p>
           {littleLorem}
-          <button className="button" onClick={() => setOpenSecond(true)}>Open second modal</button>
+          <button className="button" onClick={() => setOpenSecond(true)}>
+            Open second modal
+          </button>
         </Modal>
         <Modal open={openSecond} onClose={() => setOpenSecond(false)} center>
           <p>Second modal</p>
@@ -114,7 +122,9 @@ By default, when the modal open, the first focusable element will be focused. Pr
     const [open, setOpen] = React.useState(false);
     return (
       <>
-        <button className="button" onClick={() => setOpen(true)}>Open modal</button>
+        <button className="button" onClick={() => setOpen(true)}>
+          Open modal
+        </button>
         <Modal open={open} onClose={() => setOpen(false)}>
           <h2>Try tabbing/shift-tabbing thru elements</h2>
           <form action="">
@@ -164,7 +174,9 @@ For example if you add the following css to your app you will get the following 
     const [open, setOpen] = React.useState(false);
     return (
       <>
-        <button className="button" onClick={() => setOpen(true)}>Open modal</button>
+        <button className="button" onClick={() => setOpen(true)}>
+          Open modal
+        </button>
         <Modal
           open={open}
           onClose={() => setOpen(false)}
@@ -219,7 +231,9 @@ For example if you add the following css to your app you will get the following 
     const [open, setOpen] = React.useState(false);
     return (
       <>
-        <button className="button" onClick={() => setOpen(true)}>Open modal</button>
+        <button className="button" onClick={() => setOpen(true)}>
+          Open modal
+        </button>
         <Modal
           open={open}
           onClose={() => setOpen(false)}
@@ -249,7 +263,9 @@ If you want to apply a custom animation to the modal body you can do like this:
     const [open, setOpen] = React.useState(false);
     return (
       <>
-        <button className="button" onClick={() => setOpen(true)}>Open modal</button>
+        <button className="button" onClick={() => setOpen(true)}>
+          Open modal
+        </button>
         <Modal
           open={open}
           onClose={() => setOpen(false)}
@@ -291,7 +307,9 @@ You can specify a custom close icon (svg, img..).
     );
     return (
       <>
-        <button className="button" onClick={() => setOpen(true)}>Open modal</button>
+        <button className="button" onClick={() => setOpen(true)}>
+          Open modal
+        </button>
         <Modal
           open={open}
           onClose={() => setOpen(false)}
@@ -320,7 +338,9 @@ By default, the modal will be rendered at the end of the html body tag. If you w
     return (
       <>
         <div ref={myRef} />
-        <button className="button" onClick={() => setOpen(true)}>Open modal</button>
+        <button className="button" onClick={() => setOpen(true)}>
+          Open modal
+        </button>
         <Modal
           open={open}
           onClose={() => setOpen(false)}
