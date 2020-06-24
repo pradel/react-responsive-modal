@@ -9692,7 +9692,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-theme-docz@npm:^2.3.1":
+"gatsby-theme-docz@npm:2.3.1, gatsby-theme-docz@npm:^2.3.1":
   version: 2.3.1
   resolution: "gatsby-theme-docz@npm:2.3.1"
   dependencies:
@@ -9740,7 +9740,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby@npm:^2.13.27":
+"gatsby@npm:2.23.11, gatsby@npm:^2.13.27":
   version: 2.23.11
   resolution: "gatsby@npm:2.23.11"
   dependencies:
@@ -17213,6 +17213,8 @@ fsevents@~2.1.2:
     classnames: ^2.2.6
     codecov: 3.7.0
     docz: 2.3.1
+    gatsby: 2.23.11
+    gatsby-theme-docz: 2.3.1
     husky: 4.2.5
     no-scroll: ^2.1.1
     prettier: 2.0.5

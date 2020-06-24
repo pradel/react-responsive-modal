@@ -74,6 +74,8 @@
     "@types/react-transition-group": "4.4.0",
     "codecov": "3.7.0",
     "docz": "2.3.1",
+    "gatsby": "2.23.11",
+    "gatsby-theme-docz": "2.3.1",
     "husky": "4.2.5",
     "prettier": "2.0.5",
     "react": "16.13.1",
