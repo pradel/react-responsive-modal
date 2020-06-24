@@ -49,3 +49,8 @@ jobs:
         run: yarn size
         env:
           CI: true
+  
+      - name: Build docs
+        run: yarn docz:build
+        env:
+          CI: true
