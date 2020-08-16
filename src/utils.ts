@@ -9,7 +9,9 @@ export const blockNoScroll = () => {
 
 export const unblockNoScroll = () => {
   // Restore the scroll only if there is no modal on the screen
-  if (modalManager.modals().length === 0) {
+  // We filter the modals that are not affecting the scroll
+  const modals = modalManager.modals().filter((modal) => modal.blockScroll);
+  if (modals.length === 0) {
     noScroll.off();
   }
 };

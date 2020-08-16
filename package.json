@@ -63,16 +63,16 @@
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "4.5.2",
-    "@testing-library/jest-dom": "5.10.1",
-    "@testing-library/react": "10.4.1",
+    "@size-limit/preset-small-lib": "4.5.6",
+    "@testing-library/jest-dom": "5.11.3",
+    "@testing-library/react": "10.4.8",
     "@types/classnames": "2.2.10",
     "@types/no-scroll": "2.1.0",
-    "@types/node": "14.0.13",
+    "@types/node": "14.0.27",
     "@types/react": "16.9.39",
     "@types/react-dom": "16.9.8",
     "@types/react-transition-group": "4.4.0",
-    "codecov": "3.7.0",
+    "codecov": "3.7.2",
     "docz": "2.3.1",
     "gatsby": "2.23.11",
     "gatsby-theme-docz": "2.3.1",
@@ -80,9 +80,9 @@
     "prettier": "2.0.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "size-limit": "4.5.2",
+    "size-limit": "4.5.6",
     "tsdx": "0.13.2",
-    "tslib": "1.13.0",
-    "typescript": "^3.9.5"
+    "tslib": "2.0.1",
+    "typescript": "^3.9.7"
   }
 }

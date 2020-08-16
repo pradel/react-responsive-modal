@@ -169,7 +169,7 @@ export const Modal = ({
   const [showPortal, setShowPortal] = useState(open);
 
   const handleOpen = () => {
-    modalManager.add(refContainer.current!);
+    modalManager.add(refContainer.current!, blockScroll);
     if (blockScroll) {
       blockNoScroll();
     }
