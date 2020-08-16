@@ -2930,23 +2930,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:16.9.39":
   version: 16.9.39
   resolution: "@types/react@npm:16.9.39"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^2.2.0
   checksum: e3e55bd22550b8b3c8f13c5b9fd24ba6133b422b25ee990eaa5351372b43e953cc11ec498a158db4170402f2bf562ca9813ae61807b2e6f99a3ca78efd3cd973
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:16.9.46":
-  version: 16.9.46
-  resolution: "@types/react@npm:16.9.46"
-  dependencies:
-    "@types/prop-types": "*"
-    csstype: ^3.0.2
-  checksum: ad8d07195dc483f9186dc7886bba15c39e6f9c29bbbd97e52a7a117016f07ac6f923b202749d40833bef62fe60f4af6847b82dcfa0c539495e541ad6d819e49a
   languageName: node
   linkType: hard
 
@@ -6820,13 +6810,6 @@ __metadata:
   version: 2.6.10
   resolution: "csstype@npm:2.6.10"
   checksum: b48260010e9bdc28ab80554375c14e2aec3f7fd46806a9206c0a15f99a0b559049bc4d75f91676183b76baf03708d10c1308b94be89870958797eced54cfe661
-  languageName: node
-  linkType: hard
-
-"csstype@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "csstype@npm:3.0.2"
-  checksum: acf2852a3c5f5e1ed84e36526e41584e09353ee57b9bd93bf17f91bd2be60545adaf86c4439b84952d1f596149e06f9da6bb28c1d1ab883c9b2ad68e143e79f4
   languageName: node
   linkType: hard
 
@@ -17305,7 +17288,7 @@ fsevents@~2.1.2:
     "@types/classnames": 2.2.10
     "@types/no-scroll": 2.1.0
     "@types/node": 14.0.27
-    "@types/react": 16.9.46
+    "@types/react": 16.9.39
     "@types/react-dom": 16.9.8
     "@types/react-transition-group": 4.4.0
     classnames: ^2.2.6
