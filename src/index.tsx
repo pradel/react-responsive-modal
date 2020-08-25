@@ -15,7 +15,7 @@ const classes = {
   animationOut: 'react-responsive-modal-fadeOut',
 };
 
-interface ModalProps {
+export interface ModalProps {
   /**
    * Control if the modal is open or not.
    */
