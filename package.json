@@ -48,6 +48,7 @@
     "url": "https://github.com/pradel/react-responsive-modal/issues"
   },
   "homepage": "https://react-responsive-modal.leopradel.com/",
+  "funding": "https://github.com/sponsors/pradel",
   "size-limit": [
     {
       "path": "dist/index.js",
