@@ -48,6 +48,7 @@
     "url": "https://github.com/pradel/react-responsive-modal/issues"
   },
   "homepage": "https://react-responsive-modal.leopradel.com/",
+  "funding": "https://github.com/sponsors/pradel",
   "size-limit": [
     {
       "path": "dist/index.js",
@@ -63,9 +64,9 @@
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "4.5.6",
-    "@testing-library/jest-dom": "5.11.3",
-    "@testing-library/react": "10.4.8",
+    "@size-limit/preset-small-lib": "4.5.7",
+    "@testing-library/jest-dom": "5.11.4",
+    "@testing-library/react": "10.4.9",
     "@types/classnames": "2.2.10",
     "@types/no-scroll": "2.1.0",
     "@types/node": "14.0.27",
@@ -77,12 +78,12 @@
     "gatsby": "2.23.11",
     "gatsby-theme-docz": "2.3.1",
     "husky": "4.2.5",
-    "prettier": "2.0.5",
+    "prettier": "2.1.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "size-limit": "4.5.6",
-    "tsdx": "0.13.2",
+    "size-limit": "4.5.7",
+    "tsdx": "0.13.3",
     "tslib": "2.0.1",
-    "typescript": "^3.9.7"
+    "typescript": "4.0.2"
   }
 }
