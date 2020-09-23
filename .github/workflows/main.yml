@@ -1,5 +1,11 @@
 name: CI
-on: [push]
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -49,7 +55,7 @@ jobs:
         run: yarn size
         env:
           CI: true
-  
+
       - name: Build docs
         run: yarn docz:build
         env:
