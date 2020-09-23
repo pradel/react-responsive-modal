@@ -4,7 +4,7 @@
   "description": "A simple responsive and accessible react modal compatible with React 16 and ready for React 17",
   "license": "MIT",
   "main": "dist/index.js",
-  "module": "dist/mylib.esm.js",
+  "module": "dist/react-responsive-modal.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "tsdx watch",
