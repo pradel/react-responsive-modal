@@ -39,35 +39,25 @@ Or with yarn: `yarn add react-responsive-modal`
 [![Edit react-responsive-modal](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/9jxp669j2o)
 
 ```javascript
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
-export default class App extends React.Component {
-  state = {
-    open: false,
-  };
+const App = () => {
+  const [open, setOpen] = useState(false);
 
-  onOpenModal = () => {
-    this.setState({ open: true });
-  };
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
-  onCloseModal = () => {
-    this.setState({ open: false });
-  };
-
-  render() {
-    const { open } = this.state;
-    return (
-      <div>
-        <button onClick={this.onOpenModal}>Open modal</button>
-        <Modal open={open} onClose={this.onCloseModal} center>
-          <h2>Simple centered modal</h2>
-        </Modal>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button onClick={onOpenModal}>Open modal</button>
+      <Modal open={open} onClose={onCloseModal} center>
+        <h2>Simple centered modal</h2>
+      </Modal>
+    </div>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
