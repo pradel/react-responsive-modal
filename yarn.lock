@@ -4081,17 +4081,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 16.9.39
-  resolution: "@types/react@npm:16.9.39"
-  dependencies:
-    "@types/prop-types": "*"
-    csstype: ^2.2.0
-  checksum: e3e55bd22550b8b3c8f13c5b9fd24ba6133b422b25ee990eaa5351372b43e953cc11ec498a158db4170402f2bf562ca9813ae61807b2e6f99a3ca78efd3cd973
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:16.9.54":
+"@types/react@npm:*, @types/react@npm:16.9.54":
   version: 16.9.54
   resolution: "@types/react@npm:16.9.54"
   dependencies:
@@ -7993,7 +7983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^2.2.0, csstype@npm:^2.5.7":
+"csstype@npm:^2.5.7":
   version: 2.6.10
   resolution: "csstype@npm:2.6.10"
   checksum: b48260010e9bdc28ab80554375c14e2aec3f7fd46806a9206c0a15f99a0b559049bc4d75f91676183b76baf03708d10c1308b94be89870958797eced54cfe661
