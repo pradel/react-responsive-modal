@@ -51,7 +51,11 @@
   "funding": "https://github.com/sponsors/pradel",
   "size-limit": [
     {
-      "path": "dist/index.js",
+      "path": "dist/react-responsive-modal.cjs.production.min.js",
+      "limit": "3.1 KB"
+    },
+    {
+      "path": "dist/react-responsive-modal.esm.js",
       "limit": "3.1 KB"
     }
   ],
