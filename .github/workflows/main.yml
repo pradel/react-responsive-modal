@@ -48,13 +48,6 @@ jobs:
 
       - name: Build
         run: yarn build
-        env:
-          CI: true
-
-      - name: Test size
-        run: yarn size
-        env:
-          CI: true
 
       - name: Build docs
         run: yarn docz:build
