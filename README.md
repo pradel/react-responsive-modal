@@ -5,7 +5,7 @@
 [![codecov](https://img.shields.io/codecov/c/github/pradel/react-responsive-modal/master.svg)](https://codecov.io/gh/pradel/react-responsive-modal)
 [![dependencies Status](https://david-dm.org/pradel/react-responsive-modal/status.svg)](https://david-dm.org/pradel/react-responsive-modal)
 
-A simple responsive and accessible react modal compatible with React 16 and ready for React 17.
+A simple responsive and accessible react modal.
 
 - Focus trap inside the modal.
 - Centered modals.
@@ -44,10 +44,10 @@ import ReactDOM from 'react-dom';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
-const App = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
-  const onOpenModal = () => setOpen(true);
+  const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
 
   return (
@@ -58,7 +58,7 @@ const App = () => {
       </Modal>
     </div>
   );
-}
+};
 
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
