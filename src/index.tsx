@@ -225,7 +225,7 @@ export const Modal = ({
         handleClose();
       }
     };
-  }, []);
+  }, [showPortal]);
 
   useEffect(() => {
     // If the open prop is changing, we need to open the modal
