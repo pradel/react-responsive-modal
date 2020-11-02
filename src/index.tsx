@@ -166,7 +166,9 @@ export const Modal = ({
     refContainer.current = document.createElement('div');
   }
 
-  const [showPortal, setShowPortal] = useState(open);
+  // The value should be false for srr, that way when the component is hydrated client side,
+  // it will match the server rendered content
+  const [showPortal, setShowPortal] = useState(false);
 
   const handleOpen = () => {
     modalManager.add(refContainer.current!, blockScroll);
@@ -217,10 +219,6 @@ export const Modal = ({
   };
 
   useEffect(() => {
-    // When the modal is rendered first time we want to block the scroll
-    if (open) {
-      handleOpen();
-    }
     return () => {
       // When the component is unmounted directly we want to unblock the scroll
       if (showPortal) {
@@ -231,6 +229,7 @@ export const Modal = ({
 
   useEffect(() => {
     // If the open prop is changing, we need to open the modal
+    // This is also called on the first render if the open prop is true when the modal is created
     if (open && !showPortal) {
       setShowPortal(true);
       handleOpen();
@@ -283,7 +282,9 @@ export const Modal = ({
     }
   };
 
-  return showPortal
+  const containerModal = container || refContainer.current;
+
+  return showPortal && containerModal
     ? ReactDom.createPortal(
         <div
           style={{
@@ -331,7 +332,7 @@ export const Modal = ({
             )}
           </div>
         </div>,
-        container || refContainer.current!
+        containerModal
       )
     : null;
 };
