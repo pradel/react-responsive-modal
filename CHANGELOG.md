@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.6](https://www.github.com/pradel/react-responsive-modal/compare/v5.2.5...v5.2.6) (2020-11-07)
+
+
+### Miscellaneous
+
+* fix publishing ([f024bd5](https://www.github.com/pradel/react-responsive-modal/commit/f024bd588ff315f440cc090eb90595d6f165fb98))
+
 ### [5.2.5](https://www.github.com/pradel/react-responsive-modal/compare/v5.2.4...v5.2.5) (2020-11-07)
 
 
