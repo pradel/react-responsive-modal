@@ -168,7 +168,10 @@ export const Modal = ({
   const refModal = useRef<HTMLDivElement>(null);
   const refShouldClose = useRef<boolean | null>(null);
   const refContainer = useRef<HTMLDivElement | null>(null);
+
+  // Hook used to manage multiple modals opened at the same time
   useModalManager(refModal, open);
+
   // Lazily create the ref instance
   // https://reactjs.org/docs/hooks-faq.html#how-to-create-expensive-objects-lazily
   if (refContainer.current === null && isBrowser) {
@@ -180,10 +183,10 @@ export const Modal = ({
   const [showPortal, setShowPortal] = useState(false);
 
   const handleOpen = () => {
-    // modalManager.add(refContainer.current!, blockScroll);
     if (blockScroll) {
       blockNoScroll();
     }
+
     if (
       refContainer.current &&
       !container &&
@@ -195,10 +198,11 @@ export const Modal = ({
   };
 
   const handleClose = () => {
-    // modalManager.remove(refContainer.current!);
     if (blockScroll) {
+      // TODO unblock scroll only if it's last model opened
       unblockNoScroll();
     }
+
     if (
       refContainer.current &&
       !container &&
@@ -215,9 +219,7 @@ export const Modal = ({
       return;
     }
 
-    if (onEscKeyDown) {
-      onEscKeyDown(event);
-    }
+    onEscKeyDown?.(event);
 
     if (closeOnEsc) {
       onClose();
@@ -228,7 +230,6 @@ export const Modal = ({
     return () => {
       // When the component is unmounted directly we want to unblock the scroll
       if (showPortal) {
-        console.log('handleClose showPortal');
         handleClose();
       }
     };
@@ -255,9 +256,7 @@ export const Modal = ({
       return;
     }
 
-    if (onOverlayClick) {
-      onOverlayClick(event);
-    }
+    onOverlayClick?.(event);
 
     if (closeOnOverlayClick) {
       onClose();
@@ -270,22 +269,12 @@ export const Modal = ({
     refShouldClose.current = false;
   };
 
-  const handleClickCloseIcon = () => {
-    onClose();
-  };
-
   const handleAnimationEnd = () => {
     if (!open) {
       setShowPortal(false);
     }
 
-    if (blockScroll) {
-      unblockNoScroll();
-    }
-
-    if (onAnimationEnd) {
-      onAnimationEnd();
-    }
+    onAnimationEnd?.();
   };
 
   const containerModal = container || refContainer.current;
@@ -345,7 +334,7 @@ export const Modal = ({
                   classNames={classNames}
                   styles={styles}
                   closeIcon={closeIcon}
-                  onClick={handleClickCloseIcon}
+                  onClick={onClose}
                   id={closeIconId}
                 />
               )}
