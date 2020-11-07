@@ -13,7 +13,7 @@ describe('modal', () => {
       );
 
       fireEvent.click(getByTestId('modal-container'));
-      expect(onClose).toHaveBeenCalled();
+      expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('should disable the handler when closeOnOverlayClick is false', () => {
@@ -75,7 +75,99 @@ describe('modal', () => {
       );
 
       fireEvent.keyDown(container, { keyCode: 27 });
-      expect(onClose).toHaveBeenCalled();
+      expect(onClose).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call onClose of last modal only when pressing esc key when multiple modals are opened', () => {
+      const onClose = jest.fn();
+      const onClose2 = jest.fn();
+      const { container } = render(
+        <>
+          <Modal open onClose={onClose}>
+            <div>modal content</div>
+          </Modal>
+          <Modal open onClose={onClose2}>
+            <div>modal content</div>
+          </Modal>
+        </>
+      );
+
+      fireEvent.keyDown(container, { keyCode: 27 });
+      expect(onClose).not.toHaveBeenCalled();
+      expect(onClose2).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('body scroll', () => {
+    it('should not block the scroll when modal is rendered closed', () => {
+      render(
+        <Modal open={false} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('');
+    });
+
+    it('should block the scroll when modal is rendered open', () => {
+      render(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+    });
+
+    it('should block scroll when prop open change to true', () => {
+      const { rerender } = render(
+        <Modal open={false} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('');
+
+      rerender(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+    });
+
+    it('should unblock scroll when prop open change to false', async () => {
+      const { rerender, queryByTestId, getByTestId } = render(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+
+      rerender(
+        <Modal open={false} onClose={() => null} animationDuration={0}>
+          <div>modal content</div>
+        </Modal>
+      );
+      // Simulate the browser animation end
+      fireEvent.animationEnd(getByTestId('overlay'));
+      await waitFor(
+        () => {
+          expect(queryByTestId('modal')).not.toBeInTheDocument();
+        },
+        { timeout: 10 }
+      );
+
+      expect(document.documentElement.style.position).toBe('');
+    });
+
+    it('should unblock scroll when unmounted directly', async () => {
+      const { unmount } = render(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+
+      unmount();
+      expect(document.documentElement.style.position).toBe('');
     });
 
     it('should call onClose of last modal only when pressing esc key when multiple modals are opened', () => {
@@ -201,7 +293,7 @@ describe('modal', () => {
       );
 
       fireEvent.click(getByTestId('close-button'));
-      expect(onClose).toHaveBeenCalled();
+      expect(onClose).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -349,7 +441,7 @@ describe('modal', () => {
       );
 
       fireEvent.keyDown(container, { keyCode: 27 });
-      expect(onEscKeyDown).toHaveBeenCalled();
+      expect(onEscKeyDown).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -363,7 +455,7 @@ describe('modal', () => {
       );
 
       fireEvent.click(getByTestId('modal-container'));
-      expect(onOverlayClick).toHaveBeenCalled();
+      expect(onOverlayClick).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -377,7 +469,7 @@ describe('modal', () => {
       );
 
       fireEvent.animationEnd(getByTestId('modal'));
-      expect(onAnimationEnd).toHaveBeenCalled();
+      expect(onAnimationEnd).toHaveBeenCalledTimes(1);
     });
   });
 });
