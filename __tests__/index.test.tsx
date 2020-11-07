@@ -248,7 +248,7 @@ describe('modal', () => {
   });
 
   describe('prop: onEscKeyDown', () => {
-    it('should be called', async () => {
+    it('should be called when esc key is pressed', async () => {
       const onEscKeyDown = jest.fn();
       const { container } = render(
         <Modal open onClose={() => null} onEscKeyDown={onEscKeyDown}>
@@ -262,7 +262,7 @@ describe('modal', () => {
   });
 
   describe('prop: onOverlayClick', () => {
-    it('should be called', async () => {
+    it('should be called when user click on overlay', async () => {
       const onOverlayClick = jest.fn();
       const { getByTestId } = render(
         <Modal open onClose={() => null} onOverlayClick={onOverlayClick}>
@@ -276,7 +276,7 @@ describe('modal', () => {
   });
 
   describe('prop: onAnimationEnd', () => {
-    it('should be called', async () => {
+    it('should be called when the animation is finished', async () => {
       const onAnimationEnd = jest.fn();
       const { getByTestId } = render(
         <Modal open onClose={() => null} onAnimationEnd={onAnimationEnd}>
