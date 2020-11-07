@@ -209,9 +209,7 @@ export const Modal = ({
       return;
     }
 
-    if (onEscKeyDown) {
-      onEscKeyDown(event);
-    }
+    onEscKeyDown?.(event);
 
     if (closeOnEsc) {
       onClose();
@@ -248,9 +246,7 @@ export const Modal = ({
       return;
     }
 
-    if (onOverlayClick) {
-      onOverlayClick(event);
-    }
+    onOverlayClick?.(event);
 
     if (closeOnOverlayClick) {
       onClose();
@@ -270,16 +266,9 @@ export const Modal = ({
   const handleAnimationEnd = () => {
     if (!open) {
       setShowPortal(false);
-      handleClose();
     }
 
-    if (blockScroll) {
-      unblockNoScroll();
-    }
-
-    if (onAnimationEnd) {
-      onAnimationEnd();
-    }
+    onAnimationEnd?.();
   };
 
   const containerModal = container || refContainer.current;
