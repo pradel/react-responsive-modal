@@ -25,6 +25,9 @@
   "jest": {
     "setupFilesAfterEnv": [
       "./__tests__/setupTests.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "src/lib"
     ]
   },
   "prettier": {
