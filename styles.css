@@ -8,7 +8,7 @@
 }
 
 .react-responsive-modal-overlay {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.50);
   position: fixed;
   top: 0;
   bottom: 0;
