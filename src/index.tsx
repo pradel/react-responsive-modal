@@ -9,12 +9,14 @@ import { isBrowser, blockNoScroll, unblockNoScroll } from './utils';
 const classes = {
   root: 'react-responsive-modal-root',
   overlay: 'react-responsive-modal-overlay',
+  overlayAnimationIn: 'react-responsive-modal-overlay-in',
+  overlayAnimationOut: 'react-responsive-modal-overlay-out',
   modalContainer: 'react-responsive-modal-container',
   modalContainerCenter: 'react-responsive-modal-containerCenter',
   modal: 'react-responsive-modal-modal',
+  modalAnimationIn: 'react-responsive-modal-modal-in',
+  modalAnimationOut: 'react-responsive-modal-modal-out',
   closeButton: 'react-responsive-modal-closeButton',
-  animationIn: 'react-responsive-modal-fadeIn',
-  animationOut: 'react-responsive-modal-fadeOut',
 };
 
 export interface ModalProps {
@@ -76,12 +78,14 @@ export interface ModalProps {
   classNames?: {
     root?: string;
     overlay?: string;
+    overlayAnimationIn?: string;
+    overlayAnimationOut?: string;
     modalContainer?: string;
     modal?: string;
+    modalAnimationIn?: string;
+    modalAnimationOut?: string;
     closeButton?: string;
     closeIcon?: string;
-    animationIn?: string;
-    animationOut?: string;
   };
   /**
    * An object containing the styles objects to style the modal.
@@ -148,7 +152,7 @@ export const Modal = ({
   closeIconId,
   closeIcon,
   focusTrapped = true,
-  animationDuration = 500,
+  animationDuration = 300,
   classNames,
   styles,
   role = 'dialog',
@@ -288,6 +292,14 @@ export const Modal = ({
 
   const containerModal = container || refContainer.current;
 
+  const overlayAnimation = open
+    ? classNames?.overlayAnimationIn ?? classes.overlayAnimationIn
+    : classNames?.overlayAnimationOut ?? classes.overlayAnimationOut;
+
+  const modalAnimation = open
+    ? classNames?.modalAnimationIn ?? classes.modalAnimationIn
+    : classNames?.modalAnimationOut ?? classes.modalAnimationOut;
+
   return showPortal && containerModal
     ? ReactDom.createPortal(
         <div className={cx(classes.root, classNames?.root)} data-testid="root">
@@ -295,6 +307,10 @@ export const Modal = ({
             className={cx(classes.overlay, classNames?.overlay)}
             data-testid="overlay"
             aria-hidden={true}
+            style={{
+              animation: `${overlayAnimation} ${animationDuration}ms`,
+              ...styles?.overlay,
+            }}
           />
           <div
             className={cx(
@@ -310,11 +326,14 @@ export const Modal = ({
           >
             <div
               className={cx(classes.modal, classNames?.modal)}
-              style={styles?.modal}
-              //           onMouseDown={handleModalEvent}
-              //           onMouseUp={handleModalEvent}
-              //           onClick={handleModalEvent}
-
+              style={{
+                animation: `${modalAnimation} ${animationDuration}ms`,
+                ...styles?.modal,
+              }}
+              // onMouseDown={handleModalEvent}
+              // onMouseUp={handleModalEvent}
+              // onClick={handleModalEvent}
+              onAnimationEnd={handleAnimationEnd}
               id={modalId}
               role={role}
               aria-modal="true"
