@@ -319,12 +319,10 @@ export const Modal = ({
               classNames?.modalContainer
             )}
             data-testid="modal-container"
-            // onClick={() => {
-            //   console.log('click container');
-            // }}
             onClick={handleClickOverlay}
           >
             <div
+              ref={refModal}
               className={cx(classes.modal, classNames?.modal)}
               style={{
                 animation: `${modalAnimation} ${animationDuration}ms`,
