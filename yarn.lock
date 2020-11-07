@@ -4086,17 +4086,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 16.9.54
-  resolution: "@types/react@npm:16.9.54"
-  dependencies:
-    "@types/prop-types": "*"
-    csstype: ^3.0.2
-  checksum: 51d96e3df91db1886fb34cf3e559046ac43b1696fd4d1e88d772dde3e68db9625b7dc9454226fd23883c0983364a868b373427ec78e7d6a125ffa34b90973218
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:16.9.56":
+"@types/react@npm:*, @types/react@npm:16.9.56":
   version: 16.9.56
   resolution: "@types/react@npm:16.9.56"
   dependencies:
