@@ -16,19 +16,13 @@ export const modalManager = {
    * Register a new modal
    */
   add: (newModal: Ref<any>) => {
-    // if (modals.findIndex((modal) => modal.element === newModal) === -1) {
     modals.push(newModal);
-    // }
   },
 
   /**
    * Remove a modal
    */
   remove: (oldModal: Ref<any>) => {
-    // const index = modals.findIndex((modal) => modal.element === oldModal);
-    // if (index !== -1) {
-    //   modals.splice(index, 1);
-    // }
     modals = modals.filter((modal) => modal !== oldModal);
   },
 
