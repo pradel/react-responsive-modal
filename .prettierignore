@@ -2,3 +2,4 @@ dist
 .docz
 coverage
 .yarn
+CHANGELOG.md

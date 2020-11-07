@@ -377,7 +377,7 @@ describe('modal', () => {
       );
 
       fireEvent.animationEnd(getByTestId('overlay'));
-      expect(onAnimationEnd).toHaveBeenCalledTimes(1)
+      expect(onAnimationEnd).toHaveBeenCalledTimes(1);
     });
   });
 });
