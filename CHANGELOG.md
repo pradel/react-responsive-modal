@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.3](https://www.github.com/pradel/react-responsive-modal/compare/v5.2.2...v5.2.3) (2020-11-07)
+
+
+### Miscellaneous
+
+* upgrade dev dependencies ([6745a09](https://www.github.com/pradel/react-responsive-modal/commit/6745a09ddd26ac938f77615afc7ced8ff1703e62))
+
 ### [5.2.2](https://www.github.com/pradel/react-responsive-modal/compare/v5.2.1...v5.2.2) (2020-11-07)
 
 
