@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.2.4](https://www.github.com/pradel/react-responsive-modal/compare/v5.2.3...v5.2.4) (2020-11-07)
+
+
+### Miscellaneous
+
+* trigger release ([d14af23](https://www.github.com/pradel/react-responsive-modal/commit/d14af2334292d9aaf81385ccfdcd0b7ff506a7cb))
+
 ### [5.2.3](https://www.github.com/pradel/react-responsive-modal/compare/v5.2.2...v5.2.3) (2020-11-07)
 
 
