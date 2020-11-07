@@ -77,6 +77,25 @@ describe('modal', () => {
       fireEvent.keyDown(container, { keyCode: 27 });
       expect(onClose).toHaveBeenCalled();
     });
+
+    it('should call onClose of last modal only when pressing esc key when multiple modals are opened', () => {
+      const onClose = jest.fn();
+      const onClose2 = jest.fn();
+      const { container } = render(
+        <>
+          <Modal open onClose={onClose}>
+            <div>modal content</div>
+          </Modal>
+          <Modal open onClose={onClose2}>
+            <div>modal content</div>
+          </Modal>
+        </>
+      );
+
+      fireEvent.keyDown(container, { keyCode: 27 });
+      expect(onClose).not.toHaveBeenCalled();
+      expect(onClose2).toHaveBeenCalled();
+    });
   });
 
   describe('body scroll', () => {
