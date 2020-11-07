@@ -114,6 +114,9 @@ describe('modal', () => {
       expect(document.documentElement.style.position).toBe('fixed');
     });
 
+    // TODO should unblock scroll when prop open change to false
+    // I didn't succeed to make the test working
+
     it('should unblock scroll when unmounted directly', async () => {
       const { unmount } = render(
         <Modal open={true} onClose={() => null}>
