@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { Modal } from '../src';
 
 describe('modal', () => {
@@ -112,6 +112,18 @@ describe('modal', () => {
         </Modal>
       );
       expect(document.documentElement.style.position).toBe('fixed');
+    });
+
+    it('should unblock scroll when unmounted directly', async () => {
+      const { unmount } = render(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+
+      unmount();
+      expect(document.documentElement.style.position).toBe('');
     });
   });
 
