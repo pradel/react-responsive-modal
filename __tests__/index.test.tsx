@@ -161,7 +161,7 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-      fireEvent.animationEnd(getByTestId('overlay'));
+      fireEvent.animationEnd(getByTestId('modal'));
       expect(queryByTestId('modal')).toBeNull();
     });
   });
@@ -174,10 +174,10 @@ describe('modal', () => {
         </Modal>
       );
 
-      expect(getByTestId('modal').classList.length).toBe(1);
+      expect(getByTestId('modal-container').classList.length).toBe(1);
       expect(
-        getByTestId('modal').classList.contains(
-          'react-responsive-modal-modalCenter'
+        getByTestId('modal-container').classList.contains(
+          'react-responsive-modal-containerCenter'
         )
       ).toBeFalsy();
     });
@@ -189,10 +189,10 @@ describe('modal', () => {
         </Modal>
       );
 
-      expect(getByTestId('modal').classList.length).toBe(2);
+      expect(getByTestId('modal-container').classList.length).toBe(2);
       expect(
-        getByTestId('modal').classList.contains(
-          'react-responsive-modal-modalCenter'
+        getByTestId('modal-container').classList.contains(
+          'react-responsive-modal-containerCenter'
         )
       ).toBeTruthy();
     });
