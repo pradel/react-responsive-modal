@@ -168,10 +168,6 @@ export const Modal = ({
   const refModal = useRef<HTMLDivElement>(null);
   const refShouldClose = useRef<boolean | null>(null);
   const refContainer = useRef<HTMLDivElement | null>(null);
-
-  // Hook used to manage multiple modals opened at the same time
-  useModalManager(refModal, open);
-
   // Lazily create the ref instance
   // https://reactjs.org/docs/hooks-faq.html#how-to-create-expensive-objects-lazily
   if (refContainer.current === null && isBrowser) {
@@ -181,6 +177,9 @@ export const Modal = ({
   // The value should be false for srr, that way when the component is hydrated client side,
   // it will match the server rendered content
   const [showPortal, setShowPortal] = useState(false);
+
+  // Hook used to manage multiple modals opened at the same time
+  useModalManager(refModal, open);
 
   const handleOpen = () => {
     if (blockScroll) {
