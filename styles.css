@@ -1,16 +1,29 @@
 .react-responsive-modal-overlay {
   background: rgba(0, 0, 0, 0.75);
-  display: flex;
-  align-items: flex-start;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
   z-index: 1000;
+}
+
+.react-responsive-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
   padding: 1.2rem;
+}
+
+.react-responsive-modal-containerCenter {
+  align-items: center;
 }
 
 .react-responsive-modal-modal {

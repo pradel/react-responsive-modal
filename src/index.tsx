@@ -8,8 +8,9 @@ import { isBrowser, blockNoScroll, unblockNoScroll } from './utils';
 
 const classes = {
   overlay: 'react-responsive-modal-overlay',
+  modalContainer: 'react-responsive-modal-container',
+  modalContainerCenter: 'react-responsive-modal-containerCenter',
   modal: 'react-responsive-modal-modal',
-  modalCenter: 'react-responsive-modal-modalCenter',
   closeButton: 'react-responsive-modal-closeButton',
   animationIn: 'react-responsive-modal-fadeIn',
   animationOut: 'react-responsive-modal-fadeOut',
@@ -73,6 +74,7 @@ export interface ModalProps {
    */
   classNames?: {
     overlay?: string;
+    modalContainer?: string;
     modal?: string;
     closeButton?: string;
     closeIcon?: string;
@@ -286,55 +288,104 @@ export const Modal = ({
 
   return showPortal && containerModal
     ? ReactDom.createPortal(
-        <div
-          style={{
-            animation: `${
-              open
-                ? classNames?.animationIn ?? classes.animationIn
-                : classNames?.animationOut ?? classes.animationOut
-            } ${animationDuration}ms`,
-            ...styles?.overlay,
-          }}
-          className={cx(classes.overlay, classNames?.overlay)}
-          onClick={handleClickOverlay}
-          onAnimationEnd={handleAnimationEnd}
-          data-testid="overlay"
-        >
+        <React.Fragment>
           <div
-            ref={refModal}
+            className={cx(classes.overlay, classNames?.overlay)}
+            data-testid="overlay"
+          />
+          <div
             className={cx(
-              classes.modal,
-              center && classes.modalCenter,
-              classNames?.modal
+              classes.modalContainer,
+              center && classes.modalContainerCenter,
+              classNames?.modalContainer
             )}
-            style={styles?.modal}
-            onMouseDown={handleModalEvent}
-            onMouseUp={handleModalEvent}
-            onClick={handleModalEvent}
-            id={modalId}
-            role={role}
-            aria-modal="true"
-            aria-labelledby={ariaLabelledby}
-            aria-describedby={ariaDescribedby}
-            data-testid="modal"
+            data-testid="modal-container"
+            onClick={() => {
+              console.log('click container');
+            }}
           >
-            {focusTrapped && <FocusTrap container={refModal} />}
-            {children}
-            {showCloseIcon && (
-              <CloseIcon
-                classes={classes}
-                classNames={classNames}
-                styles={styles}
-                closeIcon={closeIcon}
-                onClickCloseIcon={handleClickCloseIcon}
-                id={closeIconId}
-              />
-            )}
+            <div
+              className={cx(classes.modal, classNames?.modal)}
+              id={modalId}
+              role={role}
+              aria-modal="true"
+              aria-labelledby={ariaLabelledby}
+              aria-describedby={ariaDescribedby}
+              data-testid="modal"
+              onClick={() => {
+                console.log('click content');
+              }}
+            >
+              {focusTrapped && <FocusTrap container={refModal} />}
+              {children}
+              {showCloseIcon && (
+                <CloseIcon
+                  classes={classes}
+                  classNames={classNames}
+                  styles={styles}
+                  closeIcon={closeIcon}
+                  onClickCloseIcon={handleClickCloseIcon}
+                  id={closeIconId}
+                />
+              )}
+            </div>
           </div>
-        </div>,
+        </React.Fragment>,
         containerModal
       )
     : null;
+
+  // return showPortal && containerModal
+  //   ? ReactDom.createPortal(
+  //       <div
+  //         style={{
+  //           animation: `${
+  //             open
+  //               ? classNames?.animationIn ?? classes.animationIn
+  //               : classNames?.animationOut ?? classes.animationOut
+  //           } ${animationDuration}ms`,
+  //           ...styles?.overlay,
+  //         }}
+  //         className={cx(classes.overlay, classNames?.overlay)}
+  //         onClick={handleClickOverlay}
+  //         onAnimationEnd={handleAnimationEnd}
+  //         data-testid="overlay"
+  //       >
+  //         <div
+  //           ref={refModal}
+  //           className={cx(
+  //             classes.modal,
+  //             center && classes.modalCenter,
+  //             classNames?.modal
+  //           )}
+  //           style={styles?.modal}
+  //           onMouseDown={handleModalEvent}
+  //           onMouseUp={handleModalEvent}
+  //           onClick={handleModalEvent}
+  //           id={modalId}
+  //           role={role}
+  //           aria-modal="true"
+  //           aria-labelledby={ariaLabelledby}
+  //           aria-describedby={ariaDescribedby}
+  //           data-testid="modal"
+  //         >
+  //           {focusTrapped && <FocusTrap container={refModal} />}
+  //           {children}
+  //           {showCloseIcon && (
+  //             <CloseIcon
+  //               classes={classes}
+  //               classNames={classNames}
+  //               styles={styles}
+  //               closeIcon={closeIcon}
+  //               onClickCloseIcon={handleClickCloseIcon}
+  //               id={closeIconId}
+  //             />
+  //           )}
+  //         </div>
+  //       </div>,
+  //       containerModal
+  //     )
+  //   : null;
 };
 
 export default Modal;
