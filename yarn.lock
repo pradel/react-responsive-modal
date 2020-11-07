@@ -2395,6 +2395,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.12.1":
+  version: 7.12.5
+  resolution: "@babel/runtime@npm:7.12.5"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 423fb0079353db2faa0dad0cbdf0a90fbc5b511d1f77e5645d1aa0b144a144e24502bb023c12a31d7dca63b6e16ae36afa59992f0404e92e21de211051c361e3
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.9.2
   resolution: "@babel/runtime@npm:7.9.2"
@@ -3642,22 +3651,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^7.22.3":
-  version: 7.23.0
-  resolution: "@testing-library/dom@npm:7.23.0"
+"@testing-library/dom@npm:^7.26.4":
+  version: 7.26.5
+  resolution: "@testing-library/dom@npm:7.26.5"
   dependencies:
+    "@babel/code-frame": ^7.10.4
     "@babel/runtime": ^7.10.3
     "@types/aria-query": ^4.2.0
     aria-query: ^4.2.2
+    chalk: ^4.1.0
     dom-accessibility-api: ^0.5.1
+    lz-string: ^1.4.4
     pretty-format: ^26.4.2
-  checksum: e3dbbad4e178f20dcadb1ea690021e72f9b0f7a60ade874701aa2c255994bf96796870f0ff6854372c345f09a9f50c455cbe8952c2071bb1b2384e49b47321a3
+  checksum: 28805f72d951831cd5904c6332292152679269c9196b9b302319168f6ec2555ae7b7a1f013cc7b79c1ab24235a84624ff868fa6cdf7e2cc77bcd8b78af0d7004
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:5.11.4":
-  version: 5.11.4
-  resolution: "@testing-library/jest-dom@npm:5.11.4"
+"@testing-library/jest-dom@npm:5.11.5":
+  version: 5.11.5
+  resolution: "@testing-library/jest-dom@npm:5.11.5"
   dependencies:
     "@babel/runtime": ^7.9.2
     "@types/testing-library__jest-dom": ^5.9.1
@@ -3667,20 +3679,20 @@ __metadata:
     css.escape: ^1.5.1
     lodash: ^4.17.15
     redent: ^3.0.0
-  checksum: 2d59d588285017896060b76c175414adf246639558665ad3a8662d91c320f366d2bd3c95cf60163617090e2ca7bdc4b27d7a101bf96d8318513f15b45855991f
+  checksum: 72896002096a03cd3b46e31891149088ae83f87a129ea4be143f254fb4db6afbf9f7f46b4f6f73e0b9b0520b87428f627508a68a75471e9245b683619ed5d6b6
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:10.4.9":
-  version: 10.4.9
-  resolution: "@testing-library/react@npm:10.4.9"
+"@testing-library/react@npm:11.1.1":
+  version: 11.1.1
+  resolution: "@testing-library/react@npm:11.1.1"
   dependencies:
-    "@babel/runtime": ^7.10.3
-    "@testing-library/dom": ^7.22.3
+    "@babel/runtime": ^7.12.1
+    "@testing-library/dom": ^7.26.4
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 9f06d88dc13085790985543253005dca7703bda7a5e0ee2b96e0385a88b8c14b98d74951c1e2d940bcac1c231767e935f4cd90345e9202b79df57994538ad7f3
+  checksum: f09d56355dd86c4bae4ae8a1c7abe5270d6e6ccf9db6089f8efa1529e11272a2073cf19bd801f8f6f2c7ae2b3aeb7ba9c4b44aa1cdb2c76ce6dc3f1c46fc795e
   languageName: node
   linkType: hard
 
@@ -3743,10 +3755,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/classnames@npm:2.2.10":
-  version: 2.2.10
-  resolution: "@types/classnames@npm:2.2.10"
-  checksum: 31b6380183c2123c69f5e50b9e40c7da2862ddfe634361d906a6e300dacd716656ce95e508541d0ec300f71aeed57d30a7ea46f36e881c01eb2334843700fadc
+"@types/classnames@npm:2.2.11":
+  version: 2.2.11
+  resolution: "@types/classnames@npm:2.2.11"
+  checksum: 5bbd4fd0f803a46424152ecc89cfb88464af4d655634de8a98ec54977b0b6d9da107e799c24a2b66f0133438e84bac51b2275134cf028edea749fb018f731e89
   languageName: node
   linkType: hard
 
@@ -3997,10 +4009,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:14.14.5":
-  version: 14.14.5
-  resolution: "@types/node@npm:14.14.5"
-  checksum: 4916d5c46e604be9b76c69300efdf26538f74ad63a5df572a6b66b95238ddbed3c2bcd5a9748c6ec2ef1bf529d84b3f3a53a0eed54d1f46eaa29471cbb7b1406
+"@types/node@npm:14.14.6":
+  version: 14.14.6
+  resolution: "@types/node@npm:14.14.6"
+  checksum: 9b06b04ab2ae3761136fb39b573f95d90e748ebcf232e126304d642e4910039a74973547635729b627a0401791a1f2491aa9aa6d4d6bb80922a0b869a2731a63
   languageName: node
   linkType: hard
 
@@ -4074,13 +4086,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:16.9.54":
+"@types/react@npm:*":
   version: 16.9.54
   resolution: "@types/react@npm:16.9.54"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
   checksum: 51d96e3df91db1886fb34cf3e559046ac43b1696fd4d1e88d772dde3e68db9625b7dc9454226fd23883c0983364a868b373427ec78e7d6a125ffa34b90973218
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:16.9.56":
+  version: 16.9.56
+  resolution: "@types/react@npm:16.9.56"
+  dependencies:
+    "@types/prop-types": "*"
+    csstype: ^3.0.2
+  checksum: 139867e2b3d577723b9361234f105d0cf1b143202f51fef207355332f972dd74030cfb3918037cb311eefd203ee06e0a370c37755204eefdd35734f0fde070a1
   languageName: node
   linkType: hard
 
@@ -14881,6 +14903,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"lz-string@npm:^1.4.4":
+  version: 1.4.4
+  resolution: "lz-string@npm:1.4.4"
+  bin:
+    lz-string: bin/bin.js
+  checksum: 60a13f8a724d109cffc7dda4cb98569adfa0516750f8a75b7236f6bc94b47edffb59e8a1e501364404e3867cf399e6612c3981f9c81c2de75751203431bf2e69
+  languageName: node
+  linkType: hard
+
 "magic-string@npm:^0.25.1, magic-string@npm:^0.25.2, magic-string@npm:^0.25.3, magic-string@npm:^0.25.5":
   version: 0.25.7
   resolution: "magic-string@npm:0.25.7"
@@ -18485,12 +18516,12 @@ fsevents@^1.2.7:
   resolution: "react-responsive-modal@workspace:."
   dependencies:
     "@size-limit/preset-small-lib": 4.7.0
-    "@testing-library/jest-dom": 5.11.4
-    "@testing-library/react": 10.4.9
-    "@types/classnames": 2.2.10
+    "@testing-library/jest-dom": 5.11.5
+    "@testing-library/react": 11.1.1
+    "@types/classnames": 2.2.11
     "@types/no-scroll": 2.1.0
-    "@types/node": 14.14.5
-    "@types/react": 16.9.54
+    "@types/node": 14.14.6
+    "@types/react": 16.9.56
     "@types/react-dom": 16.9.9
     "@types/react-transition-group": 4.4.0
     classnames: ^2.2.6
