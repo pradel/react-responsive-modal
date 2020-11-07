@@ -1,43 +1,50 @@
+.react-responsive-modal-root {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 .react-responsive-modal-overlay {
   background: rgba(0, 0, 0, 0.75);
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
+  right: 0;
+  z-index: -1;
 }
 
 .react-responsive-modal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  height: 100%;
+  outline: 0;
+  overflow-x: hidden;
   overflow-y: auto;
-  padding: 1.2rem;
+  text-align: center;
 }
 
-.react-responsive-modal-containerCenter {
-  align-items: center;
+/* Used to trick the browser to center the modal content properly  */
+.react-responsive-modal-containerCenter:after {
+  width: 0;
+  height: 100%;
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .react-responsive-modal-modal {
   max-width: 800px;
-  position: relative;
-  padding: 1.2rem;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
   background: #ffffff;
-  background-clip: padding-box;
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
-  margin: 0 auto;
-}
-
-.react-responsive-modal-modalCenter {
-  margin: auto;
+  margin: 1.2rem;
+  padding: 1.2rem;
+  position: relative;
+  overflow-y: auto;
 }
 
 .react-responsive-modal-closeButton {

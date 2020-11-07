@@ -7,6 +7,7 @@ import modalManager from './modalManager';
 import { isBrowser, blockNoScroll, unblockNoScroll } from './utils';
 
 const classes = {
+  root: 'react-responsive-modal-root',
   overlay: 'react-responsive-modal-overlay',
   modalContainer: 'react-responsive-modal-container',
   modalContainerCenter: 'react-responsive-modal-containerCenter',
@@ -73,6 +74,7 @@ export interface ModalProps {
    * An object containing classNames to style the modal.
    */
   classNames?: {
+    root?: string;
     overlay?: string;
     modalContainer?: string;
     modal?: string;
@@ -241,14 +243,14 @@ export const Modal = ({
   const handleClickOverlay = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    if (refShouldClose.current === null) {
-      refShouldClose.current = true;
-    }
+    // if (refShouldClose.current === null) {
+    //   refShouldClose.current = true;
+    // }
 
-    if (!refShouldClose.current) {
-      refShouldClose.current = null;
-      return;
-    }
+    // if (!refShouldClose.current) {
+    //   refShouldClose.current = null;
+    //   return;
+    // }
 
     if (onOverlayClick) {
       onOverlayClick(event);
@@ -288,10 +290,11 @@ export const Modal = ({
 
   return showPortal && containerModal
     ? ReactDom.createPortal(
-        <React.Fragment>
+        <div className={cx(classes.root, classNames?.root)} data-testid="root">
           <div
             className={cx(classes.overlay, classNames?.overlay)}
             data-testid="overlay"
+            aria-hidden={true}
           />
           <div
             className={cx(
@@ -300,19 +303,27 @@ export const Modal = ({
               classNames?.modalContainer
             )}
             data-testid="modal-container"
-            onClick={() => {
-              console.log('click container');
-            }}
+            // onClick={() => {
+            //   console.log('click container');
+            // }}
+            onClick={handleClickOverlay}
           >
             <div
               className={cx(classes.modal, classNames?.modal)}
+              style={styles?.modal}
+              //           onMouseDown={handleModalEvent}
+              //           onMouseUp={handleModalEvent}
+              //           onClick={handleModalEvent}
+
               id={modalId}
               role={role}
               aria-modal="true"
               aria-labelledby={ariaLabelledby}
               aria-describedby={ariaDescribedby}
               data-testid="modal"
-              onClick={() => {
+              onClick={(event) => {
+                // TODO if this could work without interfering with clicks on buttons or links inside the modal
+                event.stopPropagation();
                 console.log('click content');
               }}
             >
@@ -330,62 +341,10 @@ export const Modal = ({
               )}
             </div>
           </div>
-        </React.Fragment>,
+        </div>,
         containerModal
       )
     : null;
-
-  // return showPortal && containerModal
-  //   ? ReactDom.createPortal(
-  //       <div
-  //         style={{
-  //           animation: `${
-  //             open
-  //               ? classNames?.animationIn ?? classes.animationIn
-  //               : classNames?.animationOut ?? classes.animationOut
-  //           } ${animationDuration}ms`,
-  //           ...styles?.overlay,
-  //         }}
-  //         className={cx(classes.overlay, classNames?.overlay)}
-  //         onClick={handleClickOverlay}
-  //         onAnimationEnd={handleAnimationEnd}
-  //         data-testid="overlay"
-  //       >
-  //         <div
-  //           ref={refModal}
-  //           className={cx(
-  //             classes.modal,
-  //             center && classes.modalCenter,
-  //             classNames?.modal
-  //           )}
-  //           style={styles?.modal}
-  //           onMouseDown={handleModalEvent}
-  //           onMouseUp={handleModalEvent}
-  //           onClick={handleModalEvent}
-  //           id={modalId}
-  //           role={role}
-  //           aria-modal="true"
-  //           aria-labelledby={ariaLabelledby}
-  //           aria-describedby={ariaDescribedby}
-  //           data-testid="modal"
-  //         >
-  //           {focusTrapped && <FocusTrap container={refModal} />}
-  //           {children}
-  //           {showCloseIcon && (
-  //             <CloseIcon
-  //               classes={classes}
-  //               classNames={classNames}
-  //               styles={styles}
-  //               closeIcon={closeIcon}
-  //               onClickCloseIcon={handleClickCloseIcon}
-  //               id={closeIconId}
-  //             />
-  //           )}
-  //         </div>
-  //       </div>,
-  //       containerModal
-  //     )
-  //   : null;
 };
 
 export default Modal;
