@@ -24,7 +24,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      fireEvent.click(getByTestId('overlay'));
+      fireEvent.click(getByTestId('modal-container'));
       expect(onClose).not.toHaveBeenCalled();
     });
 
