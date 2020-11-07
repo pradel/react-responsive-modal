@@ -13,4 +13,21 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
-          package-name: release-please-action
+          package-name: react-responsive-modal
+
+      - uses: actions/checkout@v2
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Use Node 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Build
+        run: yarn build
+        if: ${{ steps.release.outputs.release_created }}
