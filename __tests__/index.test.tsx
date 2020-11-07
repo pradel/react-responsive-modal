@@ -12,7 +12,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      fireEvent.click(getByTestId('overlay'));
+      fireEvent.click(getByTestId('modal-container'));
       expect(onClose).toHaveBeenCalled();
     });
 
@@ -270,7 +270,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      fireEvent.click(getByTestId('overlay'));
+      fireEvent.click(getByTestId('modal-container'));
       expect(onOverlayClick).toHaveBeenCalled();
     });
   });
@@ -284,7 +284,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      fireEvent.animationEnd(getByTestId('overlay'));
+      fireEvent.animationEnd(getByTestId('modal'));
       expect(onAnimationEnd).toHaveBeenCalled();
     });
   });
