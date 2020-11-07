@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { Modal } from '../src';
 
 describe('modal', () => {
@@ -76,6 +76,98 @@ describe('modal', () => {
 
       fireEvent.keyDown(container, { keyCode: 27 });
       expect(onClose).toHaveBeenCalled();
+    });
+
+    it('should call onClose of last modal only when pressing esc key when multiple modals are opened', () => {
+      const onClose = jest.fn();
+      const onClose2 = jest.fn();
+      const { container } = render(
+        <>
+          <Modal open onClose={onClose}>
+            <div>modal content</div>
+          </Modal>
+          <Modal open onClose={onClose2}>
+            <div>modal content</div>
+          </Modal>
+        </>
+      );
+
+      fireEvent.keyDown(container, { keyCode: 27 });
+      expect(onClose).not.toHaveBeenCalled();
+      expect(onClose2).toHaveBeenCalled();
+    });
+  });
+
+  describe('body scroll', () => {
+    it('should not block the scroll when modal is rendered closed', () => {
+      render(
+        <Modal open={false} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('');
+    });
+
+    it('should block the scroll when modal is rendered open', () => {
+      render(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+    });
+
+    it('should block scroll when prop open change to true', () => {
+      const { rerender } = render(
+        <Modal open={false} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('');
+
+      rerender(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+    });
+
+    it('should unblock scroll when prop open change to false', async () => {
+      const { rerender, queryByTestId, getByTestId } = render(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+
+      rerender(
+        <Modal open={false} onClose={() => null} animationDuration={0}>
+          <div>modal content</div>
+        </Modal>
+      );
+      // Simulate the browser animation end
+      fireEvent.animationEnd(getByTestId('overlay'));
+      await waitFor(
+        () => {
+          expect(queryByTestId('modal')).not.toBeInTheDocument();
+        },
+        { timeout: 10 }
+      );
+
+      expect(document.documentElement.style.position).toBe('');
+    });
+
+    it('should unblock scroll when unmounted directly', async () => {
+      const { unmount } = render(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+
+      unmount();
+      expect(document.documentElement.style.position).toBe('');
     });
   });
 
@@ -248,7 +340,7 @@ describe('modal', () => {
   });
 
   describe('prop: onEscKeyDown', () => {
-    it('should be called', async () => {
+    it('should be called when esc key is pressed', async () => {
       const onEscKeyDown = jest.fn();
       const { container } = render(
         <Modal open onClose={() => null} onEscKeyDown={onEscKeyDown}>
@@ -262,7 +354,7 @@ describe('modal', () => {
   });
 
   describe('prop: onOverlayClick', () => {
-    it('should be called', async () => {
+    it('should be called when user click on overlay', async () => {
       const onOverlayClick = jest.fn();
       const { getByTestId } = render(
         <Modal open onClose={() => null} onOverlayClick={onOverlayClick}>
@@ -276,7 +368,7 @@ describe('modal', () => {
   });
 
   describe('prop: onAnimationEnd', () => {
-    it('should be called', async () => {
+    it('should be called when the animation is finished', async () => {
       const onAnimationEnd = jest.fn();
       const { getByTestId } = render(
         <Modal open onClose={() => null} onAnimationEnd={onAnimationEnd}>
