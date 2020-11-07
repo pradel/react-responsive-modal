@@ -15,7 +15,7 @@ interface CloseIconProps {
   classes: {
     closeButton?: string;
   };
-  onClickCloseIcon: () => void;
+  onClick: () => void;
 }
 
 const CloseIcon = ({
@@ -24,13 +24,13 @@ const CloseIcon = ({
   styles,
   id,
   closeIcon,
-  onClickCloseIcon,
+  onClick,
 }: CloseIconProps) => (
   <button
     id={id}
     className={cx(classes.closeButton, classNames?.closeButton)}
     style={styles?.closeButton}
-    onClick={onClickCloseIcon}
+    onClick={onClick}
     data-testid="close-button"
   >
     {closeIcon ? (

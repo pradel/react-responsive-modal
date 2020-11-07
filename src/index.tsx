@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import cx from 'classnames';
 import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
-import modalManager from './modalManager';
+import { modalManager, useModalManager } from './modalManager';
 import { isBrowser, blockNoScroll, unblockNoScroll } from './utils';
 
 const classes = {
@@ -168,6 +168,7 @@ export const Modal = ({
   const refModal = useRef<HTMLDivElement>(null);
   const refShouldClose = useRef<boolean | null>(null);
   const refContainer = useRef<HTMLDivElement | null>(null);
+  useModalManager(refModal, open);
   // Lazily create the ref instance
   // https://reactjs.org/docs/hooks-faq.html#how-to-create-expensive-objects-lazily
   if (refContainer.current === null && isBrowser) {
@@ -179,7 +180,7 @@ export const Modal = ({
   const [showPortal, setShowPortal] = useState(false);
 
   const handleOpen = () => {
-    modalManager.add(refContainer.current!, blockScroll);
+    // modalManager.add(refContainer.current!, blockScroll);
     if (blockScroll) {
       blockNoScroll();
     }
@@ -194,7 +195,7 @@ export const Modal = ({
   };
 
   const handleClose = () => {
-    modalManager.remove(refContainer.current!);
+    // modalManager.remove(refContainer.current!);
     if (blockScroll) {
       unblockNoScroll();
     }
@@ -210,10 +211,7 @@ export const Modal = ({
 
   const handleKeydown = (event: KeyboardEvent) => {
     // Only the last modal need to be escaped when pressing the esc key
-    if (
-      event.keyCode !== 27 ||
-      !modalManager.isTopModal(refContainer.current!)
-    ) {
+    if (event.keyCode !== 27 || !modalManager.isTopModal(refModal)) {
       return;
     }
 
@@ -230,6 +228,7 @@ export const Modal = ({
     return () => {
       // When the component is unmounted directly we want to unblock the scroll
       if (showPortal) {
+        console.log('handleClose showPortal');
         handleClose();
       }
     };
@@ -247,14 +246,14 @@ export const Modal = ({
   const handleClickOverlay = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    // if (refShouldClose.current === null) {
-    //   refShouldClose.current = true;
-    // }
+    if (refShouldClose.current === null) {
+      refShouldClose.current = true;
+    }
 
-    // if (!refShouldClose.current) {
-    //   refShouldClose.current = null;
-    //   return;
-    // }
+    if (!refShouldClose.current) {
+      refShouldClose.current = null;
+      return;
+    }
 
     if (onOverlayClick) {
       onOverlayClick(event);
@@ -278,7 +277,6 @@ export const Modal = ({
   const handleAnimationEnd = () => {
     if (!open) {
       setShowPortal(false);
-      handleClose();
     }
 
     if (blockScroll) {
@@ -328,9 +326,9 @@ export const Modal = ({
                 animation: `${modalAnimation} ${animationDuration}ms`,
                 ...styles?.modal,
               }}
-              // onMouseDown={handleModalEvent}
-              // onMouseUp={handleModalEvent}
-              // onClick={handleModalEvent}
+              onMouseDown={handleModalEvent}
+              onMouseUp={handleModalEvent}
+              onClick={handleModalEvent}
               onAnimationEnd={handleAnimationEnd}
               id={modalId}
               role={role}
@@ -338,11 +336,6 @@ export const Modal = ({
               aria-labelledby={ariaLabelledby}
               aria-describedby={ariaDescribedby}
               data-testid="modal"
-              onClick={(event) => {
-                // TODO if this could work without interfering with clicks on buttons or links inside the modal
-                event.stopPropagation();
-                console.log('click content');
-              }}
             >
               {focusTrapped && <FocusTrap container={refModal} />}
               {children}
@@ -352,7 +345,7 @@ export const Modal = ({
                   classNames={classNames}
                   styles={styles}
                   closeIcon={closeIcon}
-                  onClickCloseIcon={handleClickCloseIcon}
+                  onClick={handleClickCloseIcon}
                   id={closeIconId}
                 />
               )}
