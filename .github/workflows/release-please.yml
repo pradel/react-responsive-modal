@@ -31,3 +31,9 @@ jobs:
       - name: Build
         run: yarn build
         if: ${{ steps.release.outputs.release_created }}
+
+      - name: Publish npm package
+        run: yarn npm publish
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+        if: ${{ steps.release.outputs.release_created }}
