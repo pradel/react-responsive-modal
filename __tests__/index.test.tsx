@@ -13,7 +13,7 @@ describe('modal', () => {
       );
 
       fireEvent.click(getByTestId('overlay'));
-      expect(onClose).toHaveBeenCalled();
+      expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('should disable the handler when closeOnOverlayClick is false', () => {
@@ -75,7 +75,7 @@ describe('modal', () => {
       );
 
       fireEvent.keyDown(container, { keyCode: 27 });
-      expect(onClose).toHaveBeenCalled();
+      expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('should call onClose of last modal only when pressing esc key when multiple modals are opened', () => {
@@ -94,7 +94,7 @@ describe('modal', () => {
 
       fireEvent.keyDown(container, { keyCode: 27 });
       expect(onClose).not.toHaveBeenCalled();
-      expect(onClose2).toHaveBeenCalled();
+      expect(onClose2).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -201,7 +201,7 @@ describe('modal', () => {
       );
 
       fireEvent.click(getByTestId('close-button'));
-      expect(onClose).toHaveBeenCalled();
+      expect(onClose).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -349,7 +349,7 @@ describe('modal', () => {
       );
 
       fireEvent.keyDown(container, { keyCode: 27 });
-      expect(onEscKeyDown).toHaveBeenCalled();
+      expect(onEscKeyDown).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -363,7 +363,7 @@ describe('modal', () => {
       );
 
       fireEvent.click(getByTestId('overlay'));
-      expect(onOverlayClick).toHaveBeenCalled();
+      expect(onOverlayClick).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -377,7 +377,7 @@ describe('modal', () => {
       );
 
       fireEvent.animationEnd(getByTestId('overlay'));
-      expect(onAnimationEnd).toHaveBeenCalled();
+      expect(onAnimationEnd).toHaveBeenCalledTimes(1)
     });
   });
 });
