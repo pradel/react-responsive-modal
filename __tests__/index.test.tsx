@@ -114,8 +114,30 @@ describe('modal', () => {
       expect(document.documentElement.style.position).toBe('fixed');
     });
 
-    // TODO should unblock scroll when prop open change to false
-    // I didn't succeed to make the test working
+    it('should unblock scroll when prop open change to false', async () => {
+      const { rerender, queryByTestId, getByTestId } = render(
+        <Modal open={true} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+
+      rerender(
+        <Modal open={false} onClose={() => null} animationDuration={0}>
+          <div>modal content</div>
+        </Modal>
+      );
+      // Simulate the browser animation end
+      fireEvent.animationEnd(getByTestId('modal'));
+      await waitFor(
+        () => {
+          expect(queryByTestId('modal')).not.toBeInTheDocument();
+        },
+        { timeout: 10 }
+      );
+
+      expect(document.documentElement.style.position).toBe('');
+    });
 
     it('should unblock scroll when unmounted directly', async () => {
       const { unmount } = render(
