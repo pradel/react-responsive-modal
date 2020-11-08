@@ -26,6 +26,9 @@
     "setupFilesAfterEnv": [
       "./__tests__/setupTests.ts"
     ],
+    "modulePathIgnorePatterns": [
+      "cypress"
+    ],
     "coveragePathIgnorePatterns": [
       "src/lib"
     ]
