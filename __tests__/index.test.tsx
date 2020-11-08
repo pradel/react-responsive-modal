@@ -152,7 +152,7 @@ describe('modal', () => {
         () => {
           expect(queryByTestId('modal')).not.toBeInTheDocument();
         },
-        { timeout: 10 }
+        { timeout: 1 }
       );
 
       expect(document.documentElement.style.position).toBe('');
@@ -200,7 +200,7 @@ describe('modal', () => {
         () => {
           expect(queryByText(/second modal/)).not.toBeInTheDocument();
         },
-        { timeout: 10 }
+        { timeout: 1 }
       );
       expect(document.documentElement.style.position).toBe('fixed');
 
@@ -221,7 +221,42 @@ describe('modal', () => {
         () => {
           expect(queryByText(/first modal/)).not.toBeInTheDocument();
         },
-        { timeout: 10 }
+        { timeout: 1 }
+      );
+      expect(document.documentElement.style.position).toBe('');
+    });
+
+    it('should unblock scroll when one modal is closed and the one still open has blockScroll set to false', async () => {
+      const { rerender, getAllByTestId, queryByText } = render(
+        <React.Fragment>
+          <Modal open blockScroll={false} onClose={() => null}>
+            <div>first modal</div>
+          </Modal>
+          <Modal open onClose={() => null}>
+            <div>second modal</div>
+          </Modal>
+        </React.Fragment>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+
+      // We close one modal, the scroll should be unlocked as remaining modal is not locking the scroll
+      rerender(
+        <React.Fragment>
+          <Modal open blockScroll={false} onClose={() => null}>
+            <div>first modal</div>
+          </Modal>
+          <Modal open={false} onClose={() => null}>
+            <div>second modal</div>
+          </Modal>
+        </React.Fragment>
+      );
+
+      fireEvent.animationEnd(getAllByTestId('overlay')[1]);
+      await waitFor(
+        () => {
+          expect(queryByText(/second modal/)).not.toBeInTheDocument();
+        },
+        { timeout: 1 }
       );
       expect(document.documentElement.style.position).toBe('');
     });
