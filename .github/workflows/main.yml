@@ -52,4 +52,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          # Dependencies already installed before
+          install: false
           start: yarn dlx serve -l 3000 .docz/dist
