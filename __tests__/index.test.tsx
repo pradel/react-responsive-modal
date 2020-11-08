@@ -339,6 +339,17 @@ describe('modal', () => {
     });
   });
 
+  describe('prop: blockScroll', () => {
+    it('should not block the scroll when modal is opened and blockScroll is false', () => {
+      render(
+        <Modal open blockScroll={false} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.documentElement.style.position).toBe('');
+    });
+  });
+
   describe('prop: onEscKeyDown', () => {
     it('should be called when esc key is pressed', async () => {
       const onEscKeyDown = jest.fn();
