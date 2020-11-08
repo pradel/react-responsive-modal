@@ -195,7 +195,7 @@ describe('modal', () => {
         </React.Fragment>
       );
 
-      fireEvent.animationEnd(getAllByTestId('overlay')[1]);
+      fireEvent.animationEnd(getAllByTestId('modal')[1]);
       await waitFor(
         () => {
           expect(queryByText(/second modal/)).not.toBeInTheDocument();
@@ -216,7 +216,7 @@ describe('modal', () => {
         </React.Fragment>
       );
 
-      fireEvent.animationEnd(getAllByTestId('overlay')[0]);
+      fireEvent.animationEnd(getAllByTestId('modal')[0]);
       await waitFor(
         () => {
           expect(queryByText(/first modal/)).not.toBeInTheDocument();
@@ -251,7 +251,7 @@ describe('modal', () => {
         </React.Fragment>
       );
 
-      fireEvent.animationEnd(getAllByTestId('overlay')[1]);
+      fireEvent.animationEnd(getAllByTestId('modal')[1]);
       await waitFor(
         () => {
           expect(queryByText(/second modal/)).not.toBeInTheDocument();
