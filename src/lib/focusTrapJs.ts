@@ -1,4 +1,4 @@
-// https://github.com/alexandrzavalii/focus-trap-js/blob/master/src/index.js v1.0.9
+// https://github.com/alexandrzavalii/focus-trap-js/blob/master/src/index.js v1.1.0
 
 export const candidateSelectors = [
   'input',
@@ -20,12 +20,39 @@ function isHidden(node: any) {
   );
 }
 
+function getCheckedRadio(nodes: any, form: any) {
+  for (var i = 0; i < nodes.length; i++) {
+    if (nodes[i].checked && nodes[i].form === form) {
+      return nodes[i];
+    }
+  }
+}
+
+function isNotRadioOrTabbableRadio(node: any) {
+  if (node.tagName !== 'INPUT' || node.type !== 'radio' || !node.name) {
+    return true;
+  }
+  var radioScope = node.form || node.ownerDocument;
+  var radioSet = radioScope.querySelectorAll(
+    'input[type="radio"][name="' + node.name + '"]'
+  );
+  var checked = getCheckedRadio(radioSet, node.form);
+  return checked === node || (checked === undefined && radioSet[0] === node);
+}
+
 export function getAllTabbingElements(parentElem: any) {
+  var currentActiveElement = document.activeElement;
   var tabbableNodes = parentElem.querySelectorAll(candidateSelectors.join(','));
   var onlyTabbable = [];
   for (var i = 0; i < tabbableNodes.length; i++) {
     var node = tabbableNodes[i];
-    if (!node.disabled && getTabindex(node) > -1 && !isHidden(node)) {
+    if (
+      currentActiveElement === node ||
+      (!node.disabled &&
+        getTabindex(node) > -1 &&
+        !isHidden(node) &&
+        isNotRadioOrTabbableRadio(node))
+    ) {
       onlyTabbable.push(node);
     }
   }
