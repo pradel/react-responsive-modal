@@ -1,5 +1,14 @@
 # Changelog
 
+### [5.2.7](https://www.github.com/pradel/react-responsive-modal/compare/v5.2.6...v5.2.7) (2020-11-08)
+
+
+### Tests
+
+* test that scroll is not blocked when blockScroll is false ([3d909b6](https://www.github.com/pradel/react-responsive-modal/commit/3d909b6c90261e6bd1a40de0a522ac4f85a487a8))
+* test that scroll is unblocked when multiple modals are closed ([fba3593](https://www.github.com/pradel/react-responsive-modal/commit/fba35933ec6f270bbeb1fd779a6feef97b65bb82))
+* test that scroll is unblocked when second modal has blockScroll set to false ([cf4b6b3](https://www.github.com/pradel/react-responsive-modal/commit/cf4b6b37ec55c24003d085cd5ad4d3bccc031bec))
+
 ### [5.2.6](https://www.github.com/pradel/react-responsive-modal/compare/v5.2.5...v5.2.6) (2020-11-07)
 
 
