@@ -169,6 +169,62 @@ describe('modal', () => {
       unmount();
       expect(document.documentElement.style.position).toBe('');
     });
+
+    it('should unblock scroll when multiple modals are opened and then closed', async () => {
+      const { rerender, getAllByTestId, queryByText } = render(
+        <React.Fragment>
+          <Modal open onClose={() => null}>
+            <div>first modal</div>
+          </Modal>
+          <Modal open onClose={() => null}>
+            <div>second modal</div>
+          </Modal>
+        </React.Fragment>
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+
+      // We close one modal, the scroll should be locked
+      rerender(
+        <React.Fragment>
+          <Modal open onClose={() => null}>
+            <div>first modal</div>
+          </Modal>
+          <Modal open={false} onClose={() => null}>
+            <div>second modal</div>
+          </Modal>
+        </React.Fragment>
+      );
+
+      fireEvent.animationEnd(getAllByTestId('overlay')[1]);
+      await waitFor(
+        () => {
+          expect(queryByText(/second modal/)).not.toBeInTheDocument();
+        },
+        { timeout: 10 }
+      );
+      expect(document.documentElement.style.position).toBe('fixed');
+
+      // We close the second modal, the scroll should be unlocked
+      rerender(
+        <React.Fragment>
+          <Modal open={false} onClose={() => null}>
+            <div>first modal</div>
+          </Modal>
+          <Modal open={false} onClose={() => null}>
+            <div>second modal</div>
+          </Modal>
+        </React.Fragment>
+      );
+
+      fireEvent.animationEnd(getAllByTestId('overlay')[0]);
+      await waitFor(
+        () => {
+          expect(queryByText(/first modal/)).not.toBeInTheDocument();
+        },
+        { timeout: 10 }
+      );
+      expect(document.documentElement.style.position).toBe('');
+    });
   });
 
   describe('closeIcon', () => {
