@@ -17,4 +17,10 @@ describe('simple modal', () => {
     cy.get('[data-testid=close-button]').click();
     cy.get('[data-testid=modal]').should('not.exist');
   });
+
+  it('should close modal when pressing esc key', () => {
+    cy.get('button').eq(2).click();
+    cy.get('body').type('{esc}');
+    cy.get('[data-testid=modal]').should('not.exist');
+  });
 });
