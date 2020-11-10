@@ -8,6 +8,11 @@ module.exports = {
     container: {
       center: true,
     },
+    extend: {
+      colors: {
+        watermelon: '#FD4659',
+      },
+    },
   },
   variants: {},
   plugins: [require('@tailwindcss/typography')],
