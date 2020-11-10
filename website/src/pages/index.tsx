@@ -15,6 +15,7 @@ const IndexPage = () => (
   <div className="container px-4">
     Hello
     <div>
+      {/* TODO lazy imports this component? */}
       <LiveProvider code={file} scope={{ Modal }}>
         <LiveEditor />
         <LiveError />
