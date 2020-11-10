@@ -8,6 +8,18 @@ module.exports = {
     container: {
       center: true,
     },
+    typography: {
+      default: {
+        css: {
+          'code::before': {
+            content: '',
+          },
+          'code::after': {
+            content: '',
+          },
+        },
+      },
+    },
     extend: {
       colors: {
         watermelon: '#FD4659',

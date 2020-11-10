@@ -6,4 +6,17 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+.prose pre {
+  @apply bg-gray-200;
+}
+.prose code {
+  @apply bg-gray-200 font-normal px-1;
+}
+.prose pre code {
+  @apply text-sm text-gray-700;
+}
+.prose a {
+  @apply text-watermelon font-semibold no-underline border-b border-watermelon;
+}
 /* purgecss end ignore */
