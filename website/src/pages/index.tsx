@@ -9,18 +9,35 @@ const path = require('path');
 module.exports = fs.readFileSync(require.resolve(path.join(__dirname, '../examples/simple.tsx')), 'utf8');
 `;
 
-console.log(file);
-
 const IndexPage = () => (
   <div className="container px-4">
-    Hello
-    <div>
-      {/* TODO lazy imports this component? */}
-      <LiveProvider code={file} scope={{ Modal }}>
-        <LiveEditor />
-        <LiveError />
-        <LivePreview />
-      </LiveProvider>
+    <div className="grid md:grid-cols-3">
+      <div className="col-span-1">I am the menu</div>
+      <div className="col-span-2 prose lg:prose-lg">
+        <h1>react-responsive-modal</h1>
+        <p>A simple responsive and accessible react modal.</p>
+
+        <h3>Features:</h3>
+        <ul>
+          <li>Focus trap inside the modal.</li>
+          <li>Centered modals.</li>
+          <li>Scrolling modals.</li>
+          <li>Multiple modals.</li>
+          <li>Accessible modals.</li>
+          <li>Easily customizable via props.</li>
+        </ul>
+
+        <h3>Installation</h3>
+        
+
+        <h4>Usage</h4>
+        {/* TODO lazy imports this component? */}
+        <LiveProvider code={file} scope={{ Modal }}>
+          <LiveEditor />
+          <LiveError />
+          <LivePreview />
+        </LiveProvider>
+      </div>
     </div>
   </div>
 );

@@ -1522,6 +1522,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tailwindcss/typography@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@tailwindcss/typography@npm:0.2.0"
+  peerDependencies:
+    tailwindcss: ^1.5.0
+  checksum: 07b12319171e62151e7212fdf3aeeaff64d282934d6fa37b7c668bc00cb652930ef6841b1a88a927d3c459ab2a0df67a9e94f386a069efd8efa0b6c7b451aec6
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.5":
   version: 7.0.6
   resolution: "@types/json-schema@npm:7.0.6"
@@ -7873,6 +7882,7 @@ typescript@4.0.5:
   version: 0.0.0-use.local
   resolution: "with-typescript@workspace:."
   dependencies:
+    "@tailwindcss/typography": 0.2.0
     "@types/node": 14.14.7
     "@types/react": 16.9.56
     "@types/react-dom": 16.9.9
