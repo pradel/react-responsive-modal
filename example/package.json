@@ -1,0 +1,22 @@
+{
+  "name": "with-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "next": "10.0.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "14.14.7",
+    "@types/react": "16.9.56",
+    "@types/react-dom": "16.9.9",
+    "typescript": "4.0.5"
+  },
+  "license": "MIT"
+}
