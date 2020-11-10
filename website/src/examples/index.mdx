@@ -55,10 +55,88 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 You can render multiple modals at the same time. Clicking on the overlay or pressing "esc" will only close the last modal.
 
+### Modal with a lot of content
+
+When a modal with a content overflowing the window size, you can scroll the content of the modal but you will see that the body scroll is locked until you actually close the modal.
+
 ### Focus Trapped modal
 
 By default, when the modal open, the first focusable element will be focused. Press Tab to navigate between the focusable elements in the modal. You can notice that when the modal is open, you can't focus the elements outside of it.
 If you want to disable this behavior, set the `focusTrapped` prop to `false`.
+
+### Custom styling with css
+
+Customising the Modal style via css is really easy. For example if you add the following css to your app you will get the following result:
+
+```css
+/* examples/custom-styling.css */
+.customOverlay {
+  background: rgba(36, 123, 160, 0.7);
+}
+.customModal {
+  background: #b2dbbf;
+  max-width: 500px;
+  width: 100%;
+}
+```
+
+### Custom animation
+
+If you want to change the default animation, you can do so by creating your own css animation. For example if you add the following css to your app you will get the following result:
+
+```css
+/* examples/custom-animation.css */
+@keyframes customEnterAnimation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes customLeaveAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+```
+
+If you want to apply a custom animation to the modal body you can do like this:
+
+### Using a custom close icon
+
+You can customise the close icon used by the Modal by providing your own image or svg.
+
+### Using a custom container
+
+By default, the Modal will be rendered at the end of the html body tag. If you want to render the Modal in your own container, you can pass your own Element to the container prop.
+
+## Accessibility
+
+- Use the `aria-labelledby` and `aria-describedby` props to follow the [ARIA best practices](https://www.w3.org/TR/wai-aria-practices/#dialog_modal).
+
+```javascript
+<Modal
+  open={open}
+  onClose={onCloseModal}
+  aria-labelledby="my-modal-title"
+  aria-describedby="my-modal-description"
+>
+  <h2 id="my-modal-title">My Title</h2>
+  <p id="my-modal-description">My Description</p>
+</Modal>
+```
+
+- `aria-modal` is set to true automatically.
+- When the modal is open the focus is trapped within it.
+- Clicking on the overlay closes the Modal.
+- Pressing the "Esc" key closes the Modal.
+- When the modal is open the page scroll is blocked for the elements behind the modal.
+- Closing the modal will unblock the scroll.
+- The modal is rendered in a portal at the end of the `body`.
 
 ## Props
 

@@ -19,4 +19,8 @@ body {
 .prose a {
   @apply text-watermelon font-semibold no-underline border-b border-watermelon;
 }
+/* Style the examples button */
+.prose button {
+  @apply bg-watermelon text-white py-1 px-3 rounded;
+}
 /* purgecss end ignore */
