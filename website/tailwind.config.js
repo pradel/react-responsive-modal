@@ -4,7 +4,11 @@ module.exports = {
     purgeLayersByDefault: true,
   },
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
-  theme: {},
+  theme: {
+    container: {
+      center: true,
+    },
+  },
   variants: {},
   plugins: [],
 };

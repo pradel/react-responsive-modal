@@ -1,3 +1,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* purgecss start ignore */
+body {
+  font-family: 'Inter', sans-serif;
+}
+/* purgecss end ignore */

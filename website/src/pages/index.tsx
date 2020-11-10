@@ -1,3 +1,3 @@
-const IndexPage = () => <div className="text-green-500">Hello</div>;
+const IndexPage = () => <div className="container px-4">Hello</div>;
 
 export default IndexPage;
