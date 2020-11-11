@@ -14,8 +14,7 @@
     "prepare": "tsdx build",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "size": "size-limit",
-    "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx}\""
+    "size": "size-limit"
   },
   "files": [
     "dist",
@@ -32,14 +31,6 @@
     "coveragePathIgnorePatterns": [
       "src/lib"
     ]
-  },
-  "prettier": {
-    "singleQuote": true
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
   },
   "keywords": [
     "react",
