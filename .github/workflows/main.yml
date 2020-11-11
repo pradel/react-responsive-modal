@@ -35,23 +35,25 @@ jobs:
         run: yarn install --immutable
 
       - name: Lint
-        run: yarn lint
+        run: yarn workspace react-responsive-modal lint
 
       - name: Test
-        run: yarn test --ci --coverage --maxWorkers=2
+        run: yarn workspace react-responsive-modal test --ci --coverage --maxWorkers=2
 
       - name: Report coverage
         uses: codecov/codecov-action@v1
 
       - name: Build
-        run: yarn build
+        run: yarn workspace react-responsive-modal build
 
       - name: Build docs
-        run: yarn docz:build
+        run: yarn workspace react-responsive-modal docz:build
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           # Dependencies already installed before
           install: false
+          # Use monorepo
+          project: ./react-responsive-modal
           start: yarn dlx serve -l 3000 .docz/dist

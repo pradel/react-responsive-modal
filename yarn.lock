@@ -18935,9 +18935,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-responsive-modal@workspace:.":
+"react-responsive-modal@workspace:react-responsive-modal":
   version: 0.0.0-use.local
-  resolution: "react-responsive-modal@workspace:."
+  resolution: "react-responsive-modal@workspace:react-responsive-modal"
   dependencies:
     "@size-limit/preset-small-lib": 4.7.0
     "@testing-library/jest-dom": 5.11.5
@@ -20139,6 +20139,12 @@ resolve@^1.10.0:
   checksum: fc59b8af482e0729fd720a6be1221f477ae1848fd88b0474d10f805567aa4ad5f16afa9a976c8fd30fd196fcb689b252826cdd138e7a4ad88462547adb5dbf40
   languageName: node
   linkType: hard
+
+"root-workspace-0b6124@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "root-workspace-0b6124@workspace:."
+  languageName: unknown
+  linkType: soft
 
 "rsvp@npm:^4.8.4":
   version: 4.8.5
