@@ -59,6 +59,52 @@ You can render multiple modals at the same time. Clicking on the overlay or pres
 
 When a modal with a content overflowing the window size, you can scroll the content of the modal but you will see that the body scroll is locked until you actually close the modal.
 
+```javascript
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+
+const App = () => {
+  const [open, setOpen] = useState(false);
+
+  const lorem = (
+    <p>
+      Mauris ac arcu sit amet dui interdum bibendum a sed diam. Praesent rhoncus
+      congue ipsum elementum lobortis. Ut ligula purus, ultrices id condimentum
+      quis, tincidunt quis purus. Proin quis enim metus. Nunc feugiat odio at
+      eros porta, ut rhoncus lorem tristique. Nunc et ipsum eu ex vulputate
+      consectetur vel eu nisi. Donec ultricies rutrum lectus, sit ame feugiat
+      est semper vitae. Proin varius imperdiet consequat. Proin eu metus nisi.
+      In hac habitasse platea dictumst. Vestibulum ac ultrices risus.
+      Pellentesque arcu sapien, aliquet sed orci sit amet, pulvinar interdum
+      velit. Nunc a rhoncus ipsum, maximus fermentum dolor. Praesent aliquet
+      justo vitae rutrum volutpat. Ut quis pulvinar est.
+    </p>
+  );
+
+  return (
+    <div>
+      <button onClick={onOpenModal}>Open modal</button>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <h2>Big modal</h2>
+        {lorem}
+        {lorem}
+        {lorem}
+        {lorem}
+        {lorem}
+        {lorem}
+        {lorem}
+        {lorem}
+        {lorem}
+      </Modal>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('app'));
+```
+
 ### Focus Trapped modal
 
 By default, when the modal open, the first focusable element will be focused. Press Tab to navigate between the focusable elements in the modal. You can notice that when the modal is open, you can't focus the elements outside of it.

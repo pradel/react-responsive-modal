@@ -4394,13 +4394,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"hast-util-is-element@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "hast-util-is-element@npm:1.1.0"
-  checksum: fb8241c9a0ef166f4fc812f30148573e80db44f0c99dedbcff69016800edcb7c9383abf0789d8cd1389c0ec8a75efd078bbdb75254db9aec6cb5d599c7672244
-  languageName: node
-  linkType: hard
-
 "hast-util-parse-selector@npm:^2.0.0":
   version: 2.2.5
   resolution: "hast-util-parse-selector@npm:2.2.5"
@@ -4436,17 +4429,6 @@ fsevents@~2.1.2:
     xtend: ^4.0.0
     zwitch: ^1.0.0
   checksum: b974907c87bfef66b0205f72ba06ca08d3b5eab702b0e60c59d266bf94e33525327d5e159e15c36658e2f0b06467eddf361391b3ef7df78b9ee9214f5ddf04da
-  languageName: node
-  linkType: hard
-
-"hast-util-to-text@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "hast-util-to-text@npm:2.0.1"
-  dependencies:
-    hast-util-is-element: ^1.0.0
-    repeat-string: ^1.0.0
-    unist-util-find-after: ^3.0.0
-  checksum: 4f945792aa92e2bc77280ddc306505ad806e0a327d6ed55f457c01656415cdc95d2fcf16b6790877ea31753dfc891736cdb4b81270656b5c8caad63a56af74ef
   languageName: node
   linkType: hard
 
@@ -5250,7 +5232,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lowlight@npm:^1.10.0, lowlight@npm:^1.2.0":
+"lowlight@npm:^1.2.0":
   version: 1.16.0
   resolution: "lowlight@npm:1.16.0"
   dependencies:
@@ -6940,17 +6922,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"rehype-highlight@npm:4.0.0":
-  version: 4.0.0
-  resolution: "rehype-highlight@npm:4.0.0"
-  dependencies:
-    hast-util-to-text: ^2.0.0
-    lowlight: ^1.10.0
-    unist-util-visit: ^2.0.0
-  checksum: 8b3083060737d6823e939a56d1f1805eb3b79e3208db40863b7b6eda78c212102524a2461d77a0a8cd4b30a435d7731598987035448bda8f8cbdb326ea0b6b81
-  languageName: node
-  linkType: hard
-
 "remark-footnotes@npm:2.0.0":
   version: 2.0.0
   resolution: "remark-footnotes@npm:2.0.0"
@@ -7031,7 +7002,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"repeat-string@npm:^1.0.0, repeat-string@npm:^1.5.4, repeat-string@npm:^1.6.1":
+"repeat-string@npm:^1.5.4, repeat-string@npm:^1.6.1":
   version: 1.6.1
   resolution: "repeat-string@npm:1.6.1"
   checksum: 99c431ba7bef7a5d39819d562ebca89206368b45f73213677a3b562e25b5dd272d9e6a2ca8105001df14b6fc8cc71f0b10258c86e16cf8a256318fac1ddc8a77
@@ -8268,15 +8239,6 @@ typescript@4.0.5:
   languageName: node
   linkType: hard
 
-"unist-util-find-after@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "unist-util-find-after@npm:3.0.0"
-  dependencies:
-    unist-util-is: ^4.0.0
-  checksum: afad28f7bc9f7e51eaba215eb9d00d3e04f75b26be0b9f5851c42c5275850d497f6d7181340d98d419a04f48806c01dd90a3bee47630ae65183dfb1c65d2dd2d
-  languageName: node
-  linkType: hard
-
 "unist-util-generated@npm:^1.0.0":
   version: 1.1.6
   resolution: "unist-util-generated@npm:1.1.6"
@@ -8608,6 +8570,31 @@ typescript@4.0.5:
   languageName: node
   linkType: hard
 
+"website@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "website@workspace:."
+  dependencies:
+    "@mdx-js/loader": 1.6.21
+    "@next/mdx": 10.0.1
+    "@tailwindcss/typography": 0.2.0
+    "@types/node": 14.14.7
+    "@types/react": 16.9.56
+    "@types/react-dom": 16.9.9
+    babel-plugin-macros: 2.8.0
+    babel-plugin-preval: 5.0.0
+    highlight.js: 10.3.2
+    next: 10.0.1
+    react: 17.0.1
+    react-dom: 17.0.1
+    react-live: 2.2.3
+    react-responsive-modal: 5.2.6
+    remark-highlight.js: 6.0.0
+    tailwindcss: 1.9.6
+    typeface-inter: 1.1.13
+    typescript: 4.0.5
+  languageName: unknown
+  linkType: soft
+
 "whatwg-url@npm:^7.0.0":
   version: 7.1.0
   resolution: "whatwg-url@npm:7.1.0"
@@ -8645,32 +8632,6 @@ typescript@4.0.5:
   checksum: 4f850f84da84b7471d7b92f55e381e7ba286210470fe77a61e02464ef66d10e96057a0d137bc013fbbedb7363a26e79c0e8b21d99bb572467d3fee0465b8fd27
   languageName: node
   linkType: hard
-
-"with-typescript@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "with-typescript@workspace:."
-  dependencies:
-    "@mdx-js/loader": 1.6.21
-    "@next/mdx": 10.0.1
-    "@tailwindcss/typography": 0.2.0
-    "@types/node": 14.14.7
-    "@types/react": 16.9.56
-    "@types/react-dom": 16.9.9
-    babel-plugin-macros: 2.8.0
-    babel-plugin-preval: 5.0.0
-    highlight.js: 10.3.2
-    next: 10.0.1
-    react: 17.0.1
-    react-dom: 17.0.1
-    react-live: 2.2.3
-    react-responsive-modal: 5.2.6
-    rehype-highlight: 4.0.0
-    remark-highlight.js: 6.0.0
-    tailwindcss: 1.9.6
-    typeface-inter: 1.1.13
-    typescript: 4.0.5
-  languageName: unknown
-  linkType: soft
 
 "worker-farm@npm:^1.7.0":
   version: 1.7.0

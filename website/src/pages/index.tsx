@@ -17,11 +17,11 @@ const IndexPage = () => (
     <div className="container px-6 xl:px-12 mt-20 max-w-3xl prose lg:prose-lg">
       <Content />
 
-      <LiveProvider code={file} scope={{ Modal }}>
+      {/* <LiveProvider code={file} scope={{ Modal }}>
         <LivePreview className="p-3 border border-gray-400 rounded-md" />
         <LiveEditor />
         <LiveError />
-      </LiveProvider>
+      </LiveProvider> */}
     </div>
 
     <Footer />

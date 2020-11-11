@@ -1,5 +1,10 @@
-() => {
-  const [open, setOpen] = React.useState(false);
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+
+const App = () => {
+  const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -13,3 +18,5 @@
     </div>
   );
 };
+
+ReactDOM.render(<App />, document.getElementById('app'));
