@@ -4,7 +4,8 @@
     "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx}\""
   },
   "workspaces": [
-    "react-responsive-modal"
+    "react-responsive-modal",
+    "website"
   ],
   "prettier": {
     "singleQuote": true
