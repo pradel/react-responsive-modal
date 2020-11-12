@@ -56,4 +56,4 @@ jobs:
           install: false
           # Use monorepo
           project: ./react-responsive-modal
-          start: yarn dlx serve -l 3000 .docz/dist
+          start: yarn dlx serve -l 3000 react-responsive-modal/.docz/dist
