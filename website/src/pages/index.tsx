@@ -1,6 +1,5 @@
 import preval from 'babel-plugin-preval/macro';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 // @ts-ignore
 import Content from '../examples/index.mdx';
