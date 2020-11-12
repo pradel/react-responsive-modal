@@ -1,7 +1,7 @@
 
 [build]
-  publish = ".docz/dist"
-  command = "yarn docz:build"
+  publish = "react-responsive-modal/.docz/dist"
+  command = "yarn workspace react-responsive-modal docz:build"
 
 [build.environment]
   NODE_VERSION = "12"
