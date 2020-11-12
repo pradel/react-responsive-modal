@@ -30,12 +30,12 @@ jobs:
         run: yarn install --immutable
         if: ${{ steps.release.outputs.release_created }}
 
-      - name: Build
-        run: yarn build
+      - name: Build react-responsive-modal
+        run: yarn workspace react-responsive-modal build
         if: ${{ steps.release.outputs.release_created }}
 
-      - name: Publish npm package
-        run: yarn npm publish
+      - name: Publish react-responsive-modal npm package
+        run: yarn workspace react-responsive-modal npm publish
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
         if: ${{ steps.release.outputs.release_created }}
