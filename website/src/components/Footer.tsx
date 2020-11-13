@@ -2,7 +2,7 @@ import { config } from '../config';
 
 export const Footer = () => {
   return (
-    <footer className="container max-w-3xl px-6 xl:px-12 mt-20 mb-4">
+    <footer className="container max-w-5xl px-6 xl:px-12 mt-20 mb-4">
       <hr className="my-8 border-b-2 border-gray-200" />
       <ul className="flex justify-center list-none">
         <li className="mr-3">

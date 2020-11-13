@@ -24,6 +24,8 @@
     "babel-plugin-macros": "2.8.0",
     "babel-plugin-preval": "5.0.0",
     "highlight.js": "10.3.2",
+    "rehype-autolink-headings": "5.0.1",
+    "rehype-slug": "4.0.1",
     "remark-highlight.js": "6.0.0",
     "tailwindcss": "1.9.6",
     "typeface-inter": "1.1.13",

@@ -23,4 +23,13 @@ body {
 .prose button {
   @apply bg-watermelon text-white py-1 px-3 rounded;
 }
+
+/* Style headers anchors */
+.anchor {
+  @apply no-underline border-none inline-block mr-1;
+}
+.anchor svg {
+  @apply h-5 w-5;
+}
+
 /* purgecss end ignore */

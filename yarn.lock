@@ -13429,6 +13429,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"hast-util-heading-rank@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "hast-util-heading-rank@npm:1.0.1"
+  checksum: 41313004fe574bf56beac4f66f84fabd8af9df4861257a13424f67cf4a27c4dc8efecacf4fefde2301fe30da7043803f3817d12cf2db64d56ac5e003dc5bad45
+  languageName: node
+  linkType: hard
+
 "hast-util-is-element@npm:^1.0.0":
   version: 1.0.4
   resolution: "hast-util-is-element@npm:1.0.4"
@@ -21345,6 +21352,18 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"rehype-autolink-headings@npm:5.0.1":
+  version: 5.0.1
+  resolution: "rehype-autolink-headings@npm:5.0.1"
+  dependencies:
+    extend: ^3.0.0
+    hast-util-has-property: ^1.0.0
+    hast-util-heading-rank: ^1.0.0
+    unist-util-visit: ^2.0.0
+  checksum: a65627d70377deac7898f428671035fa14e7f77524b37d99f55b7b2318f373a204bea56fbb5063dc09aacde5a69f20b2ad5ba5f5dc4c823069d73da9c8e5e4ec
+  languageName: node
+  linkType: hard
+
 "rehype-docz@npm:^2.3.0":
   version: 2.3.0
   resolution: "rehype-docz@npm:2.3.0"
@@ -21357,6 +21376,19 @@ fsevents@^1.2.7:
     react-ace: ^7.0.2
     unist-util-is: ^3.0.0
   checksum: 4d568d550ed358ef341dee53b4ac82b9c3002c8f029fb1e6d5c5042f026ce58363e4a9e312c1f2f3b6118bf9f7db14821f128518dc540093b3accc9d37a24e48
+  languageName: node
+  linkType: hard
+
+"rehype-slug@npm:4.0.1":
+  version: 4.0.1
+  resolution: "rehype-slug@npm:4.0.1"
+  dependencies:
+    github-slugger: ^1.1.1
+    hast-util-has-property: ^1.0.0
+    hast-util-heading-rank: ^1.0.0
+    hast-util-to-string: ^1.0.0
+    unist-util-visit: ^2.0.0
+  checksum: 8059de78262eca3ba6404b44ded5a09af17360ee493dedb5d0cf73c568df1337731b47c4a7181137100db5d9e07957d53e8435d235856869ddbd7fe19f9db307
   languageName: node
   linkType: hard
 
@@ -26191,6 +26223,8 @@ typescript@^3.7.3:
     react-dom: 17.0.1
     react-live: 2.2.3
     react-responsive-modal: 5.2.6
+    rehype-autolink-headings: 5.0.1
+    rehype-slug: 4.0.1
     remark-highlight.js: 6.0.0
     tailwindcss: 1.9.6
     typeface-inter: 1.1.13
