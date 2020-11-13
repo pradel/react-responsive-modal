@@ -20782,21 +20782,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-live@npm:2.2.3":
-  version: 2.2.3
-  resolution: "react-live@npm:2.2.3"
-  dependencies:
-    buble: 0.19.6
-    core-js: ^2.4.1
-    dom-iterator: ^1.0.0
-    prism-react-renderer: ^1.0.1
-    prop-types: ^15.5.8
-    react-simple-code-editor: ^0.10.0
-    unescape: ^1.0.1
-  checksum: 857a5c6a51662bc03a33a18042fa26cb04651e9574e6bbd5bb51acb1c0e08a72aba96ae16633dd993109ee03ae16cb814f589b0e538165210db281d4e1638a0f
-  languageName: node
-  linkType: hard
-
 "react-live@npm:^2.2.1":
   version: 2.2.2
   resolution: "react-live@npm:2.2.2"
@@ -26221,7 +26206,6 @@ typescript@^3.7.3:
     next: 10.0.1
     react: 17.0.1
     react-dom: 17.0.1
-    react-live: 2.2.3
     react-responsive-modal: 5.2.6
     rehype-autolink-headings: 5.0.1
     rehype-slug: 4.0.1
