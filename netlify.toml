@@ -1,7 +1,7 @@
 
 [build]
   publish = "website/out"
-  command = "yarn workspace website build && yarn workspace website export"
+  command = "yarn workspace react-responsive-modal build && yarn workspace website build && yarn workspace website export"
 
 [build.environment]
   NODE_VERSION = "12"
