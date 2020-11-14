@@ -1,10 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx}\""
+    "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx,yml}\""
   },
   "workspaces": [
-    "react-responsive-modal"
+    "react-responsive-modal",
+    "website"
   ],
   "prettier": {
     "singleQuote": true
@@ -15,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx,css,scss,json,md,mdx}": "prettier --write"
+    "*.{js,ts,tsx,css,scss,json,md,mdx,yml}": "prettier --write"
   },
   "devDependencies": {
     "husky": "4.3.0",

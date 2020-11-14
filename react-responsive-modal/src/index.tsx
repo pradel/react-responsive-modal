@@ -46,6 +46,8 @@ export interface ModalProps {
   blockScroll?: boolean;
   /**
    * Show the close icon.
+   *
+   * Default to true.
    */
   showCloseIcon?: boolean;
   /**
@@ -67,7 +69,7 @@ export interface ModalProps {
    * The portal will be rendered inside that element.
    * The default behavior will create a div node and render it at the at the end of document.body.
    */
-  container?: Element;
+  container?: Element | null;
   /**
    * An object containing classNames to style the modal.
    */

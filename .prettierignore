@@ -1,5 +1,6 @@
 dist
-.docz
+.next
+out
 coverage
 .yarn
 CHANGELOG.md

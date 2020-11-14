@@ -1,3 +1,4 @@
+/* examples/custom-animation.css */
 @keyframes customEnterAnimation {
   0% {
     transform: scale(0);
@@ -6,7 +7,6 @@
     transform: scale(1);
   }
 }
-
 @keyframes customLeaveAnimation {
   0% {
     transform: scale(1);
