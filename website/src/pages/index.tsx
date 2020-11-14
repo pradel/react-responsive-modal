@@ -55,35 +55,44 @@ const IndexPage = () => (
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a className="text-sm hover:text-watermelon" href="#usage">
+                  <a
+                    className="text-sm hover:text-watermelon"
+                    href="#custom-animation"
+                  >
                     Custom animation
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a className="text-sm hover:text-watermelon" href="#usage">
-                    Using a custom close icon
+                  <a
+                    className="text-sm hover:text-watermelon"
+                    href="#custom-close-icon"
+                  >
+                    Custom close icon
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a className="text-sm hover:text-watermelon" href="#usage">
-                    Using a custom container
+                  <a
+                    className="text-sm hover:text-watermelon"
+                    href="#custom-container"
+                  >
+                    Custom container
                   </a>
                 </li>
               </ul>
             </li>
 
             <li className="mb-4">
-              <a className="hover:text-watermelon" href="#usage">
+              <a className="hover:text-watermelon" href="#accessibility">
                 Accessibility
               </a>
             </li>
             <li className="mb-4">
-              <a className="hover:text-watermelon" href="#usage">
+              <a className="hover:text-watermelon" href="#props">
                 Props
               </a>
             </li>
             <li className="mb-4">
-              <a className="hover:text-watermelon" href="#usage">
+              <a className="hover:text-watermelon" href="#license">
                 Licence
               </a>
             </li>
