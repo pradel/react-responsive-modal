@@ -6873,6 +6873,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fathom-client@npm:3.0.0":
+  version: 3.0.0
+  resolution: "fathom-client@npm:3.0.0"
+  checksum: edbeb15daa71340c939b96c7c8b84f107cc7a47eb2d4d8d4e7e36cb7794892f1fb512890f8e888ef3c7f10cacf771ca315cc36a834ae354fad82bbc6c588c8d3
+  languageName: node
+  linkType: hard
+
 "fault@npm:^1.0.0":
   version: 1.0.4
   resolution: "fault@npm:1.0.4"
@@ -15791,6 +15798,7 @@ typescript@^3.7.3:
     "@types/node": 14.14.7
     "@types/react": 16.9.56
     "@types/react-dom": 16.9.9
+    fathom-client: 3.0.0
     highlight.js: 10.3.2
     next: 10.0.1
     react: 17.0.1
