@@ -1,0 +1,35 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* purgecss start ignore */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.prose pre {
+  @apply bg-gray-200;
+}
+.prose code {
+  @apply bg-gray-200 font-normal px-1;
+}
+.prose pre code {
+  @apply text-sm text-gray-700;
+}
+.prose a {
+  @apply text-watermelon font-semibold no-underline border-b border-watermelon;
+}
+/* Style the examples button */
+.prose button {
+  @apply bg-watermelon text-white py-1 px-3 rounded;
+}
+
+/* Style headers anchors */
+.anchor {
+  @apply no-underline border-none inline-block mr-1;
+}
+.anchor svg {
+  @apply h-5 w-5;
+}
+
+/* purgecss end ignore */
