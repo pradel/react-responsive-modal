@@ -1,9 +1,9 @@
 
 [build]
-  publish = ".docz/dist"
-  command = "yarn docz:build"
+  publish = "website/out"
+  command = "yarn workspace react-responsive-modal build && yarn workspace website build && yarn workspace website export"
 
 [build.environment]
   NODE_VERSION = "12"
-  YARN_VERSION = "1.22.4"
+  YARN_VERSION = "1.22.5"
   YARN_FLAGS = "--immutable"

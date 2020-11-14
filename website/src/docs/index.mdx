@@ -1,0 +1,194 @@
+import { ExampleRendered } from '../components/ExampleRendered';
+
+A simple responsive and accessible react modal.
+
+- Focus trap inside the modal.
+- Centered modals.
+- Scrolling modals.
+- Multiple modals.
+- Accessible modals.
+- Easily customizable via props.
+
+## Installation
+
+Inside your project directory, install react-responsive-modal by running the following:
+
+```sh
+npm install react-responsive-modal --save
+# Or with yarn
+yarn add react-responsive-modal
+```
+
+## Usage
+
+[![Edit react-responsive-modal](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/9jxp669j2o)
+
+<ExampleRendered name="simple" />
+
+```javascript
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+
+const App = () => {
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
+  return (
+    <div>
+      <button onClick={onOpenModal}>Open modal</button>
+      <Modal open={open} onClose={onCloseModal} center>
+        <h2>Simple centered modal</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+          pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+          hendrerit risus, sed porttitor quam.
+        </p>
+      </Modal>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('app'));
+```
+
+- If you are using Next.js, you need to import the styles in `pages/_app.js` or `pages/_app.tsx`.
+- If you are using Create React App, you need to import the styles in `index.js` or `index.tsx`.
+
+### Multiple modals
+
+You can render multiple modals at the same time. Clicking on the overlay or pressing "esc" will only close the last modal.
+
+<ExampleRendered name="multiple" />
+
+```js file=../examples/Multiple.tsx
+
+```
+
+### Modal with a lot of content
+
+When a modal with a content overflowing the window size, you can scroll the content of the modal but you will see that the body scroll is locked until you actually close the modal.
+
+<ExampleRendered name="longContent" />
+
+```js file=../examples/LongContent.tsx
+
+```
+
+### Focus Trapped modal
+
+By default, when the modal open, the first focusable element will be focused. Press Tab to navigate between the focusable elements in the modal. You can notice that when the modal is open, you can't focus the elements outside of it.
+If you want to disable this behavior, set the `focusTrapped` prop to `false`.
+
+<ExampleRendered name="focusTrapped" />
+
+```js file=../examples/FocusTrapped.tsx
+
+```
+
+### Custom styling with css
+
+Customising the Modal style via css is really easy. For example if you add the following css to your app you will get the following result:
+
+```css file=../examples/custom-styling.css
+
+```
+
+<ExampleRendered name="customCssStyle" />
+
+```js file=../examples/CustomCssStyle.tsx
+
+```
+
+### Custom animation
+
+If you want to change the default animation, you can do so by creating your own css animation. For example if you add the following css to your app you will get the following result:
+
+```css file=../examples/custom-animation.css
+
+```
+
+<ExampleRendered name="customAnimation" />
+
+```js file=../examples/CustomAnimation.tsx
+
+```
+
+If you want to apply a custom animation to the modal body you can do like this:
+
+### Custom close icon
+
+You can customise the close icon used by the Modal by providing your own image or svg.
+
+<ExampleRendered name="customCloseIcon" />
+
+```js file=../examples/CustomCloseIcon.tsx
+
+```
+
+### Custom container
+
+By default, the Modal will be rendered at the end of the html body tag. If you want to render the Modal in your own container, you can pass your own Element to the container prop.
+
+<ExampleRendered name="customContainer" />
+
+```js file=../examples/CustomContainer.tsx
+
+```
+
+## Accessibility
+
+- Use the `aria-labelledby` and `aria-describedby` props to follow the [ARIA best practices](https://www.w3.org/TR/wai-aria-practices/#dialog_modal).
+
+```javascript
+<Modal
+  open={open}
+  onClose={onCloseModal}
+  aria-labelledby="my-modal-title"
+  aria-describedby="my-modal-description"
+>
+  <h2 id="my-modal-title">My Title</h2>
+  <p id="my-modal-description">My Description</p>
+</Modal>
+```
+
+- `aria-modal` is set to true automatically.
+- When the modal is open the focus is trapped within it.
+- Clicking on the overlay closes the Modal.
+- Pressing the "Esc" key closes the Modal.
+- When the modal is open the page scroll is blocked for the elements behind the modal.
+- Closing the modal will unblock the scroll.
+- The modal is rendered in a portal at the end of the `body`.
+
+## Props
+
+| Name                    | Type                                                                                                                           | Default  | Description                                                                                                                                                                                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **open\***              | `boolean`                                                                                                                      |          | Control if the modal is open or not.                                                                                                                                                                               |
+| **center**              | `boolean`                                                                                                                      | false    | Should the dialog be centered.                                                                                                                                                                                     |
+| **closeOnEsc**          | `boolean`                                                                                                                      | true     | Is the modal closable when user press esc key.                                                                                                                                                                     |
+| **closeOnOverlayClick** | `boolean`                                                                                                                      | true     | Is the modal closable when user click on overlay.                                                                                                                                                                  |
+| **blockScroll**         | `boolean`                                                                                                                      | true     | Whether to block scrolling when dialog is open.                                                                                                                                                                    |
+| **showCloseIcon**       | `boolean`                                                                                                                      | true     | Show the close icon.                                                                                                                                                                                               |
+| **closeIconId**         | `string`                                                                                                                       |          | id attribute for the close icon button.                                                                                                                                                                            |
+| **closeIcon**           | `React.ReactNode`                                                                                                              |          | Custom icon to render (svg, img, etc...).                                                                                                                                                                          |
+| **focusTrapped**        | `boolean`                                                                                                                      | true     | When the modal is open, trap focus within it.                                                                                                                                                                      |
+| **container**           | `Element`                                                                                                                      |          | You can specify a container prop which should be of type `Element`. The portal will be rendered inside that element. The default behavior will create a div node and render it at the at the end of document.body. |
+| **classNames**          | `{ overlay?: string; modal?: string; closeButton?: string; closeIcon?: string; animationIn?: string; animationOut?: string; }` |          | An object containing classNames to style the modal.                                                                                                                                                                |
+| **styles**              | `{ overlay?: string; modal?: string; closeButton?: string; closeIcon?: string; }`                                              |          | An object containing the styles objects to style the modal.                                                                                                                                                        |
+| **animationDuration**   | `number`                                                                                                                       | 500      | Animation duration in milliseconds.                                                                                                                                                                                |
+| **role**                | `string`                                                                                                                       | "dialog" | ARIA role for modal                                                                                                                                                                                                |
+| **ariaLabelledby**      | `string`                                                                                                                       |          | ARIA label for modal                                                                                                                                                                                               |
+| **ariaDescribedby**     | `string`                                                                                                                       |          | ARIA description for modal                                                                                                                                                                                         |
+| **modalId**             | `string`                                                                                                                       |          | id attribute for modal                                                                                                                                                                                             |
+| **onClose\***           | `() => void`                                                                                                                   |          | Callback fired when the Modal is requested to be closed by a click on the overlay or when user press esc key.                                                                                                      |
+| **onEscKeyDown\***      | `(event: KeyboardEvent) => void`                                                                                               |          | Callback fired when the escape key is pressed.                                                                                                                                                                     |
+| **onOverlayClick\***    | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`                                                                |          | Callback fired when the overlay is clicked.                                                                                                                                                                        |
+| **onAnimationEnd\***    | `() => void`                                                                                                                   |          | Callback fired when the Modal has exited and the animation is finished.                                                                                                                                            |
+
+## License
+
+react-responsive-modal is licensed under the [MIT license](https://github.com/pradel/react-responsive-modal/blob/master/LICENSE).

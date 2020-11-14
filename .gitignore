@@ -4,8 +4,10 @@ node_modules
 .cache
 dist
 coverage
-.docz
+.next
+out
 .yarn/*
 !.yarn/releases
 !.yarn/plugins
 .pnp.*
+.next
