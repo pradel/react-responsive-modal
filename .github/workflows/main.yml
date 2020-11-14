@@ -47,7 +47,7 @@ jobs:
         run: yarn workspace react-responsive-modal build
 
       - name: Build docs
-        run: yarn workspace react-responsive-modal docz:build
+        run: yarn workspace website build
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
@@ -56,4 +56,4 @@ jobs:
           install: false
           # Use monorepo
           project: ./react-responsive-modal
-          start: yarn dlx serve -l 3000 react-responsive-modal/.docz/dist
+          start: yarn workspace website start -p 3000

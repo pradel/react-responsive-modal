@@ -1,4 +1,3 @@
-import preval from 'babel-plugin-preval/macro';
 import ExampleMultiple from '../examples/Multiple';
 import LongContent from '../examples/LongContent';
 import FocusTrapped from '../examples/FocusTrapped';
