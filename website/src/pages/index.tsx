@@ -39,7 +39,10 @@ const IndexPage = () => (
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a className="text-sm hover:text-watermelon" href="#usage">
+                  <a
+                    className="text-sm hover:text-watermelon"
+                    href="#focus-trapped-modal"
+                  >
                     Focus Trapped modal
                   </a>
                 </li>
