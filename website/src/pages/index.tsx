@@ -47,7 +47,10 @@ const IndexPage = () => (
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a className="text-sm hover:text-watermelon" href="#usage">
+                  <a
+                    className="text-sm hover:text-watermelon"
+                    href="#custom-styling-with-css"
+                  >
                     Custom styling with css
                   </a>
                 </li>
