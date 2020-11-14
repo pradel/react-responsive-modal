@@ -857,7 +857,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-top-level-await@npm:^7.10.4, @babel/plugin-syntax-top-level-await@npm:^7.12.1":
+"@babel/plugin-syntax-top-level-await@npm:^7.10.4, @babel/plugin-syntax-top-level-await@npm:^7.12.1, @babel/plugin-syntax-top-level-await@npm:^7.8.3":
   version: 7.12.1
   resolution: "@babel/plugin-syntax-top-level-await@npm:7.12.1"
   dependencies:
@@ -1962,6 +1962,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jest/transform@npm:^26.6.2":
+  version: 26.6.2
+  resolution: "@jest/transform@npm:26.6.2"
+  dependencies:
+    "@babel/core": ^7.1.0
+    "@jest/types": ^26.6.2
+    babel-plugin-istanbul: ^6.0.0
+    chalk: ^4.0.0
+    convert-source-map: ^1.4.0
+    fast-json-stable-stringify: ^2.0.0
+    graceful-fs: ^4.2.4
+    jest-haste-map: ^26.6.2
+    jest-regex-util: ^26.0.0
+    jest-util: ^26.6.2
+    micromatch: ^4.0.2
+    pirates: ^4.0.1
+    slash: ^3.0.0
+    source-map: ^0.6.1
+    write-file-atomic: ^3.0.0
+  checksum: 28e97c9eb837af80095f8e94e34a81b4515912a25d13c70a83e3920757783751be6ccb7bca9acb4a384ab78cd54f0ebcf34c1be826173719fdf88d981d54e4b7
+  languageName: node
+  linkType: hard
+
 "@jest/types@npm:^25.5.0":
   version: 25.5.0
   resolution: "@jest/types@npm:25.5.0"
@@ -2346,7 +2369,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.1.7":
+"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.7":
   version: 7.1.12
   resolution: "@types/babel__core@npm:7.1.12"
   dependencies:
@@ -3506,6 +3529,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-jest@npm:26.6.3":
+  version: 26.6.3
+  resolution: "babel-jest@npm:26.6.3"
+  dependencies:
+    "@jest/transform": ^26.6.2
+    "@jest/types": ^26.6.2
+    "@types/babel__core": ^7.1.7
+    babel-plugin-istanbul: ^6.0.0
+    babel-preset-jest: ^26.6.2
+    chalk: ^4.0.0
+    graceful-fs: ^4.2.4
+    slash: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: 89231d00e6b73e1dc6f009cb97a74edb1af4426f2cfa5d9b71684d1382526651820f8dd301857b9007a44c6b7d1fb77242b201bdea3cff98488b893e9c7d7182
+  languageName: node
+  linkType: hard
+
 "babel-jest@npm:^25.5.1":
   version: 25.5.1
   resolution: "babel-jest@npm:25.5.1"
@@ -3596,6 +3637,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-plugin-jest-hoist@npm:^26.6.2":
+  version: 26.6.2
+  resolution: "babel-plugin-jest-hoist@npm:26.6.2"
+  dependencies:
+    "@babel/template": ^7.3.3
+    "@babel/types": ^7.3.3
+    "@types/babel__core": ^7.0.0
+    "@types/babel__traverse": ^7.0.6
+  checksum: e9c1de0fced1c8220590a0d6f37631f5b975964a8e876f0426fc7fd224f4c154b01f156e87401de47556b873bf4414eb2a9632fb56765f35fc07fe69e5b76d31
+  languageName: node
+  linkType: hard
+
 "babel-plugin-macros@npm:^2.6.1":
   version: 2.8.0
   resolution: "babel-plugin-macros@npm:2.8.0"
@@ -3670,6 +3723,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-preset-current-node-syntax@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "babel-preset-current-node-syntax@npm:1.0.0"
+  dependencies:
+    "@babel/plugin-syntax-async-generators": ^7.8.4
+    "@babel/plugin-syntax-bigint": ^7.8.3
+    "@babel/plugin-syntax-class-properties": ^7.8.3
+    "@babel/plugin-syntax-import-meta": ^7.8.3
+    "@babel/plugin-syntax-json-strings": ^7.8.3
+    "@babel/plugin-syntax-logical-assignment-operators": ^7.8.3
+    "@babel/plugin-syntax-nullish-coalescing-operator": ^7.8.3
+    "@babel/plugin-syntax-numeric-separator": ^7.8.3
+    "@babel/plugin-syntax-object-rest-spread": ^7.8.3
+    "@babel/plugin-syntax-optional-catch-binding": ^7.8.3
+    "@babel/plugin-syntax-optional-chaining": ^7.8.3
+    "@babel/plugin-syntax-top-level-await": ^7.8.3
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: d3db297d1ade74f812e93e90b2fc76986449f4158f62d660a91b7d94a308314acc730a282fb55d3d1a2b69ce92c64b553aaef59b82f37cc68640ee779438a58c
+  languageName: node
+  linkType: hard
+
 "babel-preset-jest@npm:^25.5.0":
   version: 25.5.0
   resolution: "babel-preset-jest@npm:25.5.0"
@@ -3679,6 +3754,18 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0
   checksum: eb0e3651df510d0d38e0ba2ae92717d9de0b574b51e24d57c7c06420175e450aa27031ae3d4306b830cbd3e5f9003233d5fb40a95e71a427bd2e57ebc8a1a960
+  languageName: node
+  linkType: hard
+
+"babel-preset-jest@npm:^26.6.2":
+  version: 26.6.2
+  resolution: "babel-preset-jest@npm:26.6.2"
+  dependencies:
+    babel-plugin-jest-hoist: ^26.6.2
+    babel-preset-current-node-syntax: ^1.0.0
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: 466ca17bba2638cadda5c25f3108dab1867b30e5d728366d0d2309be5d6555db8738a6cacd2c43284bee2ce7917e3285194c223a22b3d9817794f00c2775fdb2
   languageName: node
   linkType: hard
 
@@ -8807,6 +8894,31 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"jest-haste-map@npm:^26.6.2":
+  version: 26.6.2
+  resolution: "jest-haste-map@npm:26.6.2"
+  dependencies:
+    "@jest/types": ^26.6.2
+    "@types/graceful-fs": ^4.1.2
+    "@types/node": "*"
+    anymatch: ^3.0.3
+    fb-watchman: ^2.0.0
+    fsevents: ^2.1.2
+    graceful-fs: ^4.2.4
+    jest-regex-util: ^26.0.0
+    jest-serializer: ^26.6.2
+    jest-util: ^26.6.2
+    jest-worker: ^26.6.2
+    micromatch: ^4.0.2
+    sane: ^4.0.3
+    walker: ^1.0.7
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: 5c9e3a1e3feee8cf6e06aec5ddc28703d75d484c398802469ec881a922591a2c94b1bc86ce9510dec854b363740781f9eb2d76b224fdd560ecb8fa2436b35432
+  languageName: node
+  linkType: hard
+
 "jest-jasmine2@npm:^25.5.4":
   version: 25.5.4
   resolution: "jest-jasmine2@npm:25.5.4"
@@ -8895,6 +9007,13 @@ fsevents@^1.2.7:
   version: 25.2.6
   resolution: "jest-regex-util@npm:25.2.6"
   checksum: 142a583c4c206c6c121120974b9b9d11a87d51f4a3787a292b7d922b4926e75e448dfd79bcceaf756c6e78209ee2d33339e6ceda2e7b8cb6e46cb4ba548a891e
+  languageName: node
+  linkType: hard
+
+"jest-regex-util@npm:^26.0.0":
+  version: 26.0.0
+  resolution: "jest-regex-util@npm:26.0.0"
+  checksum: a3d08a852a7b79e3071ebe112b9fb4122efe6b987477e6769eb78814a8306d3c9e29ed544f25bb6a6d3737668b67ee4339810ed5fe5a9d6318639d6f81f47d3d
   languageName: node
   linkType: hard
 
@@ -8998,6 +9117,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"jest-serializer@npm:^26.6.2":
+  version: 26.6.2
+  resolution: "jest-serializer@npm:26.6.2"
+  dependencies:
+    "@types/node": "*"
+    graceful-fs: ^4.2.4
+  checksum: 62802ac809f7af3386b3640a3a01b6a979a093f48085c5b76a05c186a862b8dd3c1b2ea2d62373fd9fe31c0f893631006623079d30d8f8ebf32dff5ef279059e
+  languageName: node
+  linkType: hard
+
 "jest-snapshot@npm:^25.5.1":
   version: 25.5.1
   resolution: "jest-snapshot@npm:25.5.1"
@@ -9031,6 +9160,20 @@ fsevents@^1.2.7:
     is-ci: ^2.0.0
     make-dir: ^3.0.0
   checksum: bb85a315091bf21fabb2c41b00edc190d388a0fb8aa8d271fde02df2b627bdfa864246b1390ffd90714bd1429fa1107fef7c85ed8915f46b299a98040c14fce6
+  languageName: node
+  linkType: hard
+
+"jest-util@npm:^26.6.2":
+  version: 26.6.2
+  resolution: "jest-util@npm:26.6.2"
+  dependencies:
+    "@jest/types": ^26.6.2
+    "@types/node": "*"
+    chalk: ^4.0.0
+    graceful-fs: ^4.2.4
+    is-ci: ^2.0.0
+    micromatch: ^4.0.2
+  checksum: 1aef748c8224d00ead3389899177bd3b619479db7318f8d7de7fbedce283ac6a8dc8c9364a40a68e83e68e03fa18afbd6b49c8aafb81112807872f0f90fb5a37
   languageName: node
   linkType: hard
 
@@ -9094,6 +9237,17 @@ fsevents@^1.2.7:
     merge-stream: ^2.0.0
     supports-color: ^7.0.0
   checksum: 20ae005c58f9db5be0f9bced0df6aeca340c64e7e0c7c27264b5f5964c94013e98ccd678df935d629889136ce45594d230e547624ccce73de581a05d4a8e6315
+  languageName: node
+  linkType: hard
+
+"jest-worker@npm:^26.6.2":
+  version: 26.6.2
+  resolution: "jest-worker@npm:26.6.2"
+  dependencies:
+    "@types/node": "*"
+    merge-stream: ^2.0.0
+    supports-color: ^7.0.0
+  checksum: 5eb349833b5e9750ce8700388961dfd5d5e207c913122221e418e48b9cda3c17b0fb418f6a90f1614cfdc3ca836158b720c5dc1de82cb1e708266b4d76e31a38
   languageName: node
   linkType: hard
 
@@ -12356,6 +12510,7 @@ fsevents@^1.2.7:
     "@types/react": 16.9.56
     "@types/react-dom": 16.9.9
     "@types/react-transition-group": 4.4.0
+    babel-jest: 26.6.3
     classnames: ^2.2.6
     cypress: 5.6.0
     husky: 4.3.0
