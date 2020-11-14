@@ -20666,20 +20666,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dom@npm:16.14.0":
-  version: 16.14.0
-  resolution: "react-dom@npm:16.14.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    prop-types: ^15.6.2
-    scheduler: ^0.19.1
-  peerDependencies:
-    react: ^16.14.0
-  checksum: a13558f0e7c6d1a98684214460bcd4b9005500015b5048fb1b0d2856786b8764dbc713e6b078a5b1a56e17866400e1d862183c7a0a513ae8351de11f6f6749d2
-  languageName: node
-  linkType: hard
-
 "react-dom@npm:17.0.1":
   version: 17.0.1
   resolution: "react-dom@npm:17.0.1"
@@ -20877,8 +20863,8 @@ fsevents@^1.2.7:
     husky: 4.3.0
     no-scroll: ^2.1.1
     prettier: 2.1.2
-    react: 16.14.0
-    react-dom: 16.14.0
+    react: 17.0.1
+    react-dom: 17.0.1
     size-limit: 4.7.0
     tsdx: 0.14.1
     tslib: 2.0.3
@@ -20896,17 +20882,6 @@ fsevents@^1.2.7:
     react: ^16.0.0
     react-dom: ^16.0.0
   checksum: b0f2c48417979062d5c3a87e48532dc275a934f6a587e5732fa2e900236772831611f5f8dd519aaaa1222b9b01d6833dbbacd3c04f73dc16417ef77d4127e084
-  languageName: node
-  linkType: hard
-
-"react@npm:16.14.0":
-  version: 16.14.0
-  resolution: "react@npm:16.14.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    prop-types: ^15.6.2
-  checksum: 2769580b22952a52de3b5b2ea0f09cb904030b762d759739f49ab4da0b1f550e5c087ce3728c4be90f423d09481e0c075483c0c30b1ea9c549445c8b12020fd3
   languageName: node
   linkType: hard
 
@@ -21432,6 +21407,16 @@ fsevents@^1.2.7:
     "@babel/runtime": ^7.0.0
     fbjs: ^1.0.0
   checksum: d69139683a9bb2cbd613f4a4f5f9b98e7cd28e1723d607db5e56cdb34521b151d5016ea0be956b28fd561603651c5a3f8ea0e77795e7523bfa48736a30a65116
+  languageName: node
+  linkType: hard
+
+"remark-code-import@npm:0.2.0":
+  version: 0.2.0
+  resolution: "remark-code-import@npm:0.2.0"
+  dependencies:
+    to-gatsby-remark-plugin: ^0.1.0
+    unist-util-visit: ^2.0.1
+  checksum: 71a3ba590e5334a483c6d4aa29b2a63cd1ab11ab587d78f450670a61958937f1181b870d10b9b12497c192c681cddb5a60434ba55d2123fca5e6218b06ec3e3a
   languageName: node
   linkType: hard
 
@@ -24467,6 +24452,15 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
+"to-gatsby-remark-plugin@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "to-gatsby-remark-plugin@npm:0.1.0"
+  dependencies:
+    to-vfile: ^6.1.0
+  checksum: d6bc39903577571787ff7681f9bc181763d982121ec8bb73445d5f11e510fb788c085931e7ad3f92aca34f5fb9026410706f839cdbfea90855206d0e0a46c27b
+  languageName: node
+  linkType: hard
+
 "to-object-path@npm:^0.3.0":
   version: 0.3.0
   resolution: "to-object-path@npm:0.3.0"
@@ -24514,7 +24508,7 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"to-vfile@npm:^6.0.0":
+"to-vfile@npm:^6.0.0, to-vfile@npm:^6.1.0":
   version: 6.1.0
   resolution: "to-vfile@npm:6.1.0"
   dependencies:
@@ -25388,7 +25382,7 @@ typescript@^3.7.3:
   languageName: node
   linkType: hard
 
-"unist-util-visit@npm:2.0.3":
+"unist-util-visit@npm:2.0.3, unist-util-visit@npm:^2.0.1":
   version: 2.0.3
   resolution: "unist-util-visit@npm:2.0.3"
   dependencies:
@@ -26209,6 +26203,7 @@ typescript@^3.7.3:
     react-responsive-modal: 5.2.6
     rehype-autolink-headings: 5.0.1
     rehype-slug: 4.0.1
+    remark-code-import: 0.2.0
     remark-highlight.js: 6.0.0
     tailwindcss: 1.9.6
     typeface-inter: 1.1.13

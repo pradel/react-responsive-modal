@@ -25,6 +25,7 @@
     "highlight.js": "10.3.2",
     "rehype-autolink-headings": "5.0.1",
     "rehype-slug": "4.0.1",
+    "remark-code-import": "0.2.0",
     "remark-highlight.js": "6.0.0",
     "tailwindcss": "1.9.6",
     "typeface-inter": "1.1.13",

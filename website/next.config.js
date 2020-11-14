@@ -1,9 +1,10 @@
 const remarkHighlight = require('remark-highlight.js');
 const rehypeSlug = require('rehype-slug');
 const rehypeHeadings = require('rehype-autolink-headings');
+const remarkCodeImport = require('remark-code-import');
 const withMDX = require('@next/mdx')({
   options: {
-    remarkPlugins: [remarkHighlight],
+    remarkPlugins: [remarkCodeImport, remarkHighlight],
     rehypePlugins: [
       rehypeSlug,
       [

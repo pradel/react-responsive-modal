@@ -1,15 +1,7 @@
-import preval from 'babel-plugin-preval/macro';
-import { Modal } from 'react-responsive-modal';
 // @ts-ignore
-import Content from '../examples/index.mdx';
+import Content from '../docs/index.mdx';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-
-const file = preval`
-const fs = require('fs');
-const path = require('path');
-module.exports = fs.readFileSync(require.resolve(path.join(__dirname, '../examples/simple.tsx')), 'utf8');
-`;
 
 const IndexPage = () => (
   <>
@@ -31,12 +23,18 @@ const IndexPage = () => (
 
               <ul className="ml-4 mt-4">
                 <li className="mb-4">
-                  <a className="text-sm hover:text-watermelon" href="#usage">
+                  <a
+                    className="text-sm hover:text-watermelon"
+                    href="#multiple-modals"
+                  >
                     Multiple modals
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a className="text-sm hover:text-watermelon" href="#usage">
+                  <a
+                    className="text-sm hover:text-watermelon"
+                    href="#modal-with-a-lot-of-content"
+                  >
                     Modal with a lot of content
                   </a>
                 </li>
@@ -89,12 +87,6 @@ const IndexPage = () => (
           <Content />
         </div>
       </div>
-
-      {/* <LiveProvider code={file} scope={{ Modal }}>
-        <LivePreview className="p-3 border border-gray-400 rounded-md" />
-        <LiveEditor />
-        <LiveError />
-      </LiveProvider> */}
     </div>
 
     <Footer />
