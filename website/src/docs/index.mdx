@@ -87,16 +87,8 @@ If you want to disable this behavior, set the `focusTrapped` prop to `false`.
 
 Customising the Modal style via css is really easy. For example if you add the following css to your app you will get the following result:
 
-```css
-/* examples/custom-styling.css */
-.customOverlay {
-  background: rgba(36, 123, 160, 0.7);
-}
-.customModal {
-  background: #b2dbbf;
-  max-width: 500px;
-  width: 100%;
-}
+```css file=../examples/custom-styling.css
+
 ```
 
 <ExampleRendered name="customCssStyle" />
@@ -109,24 +101,14 @@ Customising the Modal style via css is really easy. For example if you add the f
 
 If you want to change the default animation, you can do so by creating your own css animation. For example if you add the following css to your app you will get the following result:
 
-```css
-/* examples/custom-animation.css */
-@keyframes customEnterAnimation {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes customLeaveAnimation {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
+```css file=../examples/custom-animation.css
+
+```
+
+<ExampleRendered name="customAnimation" />
+
+```js file=../examples/CustomAnimation.tsx
+
 ```
 
 If you want to apply a custom animation to the modal body you can do like this:

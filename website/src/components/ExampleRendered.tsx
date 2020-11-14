@@ -3,12 +3,14 @@ import ExampleMultiple from '../examples/Multiple';
 import LongContent from '../examples/LongContent';
 import FocusTrapped from '../examples/FocusTrapped';
 import CustomCssStyle from '../examples/CustomCssStyle';
+import CustomAnimation from '../examples/CustomAnimation';
 
 const examples: Record<string, () => JSX.Element> = {
   multiple: ExampleMultiple,
   longContent: LongContent,
   focusTrapped: FocusTrapped,
   customCssStyle: CustomCssStyle,
+  customAnimation: CustomAnimation,
 };
 
 interface ExampleRenderedProps {
