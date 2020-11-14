@@ -46,6 +46,8 @@ export interface ModalProps {
   blockScroll?: boolean;
   /**
    * Show the close icon.
+   *
+   * Default to true.
    */
   showCloseIcon?: boolean;
   /**
