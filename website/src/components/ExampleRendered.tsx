@@ -1,3 +1,4 @@
+import Simple from '../examples/Simple';
 import ExampleMultiple from '../examples/Multiple';
 import LongContent from '../examples/LongContent';
 import FocusTrapped from '../examples/FocusTrapped';
@@ -7,6 +8,7 @@ import CustomCloseIcon from '../examples/CustomCloseIcon';
 import CustomContainer from '../examples/CustomContainer';
 
 const examples: Record<string, () => JSX.Element> = {
+  simple: Simple,
   multiple: ExampleMultiple,
   longContent: LongContent,
   focusTrapped: FocusTrapped,
