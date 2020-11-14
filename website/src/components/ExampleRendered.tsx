@@ -4,6 +4,7 @@ import LongContent from '../examples/LongContent';
 import FocusTrapped from '../examples/FocusTrapped';
 import CustomCssStyle from '../examples/CustomCssStyle';
 import CustomAnimation from '../examples/CustomAnimation';
+import CustomCloseIcon from '../examples/CustomCloseIcon';
 
 const examples: Record<string, () => JSX.Element> = {
   multiple: ExampleMultiple,
@@ -11,6 +12,7 @@ const examples: Record<string, () => JSX.Element> = {
   focusTrapped: FocusTrapped,
   customCssStyle: CustomCssStyle,
   customAnimation: CustomAnimation,
+  customCloseIcon: CustomCloseIcon,
 };
 
 interface ExampleRenderedProps {
