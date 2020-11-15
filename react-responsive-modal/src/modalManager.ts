@@ -8,11 +8,6 @@ let modals: Ref<Element>[] = [];
  */
 export const modalManager = {
   /**
-   * Return the modals array
-   */
-  modals: () => modals,
-
-  /**
    * Register a new modal
    */
   add: (newModal: Ref<Element>) => {
