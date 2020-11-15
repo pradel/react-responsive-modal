@@ -47,11 +47,11 @@
   "size-limit": [
     {
       "path": "dist/react-responsive-modal.cjs.production.min.js",
-      "limit": "3.3 KB"
+      "limit": "3.8 KB"
     },
     {
       "path": "dist/react-responsive-modal.esm.js",
-      "limit": "3.3 KB"
+      "limit": "3.8 KB"
     }
   ],
   "dependencies": {
