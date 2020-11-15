@@ -1,6 +1,6 @@
 import { Ref, useEffect } from 'react';
 
-let modals: { element: Ref<any>; blockScroll: boolean }[] = [];
+let modals: Ref<any>[] = [];
 
 /**
  * Handle the order of the modals.
@@ -15,32 +15,28 @@ export const modalManager = {
   /**
    * Register a new modal
    */
-  add: (newModal: Ref<any>, blockScroll: boolean) => {
-    modals.push({ element: newModal, blockScroll });
+  add: (newModal: Ref<any>) => {
+    modals.push(newModal);
   },
 
   /**
    * Remove a modal
    */
   remove: (oldModal: Ref<any>) => {
-    modals = modals.filter((modal) => modal.element !== oldModal);
+    modals = modals.filter((modal) => modal !== oldModal);
   },
 
   /**
    * When multiple modals are rendered will return true if current modal is the last one
    */
   isTopModal: (modal: Ref<any>) =>
-    !!modals.length && modals[modals.length - 1].element === modal,
+    !!modals.length && modals[modals.length - 1] === modal,
 };
 
-export function useModalManager(
-  ref: Ref<any>,
-  open: boolean,
-  blockScroll: boolean
-) {
+export function useModalManager(ref: Ref<any>, open: boolean) {
   useEffect(() => {
     if (open) {
-      modalManager.add(ref, blockScroll);
+      modalManager.add(ref);
     }
     return () => {
       modalManager.remove(ref);

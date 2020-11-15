@@ -184,7 +184,7 @@ export const Modal = ({
   const [showPortal, setShowPortal] = useState(false);
 
   // Hook used to manage multiple modals opened at the same time
-  useModalManager(refModal, open, blockScroll);
+  useModalManager(refModal, open);
 
   const handleOpen = () => {
     if (
@@ -195,28 +195,10 @@ export const Modal = ({
       document.body.appendChild(refContainer.current);
     }
 
-    console.log('open', refModal.current);
-    if (blockScroll && refModal.current) {
-      console.log('disable');
-      disableBodyScroll(refModal.current);
-    }
-
     document.addEventListener('keydown', handleKeydown);
   };
 
   const handleClose = () => {
-    console.log('close', refModal.current);
-    // Restore the scroll only if there is no modal on the screen
-    // We filter the modals that are not affecting the scroll
-    if (
-      blockScroll &&
-      refModal.current &&
-      modalManager.modals().filter((modal) => modal.blockScroll).length === 0
-    ) {
-      console.log('enable');
-      enableBodyScroll(refModal.current);
-    }
-
     if (
       refContainer.current &&
       !container &&
@@ -241,6 +223,10 @@ export const Modal = ({
   };
 
   useEffect(() => {
+    if (showPortal && refModal.current) {
+      disableBodyScroll(refModal.current);
+    }
+
     return () => {
       // When the component is unmounted directly we want to unblock the scroll
       if (showPortal) {
@@ -255,6 +241,11 @@ export const Modal = ({
     if (open && !showPortal) {
       setShowPortal(true);
       handleOpen();
+    }
+    // When th modal close we unblock the scroll
+    // TODO on unmount remove the scroll
+    if (!open && refModal.current) {
+      enableBodyScroll(refModal.current);
     }
   }, [open]);
 
