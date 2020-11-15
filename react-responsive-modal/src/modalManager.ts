@@ -1,10 +1,12 @@
-const modals: { element: HTMLDivElement; blockScroll: boolean }[] = [];
+import { Ref, useEffect } from 'react';
+
+let modals: { element: Ref<any>; blockScroll: boolean }[] = [];
 
 /**
  * Handle the order of the modals.
  * Inspired by the material-ui implementation.
  */
-export default {
+export const modalManager = {
   /**
    * Return the modals array
    */
@@ -13,25 +15,35 @@ export default {
   /**
    * Register a new modal
    */
-  add: (newModal: HTMLDivElement, blockScroll: boolean) => {
-    if (modals.findIndex((modal) => modal.element === newModal) === -1) {
-      modals.push({ element: newModal, blockScroll });
-    }
+  add: (newModal: Ref<any>, blockScroll: boolean) => {
+    modals.push({ element: newModal, blockScroll });
   },
 
   /**
    * Remove a modal
    */
-  remove: (oldModal: HTMLDivElement) => {
-    const index = modals.findIndex((modal) => modal.element === oldModal);
-    if (index !== -1) {
-      modals.splice(index, 1);
-    }
+  remove: (oldModal: Ref<any>) => {
+    modals = modals.filter((modal) => modal.element !== oldModal);
   },
 
   /**
-   * Check if the modal is the first one on the screen
+   * When multiple modals are rendered will return true if current modal is the last one
    */
-  isTopModal: (modal: HTMLDivElement) =>
-    !!modals.length && modals[modals.length - 1]?.element === modal,
+  isTopModal: (modal: Ref<any>) =>
+    !!modals.length && modals[modals.length - 1].element === modal,
 };
+
+export function useModalManager(
+  ref: Ref<any>,
+  open: boolean,
+  blockScroll: boolean
+) {
+  useEffect(() => {
+    if (open) {
+      modalManager.add(ref, blockScroll);
+    }
+    return () => {
+      modalManager.remove(ref);
+    };
+  }, [open, ref]);
+}
