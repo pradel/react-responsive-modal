@@ -60,6 +60,8 @@ ReactDOM.render(<App />, document.getElementById('app'));
 - If you are using Next.js, you need to import the styles in `pages/_app.js` or `pages/_app.tsx`.
 - If you are using Create React App, you need to import the styles in `index.js` or `index.tsx`.
 
+💡 When you integrate react-responsive-modal in your app, make sure that your Modal content is wrapped in an element so the close icon is not shown on top.
+
 ### Multiple modals
 
 You can render multiple modals at the same time. Clicking on the overlay or pressing "esc" will only close the last modal.
