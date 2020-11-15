@@ -12,6 +12,8 @@ A simple responsive and accessible react modal.
 - Multiple modals.
 - Accessible modals.
 - Easily customizable via props.
+- Typescript support
+- [Small bundle size](https://bundlephobia.com/result?p=react-responsive-modal)
 
 ## Documentation
 
