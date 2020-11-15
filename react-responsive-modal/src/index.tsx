@@ -227,8 +227,8 @@ export const Modal = ({
 
   useEffect(() => {
     return () => {
-      // When the component is unmounted directly we want to unblock the scroll
       if (showPortal) {
+        // When the modal is closed or removed directly, cleanup the listeners
         handleClose();
       }
     };
