@@ -199,6 +199,8 @@ export const Modal = ({
   };
 
   const handleClose = () => {
+    // Restore the scroll only if there is no modal on the screen
+    // We filter the modals that are not affecting the scroll
     if (
       blockScroll &&
       modalManager.modals().filter((modal) => modal.blockScroll).length === 0
