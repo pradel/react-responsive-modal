@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import cx from 'classnames';
 import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
-import modalManager from './modalManager';
+import { modalManager, useModalManager } from './modalManager';
 import { isBrowser, blockNoScroll, unblockNoScroll } from './utils';
 
 const classes = {
@@ -172,8 +172,10 @@ export const Modal = ({
   // it will match the server rendered content
   const [showPortal, setShowPortal] = useState(false);
 
+  // Hook used to manage multiple modals opened at the same time
+  useModalManager(refModal, open, blockScroll);
+
   const handleOpen = () => {
-    modalManager.add(refContainer.current!, blockScroll);
     if (blockScroll) {
       blockNoScroll();
     }
@@ -188,8 +190,12 @@ export const Modal = ({
   };
 
   const handleClose = () => {
-    modalManager.remove(refContainer.current!);
-    if (blockScroll) {
+    // Restore the scroll only if there is no modal on the screen
+    // We filter the modals that are not affecting the scroll
+    if (
+      blockScroll &&
+      modalManager.modals().filter((modal) => modal.blockScroll).length === 0
+    ) {
       unblockNoScroll();
     }
     if (
@@ -204,10 +210,7 @@ export const Modal = ({
 
   const handleKeydown = (event: KeyboardEvent) => {
     // Only the last modal need to be escaped when pressing the esc key
-    if (
-      event.keyCode !== 27 ||
-      !modalManager.isTopModal(refContainer.current!)
-    ) {
+    if (event.keyCode !== 27 || !modalManager.isTopModal(refModal)) {
       return;
     }
 
