@@ -181,7 +181,7 @@ export const Modal = ({
   const [showPortal, setShowPortal] = useState(false);
 
   // Hook used to manage multiple modals opened at the same time
-  useModalManager(refModal, open);
+  useModalManager(refModal, open, blockScroll);
 
   const handleOpen = () => {
     if (blockScroll) {
@@ -199,8 +199,10 @@ export const Modal = ({
   };
 
   const handleClose = () => {
-    if (blockScroll) {
-      // TODO unblock scroll only if it's last model opened
+    if (
+      blockScroll &&
+      modalManager.modals().filter((modal) => modal.blockScroll).length === 0
+    ) {
       unblockNoScroll();
     }
 
