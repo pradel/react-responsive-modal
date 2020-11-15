@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
+import { useScrollLock } from './useScrollLock';
 import { isBrowser } from './utils';
 
 const classes = {
@@ -186,6 +186,9 @@ export const Modal = ({
   // Hook used to manage multiple modals opened at the same time
   useModalManager(refModal, open);
 
+  // Hook used to manage the scroll
+  useScrollLock(refModal, open, showPortal, blockScroll);
+
   const handleOpen = () => {
     if (
       refContainer.current &&
@@ -223,10 +226,6 @@ export const Modal = ({
   };
 
   useEffect(() => {
-    if (showPortal && refModal.current) {
-      disableBodyScroll(refModal.current);
-    }
-
     return () => {
       // When the component is unmounted directly we want to unblock the scroll
       if (showPortal) {
@@ -241,11 +240,6 @@ export const Modal = ({
     if (open && !showPortal) {
       setShowPortal(true);
       handleOpen();
-    }
-    // When th modal close we unblock the scroll
-    // TODO on unmount remove the scroll
-    if (!open && refModal.current) {
-      enableBodyScroll(refModal.current);
     }
   }, [open]);
 
