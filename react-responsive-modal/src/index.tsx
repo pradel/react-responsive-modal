@@ -93,7 +93,9 @@ export interface ModalProps {
    * An object containing the styles objects to style the modal.
    */
   styles?: {
+    root?: React.CSSProperties;
     overlay?: React.CSSProperties;
+    modalContainer?: React.CSSProperties;
     modal?: React.CSSProperties;
     closeButton?: React.CSSProperties;
     closeIcon?: React.CSSProperties;
@@ -294,7 +296,11 @@ export const Modal = ({
 
   return showPortal && containerModal
     ? ReactDom.createPortal(
-        <div className={cx(classes.root, classNames?.root)} data-testid="root">
+        <div
+          className={cx(classes.root, classNames?.root)}
+          style={styles?.root}
+          data-testid="root"
+        >
           <div
             className={cx(classes.overlay, classNames?.overlay)}
             data-testid="overlay"
@@ -310,6 +316,7 @@ export const Modal = ({
               center && classes.modalContainerCenter,
               classNames?.modalContainer
             )}
+            style={styles?.modalContainer}
             data-testid="modal-container"
             onClick={handleClickOverlay}
           >
