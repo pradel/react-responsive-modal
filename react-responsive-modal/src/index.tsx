@@ -4,7 +4,8 @@ import cx from 'classnames';
 import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
-import { isBrowser, blockNoScroll, unblockNoScroll } from './utils';
+import { useScrollLock } from './useScrollLock';
+import { isBrowser } from './utils';
 
 const classes = {
   root: 'react-responsive-modal-root',
@@ -183,13 +184,12 @@ export const Modal = ({
   const [showPortal, setShowPortal] = useState(false);
 
   // Hook used to manage multiple modals opened at the same time
-  useModalManager(refModal, open, blockScroll);
+  useModalManager(refModal, open);
+
+  // Hook used to manage the scroll
+  useScrollLock(refModal, open, showPortal, blockScroll);
 
   const handleOpen = () => {
-    if (blockScroll) {
-      blockNoScroll();
-    }
-
     if (
       refContainer.current &&
       !container &&
@@ -197,19 +197,11 @@ export const Modal = ({
     ) {
       document.body.appendChild(refContainer.current);
     }
+
     document.addEventListener('keydown', handleKeydown);
   };
 
   const handleClose = () => {
-    // Restore the scroll only if there is no modal on the screen
-    // We filter the modals that are not affecting the scroll
-    if (
-      blockScroll &&
-      modalManager.modals().filter((modal) => modal.blockScroll).length === 0
-    ) {
-      unblockNoScroll();
-    }
-
     if (
       refContainer.current &&
       !container &&
@@ -235,8 +227,8 @@ export const Modal = ({
 
   useEffect(() => {
     return () => {
-      // When the component is unmounted directly we want to unblock the scroll
       if (showPortal) {
+        // When the modal is closed or removed directly, cleanup the listeners
         handleClose();
       }
     };

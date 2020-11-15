@@ -105,7 +105,7 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-      expect(document.documentElement.style.position).toBe('');
+      expect(document.body.style.overflow).toBe('');
     });
 
     it('should block the scroll when modal is rendered open', () => {
@@ -114,7 +114,7 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-      expect(document.documentElement.style.position).toBe('fixed');
+      expect(document.body.style.overflow).toBe('hidden');
     });
 
     it('should block scroll when prop open change to true', () => {
@@ -123,14 +123,14 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-      expect(document.documentElement.style.position).toBe('');
+      expect(document.body.style.overflow).toBe('');
 
       rerender(
         <Modal open={true} onClose={() => null}>
           <div>modal content</div>
         </Modal>
       );
-      expect(document.documentElement.style.position).toBe('fixed');
+      expect(document.body.style.overflow).toBe('hidden');
     });
 
     it('should unblock scroll when prop open change to false', async () => {
@@ -139,7 +139,7 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-      expect(document.documentElement.style.position).toBe('fixed');
+      expect(document.body.style.overflow).toBe('hidden');
 
       rerender(
         <Modal open={false} onClose={() => null} animationDuration={0}>
@@ -155,7 +155,7 @@ describe('modal', () => {
         { timeout: 1 }
       );
 
-      expect(document.documentElement.style.position).toBe('');
+      expect(document.body.style.overflow).toBe('');
     });
 
     it('should unblock scroll when unmounted directly', async () => {
@@ -164,10 +164,10 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-      expect(document.documentElement.style.position).toBe('fixed');
+      expect(document.body.style.overflow).toBe('hidden');
 
       unmount();
-      expect(document.documentElement.style.position).toBe('');
+      expect(document.body.style.overflow).toBe('');
     });
 
     it('should unblock scroll when multiple modals are opened and then closed', async () => {
@@ -181,7 +181,7 @@ describe('modal', () => {
           </Modal>
         </React.Fragment>
       );
-      expect(document.documentElement.style.position).toBe('fixed');
+      expect(document.body.style.overflow).toBe('hidden');
 
       // We close one modal, the scroll should be locked
       rerender(
@@ -202,7 +202,7 @@ describe('modal', () => {
         },
         { timeout: 1 }
       );
-      expect(document.documentElement.style.position).toBe('fixed');
+      expect(document.body.style.overflow).toBe('hidden');
 
       // We close the second modal, the scroll should be unlocked
       rerender(
@@ -223,7 +223,7 @@ describe('modal', () => {
         },
         { timeout: 1 }
       );
-      expect(document.documentElement.style.position).toBe('');
+      expect(document.body.style.overflow).toBe('');
     });
 
     it('should unblock scroll when one modal is closed and the one still open has blockScroll set to false', async () => {
@@ -237,7 +237,7 @@ describe('modal', () => {
           </Modal>
         </React.Fragment>
       );
-      expect(document.documentElement.style.position).toBe('fixed');
+      expect(document.body.style.overflow).toBe('hidden');
 
       // We close one modal, the scroll should be unlocked as remaining modal is not locking the scroll
       rerender(
@@ -258,7 +258,7 @@ describe('modal', () => {
         },
         { timeout: 1 }
       );
-      expect(document.documentElement.style.position).toBe('');
+      expect(document.body.style.overflow).toBe('');
     });
   });
 
@@ -437,7 +437,7 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-      expect(document.documentElement.style.position).toBe('');
+      expect(document.body.style.overflow).toBe('');
     });
   });
 

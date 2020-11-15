@@ -43,26 +43,26 @@ describe('simple modal', () => {
 
   it('should block the scroll when modal is opened', () => {
     cy.get('button').eq(0).click();
-    cy.get('html').should('have.css', 'position', 'fixed');
+    cy.get('body').should('have.css', 'overflow', 'hidden');
   });
 
   it('should unblock the scroll when modal is closed', () => {
     cy.get('button').eq(0).click();
-    cy.get('html').should('have.css', 'position', 'fixed');
+    cy.get('body').should('have.css', 'overflow', 'hidden');
     cy.get('body').type('{esc}');
-    cy.get('html').should('not.have.css', 'position', 'fixed');
+    cy.get('body').should('not.have.css', 'overflow', 'hidden');
   });
 
   it('should unblock scroll only after last modal is closed when multiple modals are opened', () => {
     cy.get('button').eq(1).click();
     cy.get('[data-testid=modal] button').eq(0).click();
     cy.get('[data-testid=modal]').should('have.length', 2);
-    cy.get('html').should('have.css', 'position', 'fixed');
+    cy.get('body').should('have.css', 'overflow', 'hidden');
     cy.get('body').type('{esc}');
     cy.get('[data-testid=modal]').should('have.length', 1);
-    cy.get('html').should('have.css', 'position', 'fixed');
+    cy.get('body').should('have.css', 'overflow', 'hidden');
     cy.get('body').type('{esc}');
     cy.get('[data-testid=modal]').should('not.exist');
-    cy.get('html').should('not.have.css', 'position', 'fixed');
+    cy.get('body').should('not.have.css', 'overflow', 'hidden');
   });
 });
