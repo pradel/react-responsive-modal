@@ -2410,6 +2410,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/body-scroll-lock@npm:2.6.1":
+  version: 2.6.1
+  resolution: "@types/body-scroll-lock@npm:2.6.1"
+  checksum: 7cb4ed5ce6b9d927321e966970b67dfc6cc23836c2eb6b03e0ef6cc4713199ab0f9cbf5a9b56987939b63a0a9e8a2c5678c1d73808e04578446dc3ea24998e32
+  languageName: node
+  linkType: hard
+
 "@types/classnames@npm:2.2.11":
   version: 2.2.11
   resolution: "@types/classnames@npm:2.2.11"
@@ -3910,6 +3917,13 @@ __metadata:
     raw-body: 2.4.0
     type-is: ~1.6.17
   checksum: 18c2a81df5eabc7e3541bc9ace394b88e6fbd390989b5e764ff34c3f9dbd097e19986c31baa9b855ec5c2cff2b79157449afb0cdfb97bb99c11d6239b2c47a34
+  languageName: node
+  linkType: hard
+
+"body-scroll-lock@npm:^3.1.5":
+  version: 3.1.5
+  resolution: "body-scroll-lock@npm:3.1.5"
+  checksum: e8de58edc0fd7d483e3971045ff83fe6d722592d5153e9bfc9da2962a179a6522b432a4b35344bc8ae522eec080cc87301ce4ded4878f26254bf42a4f26d27ed
   languageName: node
   linkType: hard
 
@@ -10615,13 +10629,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"no-scroll@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "no-scroll@npm:2.1.1"
-  checksum: a575d5d3b84164a3eab41f4854526bf66969428533fccba87bd9898a86123cdf625c7bfb26bf1b479698dfec9bcf2f17ae9c743f196ca9469b6296e2e13f4b8e
-  languageName: node
-  linkType: hard
-
 "node-abi@npm:^2.7.0":
   version: 2.19.1
   resolution: "node-abi@npm:2.19.1"
@@ -12511,6 +12518,7 @@ fsevents@^1.2.7:
     "@size-limit/preset-small-lib": 4.7.0
     "@testing-library/jest-dom": 5.11.6
     "@testing-library/react": 11.1.2
+    "@types/body-scroll-lock": 2.6.1
     "@types/classnames": 2.2.11
     "@types/no-scroll": 2.1.0
     "@types/node": 14.14.7
@@ -12518,10 +12526,10 @@ fsevents@^1.2.7:
     "@types/react-dom": 16.9.9
     "@types/react-transition-group": 4.4.0
     babel-jest: 26.6.3
+    body-scroll-lock: ^3.1.5
     classnames: ^2.2.6
     cypress: 5.6.0
     husky: 4.3.0
-    no-scroll: ^2.1.1
     prettier: 2.1.2
     react: 17.0.1
     react-dom: 17.0.1

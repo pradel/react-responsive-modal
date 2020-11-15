@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
-import { isBrowser, blockNoScroll, unblockNoScroll } from './utils';
+import { isBrowser } from './utils';
 
 const classes = {
   root: 'react-responsive-modal-root',
@@ -186,10 +187,6 @@ export const Modal = ({
   useModalManager(refModal, open, blockScroll);
 
   const handleOpen = () => {
-    if (blockScroll) {
-      blockNoScroll();
-    }
-
     if (
       refContainer.current &&
       !container &&
@@ -197,17 +194,27 @@ export const Modal = ({
     ) {
       document.body.appendChild(refContainer.current);
     }
+
+    console.log('open', refModal.current);
+    if (blockScroll && refModal.current) {
+      console.log('disable');
+      disableBodyScroll(refModal.current);
+    }
+
     document.addEventListener('keydown', handleKeydown);
   };
 
   const handleClose = () => {
+    console.log('close', refModal.current);
     // Restore the scroll only if there is no modal on the screen
     // We filter the modals that are not affecting the scroll
     if (
       blockScroll &&
+      refModal.current &&
       modalManager.modals().filter((modal) => modal.blockScroll).length === 0
     ) {
-      unblockNoScroll();
+      console.log('enable');
+      enableBodyScroll(refModal.current);
     }
 
     if (
