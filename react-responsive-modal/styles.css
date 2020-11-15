@@ -1,30 +1,50 @@
-.react-responsive-modal-overlay {
-  background: rgba(0, 0, 0, 0.75);
-  display: flex;
-  align-items: flex-start;
+.react-responsive-modal-root {
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
   z-index: 1000;
-  padding: 1.2rem;
+}
+
+.react-responsive-modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.react-responsive-modal-container {
+  height: 100%;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+/* Used to trick the browser to center the modal content properly  */
+.react-responsive-modal-containerCenter:after {
+  width: 0;
+  height: 100%;
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .react-responsive-modal-modal {
   max-width: 800px;
-  position: relative;
-  padding: 1.2rem;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
   background: #ffffff;
-  background-clip: padding-box;
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
-  margin: 0 auto;
-}
-
-.react-responsive-modal-modalCenter {
-  margin: auto;
+  margin: 1.2rem;
+  padding: 1.2rem;
+  position: relative;
+  overflow-y: auto;
 }
 
 .react-responsive-modal-closeButton {
@@ -38,7 +58,7 @@
   display: flex;
 }
 
-@keyframes react-responsive-modal-fadeIn {
+@keyframes react-responsive-modal-overlay-in {
   0% {
     opacity: 0;
   }
@@ -47,11 +67,33 @@
   }
 }
 
-@keyframes react-responsive-modal-fadeOut {
+@keyframes react-responsive-modal-overlay-out {
   0% {
     opacity: 1;
   }
   100% {
+    opacity: 0;
+  }
+}
+
+@keyframes react-responsive-modal-modal-in {
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(100%);
+    opacity: 1;
+  }
+}
+
+@keyframes react-responsive-modal-modal-out {
+  0% {
+    transform: scale(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.96);
     opacity: 0;
   }
 }

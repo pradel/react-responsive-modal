@@ -7,12 +7,16 @@ import { modalManager, useModalManager } from './modalManager';
 import { isBrowser, blockNoScroll, unblockNoScroll } from './utils';
 
 const classes = {
+  root: 'react-responsive-modal-root',
   overlay: 'react-responsive-modal-overlay',
+  overlayAnimationIn: 'react-responsive-modal-overlay-in',
+  overlayAnimationOut: 'react-responsive-modal-overlay-out',
+  modalContainer: 'react-responsive-modal-container',
+  modalContainerCenter: 'react-responsive-modal-containerCenter',
   modal: 'react-responsive-modal-modal',
-  modalCenter: 'react-responsive-modal-modalCenter',
+  modalAnimationIn: 'react-responsive-modal-modal-in',
+  modalAnimationOut: 'react-responsive-modal-modal-out',
   closeButton: 'react-responsive-modal-closeButton',
-  animationIn: 'react-responsive-modal-fadeIn',
-  animationOut: 'react-responsive-modal-fadeOut',
 };
 
 export interface ModalProps {
@@ -74,18 +78,24 @@ export interface ModalProps {
    * An object containing classNames to style the modal.
    */
   classNames?: {
+    root?: string;
     overlay?: string;
+    overlayAnimationIn?: string;
+    overlayAnimationOut?: string;
+    modalContainer?: string;
     modal?: string;
+    modalAnimationIn?: string;
+    modalAnimationOut?: string;
     closeButton?: string;
     closeIcon?: string;
-    animationIn?: string;
-    animationOut?: string;
   };
   /**
    * An object containing the styles objects to style the modal.
    */
   styles?: {
+    root?: React.CSSProperties;
     overlay?: React.CSSProperties;
+    modalContainer?: React.CSSProperties;
     modal?: React.CSSProperties;
     closeButton?: React.CSSProperties;
     closeIcon?: React.CSSProperties;
@@ -146,7 +156,7 @@ export const Modal = ({
   closeIconId,
   closeIcon,
   focusTrapped = true,
-  animationDuration = 500,
+  animationDuration = 300,
   classNames,
   styles,
   role = 'dialog',
@@ -179,6 +189,7 @@ export const Modal = ({
     if (blockScroll) {
       blockNoScroll();
     }
+
     if (
       refContainer.current &&
       !container &&
@@ -198,6 +209,7 @@ export const Modal = ({
     ) {
       unblockNoScroll();
     }
+
     if (
       refContainer.current &&
       !container &&
@@ -264,10 +276,6 @@ export const Modal = ({
     refShouldClose.current = false;
   };
 
-  const handleClickCloseIcon = () => {
-    onClose();
-  };
-
   const handleAnimationEnd = () => {
     if (!open) {
       setShowPortal(false);
@@ -278,52 +286,71 @@ export const Modal = ({
 
   const containerModal = container || refContainer.current;
 
+  const overlayAnimation = open
+    ? classNames?.overlayAnimationIn ?? classes.overlayAnimationIn
+    : classNames?.overlayAnimationOut ?? classes.overlayAnimationOut;
+
+  const modalAnimation = open
+    ? classNames?.modalAnimationIn ?? classes.modalAnimationIn
+    : classNames?.modalAnimationOut ?? classes.modalAnimationOut;
+
   return showPortal && containerModal
     ? ReactDom.createPortal(
         <div
-          style={{
-            animation: `${
-              open
-                ? classNames?.animationIn ?? classes.animationIn
-                : classNames?.animationOut ?? classes.animationOut
-            } ${animationDuration}ms`,
-            ...styles?.overlay,
-          }}
-          className={cx(classes.overlay, classNames?.overlay)}
-          onClick={handleClickOverlay}
-          onAnimationEnd={handleAnimationEnd}
-          data-testid="overlay"
+          className={cx(classes.root, classNames?.root)}
+          style={styles?.root}
+          data-testid="root"
         >
           <div
-            ref={refModal}
+            className={cx(classes.overlay, classNames?.overlay)}
+            data-testid="overlay"
+            aria-hidden={true}
+            style={{
+              animation: `${overlayAnimation} ${animationDuration}ms`,
+              ...styles?.overlay,
+            }}
+          />
+          <div
             className={cx(
-              classes.modal,
-              center && classes.modalCenter,
-              classNames?.modal
+              classes.modalContainer,
+              center && classes.modalContainerCenter,
+              classNames?.modalContainer
             )}
-            style={styles?.modal}
-            onMouseDown={handleModalEvent}
-            onMouseUp={handleModalEvent}
-            onClick={handleModalEvent}
-            id={modalId}
-            role={role}
-            aria-modal="true"
-            aria-labelledby={ariaLabelledby}
-            aria-describedby={ariaDescribedby}
-            data-testid="modal"
+            style={styles?.modalContainer}
+            data-testid="modal-container"
+            onClick={handleClickOverlay}
           >
-            {focusTrapped && <FocusTrap container={refModal} />}
-            {children}
-            {showCloseIcon && (
-              <CloseIcon
-                classes={classes}
-                classNames={classNames}
-                styles={styles}
-                closeIcon={closeIcon}
-                onClickCloseIcon={handleClickCloseIcon}
-                id={closeIconId}
-              />
-            )}
+            <div
+              ref={refModal}
+              className={cx(classes.modal, classNames?.modal)}
+              style={{
+                animation: `${modalAnimation} ${animationDuration}ms`,
+                ...styles?.modal,
+              }}
+              onMouseDown={handleModalEvent}
+              onMouseUp={handleModalEvent}
+              onClick={handleModalEvent}
+              onAnimationEnd={handleAnimationEnd}
+              id={modalId}
+              role={role}
+              aria-modal="true"
+              aria-labelledby={ariaLabelledby}
+              aria-describedby={ariaDescribedby}
+              data-testid="modal"
+            >
+              {focusTrapped && <FocusTrap container={refModal} />}
+              {children}
+              {showCloseIcon && (
+                <CloseIcon
+                  classes={classes}
+                  classNames={classNames}
+                  styles={styles}
+                  closeIcon={closeIcon}
+                  onClick={onClose}
+                  id={closeIconId}
+                />
+              )}
+            </div>
           </div>
         </div>,
         containerModal

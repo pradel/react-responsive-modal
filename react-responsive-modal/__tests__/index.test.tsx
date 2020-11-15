@@ -12,7 +12,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      fireEvent.click(getByTestId('overlay'));
+      fireEvent.click(getByTestId('modal-container'));
       expect(onClose).toHaveBeenCalledTimes(1);
     });
 
@@ -24,7 +24,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      fireEvent.click(getByTestId('overlay'));
+      fireEvent.click(getByTestId('modal-container'));
       expect(onClose).not.toHaveBeenCalled();
     });
 
@@ -147,7 +147,7 @@ describe('modal', () => {
         </Modal>
       );
       // Simulate the browser animation end
-      fireEvent.animationEnd(getByTestId('overlay'));
+      fireEvent.animationEnd(getByTestId('modal'));
       await waitFor(
         () => {
           expect(queryByTestId('modal')).not.toBeInTheDocument();
@@ -195,7 +195,7 @@ describe('modal', () => {
         </React.Fragment>
       );
 
-      fireEvent.animationEnd(getAllByTestId('overlay')[1]);
+      fireEvent.animationEnd(getAllByTestId('modal')[1]);
       await waitFor(
         () => {
           expect(queryByText(/second modal/)).not.toBeInTheDocument();
@@ -216,7 +216,7 @@ describe('modal', () => {
         </React.Fragment>
       );
 
-      fireEvent.animationEnd(getAllByTestId('overlay')[0]);
+      fireEvent.animationEnd(getAllByTestId('modal')[0]);
       await waitFor(
         () => {
           expect(queryByText(/first modal/)).not.toBeInTheDocument();
@@ -251,7 +251,7 @@ describe('modal', () => {
         </React.Fragment>
       );
 
-      fireEvent.animationEnd(getAllByTestId('overlay')[1]);
+      fireEvent.animationEnd(getAllByTestId('modal')[1]);
       await waitFor(
         () => {
           expect(queryByText(/second modal/)).not.toBeInTheDocument();
@@ -344,7 +344,7 @@ describe('modal', () => {
           <div>modal content</div>
         </Modal>
       );
-      fireEvent.animationEnd(getByTestId('overlay'));
+      fireEvent.animationEnd(getByTestId('modal'));
       expect(queryByTestId('modal')).toBeNull();
     });
   });
@@ -357,10 +357,10 @@ describe('modal', () => {
         </Modal>
       );
 
-      expect(getByTestId('modal').classList.length).toBe(1);
+      expect(getByTestId('modal-container').classList.length).toBe(1);
       expect(
-        getByTestId('modal').classList.contains(
-          'react-responsive-modal-modalCenter'
+        getByTestId('modal-container').classList.contains(
+          'react-responsive-modal-containerCenter'
         )
       ).toBeFalsy();
     });
@@ -372,10 +372,10 @@ describe('modal', () => {
         </Modal>
       );
 
-      expect(getByTestId('modal').classList.length).toBe(2);
+      expect(getByTestId('modal-container').classList.length).toBe(2);
       expect(
-        getByTestId('modal').classList.contains(
-          'react-responsive-modal-modalCenter'
+        getByTestId('modal-container').classList.contains(
+          'react-responsive-modal-containerCenter'
         )
       ).toBeTruthy();
     });
@@ -464,7 +464,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      fireEvent.click(getByTestId('overlay'));
+      fireEvent.click(getByTestId('modal-container'));
       expect(onOverlayClick).toHaveBeenCalledTimes(1);
     });
   });
@@ -478,7 +478,7 @@ describe('modal', () => {
         </Modal>
       );
 
-      fireEvent.animationEnd(getByTestId('overlay'));
+      fireEvent.animationEnd(getByTestId('modal'));
       expect(onAnimationEnd).toHaveBeenCalledTimes(1);
     });
   });

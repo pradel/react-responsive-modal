@@ -16,10 +16,12 @@ const App = () => {
         onClose={() => setOpen(false)}
         center
         classNames={{
-          animationIn: 'customEnterAnimation',
-          animationOut: 'customLeaveAnimation',
+          overlayAnimationIn: 'customEnterOverlayAnimation',
+          overlayAnimationOut: 'customLeaveOverlayAnimation',
+          modalAnimationIn: 'customEnterModalAnimation',
+          modalAnimationOut: 'customLeaveModalAnimation',
         }}
-        animationDuration={1000}
+        animationDuration={800}
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
