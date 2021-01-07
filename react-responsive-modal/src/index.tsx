@@ -303,6 +303,7 @@ export const Modal = ({
             }}
           />
           <div
+            ref={refModal}
             className={cx(
               classes.modalContainer,
               center && classes.modalContainerCenter,
@@ -313,7 +314,6 @@ export const Modal = ({
             onClick={handleClickOverlay}
           >
             <div
-              ref={refModal}
               className={cx(classes.modal, classNames?.modal)}
               style={{
                 animation: `${modalAnimation} ${animationDuration}ms`,
