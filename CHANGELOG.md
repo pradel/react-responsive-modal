@@ -1,5 +1,23 @@
 # Changelog
 
+### [6.0.1](https://www.github.com/pradel/react-responsive-modal/compare/v6.0.0...v6.0.1) (2021-01-08)
+
+
+### Bug Fixes
+
+* **docs:** fix website dependencies ([222c6ed](https://www.github.com/pradel/react-responsive-modal/commit/222c6edef3851d2939a4fafa4d6c96e19ef35b1a))
+* fix iOS problem with scroll not working in Safari ([#464](https://www.github.com/pradel/react-responsive-modal/issues/464)) ([0e38605](https://www.github.com/pradel/react-responsive-modal/commit/0e38605e37fa0e9d67ff5104e79fadfde5941bb0))
+* fix release-script publishing script ([9347ad5](https://www.github.com/pradel/react-responsive-modal/commit/9347ad57d781aeca637b0527e89e34acd1cf6b3a))
+* update changelogs path ([f6f3a65](https://www.github.com/pradel/react-responsive-modal/commit/f6f3a655b4d4a5ffc7f208684f439af9b20ef897))
+* update README path ([fce1829](https://www.github.com/pradel/react-responsive-modal/commit/fce1829fe051ab5bef85811ad6d1d34d68bbfc5a))
+
+
+### Miscellaneous
+
+* remove unused dev dependencies ([38d2f1b](https://www.github.com/pradel/react-responsive-modal/commit/38d2f1bbda80641e857ce80ba71e995d8c44c438))
+* upgrade yarn ([523536e](https://www.github.com/pradel/react-responsive-modal/commit/523536e783f82d69b8af0af9ec7dd2062af15349))
+* uppdate release-please-action ([2172030](https://www.github.com/pradel/react-responsive-modal/commit/2172030427023c068644c71d8cbbe88c389ccf18))
+
 ## [6.0.0](https://www.github.com/pradel/react-responsive-modal/compare/v5.2.6...v6.0.0) (2020-11-15)
 
 
