@@ -93,7 +93,7 @@ const IndexPage = () => (
             </li>
             <li className="mb-4">
               <a className="hover:text-watermelon" href="#license">
-                Licence
+                License
               </a>
             </li>
           </ul>
