@@ -23,5 +23,5 @@
     "lint-staged": "10.5.1",
     "prettier": "2.1.2"
   },
-  "version": "6.0.1"
+  "version": "6.0.2"
 }

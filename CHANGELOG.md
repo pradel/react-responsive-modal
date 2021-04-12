@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.0.2](https://www.github.com/pradel/react-responsive-modal/compare/v6.0.1...v6.0.2) (2021-04-12)
+
+
+### Documentation
+
+* fix typo in menu ([#473](https://www.github.com/pradel/react-responsive-modal/issues/473)) ([23cccc6](https://www.github.com/pradel/react-responsive-modal/commit/23cccc60a71342e3c122f968888118b911387056))
+
 ### [6.0.1](https://www.github.com/pradel/react-responsive-modal/compare/v6.0.0...v6.0.1) (2021-01-08)
 
 
