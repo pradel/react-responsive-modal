@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
 import CloseIcon from './CloseIcon';
-import { FocusTrap } from './FocusTrap';
+import { FocusTrap, FocusTrapOptions } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
 import { useScrollLock } from './useScrollLock';
 import { isBrowser } from './utils';
@@ -70,6 +70,12 @@ export interface ModalProps {
    */
   focusTrapped?: boolean;
   /**
+   * Options focus trapping.
+   *
+   * Default to { focusOn: 'firstFocusableElement' }.
+   */
+  focusTrapOptions?: FocusTrapOptions;
+  /**
    * You can specify a container prop which should be of type `Element`.
    * The portal will be rendered inside that element.
    * The default behavior will create a div node and render it at the at the end of document.body.
@@ -104,7 +110,7 @@ export interface ModalProps {
   /**
    * Animation duration in milliseconds.
    *
-   * Default to 500.
+   * Default to 300.
    */
   animationDuration?: number;
   /**
@@ -157,6 +163,7 @@ export const Modal = ({
   closeIconId,
   closeIcon,
   focusTrapped = true,
+  focusTrapOptions = { focusOn: 'firstFocusableElement' },
   animationDuration = 300,
   classNames,
   styles,
@@ -171,6 +178,7 @@ export const Modal = ({
   children,
 }: ModalProps) => {
   const refModal = useRef<HTMLDivElement>(null);
+  const refDialog = useRef<HTMLDivElement>(null);
   const refShouldClose = useRef<boolean | null>(null);
   const refContainer = useRef<HTMLDivElement | null>(null);
   // Lazily create the ref instance
@@ -314,6 +322,7 @@ export const Modal = ({
             onClick={handleClickOverlay}
           >
             <div
+              ref={refDialog}
               className={cx(classes.modal, classNames?.modal)}
               style={{
                 animation: `${modalAnimation} ${animationDuration}ms`,
@@ -329,8 +338,11 @@ export const Modal = ({
               aria-labelledby={ariaLabelledby}
               aria-describedby={ariaDescribedby}
               data-testid="modal"
+              tabIndex={-1}
             >
-              {focusTrapped && <FocusTrap container={refModal} />}
+              {focusTrapped && (
+                <FocusTrap container={refDialog} options={focusTrapOptions} />
+              )}
               {children}
               {showCloseIcon && (
                 <CloseIcon

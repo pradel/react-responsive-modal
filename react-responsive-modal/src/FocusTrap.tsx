@@ -6,11 +6,16 @@ import {
   getAllTabbingElements,
 } from './lib/focusTrapJs';
 
-interface FocusTrapProps {
-  container?: React.RefObject<HTMLElement> | null;
+export interface FocusTrapOptions {
+  focusOn?: 'firstFocusableElement' | 'modalRoot';
 }
 
-export const FocusTrap = ({ container }: FocusTrapProps) => {
+interface FocusTrapProps {
+  container?: React.RefObject<HTMLElement> | null;
+  options?: FocusTrapOptions;
+}
+
+export const FocusTrap = ({ container, options }: FocusTrapProps) => {
   const refLastFocus = useRef<HTMLElement | null>();
   /**
    * Handle focus lock on the modal
@@ -27,8 +32,7 @@ export const FocusTrap = ({ container }: FocusTrapProps) => {
     }
     // On mount we focus on the first focusable element in the modal if there is one
     if (isBrowser && container?.current) {
-      const allTabbingElements = getAllTabbingElements(container.current);
-      if (allTabbingElements[0]) {
+      const savePreviousFocus = () => {
         // First we save the last focused element
         // only if it's a focusable element
         if (
@@ -38,7 +42,17 @@ export const FocusTrap = ({ container }: FocusTrapProps) => {
         ) {
           refLastFocus.current = document.activeElement as HTMLElement;
         }
-        allTabbingElements[0].focus();
+      };
+
+      if (options?.focusOn === 'firstFocusableElement') {
+        const allTabbingElements = getAllTabbingElements(container.current);
+        if (allTabbingElements[0]) {
+          savePreviousFocus();
+          allTabbingElements[0].focus();
+        }
+      } else if (options?.focusOn === 'modalRoot') {
+        savePreviousFocus();
+        container?.current?.focus();
       }
     }
     return () => {
@@ -48,7 +62,7 @@ export const FocusTrap = ({ container }: FocusTrapProps) => {
         refLastFocus.current?.focus();
       }
     };
-  }, [container]);
+  }, [container, options?.focusOn]);
 
   return null;
 };
