@@ -65,4 +65,14 @@ describe('simple modal', () => {
     cy.get('[data-testid=modal]').should('not.exist');
     cy.get('body').should('not.have.css', 'overflow', 'hidden');
   });
+
+  it('should focus first element within modal', () => {
+    cy.get('button').eq(3).click();
+    cy.get('[data-testid=modal] input').first().should('have.focus');
+  });
+
+  it('should focus on modal root', () => {
+    cy.get('button').eq(4).click();
+    cy.get('[data-testid=modal]').should('have.focus');
+  });
 });

@@ -10,12 +10,16 @@ const App = () => {
         Open modal
       </button>
 
-      <Modal open={open} onClose={() => setOpen(false)}>
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        focusTrapOptions={{ focusOn: 'modalRoot' }}
+      >
         <h2>Try tabbing/shift-tabbing thru elements</h2>
         <form action="">
           <p>
             <label htmlFor="firstName">
-              First name (I should be focused be default)
+              First name (I shouldn't be focused - press Tab to focus me)
               <input type="text" />
             </label>
           </p>
