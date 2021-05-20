@@ -171,6 +171,7 @@ export const Modal = ({
   children,
 }: ModalProps) => {
   const refModal = useRef<HTMLDivElement>(null);
+  const refModalContainer = useRef<HTMLDivElement>(null);
   const refShouldClose = useRef<boolean | null>(null);
   const refContainer = useRef<HTMLDivElement | null>(null);
   // Lazily create the ref instance
@@ -187,7 +188,7 @@ export const Modal = ({
   useModalManager(refModal, open);
 
   // Hook used to manage the scroll
-  useScrollLock(refModal, open, showPortal, blockScroll);
+  useScrollLock(refModalContainer, open, showPortal, blockScroll);
 
   const handleOpen = () => {
     if (
@@ -303,7 +304,7 @@ export const Modal = ({
             }}
           />
           <div
-            ref={refModal}
+            ref={refModalContainer}
             className={cx(
               classes.modalContainer,
               center && classes.modalContainerCenter,
@@ -314,6 +315,7 @@ export const Modal = ({
             onClick={handleClickOverlay}
           >
             <div
+              ref={refModal}
               className={cx(classes.modal, classNames?.modal)}
               style={{
                 animation: `${modalAnimation} ${animationDuration}ms`,
