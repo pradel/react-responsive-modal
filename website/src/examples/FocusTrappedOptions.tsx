@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Modal } from 'react-responsive-modal';
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
@@ -11,9 +12,10 @@ const App = () => {
       </button>
 
       <Modal
+        ref={modalRef}
         open={open}
         onClose={() => setOpen(false)}
-        focusTrapOptions={{ focusOn: 'modalRoot' }}
+        focusTrapOptions={{ focusOn: modalRef }}
       >
         <h2>Try tabbing/shift-tabbing thru elements</h2>
         <form action="">

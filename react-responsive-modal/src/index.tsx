@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
 import CloseIcon from './CloseIcon';
@@ -6,6 +6,7 @@ import { FocusTrap, FocusTrapOptions } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
 import { useScrollLock } from './useScrollLock';
 import { isBrowser } from './utils';
+import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
 
 const classes = {
   root: 'react-responsive-modal-root',
@@ -70,9 +71,9 @@ export interface ModalProps {
    */
   focusTrapped?: boolean;
   /**
-   * Options focus trapping.
+   * Options for focus trapping.
    *
-   * Default to { focusOn: 'firstFocusableElement' }.
+   * Default to undefined.
    */
   focusTrapOptions?: FocusTrapOptions;
   /**
@@ -152,214 +153,219 @@ export interface ModalProps {
   children?: React.ReactNode;
 }
 
-export const Modal = ({
-  open,
-  center,
-  blockScroll = true,
-  closeOnEsc = true,
-  closeOnOverlayClick = true,
-  container,
-  showCloseIcon = true,
-  closeIconId,
-  closeIcon,
-  focusTrapped = true,
-  focusTrapOptions = { focusOn: 'firstFocusableElement' },
-  animationDuration = 300,
-  classNames,
-  styles,
-  role = 'dialog',
-  ariaDescribedby,
-  ariaLabelledby,
-  modalId,
-  onClose,
-  onEscKeyDown,
-  onOverlayClick,
-  onAnimationEnd,
-  children,
-}: ModalProps) => {
-  const refModal = useRef<HTMLDivElement>(null);
-  const refDialog = useRef<HTMLDivElement>(null);
-  const refShouldClose = useRef<boolean | null>(null);
-  const refContainer = useRef<HTMLDivElement | null>(null);
-  // Lazily create the ref instance
-  // https://reactjs.org/docs/hooks-faq.html#how-to-create-expensive-objects-lazily
-  if (refContainer.current === null && isBrowser) {
-    refContainer.current = document.createElement('div');
-  }
-
-  // The value should be false for srr, that way when the component is hydrated client side,
-  // it will match the server rendered content
-  const [showPortal, setShowPortal] = useState(false);
-
-  // Hook used to manage multiple modals opened at the same time
-  useModalManager(refModal, open);
-
-  // Hook used to manage the scroll
-  useScrollLock(refModal, open, showPortal, blockScroll);
-
-  const handleOpen = () => {
-    if (
-      refContainer.current &&
-      !container &&
-      !document.body.contains(refContainer.current)
-    ) {
-      document.body.appendChild(refContainer.current);
+export const Modal = React.forwardRef(
+  (
+    {
+      open,
+      center,
+      blockScroll = true,
+      closeOnEsc = true,
+      closeOnOverlayClick = true,
+      container,
+      showCloseIcon = true,
+      closeIconId,
+      closeIcon,
+      focusTrapped = true,
+      focusTrapOptions = undefined,
+      animationDuration = 300,
+      classNames,
+      styles,
+      role = 'dialog',
+      ariaDescribedby,
+      ariaLabelledby,
+      modalId,
+      onClose,
+      onEscKeyDown,
+      onOverlayClick,
+      onAnimationEnd,
+      children,
+    }: ModalProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
+    const refDialog = useForwardedRef(ref);
+    const refModal = useRef<HTMLDivElement>(null);
+    const refShouldClose = useRef<boolean | null>(null);
+    const refContainer = useRef<HTMLDivElement | null>(null);
+    // Lazily create the ref instance
+    // https://reactjs.org/docs/hooks-faq.html#how-to-create-expensive-objects-lazily
+    if (refContainer.current === null && isBrowser) {
+      refContainer.current = document.createElement('div');
     }
 
-    document.addEventListener('keydown', handleKeydown);
-  };
+    // The value should be false for srr, that way when the component is hydrated client side,
+    // it will match the server rendered content
+    const [showPortal, setShowPortal] = useState(false);
 
-  const handleClose = () => {
-    if (
-      refContainer.current &&
-      !container &&
-      document.body.contains(refContainer.current)
-    ) {
-      document.body.removeChild(refContainer.current);
-    }
-    document.removeEventListener('keydown', handleKeydown);
-  };
+    // Hook used to manage multiple modals opened at the same time
+    useModalManager(refModal, open);
 
-  const handleKeydown = (event: KeyboardEvent) => {
-    // Only the last modal need to be escaped when pressing the esc key
-    if (event.keyCode !== 27 || !modalManager.isTopModal(refModal)) {
-      return;
-    }
+    // Hook used to manage the scroll
+    useScrollLock(refModal, open, showPortal, blockScroll);
 
-    onEscKeyDown?.(event);
+    const handleOpen = () => {
+      if (
+        refContainer.current &&
+        !container &&
+        !document.body.contains(refContainer.current)
+      ) {
+        document.body.appendChild(refContainer.current);
+      }
 
-    if (closeOnEsc) {
-      onClose();
-    }
-  };
+      document.addEventListener('keydown', handleKeydown);
+    };
 
-  useEffect(() => {
-    return () => {
-      if (showPortal) {
-        // When the modal is closed or removed directly, cleanup the listeners
-        handleClose();
+    const handleClose = () => {
+      if (
+        refContainer.current &&
+        !container &&
+        document.body.contains(refContainer.current)
+      ) {
+        document.body.removeChild(refContainer.current);
+      }
+      document.removeEventListener('keydown', handleKeydown);
+    };
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      // Only the last modal need to be escaped when pressing the esc key
+      if (event.keyCode !== 27 || !modalManager.isTopModal(refModal)) {
+        return;
+      }
+
+      onEscKeyDown?.(event);
+
+      if (closeOnEsc) {
+        onClose();
       }
     };
-  }, [showPortal]);
 
-  useEffect(() => {
-    // If the open prop is changing, we need to open the modal
-    // This is also called on the first render if the open prop is true when the modal is created
-    if (open && !showPortal) {
-      setShowPortal(true);
-      handleOpen();
-    }
-  }, [open]);
+    useEffect(() => {
+      return () => {
+        if (showPortal) {
+          // When the modal is closed or removed directly, cleanup the listeners
+          handleClose();
+        }
+      };
+    }, [showPortal]);
 
-  const handleClickOverlay = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    if (refShouldClose.current === null) {
-      refShouldClose.current = true;
-    }
+    useEffect(() => {
+      // If the open prop is changing, we need to open the modal
+      // This is also called on the first render if the open prop is true when the modal is created
+      if (open && !showPortal) {
+        setShowPortal(true);
+        handleOpen();
+      }
+    }, [open]);
 
-    if (!refShouldClose.current) {
+    const handleClickOverlay = (
+      event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ) => {
+      if (refShouldClose.current === null) {
+        refShouldClose.current = true;
+      }
+
+      if (!refShouldClose.current) {
+        refShouldClose.current = null;
+        return;
+      }
+
+      onOverlayClick?.(event);
+
+      if (closeOnOverlayClick) {
+        onClose();
+      }
+
       refShouldClose.current = null;
-      return;
-    }
+    };
 
-    onOverlayClick?.(event);
+    const handleModalEvent = () => {
+      refShouldClose.current = false;
+    };
 
-    if (closeOnOverlayClick) {
-      onClose();
-    }
+    const handleAnimationEnd = () => {
+      if (!open) {
+        setShowPortal(false);
+      }
 
-    refShouldClose.current = null;
-  };
+      onAnimationEnd?.();
+    };
 
-  const handleModalEvent = () => {
-    refShouldClose.current = false;
-  };
+    const containerModal = container || refContainer.current;
 
-  const handleAnimationEnd = () => {
-    if (!open) {
-      setShowPortal(false);
-    }
+    const overlayAnimation = open
+      ? classNames?.overlayAnimationIn ?? classes.overlayAnimationIn
+      : classNames?.overlayAnimationOut ?? classes.overlayAnimationOut;
 
-    onAnimationEnd?.();
-  };
+    const modalAnimation = open
+      ? classNames?.modalAnimationIn ?? classes.modalAnimationIn
+      : classNames?.modalAnimationOut ?? classes.modalAnimationOut;
 
-  const containerModal = container || refContainer.current;
-
-  const overlayAnimation = open
-    ? classNames?.overlayAnimationIn ?? classes.overlayAnimationIn
-    : classNames?.overlayAnimationOut ?? classes.overlayAnimationOut;
-
-  const modalAnimation = open
-    ? classNames?.modalAnimationIn ?? classes.modalAnimationIn
-    : classNames?.modalAnimationOut ?? classes.modalAnimationOut;
-
-  return showPortal && containerModal
-    ? ReactDom.createPortal(
-        <div
-          className={cx(classes.root, classNames?.root)}
-          style={styles?.root}
-          data-testid="root"
-        >
+    return showPortal && containerModal
+      ? ReactDom.createPortal(
           <div
-            className={cx(classes.overlay, classNames?.overlay)}
-            data-testid="overlay"
-            aria-hidden={true}
-            style={{
-              animation: `${overlayAnimation} ${animationDuration}ms`,
-              ...styles?.overlay,
-            }}
-          />
-          <div
-            ref={refModal}
-            className={cx(
-              classes.modalContainer,
-              center && classes.modalContainerCenter,
-              classNames?.modalContainer
-            )}
-            style={styles?.modalContainer}
-            data-testid="modal-container"
-            onClick={handleClickOverlay}
+            className={cx(classes.root, classNames?.root)}
+            style={styles?.root}
+            data-testid="root"
           >
             <div
-              ref={refDialog}
-              className={cx(classes.modal, classNames?.modal)}
+              className={cx(classes.overlay, classNames?.overlay)}
+              data-testid="overlay"
+              aria-hidden={true}
               style={{
-                animation: `${modalAnimation} ${animationDuration}ms`,
-                ...styles?.modal,
+                animation: `${overlayAnimation} ${animationDuration}ms`,
+                ...styles?.overlay,
               }}
-              onMouseDown={handleModalEvent}
-              onMouseUp={handleModalEvent}
-              onClick={handleModalEvent}
-              onAnimationEnd={handleAnimationEnd}
-              id={modalId}
-              role={role}
-              aria-modal="true"
-              aria-labelledby={ariaLabelledby}
-              aria-describedby={ariaDescribedby}
-              data-testid="modal"
-              tabIndex={-1}
+            />
+            <div
+              ref={refModal}
+              className={cx(
+                classes.modalContainer,
+                center && classes.modalContainerCenter,
+                classNames?.modalContainer
+              )}
+              style={styles?.modalContainer}
+              data-testid="modal-container"
+              onClick={handleClickOverlay}
             >
-              {focusTrapped && (
-                <FocusTrap container={refDialog} options={focusTrapOptions} />
-              )}
-              {children}
-              {showCloseIcon && (
-                <CloseIcon
-                  classes={classes}
-                  classNames={classNames}
-                  styles={styles}
-                  closeIcon={closeIcon}
-                  onClick={onClose}
-                  id={closeIconId}
-                />
-              )}
+              <div
+                ref={refDialog}
+                className={cx(classes.modal, classNames?.modal)}
+                style={{
+                  animation: `${modalAnimation} ${animationDuration}ms`,
+                  ...styles?.modal,
+                }}
+                onMouseDown={handleModalEvent}
+                onMouseUp={handleModalEvent}
+                onClick={handleModalEvent}
+                onAnimationEnd={handleAnimationEnd}
+                id={modalId}
+                role={role}
+                aria-modal="true"
+                aria-labelledby={ariaLabelledby}
+                aria-describedby={ariaDescribedby}
+                data-testid="modal"
+                tabIndex={-1}
+              >
+                {focusTrapped && (
+                  <FocusTrap container={refDialog} options={focusTrapOptions} />
+                )}
+                {children}
+                {showCloseIcon && (
+                  <CloseIcon
+                    classes={classes}
+                    classNames={classNames}
+                    styles={styles}
+                    closeIcon={closeIcon}
+                    onClick={onClose}
+                    id={closeIconId}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-        </div>,
-        containerModal
-      )
-    : null;
-};
+          </div>,
+          containerModal
+        )
+      : null;
+  }
+);
 
 export default Modal;

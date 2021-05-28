@@ -1664,6 +1664,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bedrock-layout/use-forwarded-ref@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "@bedrock-layout/use-forwarded-ref@npm:1.1.4"
+  dependencies:
+    "@bedrock-layout/use-stateful-ref": ^1.1.4
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 75c4fc1cae05ac03dd6ef86e05eb025f120a4fe32773eab63fede8eeb471664b1dd6d5638b8cbb3ee1619d6cab08e24912b0fa8ca33c8bfe87ed699f5e28f8e2
+  languageName: node
+  linkType: hard
+
+"@bedrock-layout/use-stateful-ref@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "@bedrock-layout/use-stateful-ref@npm:1.1.4"
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 3842ebfd9302f9bf271388fd56183d2697d4211e72ac7eab8b2069831a85375e53135ee10e7c008057324bd13307cea7cc551de289488af7bb910a9c99d11ed5
+  languageName: node
+  linkType: hard
+
 "@cnakazawa/watch@npm:^1.0.3":
   version: 1.0.4
   resolution: "@cnakazawa/watch@npm:1.0.4"
@@ -12499,6 +12519,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "react-responsive-modal@workspace:react-responsive-modal"
   dependencies:
+    "@bedrock-layout/use-forwarded-ref": ^1.1.4
     "@size-limit/preset-small-lib": 4.7.0
     "@testing-library/jest-dom": 5.11.6
     "@testing-library/react": 11.1.2

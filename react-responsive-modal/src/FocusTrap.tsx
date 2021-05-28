@@ -7,7 +7,7 @@ import {
 } from './lib/focusTrapJs';
 
 export interface FocusTrapOptions {
-  focusOn?: 'firstFocusableElement' | 'modalRoot';
+  focusOn?: React.RefObject<HTMLElement>;
 }
 
 interface FocusTrapProps {
@@ -44,15 +44,18 @@ export const FocusTrap = ({ container, options }: FocusTrapProps) => {
         }
       };
 
-      if (options?.focusOn === 'firstFocusableElement') {
+      if (options?.focusOn) {
+        savePreviousFocus();
+        // We need to schedule focusing on a next frame - this allows to focus on the modal root
+        requestAnimationFrame(() => {
+          options.focusOn?.current?.focus();
+        });
+      } else {
         const allTabbingElements = getAllTabbingElements(container.current);
         if (allTabbingElements[0]) {
           savePreviousFocus();
           allTabbingElements[0].focus();
         }
-      } else if (options?.focusOn === 'modalRoot') {
-        savePreviousFocus();
-        container?.current?.focus();
       }
     }
     return () => {
