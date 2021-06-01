@@ -1,5 +1,17 @@
 # Changelog
 
+## [6.1.0](https://www.github.com/pradel/react-responsive-modal/compare/v6.0.1...v6.1.0) (2021-06-01)
+
+
+### Features
+
+* add options to set initial focus within modal ([#476](https://www.github.com/pradel/react-responsive-modal/issues/476)) ([5bdc362](https://www.github.com/pradel/react-responsive-modal/commit/5bdc362521a6db00030d723015c8abd2e76f19c7))
+
+
+### Documentation
+
+* fix typo in menu ([#473](https://www.github.com/pradel/react-responsive-modal/issues/473)) ([23cccc6](https://www.github.com/pradel/react-responsive-modal/commit/23cccc60a71342e3c122f968888118b911387056))
+
 ### [6.0.1](https://www.github.com/pradel/react-responsive-modal/compare/v6.0.0...v6.0.1) (2021-01-08)
 
 
