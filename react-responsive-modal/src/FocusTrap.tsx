@@ -6,16 +6,12 @@ import {
   getAllTabbingElements,
 } from './lib/focusTrapJs';
 
-export interface FocusTrapOptions {
-  focusOn?: React.RefObject<HTMLElement>;
-}
-
 interface FocusTrapProps {
   container?: React.RefObject<HTMLElement> | null;
-  options?: FocusTrapOptions;
+  initialFocusRef?: React.RefObject<HTMLElement>;
 }
 
-export const FocusTrap = ({ container, options }: FocusTrapProps) => {
+export const FocusTrap = ({ container, initialFocusRef }: FocusTrapProps) => {
   const refLastFocus = useRef<HTMLElement | null>();
   /**
    * Handle focus lock on the modal
@@ -44,11 +40,11 @@ export const FocusTrap = ({ container, options }: FocusTrapProps) => {
         }
       };
 
-      if (options?.focusOn) {
+      if (initialFocusRef) {
         savePreviousFocus();
         // We need to schedule focusing on a next frame - this allows to focus on the modal root
         requestAnimationFrame(() => {
-          options.focusOn?.current?.focus();
+          initialFocusRef.current?.focus();
         });
       } else {
         const allTabbingElements = getAllTabbingElements(container.current);
@@ -65,7 +61,7 @@ export const FocusTrap = ({ container, options }: FocusTrapProps) => {
         refLastFocus.current?.focus();
       }
     };
-  }, [container, options?.focusOn]);
+  }, [container, initialFocusRef]);
 
   return null;
 };

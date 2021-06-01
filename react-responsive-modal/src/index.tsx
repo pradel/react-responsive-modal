@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactDom from 'react-dom';
 import cx from 'classnames';
 import CloseIcon from './CloseIcon';
-import { FocusTrap, FocusTrapOptions } from './FocusTrap';
+import { FocusTrap } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
 import { useScrollLock } from './useScrollLock';
 import { isBrowser } from './utils';
@@ -71,11 +71,11 @@ export interface ModalProps {
    */
   focusTrapped?: boolean;
   /**
-   * Options for focus trapping.
+   * Element to focus when focus trap is used.
    *
    * Default to undefined.
    */
-  focusTrapOptions?: FocusTrapOptions;
+  initialFocusRef?: React.RefObject<HTMLElement>;
   /**
    * You can specify a container prop which should be of type `Element`.
    * The portal will be rendered inside that element.
@@ -166,7 +166,7 @@ export const Modal = React.forwardRef(
       closeIconId,
       closeIcon,
       focusTrapped = true,
-      focusTrapOptions = undefined,
+      initialFocusRef = undefined,
       animationDuration = 300,
       classNames,
       styles,
@@ -346,7 +346,10 @@ export const Modal = React.forwardRef(
                 tabIndex={-1}
               >
                 {focusTrapped && (
-                  <FocusTrap container={refDialog} options={focusTrapOptions} />
+                  <FocusTrap
+                    container={refDialog}
+                    initialFocusRef={initialFocusRef}
+                  />
                 )}
                 {children}
                 {showCloseIcon && (
