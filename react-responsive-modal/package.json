@@ -47,14 +47,15 @@
   "size-limit": [
     {
       "path": "dist/react-responsive-modal.cjs.production.min.js",
-      "limit": "3.8 KB"
+      "limit": "4.0 KB"
     },
     {
       "path": "dist/react-responsive-modal.esm.js",
-      "limit": "3.8 KB"
+      "limit": "4.0 KB"
     }
   ],
   "dependencies": {
+    "@bedrock-layout/use-forwarded-ref": "^1.1.4",
     "body-scroll-lock": "^3.1.5",
     "classnames": "^2.2.6"
   },

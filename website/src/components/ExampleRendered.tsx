@@ -2,6 +2,7 @@ import Simple from '../examples/Simple';
 import ExampleMultiple from '../examples/Multiple';
 import LongContent from '../examples/LongContent';
 import FocusTrapped from '../examples/FocusTrapped';
+import FocusTrappedInitialFocus from '../examples/FocusTrappedInitialFocus';
 import CustomCssStyle from '../examples/CustomCssStyle';
 import CustomAnimation from '../examples/CustomAnimation';
 import CustomCloseIcon from '../examples/CustomCloseIcon';
@@ -12,6 +13,7 @@ const examples: Record<string, () => JSX.Element> = {
   multiple: ExampleMultiple,
   longContent: LongContent,
   focusTrapped: FocusTrapped,
+  focusTrappedInitialFocus: FocusTrappedInitialFocus,
   customCssStyle: CustomCssStyle,
   customAnimation: CustomAnimation,
   customCloseIcon: CustomCloseIcon,

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Modal } from 'react-responsive-modal';
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
+  const modalRef = useRef(null);
 
   return (
     <>
@@ -10,12 +11,17 @@ const App = () => {
         Open modal
       </button>
 
-      <Modal open={open} onClose={() => setOpen(false)}>
+      <Modal
+        ref={modalRef}
+        open={open}
+        onClose={() => setOpen(false)}
+        initialFocusRef={modalRef}
+      >
         <h2>Try tabbing/shift-tabbing thru elements</h2>
         <form action="">
           <p>
             <label htmlFor="firstName">
-              First name (I should be focused be default)
+              First name (I shouldn't be focused - press Tab to focus me)
               <input type="text" />
             </label>
           </p>
