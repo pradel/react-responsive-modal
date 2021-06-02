@@ -12,7 +12,7 @@ export const useScrollLock = (
   useEffect(() => {
     if (open && refModal.current && blockScroll) {
       oldRef.current = refModal.current;
-      disableBodyScroll(refModal.current);
+      disableBodyScroll(refModal.current, { reserveScrollBarGap: true });
     }
     return () => {
       if (oldRef.current) {
