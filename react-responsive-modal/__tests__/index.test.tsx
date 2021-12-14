@@ -260,6 +260,26 @@ describe('modal', () => {
       );
       expect(document.body.style.overflow).toBe('');
     });
+    it('should reserve scroll bar gap', () => {
+      const scrollBarWidth = 42;
+      const innerWidth = 500;
+      Object.defineProperty(window, 'innerWidth', {
+        writable: true,
+        configurable: true,
+        value: innerWidth,
+      });
+      Object.defineProperty(document.documentElement, 'clientWidth', {
+        writable: true,
+        configurable: true,
+        value: innerWidth - scrollBarWidth,
+      });
+      render(
+        <Modal open={true} onClose={() => null} reserveScrollBarGap={true}>
+          <div>modal content</div>
+        </Modal>
+      );
+      expect(document.body.style.paddingRight).toBe(`${scrollBarWidth}px`);
+    });
   });
 
   describe('closeIcon', () => {

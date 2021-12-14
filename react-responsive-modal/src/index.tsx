@@ -129,6 +129,10 @@ export interface ModalProps {
    */
   ariaDescribedby?: string;
   /**
+   * Avoid unpleasant flickering effect when body overflow is hidden. For more information see https://www.npmjs.com/package/body-scroll-lock 
+   */
+  reserveScrollBarGap?: boolean;
+  /**
    * id attribute for modal
    */
   modalId?: string;
@@ -179,6 +183,7 @@ export const Modal = React.forwardRef(
       onOverlayClick,
       onAnimationEnd,
       children,
+      reserveScrollBarGap,
     }: ModalProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
@@ -200,7 +205,7 @@ export const Modal = React.forwardRef(
     useModalManager(refModal, open);
 
     // Hook used to manage the scroll
-    useScrollLock(refModal, open, showPortal, blockScroll);
+    useScrollLock(refModal, open, showPortal, blockScroll, reserveScrollBarGap);
 
     const handleOpen = () => {
       if (
