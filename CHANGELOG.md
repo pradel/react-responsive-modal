@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.0](https://www.github.com/pradel/react-responsive-modal/compare/v6.1.0...v6.2.0) (2021-12-14)
+
+
+### Features
+
+* add optional reserveScrollBarGap ([#484](https://www.github.com/pradel/react-responsive-modal/issues/484)) ([69249f8](https://www.github.com/pradel/react-responsive-modal/commit/69249f8f97d02e4eaf07bedb52cb4ff1b1d4f636))
+
 ## [6.1.0](https://www.github.com/pradel/react-responsive-modal/compare/v6.0.1...v6.1.0) (2021-06-01)
 
 
