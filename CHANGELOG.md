@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.0](https://www.github.com/pradel/react-responsive-modal/compare/v6.2.0...v6.3.0) (2022-04-25)
+
+
+### Features
+
+* ability to specify id for container ([#489](https://www.github.com/pradel/react-responsive-modal/issues/489)) ([3e09b5c](https://www.github.com/pradel/react-responsive-modal/commit/3e09b5c668e5cbe6127c5b439d57a80a3d24bd33))
+
 ## [6.2.0](https://www.github.com/pradel/react-responsive-modal/compare/v6.1.0...v6.2.0) (2021-12-14)
 
 
