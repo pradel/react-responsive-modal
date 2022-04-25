@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.3.1](https://www.github.com/pradel/react-responsive-modal/compare/v6.3.0...v6.3.1) (2022-04-25)
+
+
+### Bug Fixes
+
+* fix publishing process ([#492](https://www.github.com/pradel/react-responsive-modal/issues/492)) ([2ecd108](https://www.github.com/pradel/react-responsive-modal/commit/2ecd1084a0398a0ae0d7baa40b9b2b4e03f3d91c))
+
 ## [6.3.0](https://www.github.com/pradel/react-responsive-modal/compare/v6.2.0...v6.3.0) (2022-04-25)
 
 
