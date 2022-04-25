@@ -129,9 +129,13 @@ export interface ModalProps {
    */
   ariaDescribedby?: string;
   /**
-   * Avoid unpleasant flickering effect when body overflow is hidden. For more information see https://www.npmjs.com/package/body-scroll-lock 
+   * Avoid unpleasant flickering effect when body overflow is hidden. For more information see https://www.npmjs.com/package/body-scroll-lock
    */
   reserveScrollBarGap?: boolean;
+  /**
+   * id attribute for modal container
+   */
+  containerId?: string;
   /**
    * id attribute for modal
    */
@@ -177,6 +181,7 @@ export const Modal = React.forwardRef(
       role = 'dialog',
       ariaDescribedby,
       ariaLabelledby,
+      containerId,
       modalId,
       onClose,
       onEscKeyDown,
@@ -322,6 +327,7 @@ export const Modal = React.forwardRef(
             />
             <div
               ref={refModal}
+              id={containerId}
               className={cx(
                 classes.modalContainer,
                 center && classes.modalContainerCenter,
