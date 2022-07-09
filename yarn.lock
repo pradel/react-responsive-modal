@@ -1664,26 +1664,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bedrock-layout/use-forwarded-ref@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@bedrock-layout/use-forwarded-ref@npm:1.1.4"
-  dependencies:
-    "@bedrock-layout/use-stateful-ref": ^1.1.4
-  peerDependencies:
-    react: ">=16.8"
-  checksum: cae7e041fa93d8de1112ff63e0be9830611a44835d537aa779ebb21b6877ec1e387c0948dcc0cce6ee828c758f395993391b0c88dec32f31eb81d3bd79f39166
-  languageName: node
-  linkType: hard
-
-"@bedrock-layout/use-stateful-ref@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@bedrock-layout/use-stateful-ref@npm:1.1.4"
-  peerDependencies:
-    react: ">=16.8"
-  checksum: e6b37d828617ba0788e5062852d5c85281a11ecba777afdd584432c74df49dff834de8235b01232f80cdb7d88c1d8311e17f80f2df6a9c5e0b74ad7dc59c7add
-  languageName: node
-  linkType: hard
-
 "@cnakazawa/watch@npm:^1.0.3":
   version: 1.0.4
   resolution: "@cnakazawa/watch@npm:1.0.4"
@@ -4583,10 +4563,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:2.2.6, classnames@npm:^2.2.6":
+"classnames@npm:2.2.6":
   version: 2.2.6
   resolution: "classnames@npm:2.2.6"
   checksum: 09a4fda780158aa8399079898eabeeca0c48c28641d9e4de140db7412e5e346843039ded1af0152f755afc2cc246ff8c3d6f227bf0dcb004e070b7fa14ec54cc
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "classnames@npm:2.3.1"
+  checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
   languageName: node
   linkType: hard
 
@@ -12530,7 +12517,6 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "react-responsive-modal@workspace:react-responsive-modal"
   dependencies:
-    "@bedrock-layout/use-forwarded-ref": ^1.1.4
     "@size-limit/preset-small-lib": 4.7.0
     "@testing-library/jest-dom": 5.11.6
     "@testing-library/react": 11.1.2
@@ -12541,7 +12527,7 @@ fsevents@^1.2.7:
     "@types/react-dom": 16.9.9
     babel-jest: 26.6.3
     body-scroll-lock: ^3.1.5
-    classnames: ^2.2.6
+    classnames: ^2.3.1
     cypress: 5.6.0
     husky: 4.3.0
     prettier: 2.1.2
@@ -12552,8 +12538,8 @@ fsevents@^1.2.7:
     tslib: 2.0.3
     typescript: 4.0.5
   peerDependencies:
-    react: ^16.8.0 || ^17
-    react-dom: ^16.8.0 || ^17
+    react: ^16.8.0 || ^17 || ^18
+    react-dom: ^16.8.0 || ^17 || ^18
   languageName: unknown
   linkType: soft
 
