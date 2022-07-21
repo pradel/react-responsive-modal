@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.3.2](https://www.github.com/pradel/react-responsive-modal/compare/v6.3.1...v6.3.2) (2022-07-21)
+
+
+### Miscellaneous
+
+* upgrade yarn ([d2d59a6](https://www.github.com/pradel/react-responsive-modal/commit/d2d59a6afb611bf9cfed7e9fb1beac5536e67c60))
+
 ### [6.3.1](https://www.github.com/pradel/react-responsive-modal/compare/v6.3.0...v6.3.1) (2022-04-25)
 
 
