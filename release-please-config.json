@@ -1,0 +1,15 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "react-responsive-modal"
+    }
+  },
+  "extra-files": [
+    {
+      "type": "json",
+      "path": "react-responsive-modal/package.json",
+      "jsonpath": "$.version"
+    }
+  ]
+}
