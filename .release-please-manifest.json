@@ -1,0 +1,9 @@
+{
+  "extra-files": [
+    {
+      "type": "json",
+      "path": "react-responsive-modal/package.json",
+      "jsonpath": "$.version"
+    }
+  ]
+}
