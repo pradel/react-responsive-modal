@@ -6,7 +6,7 @@ import { FocusTrap } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
 import { useScrollLock } from './useScrollLock';
 import { isBrowser } from './utils';
-import { useForwardedRef } from './useForwardedRef';
+import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
 
 const classes = {
   root: 'react-responsive-modal-root',
