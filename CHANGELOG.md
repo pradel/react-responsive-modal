@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.4.1](https://github.com/pradel/react-responsive-modal/compare/v6.4.0...v6.4.1) (2022-12-12)
+
+
+### Documentation
+
+* add missing containerId prop ([#494](https://github.com/pradel/react-responsive-modal/issues/494)) ([2f6454c](https://github.com/pradel/react-responsive-modal/commit/2f6454cc2eac7a18a512266e652bc3ce469f1cd5))
+
 ## [6.4.0](https://github.com/pradel/react-responsive-modal/compare/v6.3.2...v6.4.0) (2022-12-12)
 
 
