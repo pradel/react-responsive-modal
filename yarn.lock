@@ -1664,23 +1664,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bedrock-layout/use-forwarded-ref@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@bedrock-layout/use-forwarded-ref@npm:1.1.4"
+"@bedrock-layout/use-forwarded-ref@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "@bedrock-layout/use-forwarded-ref@npm:1.3.1"
   dependencies:
-    "@bedrock-layout/use-stateful-ref": ^1.1.4
+    "@bedrock-layout/use-stateful-ref": ^1.2.2
   peerDependencies:
-    react: ">=16.8"
-  checksum: cae7e041fa93d8de1112ff63e0be9830611a44835d537aa779ebb21b6877ec1e387c0948dcc0cce6ee828c758f395993391b0c88dec32f31eb81d3bd79f39166
+    react: ^16.8 || ^17 || ^18
+  checksum: eca7018a5cbe3d857a3fa6ea94023ce66b9539c4b9ae598ffeb3ef5798da21e74ed35af3ba3f7cb6434bb28a431763dff50dbb12bdf80bb3afd3393fab6f14c5
   languageName: node
   linkType: hard
 
-"@bedrock-layout/use-stateful-ref@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@bedrock-layout/use-stateful-ref@npm:1.1.4"
+"@bedrock-layout/use-stateful-ref@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@bedrock-layout/use-stateful-ref@npm:1.2.2"
   peerDependencies:
-    react: ">=16.8"
-  checksum: e6b37d828617ba0788e5062852d5c85281a11ecba777afdd584432c74df49dff834de8235b01232f80cdb7d88c1d8311e17f80f2df6a9c5e0b74ad7dc59c7add
+    react: ^16.8 || ^17 || ^18
+  checksum: 812c6a92ca014772ed5a5bd1981c912253d2a97f6b2cac2d6ea798d2294d959d7bf9e28feda5bb9a7a35f326ef4f28f3707cf64c735d192cbdf02c8fe8404471
   languageName: node
   linkType: hard
 
@@ -4583,10 +4583,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:2.2.6, classnames@npm:^2.2.6":
+"classnames@npm:2.2.6":
   version: 2.2.6
   resolution: "classnames@npm:2.2.6"
   checksum: 09a4fda780158aa8399079898eabeeca0c48c28641d9e4de140db7412e5e346843039ded1af0152f755afc2cc246ff8c3d6f227bf0dcb004e070b7fa14ec54cc
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "classnames@npm:2.3.1"
+  checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
   languageName: node
   linkType: hard
 
@@ -7273,7 +7280,7 @@ fsevents@^1.2.7:
 
 "fsevents@patch:fsevents@^1.2.7#~builtin<compat/fsevents>":
   version: 1.2.13
-  resolution: "fsevents@patch:fsevents@npm%3A1.2.13#~builtin<compat/fsevents>::version=1.2.13&hash=18f3a7"
+  resolution: "fsevents@patch:fsevents@npm%3A1.2.13#~builtin<compat/fsevents>::version=1.2.13&hash=d11327"
   dependencies:
     bindings: ^1.5.0
     nan: ^2.12.1
@@ -7283,7 +7290,7 @@ fsevents@^1.2.7:
 
 "fsevents@patch:fsevents@^2.1.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.1.2#~builtin<compat/fsevents>":
   version: 2.1.3
-  resolution: "fsevents@patch:fsevents@npm%3A2.1.3#~builtin<compat/fsevents>::version=2.1.3&hash=18f3a7"
+  resolution: "fsevents@patch:fsevents@npm%3A2.1.3#~builtin<compat/fsevents>::version=2.1.3&hash=31d12a"
   dependencies:
     node-gyp: latest
   conditions: os=darwin
@@ -12530,7 +12537,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "react-responsive-modal@workspace:react-responsive-modal"
   dependencies:
-    "@bedrock-layout/use-forwarded-ref": ^1.1.4
+    "@bedrock-layout/use-forwarded-ref": ^1.3.1
     "@size-limit/preset-small-lib": 4.7.0
     "@testing-library/jest-dom": 5.11.6
     "@testing-library/react": 11.1.2
@@ -12541,7 +12548,7 @@ fsevents@^1.2.7:
     "@types/react-dom": 16.9.9
     babel-jest: 26.6.3
     body-scroll-lock: ^3.1.5
-    classnames: ^2.2.6
+    classnames: ^2.3.1
     cypress: 5.6.0
     husky: 4.3.0
     prettier: 2.1.2
@@ -12552,8 +12559,8 @@ fsevents@^1.2.7:
     tslib: 2.0.3
     typescript: 4.0.5
   peerDependencies:
-    react: ^16.8.0 || ^17
-    react-dom: ^16.8.0 || ^17
+    react: ^16.8.0 || ^17 || ^18
+    react-dom: ^16.8.0 || ^17 || ^18
   languageName: unknown
   linkType: soft
 
@@ -13094,14 +13101,14 @@ resolve@1.17.0:
 
 "resolve@patch:resolve@1.1.7#~builtin<compat/resolve>":
   version: 1.1.7
-  resolution: "resolve@patch:resolve@npm%3A1.1.7#~builtin<compat/resolve>::version=1.1.7&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A1.1.7#~builtin<compat/resolve>::version=1.1.7&hash=3bafbf"
   checksum: e9dbca78600ae56835c43a09f1276876c883e4b4bbd43e2683fa140671519d2bdebeb1c1576ca87c8c508ae2987b3ec481645ac5d3054b0f23254cfc1ce49942
   languageName: node
   linkType: hard
 
 "resolve@patch:resolve@1.17.0#~builtin<compat/resolve>":
   version: 1.17.0
-  resolution: "resolve@patch:resolve@npm%3A1.17.0#~builtin<compat/resolve>::version=1.17.0&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A1.17.0#~builtin<compat/resolve>::version=1.17.0&hash=c3c19d"
   dependencies:
     path-parse: ^1.0.6
   checksum: 6fd799f282ddf078c4bc20ce863e3af01fa8cb218f0658d9162c57161a2dbafe092b13015b9a4c58d0e1e801cf7aa7a4f13115fea9db98c3f9a0c43e429bad6f
@@ -13110,7 +13117,7 @@ resolve@1.17.0:
 
 "resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.11.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.13.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.18.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.3.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.8.1#~builtin<compat/resolve>":
   version: 1.19.0
-  resolution: "resolve@patch:resolve@npm%3A1.19.0#~builtin<compat/resolve>::version=1.19.0&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A1.19.0#~builtin<compat/resolve>::version=1.19.0&hash=c3c19d"
   dependencies:
     is-core-module: ^2.1.0
     path-parse: ^1.0.6
@@ -15205,7 +15212,7 @@ typescript@^3.7.3:
 
 "typescript@patch:typescript@4.0.5#~builtin<compat/typescript>":
   version: 4.0.5
-  resolution: "typescript@patch:typescript@npm%3A4.0.5#~builtin<compat/typescript>::version=4.0.5&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.0.5#~builtin<compat/typescript>::version=4.0.5&hash=ed6a74"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -15215,7 +15222,7 @@ typescript@^3.7.3:
 
 "typescript@patch:typescript@^3.7.3#~builtin<compat/typescript>":
   version: 3.9.7
-  resolution: "typescript@patch:typescript@npm%3A3.9.7#~builtin<compat/typescript>::version=3.9.7&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A3.9.7#~builtin<compat/typescript>::version=3.9.7&hash=3bd3d3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver

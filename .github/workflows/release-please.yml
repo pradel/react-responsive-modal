@@ -9,21 +9,23 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: GoogleCloudPlatform/release-please-action@v2.14.0
+      - uses: GoogleCloudPlatform/release-please-action@v3.2
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           package-name: react-responsive-modal
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false},{"type":"docs","section":"Documentation","hidden":false},{"type":"test","section":"Tests","hidden":false}]'
+          extra-files: |
+            react-responsive-modal/package.json
 
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
 
-      - name: Use Node 12
+      - name: Use Node 16
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 16.x
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Install dependencies
