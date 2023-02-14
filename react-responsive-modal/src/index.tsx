@@ -158,6 +158,11 @@ export interface ModalProps {
    * Callback fired when the Modal has exited and the animation is finished.
    */
   onAnimationEnd?: () => void;
+  /**
+   * Keeps the Modal mounted even when it is hidden. This is useful for keeping the DOM state
+   * inside the Modal as well as for SEO purposes.
+   */
+  keepMounted: boolean;
   children?: React.ReactNode;
 }
 
@@ -187,6 +192,7 @@ export const Modal = React.forwardRef(
       onEscKeyDown,
       onOverlayClick,
       onAnimationEnd,
+      keepMounted = false,
       children,
       reserveScrollBarGap,
     }: ModalProps,
@@ -260,7 +266,7 @@ export const Modal = React.forwardRef(
     useEffect(() => {
       // If the open prop is changing, we need to open the modal
       // This is also called on the first render if the open prop is true when the modal is created
-      if (open && !showPortal) {
+      if ((open || keepMounted) && !showPortal) {
         setShowPortal(true);
         handleOpen();
       }
@@ -292,7 +298,7 @@ export const Modal = React.forwardRef(
     };
 
     const handleAnimationEnd = () => {
-      if (!open) {
+      if (!open && !keepMounted) {
         setShowPortal(false);
       }
 
@@ -324,6 +330,7 @@ export const Modal = React.forwardRef(
                 animation: `${overlayAnimation} ${animationDuration}ms`,
                 ...styles?.overlay,
               }}
+              onClick={handleClickOverlay}
             />
             <div
               ref={refModal}
@@ -335,7 +342,6 @@ export const Modal = React.forwardRef(
               )}
               style={styles?.modalContainer}
               data-testid="modal-container"
-              onClick={handleClickOverlay}
             >
               <div
                 ref={refDialog}
