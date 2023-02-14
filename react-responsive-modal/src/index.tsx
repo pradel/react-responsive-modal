@@ -212,6 +212,9 @@ export const Modal = React.forwardRef(
     // it will match the server rendered content
     const [showPortal, setShowPortal] = useState(false);
 
+    // Used to hide the modal when keepMounted is true
+    const [display, setDisplay] = useState(false);
+
     // Hook used to manage multiple modals opened at the same time
     useModalManager(refModal, open);
 
@@ -270,6 +273,9 @@ export const Modal = React.forwardRef(
         setShowPortal(true);
         handleOpen();
       }
+      if (open && !display) {
+        setDisplay(true);
+      }
     }, [open]);
 
     const handleClickOverlay = (
@@ -298,8 +304,11 @@ export const Modal = React.forwardRef(
     };
 
     const handleAnimationEnd = () => {
-      if (!open && !keepMounted) {
-        setShowPortal(false);
+      if (!open) {
+        setDisplay(false);
+        if (!keepMounted) {
+          setShowPortal(false);
+        }
       }
 
       onAnimationEnd?.();
@@ -319,7 +328,10 @@ export const Modal = React.forwardRef(
       ? ReactDom.createPortal(
           <div
             className={cx(classes.root, classNames?.root)}
-            style={styles?.root}
+            style={{
+              ...styles?.root,
+              ...(display ? {} : { display: 'none' }),
+            }}
             data-testid="root"
           >
             <div

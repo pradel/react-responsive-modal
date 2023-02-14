@@ -1,5 +1,4 @@
 .react-responsive-modal-root {
-  pointer-events: none;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -19,6 +18,7 @@
 }
 
 .react-responsive-modal-container {
+  pointer-events: none;
   height: 100%;
   outline: 0;
   overflow-x: hidden;
@@ -36,6 +36,7 @@
 }
 
 .react-responsive-modal-modal {
+  pointer-events: all;
   max-width: 800px;
   display: inline-block;
   text-align: left;
@@ -62,12 +63,10 @@
 @keyframes react-responsive-modal-overlay-in {
   0% {
     opacity: 0;
-    pointer-events: all;
   }
 
   100% {
     opacity: 1;
-    pointer-events: all;
   }
 }
 
@@ -85,13 +84,11 @@
   0% {
     transform: scale(0.96);
     opacity: 0;
-    pointer-events: all;
   }
 
   100% {
     transform: scale(100%);
     opacity: 1;
-    pointer-events: all;
   }
 }
 
