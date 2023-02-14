@@ -162,7 +162,7 @@ export interface ModalProps {
    * Keeps the Modal mounted even when it is hidden. This is useful for keeping the DOM state
    * inside the Modal as well as for SEO purposes.
    */
-  keepMounted: boolean;
+  keepMounted?: boolean;
   children?: React.ReactNode;
 }
 
