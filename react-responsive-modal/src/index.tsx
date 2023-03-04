@@ -330,7 +330,7 @@ export const Modal = React.forwardRef(
             className={cx(classes.root, classNames?.root)}
             style={{
               ...styles?.root,
-              ...(display ? {} : { display: 'none' }),
+              ...(display ? {} : { display: 'none', pointerEvents: 'none' }),
             }}
             data-testid="root"
           >
@@ -342,7 +342,6 @@ export const Modal = React.forwardRef(
                 animation: `${overlayAnimation} ${animationDuration}ms`,
                 ...styles?.overlay,
               }}
-              onClick={handleClickOverlay}
             />
             <div
               ref={refModal}
@@ -354,6 +353,7 @@ export const Modal = React.forwardRef(
               )}
               style={styles?.modalContainer}
               data-testid="modal-container"
+              onClick={handleClickOverlay}
             >
               <div
                 ref={refDialog}
