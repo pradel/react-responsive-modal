@@ -49,6 +49,14 @@ const IndexPage = () => (
                 <li className="mb-4">
                   <a
                     className="text-sm hover:text-watermelon"
+                    href="#keeping-a-hidden-modal-mounted"
+                  >
+                    Keeping a hidden modal mounted
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a
+                    className="text-sm hover:text-watermelon"
                     href="#custom-styling-with-css"
                   >
                     Custom styling with css

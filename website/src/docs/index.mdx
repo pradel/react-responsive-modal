@@ -8,6 +8,7 @@ A simple responsive and accessible react modal.
 - Multiple modals.
 - Accessible modals.
 - Easily customizable via props.
+- Optionally keep hidden modals mounted to the DOM
 - Typescript support
 - [Small bundle size](https://bundlephobia.com/result?p=react-responsive-modal)
 
@@ -102,6 +103,26 @@ You can also set to trap focus within the modal, but decide where to put focus w
 ```js file=../examples/FocusTrappedInitialFocus.tsx
 
 ```
+
+### Keeping a hidden modal mounted
+
+By setting the `keepMounted` property to `true`, you can specify that the modal should always be mounted to the DOM, even when hidden it is hidden.
+Instead of removing the DOM nodes, the modal is hidden using `display: none`.
+
+```js
+<Modal
+  ...
+  keepMounted
+>
+  ...
+</Modal>
+```
+
+This is useful when you want the state of the DOM nodes (e.g. the text inside an `<input>` element) to stay alive, as well as for search engine optimization (Google can see the content of the hidden modal).
+
+Press the button below and watch the element tree in your browser. The modal is a `<div>` at the very bottom of the `<body>`, and will not disappear even when the modal is closed!
+
+<ExampleRendered name="keepMounted" />
 
 ### Custom styling with css
 
