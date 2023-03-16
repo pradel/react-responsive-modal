@@ -22,23 +22,21 @@
   outline: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Used to trick the browser to center the modal content properly  */
-.react-responsive-modal-containerCenter:after {
-  width: 0;
-  height: 100%;
+.react-responsive-modal-containerCenter::before,
+.react-responsive-modal-containerCenter::after {
+  flex: 1 1 0;
   content: '';
-  display: inline-block;
-  vertical-align: middle;
 }
 
 .react-responsive-modal-modal {
+  flex: 0 0 auto;
   max-width: 800px;
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
   background: #ffffff;
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
   margin: 1.2rem;

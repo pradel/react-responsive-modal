@@ -10,7 +10,7 @@ const App = () => {
         Open modal
       </button>
 
-      <Modal open={open} onClose={() => setOpen(false)} keepMounted>
+      <Modal open={open} onClose={() => setOpen(false)} keepMounted center>
         <div style={{ padding: '24px' }}>
           This modal will stay mounted even when closed.
           <br />
