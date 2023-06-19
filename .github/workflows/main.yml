@@ -14,14 +14,25 @@ jobs:
       - name: Begin CI...
         uses: actions/checkout@v2
 
-      - name: Use Node 18
-        uses: actions/setup-node@v3
+      - name: Use Node 12
+        uses: actions/setup-node@v1
         with:
-          node-version: '18'
-          cache: 'yarn'
+          node-version: 12.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --immutable
+        run: yarn install --immutable
 
       - name: Lint
         run: yarn workspace react-responsive-modal lint
