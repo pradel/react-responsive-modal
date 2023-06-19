@@ -58,6 +58,13 @@
   display: flex;
 }
 
+/* Used to fix a screen glitch issues with the animation see https://github.com/pradel/react-responsive-modal/issues/495 */
+.react-responsive-modal-overlay,
+.react-responsive-modal-container,
+.react-responsive-modal-modal {
+  animation-fill-mode: forwards !important;
+}
+
 @keyframes react-responsive-modal-overlay-in {
   0% {
     opacity: 0;
