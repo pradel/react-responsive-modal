@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.4.3](https://github.com/pradel/react-responsive-modal/compare/v6.4.2...v6.4.3) (2023-09-18)
+
+
+### Documentation
+
+* improve readability of classnames and styles properties ([#520](https://github.com/pradel/react-responsive-modal/issues/520)) ([acfe228](https://github.com/pradel/react-responsive-modal/commit/acfe228892c4dcc86ad48e9f18f50c49f56f17b0))
+
 ## [6.4.2](https://github.com/pradel/react-responsive-modal/compare/v6.4.1...v6.4.2) (2023-06-19)
 
 
