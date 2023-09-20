@@ -158,6 +158,11 @@ export interface ModalProps {
    * Callback fired when the Modal has exited and the animation is finished.
    */
   onAnimationEnd?: () => void;
+  /**
+   * Keeps the Modal mounted even when it is hidden. This is useful for keeping the DOM state
+   * inside the Modal as well as for SEO purposes.
+   */
+  keepMounted?: boolean;
   children?: React.ReactNode;
 }
 
@@ -187,6 +192,7 @@ export const Modal = React.forwardRef(
       onEscKeyDown,
       onOverlayClick,
       onAnimationEnd,
+      keepMounted = false,
       children,
       reserveScrollBarGap,
     }: ModalProps,
@@ -205,6 +211,9 @@ export const Modal = React.forwardRef(
     // The value should be false for srr, that way when the component is hydrated client side,
     // it will match the server rendered content
     const [showPortal, setShowPortal] = useState(false);
+
+    // Used to hide the modal when keepMounted is true
+    const [display, setDisplay] = useState(false);
 
     // Hook used to manage multiple modals opened at the same time
     useModalManager(refModal, open);
@@ -260,9 +269,12 @@ export const Modal = React.forwardRef(
     useEffect(() => {
       // If the open prop is changing, we need to open the modal
       // This is also called on the first render if the open prop is true when the modal is created
-      if (open && !showPortal) {
+      if ((open || keepMounted) && !showPortal) {
         setShowPortal(true);
         handleOpen();
+      }
+      if (open && !display) {
+        setDisplay(true);
       }
     }, [open]);
 
@@ -293,7 +305,10 @@ export const Modal = React.forwardRef(
 
     const handleAnimationEnd = () => {
       if (!open) {
-        setShowPortal(false);
+        setDisplay(false);
+        if (!keepMounted) {
+          setShowPortal(false);
+        }
       }
 
       onAnimationEnd?.();
@@ -313,7 +328,10 @@ export const Modal = React.forwardRef(
       ? ReactDom.createPortal(
           <div
             className={cx(classes.root, classNames?.root)}
-            style={styles?.root}
+            style={{
+              ...styles?.root,
+              ...(display ? {} : { display: 'none', pointerEvents: 'none' }),
+            }}
             data-testid="root"
           >
             <div
