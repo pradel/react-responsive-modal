@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-modal",
-  "version": "6.4.1",
+  "version": "6.4.3",
   "description": "A simple responsive and accessible react modal",
   "license": "MIT",
   "main": "dist/index.js",
