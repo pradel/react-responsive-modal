@@ -12,7 +12,7 @@ interface FocusTrapProps {
 }
 
 export const FocusTrap = ({ container, initialFocusRef }: FocusTrapProps) => {
-  const refLastFocus = useRef<HTMLElement | null>();
+  const refLastFocus = useRef<HTMLElement | null>(null);
   /**
    * Handle focus lock on the modal
    */

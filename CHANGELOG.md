@@ -1,5 +1,6 @@
 # Changelog
 
+## [6.4.3](https://github.com/pradel/react-responsive-modal/compare/v6.4.2...v6.4.3) (2025-05-29)
 ## [6.4.2](https://github.com/pradel/react-responsive-modal/compare/v6.4.1...v6.4.2) (2023-06-19)
 
 

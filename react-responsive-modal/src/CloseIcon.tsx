@@ -18,14 +18,14 @@ interface CloseIconProps {
   onClick: () => void;
 }
 
-const CloseIcon = ({
+const CloseIcon: React.FC<CloseIconProps> = ({
   classes,
   classNames,
   styles,
   id,
   closeIcon,
   onClick,
-}: CloseIconProps) => (
+}) => (
   <button
     id={id}
     className={cx(classes.closeButton, classNames?.closeButton)}

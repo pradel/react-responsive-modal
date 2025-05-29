@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ReactDom from 'react-dom';
+import { createPortal } from 'react-dom';
 import cx from 'classnames';
+import { useForwardedRef } from '@bedrock-layout/use-forwarded-ref';
 import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
 import { useScrollLock } from './useScrollLock';
 import { isBrowser } from './utils';
-import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
 
 const classes = {
   root: 'react-responsive-modal-root',
@@ -310,74 +310,74 @@ export const Modal = React.forwardRef(
       : classNames?.modalAnimationOut ?? classes.modalAnimationOut;
 
     return showPortal && containerModal
-      ? ReactDom.createPortal(
+      ? createPortal(
+        <div
+          className={cx(classes.root, classNames?.root)}
+          style={styles?.root}
+          data-testid="root"
+        >
           <div
-            className={cx(classes.root, classNames?.root)}
-            style={styles?.root}
-            data-testid="root"
+            className={cx(classes.overlay, classNames?.overlay)}
+            data-testid="overlay"
+            aria-hidden={true}
+            style={{
+              animation: `${overlayAnimation} ${animationDuration}ms`,
+              ...styles?.overlay,
+            }}
+          />
+          <div
+            ref={refModal}
+            id={containerId}
+            className={cx(
+              classes.modalContainer,
+              center && classes.modalContainerCenter,
+              classNames?.modalContainer
+            )}
+            style={styles?.modalContainer}
+            data-testid="modal-container"
+            onClick={handleClickOverlay}
           >
             <div
-              className={cx(classes.overlay, classNames?.overlay)}
-              data-testid="overlay"
-              aria-hidden={true}
+              ref={refDialog}
+              className={cx(classes.modal, classNames?.modal)}
               style={{
-                animation: `${overlayAnimation} ${animationDuration}ms`,
-                ...styles?.overlay,
+                animation: `${modalAnimation} ${animationDuration}ms`,
+                ...styles?.modal,
               }}
-            />
-            <div
-              ref={refModal}
-              id={containerId}
-              className={cx(
-                classes.modalContainer,
-                center && classes.modalContainerCenter,
-                classNames?.modalContainer
-              )}
-              style={styles?.modalContainer}
-              data-testid="modal-container"
-              onClick={handleClickOverlay}
+              onMouseDown={handleModalEvent}
+              onMouseUp={handleModalEvent}
+              onClick={handleModalEvent}
+              onAnimationEnd={handleAnimationEnd}
+              id={modalId}
+              role={role}
+              aria-modal="true"
+              aria-labelledby={ariaLabelledby}
+              aria-describedby={ariaDescribedby}
+              data-testid="modal"
+              tabIndex={-1}
             >
-              <div
-                ref={refDialog}
-                className={cx(classes.modal, classNames?.modal)}
-                style={{
-                  animation: `${modalAnimation} ${animationDuration}ms`,
-                  ...styles?.modal,
-                }}
-                onMouseDown={handleModalEvent}
-                onMouseUp={handleModalEvent}
-                onClick={handleModalEvent}
-                onAnimationEnd={handleAnimationEnd}
-                id={modalId}
-                role={role}
-                aria-modal="true"
-                aria-labelledby={ariaLabelledby}
-                aria-describedby={ariaDescribedby}
-                data-testid="modal"
-                tabIndex={-1}
-              >
-                {focusTrapped && (
-                  <FocusTrap
-                    container={refDialog}
-                    initialFocusRef={initialFocusRef}
-                  />
-                )}
-                {children}
-                {showCloseIcon && (
-                  <CloseIcon
-                    classes={classes}
-                    classNames={classNames}
-                    styles={styles}
-                    closeIcon={closeIcon}
-                    onClick={onClose}
-                    id={closeIconId}
-                  />
-                )}
-              </div>
+              {focusTrapped && (
+                <FocusTrap
+                  container={refDialog}
+                  initialFocusRef={initialFocusRef}
+                />
+              )}
+              {children}
+              {showCloseIcon && (
+                <CloseIcon
+                  classes={classes}
+                  classNames={classNames}
+                  styles={styles}
+                  closeIcon={closeIcon}
+                  onClick={onClose}
+                  id={closeIconId}
+                />
+              )}
             </div>
-          </div>,
-          containerModal
-        )
+          </div>
+        </div>,
+        containerModal
+      )
       : null;
   }
 );
