@@ -68,7 +68,7 @@
     "@types/react": "16.9.56",
     "@types/react-dom": "16.9.9",
     "@vitejs/plugin-react": "4.6.0",
-    "@vitest/coverage-v8": "3.2.4",
+    "@vitest/coverage-istanbul": "3.2.4",
     "cypress": "5.6.0",
     "jsdom": "26.1.0",
     "publint": "0.3.12",
