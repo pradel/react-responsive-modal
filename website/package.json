@@ -31,6 +31,7 @@
     "rehype-highlight": "7.0.2",
     "rehype-slug": "6.0.0",
     "remark-code-import": "1.2.0",
+    "remark-gfm": "4.0.1",
     "tailwindcss": "4.1.11",
     "typescript": "5.8.3"
   },

@@ -3,6 +3,7 @@ import remarkCodeImport from 'remark-code-import';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import rehypeHeadings from 'rehype-autolink-headings';
+import remarkGfm from 'remark-gfm';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -11,7 +12,7 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkCodeImport],
+    remarkPlugins: [remarkGfm, remarkCodeImport],
     rehypePlugins: [
       rehypeSlug,
       rehypeHighlight,
