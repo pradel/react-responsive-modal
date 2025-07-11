@@ -1,4 +1,5 @@
 /// <reference types="next" />
-/// <reference types="next/types/global" />
+/// <reference types="next/image-types/global" />
 
-declare module 'babel-plugin-preval/macro';
+// NOTE: This file should not be edited
+// see https://nextjs.org/docs/pages/api-reference/config/typescript for more information.

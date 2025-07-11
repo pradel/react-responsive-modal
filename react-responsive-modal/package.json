@@ -3,15 +3,16 @@
   "version": "6.4.3",
   "description": "A simple responsive and accessible react modal",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/react-responsive-modal.esm.js",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "start": "tsdown --watch",
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "prepare": "tsdown",
     "size": "size-limit"
   },
   "files": [
@@ -19,17 +20,6 @@
     "src",
     "styles.css"
   ],
-  "jest": {
-    "setupFilesAfterEnv": [
-      "./__tests__/setupTests.ts"
-    ],
-    "modulePathIgnorePatterns": [
-      "cypress"
-    ],
-    "coveragePathIgnorePatterns": [
-      "src/lib"
-    ]
-  },
   "keywords": [
     "react",
     "responsive",
@@ -37,7 +27,11 @@
     "mobile",
     "flex"
   ],
-  "repository": "git+https://github.com/pradel/react-responsive-modal.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pradel/react-responsive-modal.git",
+    "directory": "react-responsive-modal"
+  },
   "author": "Léo Pradel",
   "bugs": {
     "url": "https://github.com/pradel/react-responsive-modal/issues"
@@ -46,12 +40,12 @@
   "funding": "https://github.com/sponsors/pradel",
   "size-limit": [
     {
-      "path": "dist/react-responsive-modal.cjs.production.min.js",
-      "limit": "4.1 KB"
+      "path": "dist/index.js",
+      "limit": "3.6 KB"
     },
     {
-      "path": "dist/react-responsive-modal.esm.js",
-      "limit": "4.1 KB"
+      "path": "dist/index.cjs",
+      "limit": "4.0 KB"
     }
   ],
   "dependencies": {
@@ -64,24 +58,36 @@
     "react-dom": "*"
   },
   "devDependencies": {
+    "@codecov/vite-plugin": "1.9.1",
     "@size-limit/preset-small-lib": "11.2.0",
-    "@testing-library/dom": "^10.4.0",
+    "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
-    "@types/body-scroll-lock": "3.1.2",
-    "@types/classnames": "2.3.4",
-    "@types/node": "^22",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "babel-jest": "26.6.3",
-    "cypress": "5.6.0",
-    "husky": "9.1.7",
-    "prettier": "2.1.2",
-    "react": "^19",
-    "react-dom": "^19",
+    "@types/body-scroll-lock": "2.6.1",
+    "@types/classnames": "2.2.11",
+    "@types/node": "22.8.2",
+    "@types/react": "16.9.56",
+    "@types/react-dom": "16.9.9",
+    "@vitejs/plugin-react": "4.6.0",
+    "@vitest/coverage-istanbul": "3.2.4",
+    "cypress": "14.5.1",
+    "jsdom": "26.1.0",
+    "publint": "0.3.12",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "size-limit": "11.2.0",
-    "tsdx": "0.14.1",
+    "tsdown": "0.12.9",
     "tslib": "2.8.1",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "vitest": "3.2.4"
+  },
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./styles.css": "./styles.css"
   }
 }

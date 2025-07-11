@@ -152,7 +152,7 @@ export interface ModalProps {
    * Callback fired when the overlay is clicked.
    */
   onOverlayClick?: (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ) => void;
   /**
    * Callback fired when the Modal has exited and the animation is finished.
@@ -190,7 +190,7 @@ export const Modal = React.forwardRef(
       children,
       reserveScrollBarGap,
     }: ModalProps,
-    ref: React.ForwardedRef<HTMLDivElement>
+    ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
     const refDialog = useForwardedRef(ref);
     const refModal = useRef<HTMLDivElement>(null);
@@ -267,7 +267,7 @@ export const Modal = React.forwardRef(
     }, [open]);
 
     const handleClickOverlay = (
-      event: React.MouseEvent<HTMLDivElement, MouseEvent>
+      event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
       if (refShouldClose.current === null) {
         refShouldClose.current = true;
@@ -302,84 +302,84 @@ export const Modal = React.forwardRef(
     const containerModal = container || refContainer.current;
 
     const overlayAnimation = open
-      ? classNames?.overlayAnimationIn ?? classes.overlayAnimationIn
-      : classNames?.overlayAnimationOut ?? classes.overlayAnimationOut;
+      ? (classNames?.overlayAnimationIn ?? classes.overlayAnimationIn)
+      : (classNames?.overlayAnimationOut ?? classes.overlayAnimationOut);
 
     const modalAnimation = open
-      ? classNames?.modalAnimationIn ?? classes.modalAnimationIn
-      : classNames?.modalAnimationOut ?? classes.modalAnimationOut;
+      ? (classNames?.modalAnimationIn ?? classes.modalAnimationIn)
+      : (classNames?.modalAnimationOut ?? classes.modalAnimationOut);
 
     return showPortal && containerModal
       ? createPortal(
-        <div
-          className={cx(classes.root, classNames?.root)}
-          style={styles?.root}
-          data-testid="root"
-        >
           <div
-            className={cx(classes.overlay, classNames?.overlay)}
-            data-testid="overlay"
-            aria-hidden={true}
-            style={{
-              animation: `${overlayAnimation} ${animationDuration}ms`,
-              ...styles?.overlay,
-            }}
-          />
-          <div
-            ref={refModal}
-            id={containerId}
-            className={cx(
-              classes.modalContainer,
-              center && classes.modalContainerCenter,
-              classNames?.modalContainer
-            )}
-            style={styles?.modalContainer}
-            data-testid="modal-container"
-            onClick={handleClickOverlay}
+            className={cx(classes.root, classNames?.root)}
+            style={styles?.root}
+            data-testid="root"
           >
             <div
-              ref={refDialog}
-              className={cx(classes.modal, classNames?.modal)}
+              className={cx(classes.overlay, classNames?.overlay)}
+              data-testid="overlay"
+              aria-hidden={true}
               style={{
-                animation: `${modalAnimation} ${animationDuration}ms`,
-                ...styles?.modal,
+                animation: `${overlayAnimation} ${animationDuration}ms`,
+                ...styles?.overlay,
               }}
-              onMouseDown={handleModalEvent}
-              onMouseUp={handleModalEvent}
-              onClick={handleModalEvent}
-              onAnimationEnd={handleAnimationEnd}
-              id={modalId}
-              role={role}
-              aria-modal="true"
-              aria-labelledby={ariaLabelledby}
-              aria-describedby={ariaDescribedby}
-              data-testid="modal"
-              tabIndex={-1}
+            />
+            <div
+              ref={refModal}
+              id={containerId}
+              className={cx(
+                classes.modalContainer,
+                center && classes.modalContainerCenter,
+                classNames?.modalContainer,
+              )}
+              style={styles?.modalContainer}
+              data-testid="modal-container"
+              onClick={handleClickOverlay}
             >
-              {focusTrapped && (
-                <FocusTrap
-                  container={refDialog}
-                  initialFocusRef={initialFocusRef}
-                />
-              )}
-              {children}
-              {showCloseIcon && (
-                <CloseIcon
-                  classes={classes}
-                  classNames={classNames}
-                  styles={styles}
-                  closeIcon={closeIcon}
-                  onClick={onClose}
-                  id={closeIconId}
-                />
-              )}
+              <div
+                ref={refDialog}
+                className={cx(classes.modal, classNames?.modal)}
+                style={{
+                  animation: `${modalAnimation} ${animationDuration}ms`,
+                  ...styles?.modal,
+                }}
+                onMouseDown={handleModalEvent}
+                onMouseUp={handleModalEvent}
+                onClick={handleModalEvent}
+                onAnimationEnd={handleAnimationEnd}
+                id={modalId}
+                role={role}
+                aria-modal="true"
+                aria-labelledby={ariaLabelledby}
+                aria-describedby={ariaDescribedby}
+                data-testid="modal"
+                tabIndex={-1}
+              >
+                {focusTrapped && (
+                  <FocusTrap
+                    container={refDialog}
+                    initialFocusRef={initialFocusRef}
+                  />
+                )}
+                {children}
+                {showCloseIcon && (
+                  <CloseIcon
+                    classes={classes}
+                    classNames={classNames}
+                    styles={styles}
+                    closeIcon={closeIcon}
+                    onClick={onClose}
+                    id={closeIconId}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-        </div>,
-        containerModal
-      )
+          </div>,
+          containerModal,
+        )
       : null;
-  }
+  },
 );
 
 export default Modal;

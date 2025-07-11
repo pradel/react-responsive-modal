@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('simple modal', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000');
