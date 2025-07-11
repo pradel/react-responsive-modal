@@ -33,6 +33,8 @@ jobs:
 
       - name: Report coverage
         uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Build
         run: yarn workspace react-responsive-modal build
