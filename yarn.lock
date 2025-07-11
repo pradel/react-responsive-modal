@@ -6564,7 +6564,7 @@ __metadata:
     vitest: "npm:3.2.4"
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18 || ^19
-    react-dom: "*"
+    react-dom: ^16.8.0 || ^17 || ^18 || ^19
   languageName: unknown
   linkType: soft
 
