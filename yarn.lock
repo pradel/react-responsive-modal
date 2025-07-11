@@ -12191,6 +12191,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:3.6.2":
+  version: 3.6.2
+  resolution: "prettier@npm:3.6.2"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10/1213691706bcef1371d16ef72773c8111106c3533b660b1cc8ec158bd109cdf1462804125f87f981f23c4a3dba053b6efafda30ab0114cc5b4a725606bb9ff26
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^1.19.1":
   version: 1.19.1
   resolution: "prettier@npm:1.19.1"
@@ -13318,7 +13327,7 @@ __metadata:
   dependencies:
     husky: "npm:4.3.0"
     lint-staged: "npm:10.5.1"
-    prettier: "npm:2.1.2"
+    prettier: "npm:3.6.2"
   languageName: unknown
   linkType: soft
 

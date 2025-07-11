@@ -21,7 +21,7 @@
   "devDependencies": {
     "husky": "4.3.0",
     "lint-staged": "10.5.1",
-    "prettier": "2.1.2"
+    "prettier": "3.6.2"
   },
   "version": "6.4.2",
   "packageManager": "yarn@4.9.2"
