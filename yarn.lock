@@ -168,6 +168,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/generator@npm:^7.27.5":
+  version: 7.28.0
+  resolution: "@babel/generator@npm:7.28.0"
+  dependencies:
+    "@babel/parser": "npm:^7.28.0"
+    "@babel/types": "npm:^7.28.0"
+    "@jridgewell/gen-mapping": "npm:^0.3.12"
+    "@jridgewell/trace-mapping": "npm:^0.3.28"
+    jsesc: "npm:^3.0.2"
+  checksum: 10/064c5ba4c07ecd7600377bd0022d5f6bdb3b35e9ff78d9378f6bd1e656467ca902c091647222ab2f0d2967f6d6c0ca33157d37dd9b1c51926c9b0e1527ab9b92
+  languageName: node
+  linkType: hard
+
 "@babel/helper-annotate-as-pure@npm:^7.10.4":
   version: 7.10.4
   resolution: "@babel/helper-annotate-as-pure@npm:7.10.4"
@@ -427,10 +440,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helper-string-parser@npm:^7.27.1":
+  version: 7.27.1
+  resolution: "@babel/helper-string-parser@npm:7.27.1"
+  checksum: 10/0ae29cc2005084abdae2966afdb86ed14d41c9c37db02c3693d5022fba9f5d59b011d039380b8e537c34daf117c549f52b452398f576e908fb9db3c7abbb3a00
+  languageName: node
+  linkType: hard
+
 "@babel/helper-validator-identifier@npm:^7.10.4":
   version: 7.10.4
   resolution: "@babel/helper-validator-identifier@npm:7.10.4"
   checksum: 10/d0b225ba142e059d1aa887d37ad04d03075a09f8e3d7d48627ad3783ea4625109c71a56be08da61d88e7f849570a81472eaec683afe9daacf369466dbf34ea0a
+  languageName: node
+  linkType: hard
+
+"@babel/helper-validator-identifier@npm:^7.27.1":
+  version: 7.27.1
+  resolution: "@babel/helper-validator-identifier@npm:7.27.1"
+  checksum: 10/75041904d21bdc0cd3b07a8ac90b11d64cd3c881e89cb936fa80edd734bf23c35e6bd1312611e8574c4eab1f3af0f63e8a5894f4699e9cfdf70c06fcf4252320
   languageName: node
   linkType: hard
 
@@ -481,6 +508,17 @@ __metadata:
   bin:
     parser: ./bin/babel-parser.js
   checksum: 10/bd634b2ca8e7388db1a332df3178ad6876c4db15b5829053ac8d9aa7671389dc2828192b04746a569cde69b49dd9701efa57ec7faa1fa1cafb5aad7f4a028261
+  languageName: node
+  linkType: hard
+
+"@babel/parser@npm:^7.27.7, @babel/parser@npm:^7.28.0":
+  version: 7.28.0
+  resolution: "@babel/parser@npm:7.28.0"
+  dependencies:
+    "@babel/types": "npm:^7.28.0"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: 10/2c14a0d2600bae9ab81924df0a85bbd34e427caa099c260743f7c6c12b2042e743e776043a0d1a2573229ae648f7e66a80cfb26fc27e2a9eb59b55932d44c817
   languageName: node
   linkType: hard
 
@@ -1657,6 +1695,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/types@npm:^7.27.7, @babel/types@npm:^7.28.0":
+  version: 7.28.0
+  resolution: "@babel/types@npm:7.28.0"
+  dependencies:
+    "@babel/helper-string-parser": "npm:^7.27.1"
+    "@babel/helper-validator-identifier": "npm:^7.27.1"
+  checksum: 10/2f28b84efb5005d1e85fc3944219c284400c42aeefc1f6e10500a74fed43b3dfb4f9e349a5d6e0e3fc24f5d241c513b30ef00ede2885535ce7a0a4e111c2098e
+  languageName: node
+  linkType: hard
+
 "@bcoe/v8-coverage@npm:^0.2.3":
   version: 0.2.3
   resolution: "@bcoe/v8-coverage@npm:0.2.3"
@@ -1743,6 +1791,34 @@ __metadata:
     debug: "npm:^3.1.0"
     lodash.once: "npm:^4.1.1"
   checksum: 10/cb995b069f8c4f1e7857049bda0bd73a58e0048ccaf276ef0e66d1e1c03ba6fa099b5d765ad12ea37a7e5b7685f7413a2b9a99b27891407565b915f4a2f919a7
+  languageName: node
+  linkType: hard
+
+"@emnapi/core@npm:^1.4.3":
+  version: 1.4.4
+  resolution: "@emnapi/core@npm:1.4.4"
+  dependencies:
+    "@emnapi/wasi-threads": "npm:1.0.3"
+    tslib: "npm:^2.4.0"
+  checksum: 10/a6ce2461816a8b3f311350b51512c78b2359cd178dc1734a877341f1a859702d4ca69bd187447e172148977348ffa843adc990d546adac246a9ac10aedabb5b8
+  languageName: node
+  linkType: hard
+
+"@emnapi/runtime@npm:^1.4.3":
+  version: 1.4.4
+  resolution: "@emnapi/runtime@npm:1.4.4"
+  dependencies:
+    tslib: "npm:^2.4.0"
+  checksum: 10/56ebb7f24fd694358af4f5aa585cfae5bf00cc843bac9938f87b70e2d8a3c433cb8a938f6d5e4a20cedcc284abd9420c37f5009bdd5c898084f9b70cbd5827d8
+  languageName: node
+  linkType: hard
+
+"@emnapi/wasi-threads@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@emnapi/wasi-threads@npm:1.0.3"
+  dependencies:
+    tslib: "npm:^2.4.0"
+  checksum: 10/dd92c1464ed7b1f842cb63e2ece9509ccbab1a75015e30d0d802ad7bc34069ba79466fe6ef13b6e30cbe16fddbdb31d3a2774461b2551fe6c4a86a3f88f434f6
   languageName: node
   linkType: hard
 
@@ -2212,6 +2288,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jridgewell/gen-mapping@npm:^0.3.12":
+  version: 0.3.12
+  resolution: "@jridgewell/gen-mapping@npm:0.3.12"
+  dependencies:
+    "@jridgewell/sourcemap-codec": "npm:^1.5.0"
+    "@jridgewell/trace-mapping": "npm:^0.3.24"
+  checksum: 10/151667531566417a940d4dd0a319724979f7a90b9deb9f1617344e1183887d78c835bc1a9209c1ee10fc8a669cdd7ac8120a43a2b6bc8d0d5dd18a173059ff4b
+  languageName: node
+  linkType: hard
+
+"@jridgewell/resolve-uri@npm:^3.1.0":
+  version: 3.1.2
+  resolution: "@jridgewell/resolve-uri@npm:3.1.2"
+  checksum: 10/97106439d750a409c22c8bff822d648f6a71f3aa9bc8e5129efdc36343cd3096ddc4eeb1c62d2fe48e9bdd4db37b05d4646a17114ecebd3bbcacfa2de51c3c1d
+  languageName: node
+  linkType: hard
+
+"@jridgewell/sourcemap-codec@npm:^1.4.14, @jridgewell/sourcemap-codec@npm:^1.5.0":
+  version: 1.5.4
+  resolution: "@jridgewell/sourcemap-codec@npm:1.5.4"
+  checksum: 10/f677787f52224c6c971a7a41b7a074243240a6917fa75eceb9f7a442866f374fb0522b505e0496ee10a650c5936727e76d11bf36a6d0ae9e6c3b726c9e284cc7
+  languageName: node
+  linkType: hard
+
+"@jridgewell/trace-mapping@npm:^0.3.24, @jridgewell/trace-mapping@npm:^0.3.28":
+  version: 0.3.29
+  resolution: "@jridgewell/trace-mapping@npm:0.3.29"
+  dependencies:
+    "@jridgewell/resolve-uri": "npm:^3.1.0"
+    "@jridgewell/sourcemap-codec": "npm:^1.4.14"
+  checksum: 10/64e1ce0dc3a9e56b0118eaf1b2f50746fd59a36de37516cc6855b5370d5f367aa8229e1237536d738262e252c70ee229619cb04e3f3b822146ee3eb1b7ab297f
+  languageName: node
+  linkType: hard
+
 "@mdx-js/loader@npm:1.6.21":
   version: 1.6.21
   resolution: "@mdx-js/loader@npm:1.6.21"
@@ -2263,6 +2373,17 @@ __metadata:
   version: 1.6.21
   resolution: "@mdx-js/util@npm:1.6.21"
   checksum: 10/1b4871fd65130ba9c3daa70b0db87784cbf16dfc25bbac040848f264c26029eeb4385bea7a605608b8d1f0f56395f8188088fc881135ec562165c25476ff61d0
+  languageName: node
+  linkType: hard
+
+"@napi-rs/wasm-runtime@npm:^0.2.4":
+  version: 0.2.12
+  resolution: "@napi-rs/wasm-runtime@npm:0.2.12"
+  dependencies:
+    "@emnapi/core": "npm:^1.4.3"
+    "@emnapi/runtime": "npm:^1.4.3"
+    "@tybys/wasm-util": "npm:^0.10.0"
+  checksum: 10/5fd518182427980c28bc724adf06c5f32f9a8915763ef560b5f7d73607d30cd15ac86d0cbd2eb80d4cfab23fc80d0876d89ca36a9daadcb864bc00917c94187c
   languageName: node
   linkType: hard
 
@@ -2327,6 +2448,122 @@ __metadata:
   dependencies:
     mkdirp: "npm:^1.0.4"
   checksum: 10/878b39fc1f0b4c0b434ef0a97b80149fb74c5ec06246280238a2bc5f562a3c5e758e31f583c6431eb916537c1505697e4ac7b9f9e68cb28951bf7eb8150de5f0
+  languageName: node
+  linkType: hard
+
+"@oxc-project/runtime@npm:0.71.0":
+  version: 0.71.0
+  resolution: "@oxc-project/runtime@npm:0.71.0"
+  checksum: 10/e70501aac3ef8b79ad68d19a4facd63056597d09526ee5ef63a67d46be98bea6d66118d9b75d79066df497e73f13d5e988e3f2aaf929f5703abc6b0ddb3fea6d
+  languageName: node
+  linkType: hard
+
+"@oxc-project/types@npm:0.71.0":
+  version: 0.71.0
+  resolution: "@oxc-project/types@npm:0.71.0"
+  checksum: 10/8850be432c79e6d23025dc0cac1f92c929e369f83b2834d4aaee44f8bbcb3be77959fe7b82e2d5a72344a8f577544b56aa4a3bfeba405a0d22b988339c8b2d5f
+  languageName: node
+  linkType: hard
+
+"@quansync/fs@npm:^0.1.1":
+  version: 0.1.3
+  resolution: "@quansync/fs@npm:0.1.3"
+  dependencies:
+    quansync: "npm:^0.2.10"
+  checksum: 10/be1e7c2ddd67c9e51f6262b14700e5b5d16188a6139d4795f4bcd8db532bbe0c02762343f1b3c75fe51d37925f6d720b42a0b5534ca330bb144c441eafdebef5
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-darwin-arm64@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-darwin-arm64@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-darwin-x64@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-darwin-x64@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-freebsd-x64@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-freebsd-x64@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-linux-arm-gnueabihf@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-linux-arm-gnueabihf@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-linux-arm64-gnu@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-linux-arm64-gnu@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-linux-arm64-musl@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-linux-arm64-musl@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-linux-x64-gnu@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-linux-x64-gnu@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-linux-x64-musl@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-linux-x64-musl@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-wasm32-wasi@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-wasm32-wasi@npm:1.0.0-beta.9-commit.d91dfb5"
+  dependencies:
+    "@napi-rs/wasm-runtime": "npm:^0.2.4"
+  conditions: cpu=wasm32
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-win32-arm64-msvc@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-win32-arm64-msvc@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-win32-ia32-msvc@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-win32-ia32-msvc@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@rolldown/binding-win32-x64-msvc@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/binding-win32-x64-msvc@npm:1.0.0-beta.9-commit.d91dfb5"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rolldown/pluginutils@npm:1.0.0-beta.9-commit.d91dfb5":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "@rolldown/pluginutils@npm:1.0.0-beta.9-commit.d91dfb5"
+  checksum: 10/35039ac154f8288ca8740e078382cab14856581ca95fae15a54dd7250fabc798d266b0edc46eed3029ba93ae2b6c10ef377c697884daaf63185e994a08d5c81b
   languageName: node
   linkType: hard
 
@@ -2524,6 +2761,15 @@ __metadata:
     react: "*"
     react-dom: "*"
   checksum: 10/fc5133f667342ce0adc99db07cbeb2640e58fcb2318d1076c6d52083e7b0c2cbe11c3103d34332e8c79ee310f836a15fd7af898251abd9a9e9f45a8b72f5c4a8
+  languageName: node
+  linkType: hard
+
+"@tybys/wasm-util@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "@tybys/wasm-util@npm:0.10.0"
+  dependencies:
+    tslib: "npm:^2.4.0"
+  checksum: 10/779d047a77e8a619b6e26b6fe556f413316d846e9a35438668a15510a4d6e7294388c998f65911f6f1a13838745575d7793cb1d27182752f6f95991725b15d45
   languageName: node
   linkType: hard
 
@@ -3327,6 +3573,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansis@npm:^4.0.0, ansis@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "ansis@npm:4.1.0"
+  checksum: 10/e2658367807edb461a4c772bdba50cef85c7b3e5f19d4d67d7a406e97b9ba222cfd4dc300fee1b05619207d4e17c809f32e97ac47429f8b4b1a6709dc6ac35ac
+  languageName: node
+  linkType: hard
+
 "any-observable@npm:^0.3.0":
   version: 0.3.0
   resolution: "any-observable@npm:0.3.0"
@@ -3513,6 +3766,16 @@ __metadata:
   version: 1.0.0
   resolution: "assign-symbols@npm:1.0.0"
   checksum: 10/c0eb895911d05b6b2d245154f70461c5e42c107457972e5ebba38d48967870dee53bcdf6c7047990586daa80fab8dab3cc6300800fbd47b454247fdedd859a2c
+  languageName: node
+  linkType: hard
+
+"ast-kit@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "ast-kit@npm:2.1.1"
+  dependencies:
+    "@babel/parser": "npm:^7.27.7"
+    pathe: "npm:^2.0.3"
+  checksum: 10/6b4e00268124a2abc45c01d69112324487bbae54565f7b74eb94f856523ff40f81d56decc6d2e39e77064eeae2ca114972b19987bfd6bb3b545ad989e8d39283
   languageName: node
   linkType: hard
 
@@ -3964,6 +4227,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"birpc@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "birpc@npm:2.4.0"
+  checksum: 10/f5bb06ef096252fcc4d782f7448b27e1cf43df684c89121cd8f0a98deb60c0d1878cdec8663faa614459bad40ec138884d48ae9d4f55ea0770280fdcc91a1917
+  languageName: node
+  linkType: hard
+
 "bl@npm:^4.0.3":
   version: 4.0.3
   resolution: "bl@npm:4.0.3"
@@ -4257,6 +4527,13 @@ __metadata:
   version: 3.1.0
   resolution: "bytes@npm:3.1.0"
   checksum: 10/7c3b21c5d9d44ed455460d5d36a31abc6fa2ce3807964ba60a4b03fd44454c8cf07bb0585af83bfde1c5cc2ea4bbe5897bc3d18cd15e0acf25a3615a35aba2df
+  languageName: node
+  linkType: hard
+
+"cac@npm:^6.7.14":
+  version: 6.7.14
+  resolution: "cac@npm:6.7.14"
+  checksum: 10/002769a0fbfc51c062acd2a59df465a2a947916b02ac50b56c69ec6c018ee99ac3e7f4dd7366334ea847f1ecacf4defaa61bcd2ac283db50156ce1f1d8c8ad42
   languageName: node
   linkType: hard
 
@@ -5405,6 +5682,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:^4.4.1":
+  version: 4.4.1
+  resolution: "debug@npm:4.4.1"
+  dependencies:
+    ms: "npm:^2.1.3"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 10/8e2709b2144f03c7950f8804d01ccb3786373df01e406a0f66928e47001cf2d336cbed9ee137261d4f90d68d8679468c755e3548ed83ddacdc82b194d2468afe
+  languageName: node
+  linkType: hard
+
 "decamelize@npm:^1.2.0":
   version: 1.2.0
   resolution: "decamelize@npm:1.2.0"
@@ -5518,6 +5807,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"defu@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "defu@npm:6.1.4"
+  checksum: 10/aeffdb47300f45b4fdef1c5bd3880ac18ea7a1fd5b8a8faf8df29350ff03bf16dd34f9800205cab513d476e4c0a3783aa0cff0a433aff0ac84a67ddc4c8a2d64
+  languageName: node
+  linkType: hard
+
 "delayed-stream@npm:~1.0.0":
   version: 1.0.0
   resolution: "delayed-stream@npm:1.0.0"
@@ -5584,6 +5880,13 @@ __metadata:
   version: 25.2.6
   resolution: "diff-sequences@npm:25.2.6"
   checksum: 10/d2d144fc68bd05af9d2e2e231abd91de629e5039ffcd433c2fdc4c0a724e1399bc62b6db4fa3f4fedfc71b005d2fd608407668177e28329dd45b5a6fc41c515e
+  languageName: node
+  linkType: hard
+
+"diff@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "diff@npm:8.0.2"
+  checksum: 10/82a2120d3418f97822e17a6044ccd4b99a91e26e145e8698353673d7146bd2d092bbebb79c112aae7badc7b9c526f9098cbe342f96174feb6beabdd2587b3c42
   languageName: node
   linkType: hard
 
@@ -5697,6 +6000,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dts-resolver@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "dts-resolver@npm:2.1.1"
+  peerDependencies:
+    oxc-resolver: ">=11.0.0"
+  peerDependenciesMeta:
+    oxc-resolver:
+      optional: true
+  checksum: 10/3e41479ebc8b845cba87eb14df2b52bcccb9e5b384a522a2ff3f922e6f042911928db43b13db505386fa312a787862e1c53e51ed5e2602c28ed6b145bb43eb19
+  languageName: node
+  linkType: hard
+
 "duplexify@npm:^3.4.2, duplexify@npm:^3.6.0":
   version: 3.7.1
   resolution: "duplexify@npm:3.7.1"
@@ -5787,6 +6102,13 @@ __metadata:
   version: 3.0.0
   resolution: "emojis-list@npm:3.0.0"
   checksum: 10/114f47d6d45612621497d2b1556c8f142c35332a591780a54e863e42d281e72d6c7d7c419f2e419319d4eb7f6ebf1db82d9744905d90f275db20d06a763b5e19
+  languageName: node
+  linkType: hard
+
+"empathic@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "empathic@npm:2.0.0"
+  checksum: 10/90f47d93f8d1db3aa00ce1bfae2940bf76379dbb34bd562edbd92c3564a173cb1d6bd3cadb645fad0224839c25886abde801155d9b972dda6add7a5cc8b35d48
   languageName: node
   linkType: hard
 
@@ -7086,6 +7408,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-tsconfig@npm:^4.10.1":
+  version: 4.10.1
+  resolution: "get-tsconfig@npm:4.10.1"
+  dependencies:
+    resolve-pkg-maps: "npm:^1.0.0"
+  checksum: 10/04d63f47fdecaefbd1f73ec02949be4ec4db7d6d9fbc8d4e81f9a4bb1c6f876e48943712f2f9236643d3e4d61d9a7b06da08564d08b034631ebe3f5605bef237
+  languageName: node
+  linkType: hard
+
 "get-value@npm:^2.0.3, get-value@npm:^2.0.6":
   version: 2.0.6
   resolution: "get-value@npm:2.0.6"
@@ -7468,6 +7799,13 @@ __metadata:
     minimalistic-assert: "npm:^1.0.0"
     minimalistic-crypto-utils: "npm:^1.0.1"
   checksum: 10/0298a1445b8029a69b713d918ecaa84a1d9f614f5857e0c6e1ca517abfa1357216987b2ee08cc6cc73ba82a6c6ddf2ff11b9717a653530ef03be599d4699b836
+  languageName: node
+  linkType: hard
+
+"hookable@npm:^5.5.3":
+  version: 5.5.3
+  resolution: "hookable@npm:5.5.3"
+  checksum: 10/c6cec06f693e99a8f8ebd55592efc68042b472a4a04522dde384620d9a2cd7f422003357bf5688525f4bb14454bb0e4188a26db847fb1f1e06875958dfc61cde
   languageName: node
   linkType: hard
 
@@ -8923,6 +9261,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsesc@npm:^3.0.2":
+  version: 3.1.0
+  resolution: "jsesc@npm:3.1.0"
+  bin:
+    jsesc: bin/jsesc
+  checksum: 10/20bd37a142eca5d1794f354db8f1c9aeb54d85e1f5c247b371de05d23a9751ecd7bd3a9c4fc5298ea6fa09a100dafb4190fa5c98c6610b75952c3487f3ce7967
+  languageName: node
+  linkType: hard
+
 "jsesc@npm:~0.5.0":
   version: 0.5.0
   resolution: "jsesc@npm:0.5.0"
@@ -9936,6 +10283,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ms@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "ms@npm:2.1.3"
+  checksum: 10/aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
+  languageName: node
+  linkType: hard
+
 "mute-stream@npm:0.0.8":
   version: 0.0.8
   resolution: "mute-stream@npm:0.0.8"
@@ -10875,6 +11229,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pathe@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "pathe@npm:2.0.3"
+  checksum: 10/01e9a69928f39087d96e1751ce7d6d50da8c39abf9a12e0ac2389c42c83bc76f78c45a475bd9026a02e6a6f79be63acc75667df855862fe567d99a00a540d23d
+  languageName: node
+  linkType: hard
+
 "pbkdf2@npm:^3.0.3":
   version: 3.1.1
   resolution: "pbkdf2@npm:3.1.1"
@@ -11437,6 +11798,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"quansync@npm:^0.2.10, quansync@npm:^0.2.8":
+  version: 0.2.10
+  resolution: "quansync@npm:0.2.10"
+  checksum: 10/b54d955de867e104025f2666d52b2b67befe4e0f184a96acc9adcbdc572e46dce49c69d1e79f99413beae8a974a576383806a05f85f9a826865dc589ee1bcaf2
+  languageName: node
+  linkType: hard
+
 "querystring-es3@npm:^0.2.0":
   version: 0.2.1
   resolution: "querystring-es3@npm:0.2.1"
@@ -11545,9 +11913,10 @@ __metadata:
     react: "npm:17.0.1"
     react-dom: "npm:17.0.1"
     size-limit: "npm:11.2.0"
+    tsdown: "npm:0.12.9"
     tsdx: "npm:0.14.1"
     tslib: "npm:2.8.1"
-    typescript: "npm:4.0.5"
+    typescript: "npm:5.8.3"
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
     react-dom: ^16.8.0 || ^17 || ^18
@@ -12038,6 +12407,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"resolve-pkg-maps@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "resolve-pkg-maps@npm:1.0.0"
+  checksum: 10/0763150adf303040c304009231314d1e84c6e5ebfa2d82b7d94e96a6e82bacd1dcc0b58ae257315f3c8adb89a91d8d0f12928241cba2df1680fbe6f60bf99b0e
+  languageName: node
+  linkType: hard
+
 "resolve-url-loader@npm:3.1.2":
   version: 3.1.2
   resolution: "resolve-url-loader@npm:3.1.2"
@@ -12209,6 +12585,85 @@ __metadata:
     hash-base: "npm:^3.0.0"
     inherits: "npm:^2.0.1"
   checksum: 10/006accc40578ee2beae382757c4ce2908a826b27e2b079efdcd2959ee544ddf210b7b5d7d5e80467807604244e7388427330f5c6d4cd61e6edaddc5773ccc393
+  languageName: node
+  linkType: hard
+
+"rolldown-plugin-dts@npm:^0.13.12":
+  version: 0.13.13
+  resolution: "rolldown-plugin-dts@npm:0.13.13"
+  dependencies:
+    "@babel/generator": "npm:^7.27.5"
+    "@babel/parser": "npm:^7.27.7"
+    "@babel/types": "npm:^7.27.7"
+    ast-kit: "npm:^2.1.0"
+    birpc: "npm:^2.4.0"
+    debug: "npm:^4.4.1"
+    dts-resolver: "npm:^2.1.1"
+    get-tsconfig: "npm:^4.10.1"
+  peerDependencies:
+    "@typescript/native-preview": ">=7.0.0-dev.20250601.1"
+    rolldown: ^1.0.0-beta.9
+    typescript: ^5.0.0
+    vue-tsc: ~2.2.0
+  peerDependenciesMeta:
+    "@typescript/native-preview":
+      optional: true
+    typescript:
+      optional: true
+    vue-tsc:
+      optional: true
+  checksum: 10/421739ff0c618addeed91dc2e3ec1aa2daa1469a7aa1ce73293f245ad0960791cbc2572d7484586dd2989f72fd3eda9258a511f820346c2195ca5e01ce39999f
+  languageName: node
+  linkType: hard
+
+"rolldown@npm:^1.0.0-beta.19":
+  version: 1.0.0-beta.9-commit.d91dfb5
+  resolution: "rolldown@npm:1.0.0-beta.9-commit.d91dfb5"
+  dependencies:
+    "@oxc-project/runtime": "npm:0.71.0"
+    "@oxc-project/types": "npm:0.71.0"
+    "@rolldown/binding-darwin-arm64": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-darwin-x64": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-freebsd-x64": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-linux-arm-gnueabihf": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-linux-arm64-gnu": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-linux-arm64-musl": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-linux-x64-gnu": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-linux-x64-musl": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-wasm32-wasi": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-win32-arm64-msvc": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-win32-ia32-msvc": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/binding-win32-x64-msvc": "npm:1.0.0-beta.9-commit.d91dfb5"
+    "@rolldown/pluginutils": "npm:1.0.0-beta.9-commit.d91dfb5"
+    ansis: "npm:^4.0.0"
+  dependenciesMeta:
+    "@rolldown/binding-darwin-arm64":
+      optional: true
+    "@rolldown/binding-darwin-x64":
+      optional: true
+    "@rolldown/binding-freebsd-x64":
+      optional: true
+    "@rolldown/binding-linux-arm-gnueabihf":
+      optional: true
+    "@rolldown/binding-linux-arm64-gnu":
+      optional: true
+    "@rolldown/binding-linux-arm64-musl":
+      optional: true
+    "@rolldown/binding-linux-x64-gnu":
+      optional: true
+    "@rolldown/binding-linux-x64-musl":
+      optional: true
+    "@rolldown/binding-wasm32-wasi":
+      optional: true
+    "@rolldown/binding-win32-arm64-msvc":
+      optional: true
+    "@rolldown/binding-win32-ia32-msvc":
+      optional: true
+    "@rolldown/binding-win32-x64-msvc":
+      optional: true
+  bin:
+    rolldown: bin/cli.mjs
+  checksum: 10/5f8255337b54fb686c1383f69888033b40e64ec9393152e4012d0870e30a0fea25664bf122d6b4fee485844c777697e37c42a6c23605991d53bdb38e350510a6
   languageName: node
   linkType: hard
 
@@ -12494,6 +12949,15 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 10/52f87756b6f0d5de0fc896a3367cfe8dbf7c1947d846d021c9c621095579e62d2aa7ca0d5c5a6dcf1a123a63e1ac7cbd5ae0d5238f2a8de581bd6892f547f41f
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.7.2":
+  version: 7.7.2
+  resolution: "semver@npm:7.7.2"
+  bin:
+    semver: bin/semver.js
+  checksum: 10/7a24cffcaa13f53c09ce55e05efe25cd41328730b2308678624f8b9f5fc3093fc4d189f47950f0b811ff8f3c3039c24a2c36717ba7961615c682045bf03e1dda
   languageName: node
   linkType: hard
 
@@ -13599,7 +14063,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyglobby@npm:^0.2.11":
+"tinyexec@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "tinyexec@npm:1.0.1"
+  checksum: 10/1f3c3281912d4ab168e067baf46627bb85a803eba0bcea113bba9fe8bdfdcc279cad08052a600d4b8fb603dd57e1af0c500e50a5e7e6b29b2574c88556f41fa6
+  languageName: node
+  linkType: hard
+
+"tinyglobby@npm:^0.2.11, tinyglobby@npm:^0.2.14":
   version: 0.2.14
   resolution: "tinyglobby@npm:0.2.14"
   dependencies:
@@ -13810,6 +14281,46 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsdown@npm:0.12.9":
+  version: 0.12.9
+  resolution: "tsdown@npm:0.12.9"
+  dependencies:
+    ansis: "npm:^4.1.0"
+    cac: "npm:^6.7.14"
+    chokidar: "npm:^4.0.3"
+    debug: "npm:^4.4.1"
+    diff: "npm:^8.0.2"
+    empathic: "npm:^2.0.0"
+    hookable: "npm:^5.5.3"
+    rolldown: "npm:^1.0.0-beta.19"
+    rolldown-plugin-dts: "npm:^0.13.12"
+    semver: "npm:^7.7.2"
+    tinyexec: "npm:^1.0.1"
+    tinyglobby: "npm:^0.2.14"
+    unconfig: "npm:^7.3.2"
+  peerDependencies:
+    "@arethetypeswrong/core": ^0.18.1
+    publint: ^0.3.0
+    typescript: ^5.0.0
+    unplugin-lightningcss: ^0.4.0
+    unplugin-unused: ^0.5.0
+  peerDependenciesMeta:
+    "@arethetypeswrong/core":
+      optional: true
+    publint:
+      optional: true
+    typescript:
+      optional: true
+    unplugin-lightningcss:
+      optional: true
+    unplugin-unused:
+      optional: true
+  bin:
+    tsdown: dist/run.mjs
+  checksum: 10/8a1db7171e397fc65acdeb11d77ca2d3a458c2e2fafe0fb5c41feadaf897f2934598c5f4ca39b317d72ed2abf5000b2f99faca0d596808569412483b0de76cc9
+  languageName: node
+  linkType: hard
+
 "tsdx@npm:0.14.1":
   version: 0.14.1
   resolution: "tsdx@npm:0.14.1"
@@ -13883,7 +14394,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.8.1":
+"tslib@npm:2.8.1, tslib@npm:^2.4.0":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7
@@ -14022,6 +14533,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:5.8.3":
+  version: 5.8.3
+  resolution: "typescript@npm:5.8.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10/65c40944c51b513b0172c6710ee62e951b70af6f75d5a5da745cb7fab132c09ae27ffdf7838996e3ed603bb015dadd099006658046941bd0ba30340cc563ae92
+  languageName: node
+  linkType: hard
+
 "typescript@npm:^3.7.3":
   version: 3.9.7
   resolution: "typescript@npm:3.9.7"
@@ -14042,6 +14563,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>":
+  version: 5.8.3
+  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10/b9b1e73dabac5dc730c041325dbd9c99467c1b0d239f1b74ec3b90d831384af3e2ba973946232df670519147eb51a2c20f6f96163cea2b359f03de1e2091cc4f
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@npm%3A^3.7.3#optional!builtin<compat/typescript>":
   version: 3.9.7
   resolution: "typescript@patch:typescript@npm%3A3.9.7#optional!builtin<compat/typescript>::version=3.9.7&hash=3bd3d3"
@@ -14049,6 +14580,18 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10/f7976064dd43c8eb53d53c024ac6f6e8d0c4ee5477ed257a92c05dd888593bfccbc6f4f1f934a3d09391d38a42b5e51ef1366979b906a140954a46d48ed3860f
+  languageName: node
+  linkType: hard
+
+"unconfig@npm:^7.3.2":
+  version: 7.3.2
+  resolution: "unconfig@npm:7.3.2"
+  dependencies:
+    "@quansync/fs": "npm:^0.1.1"
+    defu: "npm:^6.1.4"
+    jiti: "npm:^2.4.2"
+    quansync: "npm:^0.2.8"
+  checksum: 10/e48dfbbeadda93f465ec49f22ede36afa5b130df90559f0347e6864650a264bcb92af46a461aa1b1cbf1705444f2581475bacedf76b80ab71849140ac54eb89b
   languageName: node
   linkType: hard
 
