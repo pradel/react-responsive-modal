@@ -46,3 +46,6 @@ jobs:
           # Use monorepo
           project: ./react-responsive-modal
           start: yarn workspace website start -p 3000
+
+      - name: Sizze limit
+        run: yarn workspace react-responsive-modal size
