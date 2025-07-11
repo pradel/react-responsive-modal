@@ -12,18 +12,18 @@ jobs:
 
     steps:
       - name: Begin CI...
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Use Node 12
-        uses: actions/setup-node@v1
+      - name: Use Node 22
+        uses: actions/setup-node@v4
         with:
-          node-version: 12.x
+          node-version: 22.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
