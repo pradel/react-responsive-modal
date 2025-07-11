@@ -2465,6 +2465,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@publint/pack@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "@publint/pack@npm:0.1.2"
+  checksum: 10/83e1de31ae29a0e651f7f91ebe6ad1fdf8cbb61d1eb056476586a234d05fa6fde9f34d3a0e36fbf18a2e9affa1082f758833242fd285637d303130f1a286b928
+  languageName: node
+  linkType: hard
+
 "@quansync/fs@npm:^0.1.1":
   version: 0.1.3
   resolution: "@quansync/fs@npm:0.1.3"
@@ -11044,6 +11051,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"package-manager-detector@npm:^1.1.0":
+  version: 1.3.0
+  resolution: "package-manager-detector@npm:1.3.0"
+  checksum: 10/b21155d53a8ab96d5be3bfae43cc1d397bf363782b922d1f6967d220d2a9f08234ebb76035318bf92822ce761d10451959f01019faebc08fdb4d4a8bc3103da6
+  languageName: node
+  linkType: hard
+
 "pako@npm:~1.0.5":
   version: 1.0.11
   resolution: "pako@npm:1.0.11"
@@ -11732,6 +11746,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"publint@npm:0.3.12":
+  version: 0.3.12
+  resolution: "publint@npm:0.3.12"
+  dependencies:
+    "@publint/pack": "npm:^0.1.2"
+    package-manager-detector: "npm:^1.1.0"
+    picocolors: "npm:^1.1.1"
+    sade: "npm:^1.8.1"
+  bin:
+    publint: src/cli.js
+  checksum: 10/77153a20821b58fbe57e3d90e2ddd7c014c4a7dd4b506f8919ef0ecbb1e14745514c89be9d72623dcad014f0c11dbc0b204c05f713297c4435b695ba9f874c21
+  languageName: node
+  linkType: hard
+
 "pump@npm:^2.0.0":
   version: 2.0.1
   resolution: "pump@npm:2.0.1"
@@ -11910,6 +11938,7 @@ __metadata:
     body-scroll-lock: "npm:^3.1.5"
     classnames: "npm:^2.3.1"
     cypress: "npm:5.6.0"
+    publint: "npm:0.3.12"
     react: "npm:17.0.1"
     react-dom: "npm:17.0.1"
     size-limit: "npm:11.2.0"
@@ -12784,6 +12813,15 @@ __metadata:
   dependencies:
     mri: "npm:^1.1.0"
   checksum: 10/5d27a863e50f1a380c8f6b4f7f1e1ce7e147aa65576d72847243a4bd4483feb82278ae69e33ee974eca6e48378d2514fb418d02aa9045f50eda109feab25e019
+  languageName: node
+  linkType: hard
+
+"sade@npm:^1.8.1":
+  version: 1.8.1
+  resolution: "sade@npm:1.8.1"
+  dependencies:
+    mri: "npm:^1.1.0"
+  checksum: 10/1c67ba03c94083e0ae307ff5564ecb86c2104c0f558042fdaa40ea0054f91a63a9783f14069870f2f784336adabb70f90f22a84dc457b5a25e859aaadefe0910
   languageName: node
   linkType: hard
 
