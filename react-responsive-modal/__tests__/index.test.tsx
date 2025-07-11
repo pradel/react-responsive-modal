@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { Modal } from '../src';
+import { describe, it, expect, vitest } from 'vitest';
 
 describe('modal', () => {
   describe('overlay', () => {
     it('should call onClose when click on the overlay', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
@@ -17,7 +18,7 @@ describe('modal', () => {
     });
 
     it('should disable the handler when closeOnOverlayClick is false', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={onClose} closeOnOverlayClick={false}>
           <div>modal content</div>
@@ -29,7 +30,7 @@ describe('modal', () => {
     });
 
     it('should ignore the overlay click if the event does not come from the overlay', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
@@ -43,7 +44,7 @@ describe('modal', () => {
 
   describe('key events', () => {
     it('an invalid event should not call onClose', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { container } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
@@ -55,7 +56,7 @@ describe('modal', () => {
     });
 
     it('should not call onClose when closeOnEsc is false', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { container } = render(
         <Modal open onClose={onClose} closeOnEsc={false}>
           <div>modal content</div>
@@ -67,7 +68,7 @@ describe('modal', () => {
     });
 
     it('should call onClose when pressing esc key', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { container } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
@@ -79,8 +80,8 @@ describe('modal', () => {
     });
 
     it('should call onClose of last modal only when pressing esc key when multiple modals are opened', () => {
-      const onClose = jest.fn();
-      const onClose2 = jest.fn();
+      const onClose = vitest.fn();
+      const onClose2 = vitest.fn();
       const { container } = render(
         <>
           <Modal open onClose={onClose}>
@@ -304,7 +305,7 @@ describe('modal', () => {
     });
 
     it('should call onClose when clicking on the icon', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
@@ -463,7 +464,7 @@ describe('modal', () => {
 
   describe('prop: onEscKeyDown', () => {
     it('should be called when esc key is pressed', async () => {
-      const onEscKeyDown = jest.fn();
+      const onEscKeyDown = vitest.fn();
       const { container } = render(
         <Modal open onClose={() => null} onEscKeyDown={onEscKeyDown}>
           <div>modal content</div>
@@ -477,7 +478,7 @@ describe('modal', () => {
 
   describe('prop: onOverlayClick', () => {
     it('should be called when user click on overlay', async () => {
-      const onOverlayClick = jest.fn();
+      const onOverlayClick = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={() => null} onOverlayClick={onOverlayClick}>
           <div>modal content</div>
@@ -491,7 +492,7 @@ describe('modal', () => {
 
   describe('prop: onAnimationEnd', () => {
     it('should be called when the animation is finished', async () => {
-      const onAnimationEnd = jest.fn();
+      const onAnimationEnd = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={() => null} onAnimationEnd={onAnimationEnd}>
           <div>modal content</div>

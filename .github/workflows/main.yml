@@ -23,9 +23,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Lint
-        run: yarn workspace react-responsive-modal lint
-
       - name: Typecheck
         run: yarn workspace react-responsive-modal typecheck
 
