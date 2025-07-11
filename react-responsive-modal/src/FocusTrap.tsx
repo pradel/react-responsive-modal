@@ -33,7 +33,7 @@ export const FocusTrap = ({ container, initialFocusRef }: FocusTrapProps) => {
         // only if it's a focusable element
         if (
           candidateSelectors.findIndex((selector) =>
-            document.activeElement?.matches(selector)
+            document.activeElement?.matches(selector),
           ) !== -1
         ) {
           refLastFocus.current = document.activeElement as HTMLElement;

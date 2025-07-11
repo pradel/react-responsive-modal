@@ -19,13 +19,13 @@ jobs:
           extra-files: |
             react-responsive-modal/package.json
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
 
-      - name: Use Node 16
-        uses: actions/setup-node@v1
+      - name: Use Node 22
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 22.x
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Install dependencies

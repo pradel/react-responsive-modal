@@ -6,7 +6,7 @@ export const useScrollLock = (
   open: boolean,
   showPortal: boolean,
   blockScroll: boolean,
-  reserveScrollBarGap?: boolean
+  reserveScrollBarGap?: boolean,
 ) => {
   const oldRef = useRef<Element | null>(null);
 

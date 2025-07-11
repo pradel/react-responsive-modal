@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
-import { AppProps } from 'next/app';
+import type { AppProps } from 'next/app';
 import Router from 'next/router';
 import * as Fathom from 'fathom-client';
-import 'typeface-inter';
+import { Inter } from 'next/font/google';
 import 'react-responsive-modal/styles.css';
 import '../examples/custom-styling.css';
 import '../examples/custom-animation.css';
 // highlight.js theme
 import '../styles/atom-one-light.css';
-import '../styles/index.css';
+import '../styles/globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+});
 
 // Record a pageview when route changes
 Router.events.on('routeChangeComplete', () => {
@@ -23,7 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     });
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <main className={inter.className}>
+      <Component {...pageProps} />
+    </main>
+  );
 }
 
 export default MyApp;

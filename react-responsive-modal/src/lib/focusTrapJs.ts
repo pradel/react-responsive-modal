@@ -34,7 +34,7 @@ function isNotRadioOrTabbableRadio(node: any) {
   }
   var radioScope = node.form || node.ownerDocument;
   var radioSet = radioScope.querySelectorAll(
-    'input[type="radio"][name="' + node.name + '"]'
+    'input[type="radio"][name="' + node.name + '"]',
   );
   var checked = getCheckedRadio(radioSet, node.form);
   return checked === node || (checked === undefined && radioSet[0] === node);

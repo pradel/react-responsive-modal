@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { Modal } from '../src';
+import { describe, it, expect, vitest } from 'vitest';
 
 describe('modal', () => {
   describe('overlay', () => {
     it('should call onClose when click on the overlay', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.click(getByTestId('modal-container'));
@@ -17,11 +18,11 @@ describe('modal', () => {
     });
 
     it('should disable the handler when closeOnOverlayClick is false', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={onClose} closeOnOverlayClick={false}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.click(getByTestId('modal-container'));
@@ -29,11 +30,11 @@ describe('modal', () => {
     });
 
     it('should ignore the overlay click if the event does not come from the overlay', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.click(getByTestId('modal'));
@@ -43,11 +44,11 @@ describe('modal', () => {
 
   describe('key events', () => {
     it('an invalid event should not call onClose', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { container } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.keyDown(container, { key: 'Enter', keyCode: 13 });
@@ -55,11 +56,11 @@ describe('modal', () => {
     });
 
     it('should not call onClose when closeOnEsc is false', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { container } = render(
         <Modal open onClose={onClose} closeOnEsc={false}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.keyDown(container, { keyCode: 27 });
@@ -67,11 +68,11 @@ describe('modal', () => {
     });
 
     it('should call onClose when pressing esc key', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { container } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.keyDown(container, { keyCode: 27 });
@@ -79,8 +80,8 @@ describe('modal', () => {
     });
 
     it('should call onClose of last modal only when pressing esc key when multiple modals are opened', () => {
-      const onClose = jest.fn();
-      const onClose2 = jest.fn();
+      const onClose = vitest.fn();
+      const onClose2 = vitest.fn();
       const { container } = render(
         <>
           <Modal open onClose={onClose}>
@@ -89,7 +90,7 @@ describe('modal', () => {
           <Modal open onClose={onClose2}>
             <div>modal content</div>
           </Modal>
-        </>
+        </>,
       );
 
       fireEvent.keyDown(container, { keyCode: 27 });
@@ -103,7 +104,7 @@ describe('modal', () => {
       render(
         <Modal open={false} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(document.body.style.overflow).toBe('');
     });
@@ -112,7 +113,7 @@ describe('modal', () => {
       render(
         <Modal open={true} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(document.body.style.overflow).toBe('hidden');
     });
@@ -121,14 +122,14 @@ describe('modal', () => {
       const { rerender } = render(
         <Modal open={false} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(document.body.style.overflow).toBe('');
 
       rerender(
         <Modal open={true} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(document.body.style.overflow).toBe('hidden');
     });
@@ -137,14 +138,14 @@ describe('modal', () => {
       const { rerender, queryByTestId, getByTestId } = render(
         <Modal open={true} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(document.body.style.overflow).toBe('hidden');
 
       rerender(
         <Modal open={false} onClose={() => null} animationDuration={0}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       // Simulate the browser animation end
       fireEvent.animationEnd(getByTestId('modal'));
@@ -152,7 +153,7 @@ describe('modal', () => {
         () => {
           expect(queryByTestId('modal')).not.toBeInTheDocument();
         },
-        { timeout: 1 }
+        { timeout: 1 },
       );
 
       expect(document.body.style.overflow).toBe('');
@@ -162,7 +163,7 @@ describe('modal', () => {
       const { unmount } = render(
         <Modal open={true} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(document.body.style.overflow).toBe('hidden');
 
@@ -179,7 +180,7 @@ describe('modal', () => {
           <Modal open onClose={() => null}>
             <div>second modal</div>
           </Modal>
-        </React.Fragment>
+        </React.Fragment>,
       );
       expect(document.body.style.overflow).toBe('hidden');
 
@@ -192,7 +193,7 @@ describe('modal', () => {
           <Modal open={false} onClose={() => null}>
             <div>second modal</div>
           </Modal>
-        </React.Fragment>
+        </React.Fragment>,
       );
 
       fireEvent.animationEnd(getAllByTestId('modal')[1]);
@@ -200,7 +201,7 @@ describe('modal', () => {
         () => {
           expect(queryByText(/second modal/)).not.toBeInTheDocument();
         },
-        { timeout: 1 }
+        { timeout: 1 },
       );
       expect(document.body.style.overflow).toBe('hidden');
 
@@ -213,7 +214,7 @@ describe('modal', () => {
           <Modal open={false} onClose={() => null}>
             <div>second modal</div>
           </Modal>
-        </React.Fragment>
+        </React.Fragment>,
       );
 
       fireEvent.animationEnd(getAllByTestId('modal')[0]);
@@ -221,7 +222,7 @@ describe('modal', () => {
         () => {
           expect(queryByText(/first modal/)).not.toBeInTheDocument();
         },
-        { timeout: 1 }
+        { timeout: 1 },
       );
       expect(document.body.style.overflow).toBe('');
     });
@@ -235,7 +236,7 @@ describe('modal', () => {
           <Modal open onClose={() => null}>
             <div>second modal</div>
           </Modal>
-        </React.Fragment>
+        </React.Fragment>,
       );
       expect(document.body.style.overflow).toBe('hidden');
 
@@ -248,7 +249,7 @@ describe('modal', () => {
           <Modal open={false} onClose={() => null}>
             <div>second modal</div>
           </Modal>
-        </React.Fragment>
+        </React.Fragment>,
       );
 
       fireEvent.animationEnd(getAllByTestId('modal')[1]);
@@ -256,7 +257,7 @@ describe('modal', () => {
         () => {
           expect(queryByText(/second modal/)).not.toBeInTheDocument();
         },
-        { timeout: 1 }
+        { timeout: 1 },
       );
       expect(document.body.style.overflow).toBe('');
     });
@@ -276,7 +277,7 @@ describe('modal', () => {
       render(
         <Modal open={true} onClose={() => null} reserveScrollBarGap={true}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(document.body.style.paddingRight).toBe(`${scrollBarWidth}px`);
     });
@@ -287,7 +288,7 @@ describe('modal', () => {
       const { getByTestId } = render(
         <Modal open onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       expect(getByTestId('close-button')).toMatchSnapshot();
@@ -297,18 +298,18 @@ describe('modal', () => {
       const { queryByTestId } = render(
         <Modal open onClose={() => null} showCloseIcon={false}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       expect(queryByTestId('close-button')).toBeNull();
     });
 
     it('should call onClose when clicking on the icon', () => {
-      const onClose = jest.fn();
+      const onClose = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={onClose}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.click(getByTestId('close-button'));
@@ -321,7 +322,7 @@ describe('modal', () => {
       const { queryByText } = render(
         <Modal open={false} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(queryByText(/modal content/)).toBeNull();
     });
@@ -330,7 +331,7 @@ describe('modal', () => {
       const { queryByText } = render(
         <Modal open onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(queryByText(/modal content/)).toBeTruthy();
     });
@@ -341,13 +342,13 @@ describe('modal', () => {
       const { queryByTestId, rerender } = render(
         <Modal open={false} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(queryByTestId('modal')).toBeNull();
       rerender(
         <Modal open={true} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(queryByTestId('modal')).toBeTruthy();
     });
@@ -356,13 +357,13 @@ describe('modal', () => {
       const { getByTestId, queryByTestId, rerender } = render(
         <Modal open={true} onClose={() => null} animationDuration={0.01}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(queryByTestId('modal')).toBeTruthy();
       rerender(
         <Modal open={false} onClose={() => null} animationDuration={0.01}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       fireEvent.animationEnd(getByTestId('modal'));
       expect(queryByTestId('modal')).toBeNull();
@@ -374,14 +375,14 @@ describe('modal', () => {
       const { getByTestId } = render(
         <Modal open onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       expect(getByTestId('modal-container').classList.length).toBe(1);
       expect(
         getByTestId('modal-container').classList.contains(
-          'react-responsive-modal-containerCenter'
-        )
+          'react-responsive-modal-containerCenter',
+        ),
       ).toBeFalsy();
     });
 
@@ -389,14 +390,14 @@ describe('modal', () => {
       const { getByTestId } = render(
         <Modal open onClose={() => null} center>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       expect(getByTestId('modal-container').classList.length).toBe(2);
       expect(
         getByTestId('modal-container').classList.contains(
-          'react-responsive-modal-containerCenter'
-        )
+          'react-responsive-modal-containerCenter',
+        ),
       ).toBeTruthy();
     });
   });
@@ -410,7 +411,7 @@ describe('modal', () => {
           closeIcon={<div data-testid="custom-icon">custom icon</div>}
         >
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       expect(queryByTestId('close-icon')).toBeNull();
@@ -432,20 +433,20 @@ describe('modal', () => {
           }}
         >
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       expect(
-        getByTestId('overlay').classList.contains('custom-overlay')
+        getByTestId('overlay').classList.contains('custom-overlay'),
       ).toBeTruthy();
       expect(
-        getByTestId('modal').classList.contains('custom-modal')
+        getByTestId('modal').classList.contains('custom-modal'),
       ).toBeTruthy();
       expect(
-        getByTestId('close-button').classList.contains('custom-closeButton')
+        getByTestId('close-button').classList.contains('custom-closeButton'),
       ).toBeTruthy();
       expect(
-        getByTestId('close-icon').classList.contains('custom-closeIcon')
+        getByTestId('close-icon').classList.contains('custom-closeIcon'),
       ).toBeTruthy();
     });
   });
@@ -455,7 +456,7 @@ describe('modal', () => {
       render(
         <Modal open blockScroll={false} onClose={() => null}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
       expect(document.body.style.overflow).toBe('');
     });
@@ -463,11 +464,11 @@ describe('modal', () => {
 
   describe('prop: onEscKeyDown', () => {
     it('should be called when esc key is pressed', async () => {
-      const onEscKeyDown = jest.fn();
+      const onEscKeyDown = vitest.fn();
       const { container } = render(
         <Modal open onClose={() => null} onEscKeyDown={onEscKeyDown}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.keyDown(container, { keyCode: 27 });
@@ -477,11 +478,11 @@ describe('modal', () => {
 
   describe('prop: onOverlayClick', () => {
     it('should be called when user click on overlay', async () => {
-      const onOverlayClick = jest.fn();
+      const onOverlayClick = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={() => null} onOverlayClick={onOverlayClick}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.click(getByTestId('modal-container'));
@@ -491,11 +492,11 @@ describe('modal', () => {
 
   describe('prop: onAnimationEnd', () => {
     it('should be called when the animation is finished', async () => {
-      const onAnimationEnd = jest.fn();
+      const onAnimationEnd = vitest.fn();
       const { getByTestId } = render(
         <Modal open onClose={() => null} onAnimationEnd={onAnimationEnd}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       fireEvent.animationEnd(getByTestId('modal'));
@@ -509,7 +510,7 @@ describe('modal', () => {
       const { getByTestId } = render(
         <Modal open onClose={() => null} containerId={containerId}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       const containerModal = getByTestId('modal-container');
@@ -524,7 +525,7 @@ describe('modal', () => {
       const { getByTestId } = render(
         <Modal open onClose={() => null} modalId={modalId}>
           <div>modal content</div>
-        </Modal>
+        </Modal>,
       );
 
       const modal = getByTestId('modal');
