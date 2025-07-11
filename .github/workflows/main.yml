@@ -43,7 +43,7 @@ jobs:
         run: yarn workspace website build
 
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v6
         with:
           # Dependencies already installed before
           install: false
