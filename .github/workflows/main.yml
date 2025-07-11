@@ -27,7 +27,7 @@ jobs:
         run: yarn workspace react-responsive-modal typecheck
 
       - name: Test
-        run: yarn workspace react-responsive-modal test --ci --coverage --maxWorkers=2
+        run: yarn workspace react-responsive-modal test --coverage
 
       - name: Report coverage
         uses: codecov/codecov-action@v1
