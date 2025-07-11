@@ -28,6 +28,8 @@ jobs:
 
       - name: Test
         run: yarn workspace react-responsive-modal test --coverage
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Report coverage
         uses: codecov/codecov-action@v5
