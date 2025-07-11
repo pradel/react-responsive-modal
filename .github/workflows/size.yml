@@ -24,3 +24,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           directory: react-responsive-modal
           package_manager: yarn
+          skip_step: install
