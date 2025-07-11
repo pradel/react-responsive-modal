@@ -30,7 +30,7 @@ jobs:
         run: yarn workspace react-responsive-modal test --coverage
 
       - name: Report coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v5
 
       - name: Build
         run: yarn workspace react-responsive-modal build
