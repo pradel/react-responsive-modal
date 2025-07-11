@@ -26,6 +26,9 @@ jobs:
       - name: Lint
         run: yarn workspace react-responsive-modal lint
 
+      - name: Typecheck
+        run: yarn workspace react-responsive-modal typecheck
+
       - name: Test
         run: yarn workspace react-responsive-modal test --ci --coverage --maxWorkers=2
 

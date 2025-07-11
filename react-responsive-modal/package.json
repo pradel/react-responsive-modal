@@ -10,6 +10,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdown",
+    "typecheck": "tsc --noEmit",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
