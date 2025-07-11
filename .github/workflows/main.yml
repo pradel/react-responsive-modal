@@ -47,5 +47,5 @@ jobs:
           project: ./react-responsive-modal
           start: yarn workspace website start -p 3000
 
-      - name: Sizze limit
+      - name: Size limit
         run: yarn workspace react-responsive-modal size
