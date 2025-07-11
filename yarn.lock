@@ -11217,15 +11217,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.1.2":
-  version: 2.1.2
-  resolution: "prettier@npm:2.1.2"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 10/07a1a50e5c73df347ba327cf62bf3eb00a2a404f1e51e99e2f2120d8bf9700c8e442e31adf365795158bf87d8b0b0d1a658ddaaa85b7a45c6f8f8b3756784177
-  languageName: node
-  linkType: hard
-
 "prettier@npm:3.6.2":
   version: 3.6.2
   resolution: "prettier@npm:3.6.2"
@@ -11551,8 +11542,6 @@ __metadata:
     body-scroll-lock: "npm:^3.1.5"
     classnames: "npm:^2.3.1"
     cypress: "npm:5.6.0"
-    husky: "npm:4.3.0"
-    prettier: "npm:2.1.2"
     react: "npm:17.0.1"
     react-dom: "npm:17.0.1"
     size-limit: "npm:11.2.0"
