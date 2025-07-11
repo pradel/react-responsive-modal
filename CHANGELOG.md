@@ -1,5 +1,21 @@
 # Changelog
 
+## [7.0.0](https://github.com/pradel/react-responsive-modal/compare/v6.4.2...v7.0.0) (2025-07-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* modernise package with rolldown (#527)
+
+### Features
+
+* modernise package with rolldown ([#527](https://github.com/pradel/react-responsive-modal/issues/527)) ([dc124f3](https://github.com/pradel/react-responsive-modal/commit/dc124f35d18991c39edafed260d1f52cfe1d391f))
+
+
+### Documentation
+
+* improve readability of classnames and styles properties ([#520](https://github.com/pradel/react-responsive-modal/issues/520)) ([acfe228](https://github.com/pradel/react-responsive-modal/commit/acfe228892c4dcc86ad48e9f18f50c49f56f17b0))
+
 ## [6.4.2](https://github.com/pradel/react-responsive-modal/compare/v6.4.1...v6.4.2) (2023-06-19)
 
 
