@@ -1,9 +1,12 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-/* purgecss start ignore */
 body {
   font-family: 'Inter', sans-serif;
+}
+
+@theme {
+  --color-watermelon: #fd4659;
 }
 
 .prose pre {
@@ -30,5 +33,3 @@ body {
 .anchor svg {
   @apply h-5 w-5;
 }
-
-/* purgecss end ignore */

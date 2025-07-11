@@ -87,6 +87,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./styles.css": "./styles.css",
     "./package.json": "./package.json"
   }
 }
