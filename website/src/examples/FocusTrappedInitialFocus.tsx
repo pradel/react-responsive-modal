@@ -3,7 +3,7 @@ import { Modal } from 'react-responsive-modal';
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
-  const modalRef = useRef(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   return (
     <>

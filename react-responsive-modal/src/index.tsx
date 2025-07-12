@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ReactDom from 'react-dom';
+import { createPortal } from 'react-dom';
 import cx from 'classnames';
+import { useForwardedRef } from '@bedrock-layout/use-forwarded-ref';
 import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
 import { useScrollLock } from './useScrollLock';
 import { isBrowser } from './utils';
-import useForwardedRef from '@bedrock-layout/use-forwarded-ref';
 
 const classes = {
   root: 'react-responsive-modal-root',
@@ -310,7 +310,7 @@ export const Modal = React.forwardRef(
       : (classNames?.modalAnimationOut ?? classes.modalAnimationOut);
 
     return showPortal && containerModal
-      ? ReactDom.createPortal(
+      ? createPortal(
           <div
             className={cx(classes.root, classNames?.root)}
             style={styles?.root}

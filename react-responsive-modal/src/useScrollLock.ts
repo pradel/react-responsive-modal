@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 export const useScrollLock = (
-  refModal: React.RefObject<Element>,
+  refModal: React.RefObject<Element | null>,
   open: boolean,
   showPortal: boolean,
   blockScroll: boolean,

@@ -8,7 +8,7 @@ import CustomAnimation from '../examples/CustomAnimation';
 import CustomCloseIcon from '../examples/CustomCloseIcon';
 import CustomContainer from '../examples/CustomContainer';
 
-const examples: Record<string, () => JSX.Element> = {
+const examples: Record<string, () => React.ReactElement> = {
   simple: Simple,
   multiple: ExampleMultiple,
   longContent: LongContent,
