@@ -75,7 +75,7 @@ export interface ModalProps {
    *
    * Default to undefined.
    */
-  initialFocusRef?: React.RefObject<HTMLElement>;
+  initialFocusRef?: React.RefObject<HTMLElement | null>;
   /**
    * You can specify a container prop which should be of type `Element`.
    * The portal will be rendered inside that element.

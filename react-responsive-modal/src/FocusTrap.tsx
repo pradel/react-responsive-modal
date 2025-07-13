@@ -8,7 +8,7 @@ import {
 
 interface FocusTrapProps {
   container?: React.RefObject<HTMLElement> | null;
-  initialFocusRef?: React.RefObject<HTMLElement>;
+  initialFocusRef?: React.RefObject<HTMLElement | null>;
 }
 
 export const FocusTrap = ({ container, initialFocusRef }: FocusTrapProps) => {
