@@ -1,4 +1,5 @@
 {
+  "bootstrap-sha": "acfe228892c4dcc86ad48e9f18f50c49f56f17b0",
   "packages": {
     "react-responsive-modal": {
       "package-name": "react-responsive-modal",
