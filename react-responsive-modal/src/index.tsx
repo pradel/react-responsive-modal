@@ -123,6 +123,10 @@ export interface ModalProps {
   /**
    * ARIA label for modal
    */
+  ariaLabel?: string;
+  /**
+   * ARIA label for modal
+   */
   ariaLabelledby?: string;
   /**
    * ARIA description for modal
@@ -179,6 +183,7 @@ export const Modal = React.forwardRef(
       classNames,
       styles,
       role = 'dialog',
+      ariaLabel,
       ariaDescribedby,
       ariaLabelledby,
       containerId,
@@ -351,6 +356,7 @@ export const Modal = React.forwardRef(
                 id={modalId}
                 role={role}
                 aria-modal="true"
+                aria-label={ariaLabel}
                 aria-labelledby={ariaLabelledby}
                 aria-describedby={ariaDescribedby}
                 data-testid="modal"

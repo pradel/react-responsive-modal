@@ -533,4 +533,18 @@ describe('modal', () => {
       expect(document.getElementById(modalId)).toBeInTheDocument();
     });
   });
+
+  describe('prop: ariaLabel', () => {
+    it('should render modal with aria-label attribute', async () => {
+      const ariaLabel = 'Custom modal label';
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} ariaLabel={ariaLabel}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      const modal = getByTestId('modal');
+      expect(modal.getAttribute('aria-label')).toBe(ariaLabel);
+    });
+  });
 });
