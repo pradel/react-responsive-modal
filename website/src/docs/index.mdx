@@ -155,17 +155,30 @@ By default, the Modal will be rendered at the end of the html body tag. If you w
 
 ## Accessibility
 
-- Use the `aria-labelledby` and `aria-describedby` props to follow the [ARIA best practices](https://www.w3.org/TR/wai-aria-practices/#dialog_modal).
+- Follow the [ARIA best practices](https://www.w3.org/TR/wai-aria-practices/#dialog_modal) by using either:
+  - `ariaLabelledby` and `ariaDescribedby` props to reference visible content, OR
+  - `ariaLabel` prop for a simple accessible label
 
 ```javascript
+// Option 1: Using ariaLabelledby and ariaDescribedby
 <Modal
   open={open}
   onClose={onCloseModal}
-  aria-labelledby="my-modal-title"
-  aria-describedby="my-modal-description"
+  ariaLabelledby="my-modal-title"
+  ariaDescribedby="my-modal-description"
 >
   <h2 id="my-modal-title">My Title</h2>
   <p id="my-modal-description">My Description</p>
+</Modal>
+
+// Option 2: Using ariaLabel
+<Modal
+  open={open}
+  onClose={onCloseModal}
+  ariaLabel="Modal Title"
+>
+  <h2>Preferences</h2>
+  <p>Update your settings below</p>
 </Modal>
 ```
 
@@ -197,7 +210,8 @@ By default, the Modal will be rendered at the end of the html body tag. If you w
 | **animationDuration**   | `number`                                                                                                                                                                                                                                                                               | 300       | Animation duration in milliseconds.                                                                                                                                                                                |
 | **role**                | `string`                                                                                                                                                                                                                                                                               | "dialog"  | ARIA role for modal                                                                                                                                                                                                |
 | **ref**                 | `React.RefElement<HTMLDivElement>`                                                                                                                                                                                                                                                     | undefined | Ref for modal dialog element                                                                                                                                                                                       |
-| **ariaLabelledby**      | `string`                                                                                                                                                                                                                                                                               |           | ARIA label for modal                                                                                                                                                                                               |
+| **ariaLabel**           | `string`                                                                                                                                                                                                                                                                               |           | ARIA label for modal                                                                                                                                                                                               |
+| **ariaLabelledby**      | `string`                                                                                                                                                                                                                                                                               |           | ARIA labelledby for modal                                                                                                                                                                                          |
 | **ariaDescribedby**     | `string`                                                                                                                                                                                                                                                                               |           | ARIA description for modal                                                                                                                                                                                         |
 | **containerId**         | `string`                                                                                                                                                                                                                                                                               |           | id attribute for modal container                                                                                                                                                                                   |
 | **modalId**             | `string`                                                                                                                                                                                                                                                                               |           | id attribute for modal                                                                                                                                                                                             |     |
