@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.0](https://github.com/pradel/react-responsive-modal/compare/react-responsive-modal-v7.0.0...react-responsive-modal-v7.1.0) (2025-10-01)
+
+
+### Features
+
+* add optional ariaLabel prop ([#532](https://github.com/pradel/react-responsive-modal/issues/532)) ([fc8925a](https://github.com/pradel/react-responsive-modal/commit/fc8925a569fbf39cebb0735e49acb323d95fb989))
+
 ## [7.0.0](https://github.com/pradel/react-responsive-modal/compare/react-responsive-modal-v6.4.2...react-responsive-modal-v7.0.0) (2025-07-13)
 
 
