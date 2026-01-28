@@ -18,13 +18,13 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         if: ${{ steps.release.outputs.release_created }}
 
-      - name: Use Node 22
-        uses: actions/setup-node@v4
+      - name: Use Node 24
+        uses: actions/setup-node@v6
         with:
-          node-version: 22.x
+          node-version: 24.x
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Install dependencies
