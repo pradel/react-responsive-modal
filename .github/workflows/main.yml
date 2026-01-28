@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Begin CI...
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Use Node 24
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24.x
           cache: 'yarn'
@@ -43,7 +43,7 @@ jobs:
         run: yarn workspace website build
 
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           # Dependencies already installed before
           install: false
