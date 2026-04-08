@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.1.1](https://github.com/pradel/react-responsive-modal/compare/react-responsive-modal-v7.1.0...react-responsive-modal-v7.1.1) (2026-04-08)
+
+
+### Miscellaneous
+
+* upgrade deps ([#557](https://github.com/pradel/react-responsive-modal/issues/557)) ([fac4479](https://github.com/pradel/react-responsive-modal/commit/fac4479aeb4eff37b6a1e5bab7b9e8c0fbe6200a))
+* upgrade repository deps ([#542](https://github.com/pradel/react-responsive-modal/issues/542)) ([3667b44](https://github.com/pradel/react-responsive-modal/commit/3667b447251b1f3a93363a364438f3e47c411274))
+
 ## [7.1.0](https://github.com/pradel/react-responsive-modal/compare/react-responsive-modal-v7.0.0...react-responsive-modal-v7.1.0) (2025-10-01)
 
 
