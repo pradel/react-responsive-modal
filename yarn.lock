@@ -5847,7 +5847,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.8, postcss@npm:^8.5.6, postcss@npm:^8.5.8":
+"postcss@npm:8.5.10":
+  version: 8.5.10
+  resolution: "postcss@npm:8.5.10"
+  dependencies:
+    nanoid: "npm:^3.3.11"
+    picocolors: "npm:^1.1.1"
+    source-map-js: "npm:^1.2.1"
+  checksum: 10/7eac6169e535b63c8412e94d4f6047fc23efa3e9dde804b541940043c831b25f1cd867d83cd2c4371ad2450c8abcb42c208aa25668c1f0f3650d7f72faf711a8
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.5.6, postcss@npm:^8.5.8":
   version: 8.5.8
   resolution: "postcss@npm:8.5.8"
   dependencies:
@@ -7652,7 +7663,7 @@ __metadata:
     fathom-client: "npm:3.7.2"
     highlight.js: "npm:11.11.1"
     next: "npm:15.5.10"
-    postcss: "npm:8.5.8"
+    postcss: "npm:8.5.10"
     react: "npm:19.2.4"
     react-dom: "npm:19.2.4"
     react-responsive-modal: "workspace:react-responsive-modal"
