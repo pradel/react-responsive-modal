@@ -5,38 +5,48 @@ on:
     branches:
       - master
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   release-please:
+    name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write # Required for OIDC
+      pull-requests: write
+      issues: write
     steps:
-      - uses: googleapis/release-please-action@v4
+      - name: Release Please
+        uses: googleapis/release-please-action@v4
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v6
-        if: ${{ steps.release.outputs.release_created }}
+      - name: Checkout code
+        uses: actions/checkout@v6
+        if: ${{ fromJSON(steps.release.outputs.releases_created) }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        if: ${{ fromJSON(steps.release.outputs.releases_created) }}
 
       - name: Use Node 24
         uses: actions/setup-node@v6
         with:
           node-version: 24.x
-        if: ${{ steps.release.outputs.release_created }}
+          cache: 'pnpm'
+        if: ${{ fromJSON(steps.release.outputs.releases_created) }}
 
       - name: Install dependencies
-        run: yarn install --immutable
-        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm install --frozen-lockfile
+        if: ${{ fromJSON(steps.release.outputs.releases_created) }}
 
       - name: Build react-responsive-modal
-        run: yarn workspace react-responsive-modal build
-        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm vp run -F react-responsive-modal build
+        if: ${{ fromJSON(steps.release.outputs.releases_created) }}
 
       - name: Publish react-responsive-modal npm package
-        run: yarn workspace react-responsive-modal npm publish
+        run: pnpm --filter react-responsive-modal publish --no-git-checks
         env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-        if: ${{ steps.release.outputs.release_created }}
+          # Use OIDC for npm authentication instead of NPM_TOKEN
+          NPM_TOKEN: '' # https://github.com/changesets/changesets/issues/1152#issuecomment-3190884868
+        if: ${{ fromJSON(steps.release.outputs.releases_created) }}

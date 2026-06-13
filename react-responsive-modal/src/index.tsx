@@ -1,7 +1,8 @@
+import { useForwardedRef } from '@bedrock-layout/use-forwarded-ref';
+import cx from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import cx from 'classnames';
-import { useForwardedRef } from '@bedrock-layout/use-forwarded-ref';
+
 import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
@@ -178,7 +179,7 @@ export const Modal = React.forwardRef(
       closeIconId,
       closeIcon,
       focusTrapped = true,
-      initialFocusRef = undefined,
+      initialFocusRef,
       animationDuration = 300,
       classNames,
       styles,

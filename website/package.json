@@ -1,6 +1,7 @@
 {
   "name": "website",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -34,6 +35,5 @@
     "remark-gfm": "4.0.1",
     "tailwindcss": "4.2.2",
     "typescript": "5.9.3"
-  },
-  "license": "MIT"
+  }
 }
