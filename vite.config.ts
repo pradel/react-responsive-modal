@@ -17,6 +17,10 @@ export default defineConfig({
   lint: {
     options: { typeAware: true, typeCheck: true },
     plugins: ['node', 'typescript', 'vitest'],
+    rules: {
+      'vitest/require-mock-type-parameters': 'off',
+      'typescript/triple-slash-reference': 'off',
+    },
   },
   run: {
     cache: true,
