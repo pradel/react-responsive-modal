@@ -1,5 +1,18 @@
 # Changelog
 
+## [7.2.0](https://github.com/pradel/react-responsive-modal/compare/react-responsive-modal-v7.1.0...react-responsive-modal-v7.2.0) (2026-06-13)
+
+
+### Features
+
+* setup pnpm, vite-plus, and OIDC publishing ([#565](https://github.com/pradel/react-responsive-modal/issues/565)) ([5a044ed](https://github.com/pradel/react-responsive-modal/commit/5a044ed9fcb8b3759050fdfeea752d995149032b))
+
+
+### Miscellaneous
+
+* upgrade deps ([#557](https://github.com/pradel/react-responsive-modal/issues/557)) ([fac4479](https://github.com/pradel/react-responsive-modal/commit/fac4479aeb4eff37b6a1e5bab7b9e8c0fbe6200a))
+* upgrade repository deps ([#542](https://github.com/pradel/react-responsive-modal/issues/542)) ([3667b44](https://github.com/pradel/react-responsive-modal/commit/3667b447251b1f3a93363a364438f3e47c411274))
+
 ## [7.1.0](https://github.com/pradel/react-responsive-modal/compare/react-responsive-modal-v7.0.0...react-responsive-modal-v7.1.0) (2025-10-01)
 
 
