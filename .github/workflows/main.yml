@@ -22,6 +22,9 @@ jobs:
           node-version: 24
           cache: true
 
+      - name: Build
+        run: vp run -r build
+
       - name: Check formatting, linting and type checks
         run: vp check
 
@@ -34,9 +37,6 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Build
-        run: vp run -r build
 
       - name: Cypress run
         uses: cypress-io/github-action@v7
