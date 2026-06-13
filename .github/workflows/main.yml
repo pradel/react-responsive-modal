@@ -42,8 +42,8 @@ jobs:
         uses: cypress-io/github-action@v7
         with:
           install: false
-          project: ./react-responsive-modal
-          start: pnpm --filter website start -p 3000
+          working-directory: ./react-responsive-modal
+          start: vp run -F website start
 
       - name: Size limit
-        run: pnpm --filter react-responsive-modal size
+        run: vp run -F react-responsive-modal size
