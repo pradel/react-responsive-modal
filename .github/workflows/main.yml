@@ -11,23 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Begin CI...
+      - name: Checkout code
         uses: actions/checkout@v6
-
-      - name: Use Node 24
-        uses: actions/setup-node@v6
         with:
-          node-version: 24.x
-          cache: 'yarn'
+          persist-credentials: false
 
-      - name: Install dependencies
-        run: yarn install --immutable
+      - name: vite-plus setup
+        uses: voidzero-dev/setup-vp@v1
+        with:
+          node-version: 24
+          cache: true
 
-      - name: Typecheck
-        run: yarn workspace react-responsive-modal typecheck
+      - name: Check formatting, linting and type checks
+        run: vp check
 
       - name: Test
-        run: yarn workspace react-responsive-modal test --coverage
+        run: vp run -r test --coverage --run
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
@@ -37,19 +36,14 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Build
-        run: yarn workspace react-responsive-modal build
-
-      - name: Build docs
-        run: yarn workspace website build
+        run: vp run -r build
 
       - name: Cypress run
         uses: cypress-io/github-action@v7
         with:
-          # Dependencies already installed before
           install: false
-          # Use monorepo
           project: ./react-responsive-modal
-          start: yarn workspace website start -p 3000
+          start: pnpm --filter website start -p 3000
 
       - name: Size limit
-        run: yarn workspace react-responsive-modal size
+        run: pnpm --filter react-responsive-modal size

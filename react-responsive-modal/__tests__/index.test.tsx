@@ -1,7 +1,8 @@
-import React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import { Modal } from '../src';
+import React from 'react';
 import { describe, it, expect, vitest } from 'vitest';
+
+import { Modal } from '../src';
 
 describe('modal', () => {
   describe('overlay', () => {

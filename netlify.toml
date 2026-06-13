@@ -1,9 +1,6 @@
-
 [build]
-  publish = "website/out"
-  command = "yarn workspace react-responsive-modal build && yarn workspace website build && yarn workspace website export"
+publish = "website/out"
+command = "pnpm vp run -r build && pnpm --filter website export"
 
 [build.environment]
-  NODE_VERSION = "12"
-  YARN_VERSION = "1.22.5"
-  YARN_FLAGS = "--immutable"
+NODE_VERSION = "24"

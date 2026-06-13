@@ -1,0 +1,8 @@
+packages:
+  - 'react-responsive-modal'
+  - 'website'
+
+allowBuilds:
+  esbuild: true
+  cypress: true
+  sharp: true

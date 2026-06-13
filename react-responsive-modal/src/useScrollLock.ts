@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useEffect, useRef } from 'react';
 
 export const useScrollLock = (
   refModal: React.RefObject<Element | null>,

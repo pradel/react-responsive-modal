@@ -1,8 +1,8 @@
 import createMDX from '@next/mdx';
-import remarkCodeImport from 'remark-code-import';
+import rehypeHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
-import rehypeHeadings from 'rehype-autolink-headings';
+import remarkCodeImport from 'remark-code-import';
 import remarkGfm from 'remark-gfm';
 
 /** @type {import('next').NextConfig} */

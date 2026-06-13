@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { isBrowser } from './utils';
+
 import {
   tabTrappingKey,
   candidateSelectors,
   getAllTabbingElements,
 } from './lib/focusTrapJs';
+import { isBrowser } from './utils';
 
 interface FocusTrapProps {
   container?: React.RefObject<HTMLElement> | null;

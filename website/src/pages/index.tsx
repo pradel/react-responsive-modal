@@ -1,7 +1,7 @@
+import { Footer } from '../components/Footer';
+import { Header } from '../components/Header';
 // @ts-ignore
 import Content from '../docs/index.mdx';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 
 const IndexPage = () => (
   <>
