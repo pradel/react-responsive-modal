@@ -548,4 +548,52 @@ describe('modal', () => {
       expect(modal.getAttribute('aria-label')).toBe(ariaLabel);
     });
   });
+
+  describe('prop: ref', () => {
+    it('should set the modal element to a ref object', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref.current).toBe(getByTestId('modal'));
+    });
+
+    it('should call a ref callback with the modal element', () => {
+      const ref = vitest.fn();
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref).toHaveBeenLastCalledWith(getByTestId('modal'));
+    });
+
+    it('should reset the ref when the modal is closed', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={() => null} ref={ref} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(ref.current).toBe(getByTestId('modal'));
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          ref={ref}
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+
+      expect(ref.current).toBeNull();
+    });
+  });
 });
