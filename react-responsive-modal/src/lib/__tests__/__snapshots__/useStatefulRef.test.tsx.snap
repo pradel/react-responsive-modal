@@ -1,9 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`useStatefulRef > should call not call setState when setting value to same value 1`] = `[]`;
-
-exports[`useStatefulRef > should call setState when setting value 1`] = `
-{
-  "current": "Test",
-}
-`;
