@@ -165,6 +165,13 @@ export interface ModalProps {
    * Callback fired when the Modal has exited and the animation is finished.
    */
   onAnimationEnd?: (event: React.AnimationEvent<HTMLDivElement>) => void;
+  /**
+   * Keep the modal mounted in the DOM when it is closed. Useful to preserve
+   * the state of the content inside the modal.
+   *
+   * Default to false.
+   */
+  keepMounted?: boolean;
   children?: React.ReactNode;
 }
 
@@ -195,6 +202,7 @@ export const Modal = React.forwardRef(
       onEscKeyDown,
       onOverlayClick,
       onAnimationEnd,
+      keepMounted = false,
       children,
       reserveScrollBarGap,
       dir,
@@ -282,11 +290,11 @@ export const Modal = React.forwardRef(
     useEffect(() => {
       // If the open prop is changing, we need to open the modal
       // This is also called on the first render if the open prop is true when the modal is created
-      if (open && !showPortal) {
+      if ((open || keepMounted) && !showPortal) {
         setShowPortal(true);
         handleOpen();
       }
-    }, [open]);
+    }, [open, keepMounted, showPortal]);
 
     const handleClickOverlay = (
       event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -321,7 +329,7 @@ export const Modal = React.forwardRef(
         return;
       }
 
-      if (!open) {
+      if (!open && !keepMounted) {
         setShowPortal(false);
       }
 
@@ -342,7 +350,15 @@ export const Modal = React.forwardRef(
       ? createPortal(
           <div
             className={cx(classes.root, classNames?.root)}
-            style={styles?.root}
+            style={{
+              ...styles?.root,
+              ...(!open && keepMounted
+                ? {
+                    visibility: 'hidden',
+                    transition: `visibility 0s linear ${animationDuration}ms`,
+                  }
+                : {}),
+            }}
             data-testid="root"
             dir={dir}
           >
@@ -387,7 +403,7 @@ export const Modal = React.forwardRef(
                 data-testid="modal"
                 tabIndex={-1}
               >
-                {focusTrapped && (
+                {focusTrapped && (open || !keepMounted) && (
                   <FocusTrap
                     container={refDialog}
                     initialFocusRef={initialFocusRef}

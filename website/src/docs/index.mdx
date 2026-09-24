@@ -153,6 +153,16 @@ By default, the Modal will be rendered at the end of the html body tag. If you w
 
 ```
 
+### Keeping the modal mounted
+
+By default the Modal is unmounted from the DOM when it is closed. Set the `keepMounted` prop to keep it mounted while closed, so the state of the content inside the Modal is preserved. The Modal is hidden once the closing animation finishes, until it is opened again.
+
+<ExampleRendered name="keepMounted" />
+
+```js file=../examples/KeepMounted.tsx
+
+```
+
 ## Accessibility
 
 - Follow the [ARIA best practices](https://www.w3.org/TR/wai-aria-practices/#dialog_modal) by using either:
@@ -220,6 +230,7 @@ By default, the Modal will be rendered at the end of the html body tag. If you w
 | **onEscKeyDown\***      | `(event: KeyboardEvent) => void`                                                                                                                                                                                                                                                       |           | Callback fired when the escape key is pressed.                                                                                                                                                                     |
 | **onOverlayClick\***    | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`                                                                                                                                                                                                                        |           | Callback fired when the overlay is clicked.                                                                                                                                                                        |
 | **onAnimationEnd\***    | `(event: React.AnimationEvent<HTMLDivElement>) => void`                                                                                                                                                                                                                                |           | Callback fired when the Modal has exited and the animation is finished.                                                                                                                                            |
+| **keepMounted**         | `boolean`                                                                                                                                                                                                                                                                              | false     | Keep the modal mounted in the DOM when it is closed. Useful to preserve the state of the content inside the modal.                                                                                                 |
 
 ## License
 

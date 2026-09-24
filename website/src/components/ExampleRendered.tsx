@@ -4,6 +4,7 @@ import CustomContainer from '../examples/CustomContainer';
 import CustomCssStyle from '../examples/CustomCssStyle';
 import FocusTrapped from '../examples/FocusTrapped';
 import FocusTrappedInitialFocus from '../examples/FocusTrappedInitialFocus';
+import KeepMounted from '../examples/KeepMounted';
 import LongContent from '../examples/LongContent';
 import ExampleMultiple from '../examples/Multiple';
 import Simple from '../examples/Simple';
@@ -14,6 +15,7 @@ const examples: Record<string, () => React.ReactElement> = {
   longContent: LongContent,
   focusTrapped: FocusTrapped,
   focusTrappedInitialFocus: FocusTrappedInitialFocus,
+  keepMounted: KeepMounted,
   customCssStyle: CustomCssStyle,
   customAnimation: CustomAnimation,
   customCloseIcon: CustomCloseIcon,

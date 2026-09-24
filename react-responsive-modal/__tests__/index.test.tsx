@@ -827,6 +827,142 @@ describe('modal', () => {
     });
   });
 
+  describe('prop: keepMounted', () => {
+    it('should keep the modal mounted and hidden when closed', async () => {
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={() => null} keepMounted animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          keepMounted
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(getByTestId('modal')).toBeInTheDocument();
+      expect(getByTestId('root')).toHaveStyle({ visibility: 'hidden' });
+    });
+
+    it('should show the modal again when reopened', async () => {
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={() => null} keepMounted animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          keepMounted
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(getByTestId('root')).toHaveStyle({ visibility: 'hidden' });
+
+      rerender(
+        <Modal open onClose={() => null} keepMounted animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(getByTestId('modal')).toBeInTheDocument();
+      expect(getByTestId('root')).not.toHaveStyle({ visibility: 'hidden' });
+    });
+
+    it('should preserve the DOM state of the modal content', async () => {
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={() => null} keepMounted animationDuration={0.01}>
+          <input data-testid="input" />
+        </Modal>,
+      );
+
+      fireEvent.change(getByTestId('input'), { target: { value: 'hello' } });
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          keepMounted
+          animationDuration={0.01}
+        >
+          <input data-testid="input" />
+        </Modal>,
+      );
+
+      rerender(
+        <Modal open onClose={() => null} keepMounted animationDuration={0.01}>
+          <input data-testid="input" />
+        </Modal>,
+      );
+
+      expect(getByTestId('input')).toHaveValue('hello');
+    });
+
+    it('should call onAnimationEnd without unmounting when closed', async () => {
+      const onAnimationEnd = vitest.fn();
+      const { getByTestId, rerender } = render(
+        <Modal
+          open
+          onClose={() => null}
+          onAnimationEnd={onAnimationEnd}
+          keepMounted
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          onAnimationEnd={onAnimationEnd}
+          keepMounted
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+
+      expect(onAnimationEnd).toHaveBeenCalledTimes(1);
+      expect(getByTestId('modal')).toBeInTheDocument();
+    });
+
+    it('should not close on esc when the hidden modal is kept mounted', async () => {
+      const onClose = vitest.fn();
+      const { rerender } = render(
+        <Modal open onClose={onClose} keepMounted animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={onClose}
+          keepMounted
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      fireEvent.keyDown(document, { keyCode: 27 });
+      expect(onClose).not.toHaveBeenCalled();
+    });
+  });
+
   describe('prop: containerId', () => {
     it('should renders container div with id', async () => {
       const containerId = 'container-id';
