@@ -16,23 +16,23 @@ jobs:
       issues: write
     steps:
       - name: Release Please
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         if: ${{ fromJSON(steps.release.outputs.releases_created) }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v6
         if: ${{ fromJSON(steps.release.outputs.releases_created) }}
 
-      - name: Use Node 24
-        uses: actions/setup-node@v6
+      - name: Use Node 26
+        uses: actions/setup-node@v7
         with:
-          node-version: 24.x
+          node-version: 26.x
           cache: 'pnpm'
         if: ${{ fromJSON(steps.release.outputs.releases_created) }}
 
@@ -46,7 +46,4 @@ jobs:
 
       - name: Publish react-responsive-modal npm package
         run: pnpm --filter react-responsive-modal publish --no-git-checks
-        env:
-          # Use OIDC for npm authentication instead of NPM_TOKEN
-          NPM_TOKEN: '' # https://github.com/changesets/changesets/issues/1152#issuecomment-3190884868
         if: ${{ fromJSON(steps.release.outputs.releases_created) }}

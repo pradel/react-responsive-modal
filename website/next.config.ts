@@ -1,23 +1,21 @@
 import createMDX from '@next/mdx';
-import rehypeHeadings from 'rehype-autolink-headings';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeSlug from 'rehype-slug';
-import remarkCodeImport from 'remark-code-import';
-import remarkGfm from 'remark-gfm';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  ...(process.env.NEXT_STATIC_EXPORT === '1'
+    ? { output: 'export' as const }
+    : {}),
 };
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkGfm, remarkCodeImport],
+    remarkPlugins: ['remark-gfm', 'remark-code-import'],
     rehypePlugins: [
-      rehypeSlug,
-      rehypeHighlight,
+      'rehype-slug',
+      'rehype-highlight',
       [
-        rehypeHeadings,
+        'rehype-autolink-headings',
         {
           properties: {
             ariaHidden: true,

@@ -2,7 +2,7 @@ import * as Fathom from 'fathom-client';
 import type { AppProps } from 'next/app';
 import { Inter } from 'next/font/google';
 import Router from 'next/router';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import 'react-responsive-modal/styles.css';
 import '../examples/custom-styling.css';
