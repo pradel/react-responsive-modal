@@ -1,8 +1,32 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { describe, it, expect, vitest } from 'vite-plus/test';
+import { beforeEach, describe, it, expect, vitest } from 'vite-plus/test';
 
 import { Modal } from '../src';
+
+const originalInnerWidth = window.innerWidth;
+
+const mockScrollBarWidth = (scrollBarWidth: number, innerWidth: number) => {
+  Object.defineProperty(window, 'innerWidth', {
+    writable: true,
+    configurable: true,
+    value: innerWidth,
+  });
+  Object.defineProperty(document.documentElement, 'clientWidth', {
+    writable: true,
+    configurable: true,
+    value: innerWidth - scrollBarWidth,
+  });
+};
+
+const restoreScrollBarWidth = () => {
+  Object.defineProperty(window, 'innerWidth', {
+    writable: true,
+    configurable: true,
+    value: originalInnerWidth,
+  });
+  Reflect.deleteProperty(document.documentElement, 'clientWidth');
+};
 
 describe('modal', () => {
   describe('overlay', () => {
@@ -101,6 +125,11 @@ describe('modal', () => {
   });
 
   describe('body scroll', () => {
+    beforeEach(() => {
+      document.body.removeAttribute('style');
+      restoreScrollBarWidth();
+    });
+
     it('should not block the scroll when modal is rendered closed', () => {
       render(
         <Modal open={false} onClose={() => null}>
@@ -264,23 +293,169 @@ describe('modal', () => {
     });
     it('should reserve scroll bar gap', () => {
       const scrollBarWidth = 42;
-      const innerWidth = 500;
-      Object.defineProperty(window, 'innerWidth', {
-        writable: true,
-        configurable: true,
-        value: innerWidth,
-      });
-      Object.defineProperty(document.documentElement, 'clientWidth', {
-        writable: true,
-        configurable: true,
-        value: innerWidth - scrollBarWidth,
-      });
+      mockScrollBarWidth(scrollBarWidth, 500);
       render(
         <Modal open={true} onClose={() => null} reserveScrollBarGap={true}>
           <div>modal content</div>
         </Modal>,
       );
       expect(document.body.style.paddingRight).toBe(`${scrollBarWidth}px`);
+    });
+
+    it('should restore pre-existing body styles when modal is closed', async () => {
+      document.body.style.overflow = 'scroll';
+      document.body.style.paddingRight = '10px';
+
+      const { rerender, getByTestId, queryByTestId } = render(
+        <Modal open onClose={() => null} animationDuration={0}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(document.body.style.overflow).toBe('hidden');
+
+      rerender(
+        <Modal open={false} onClose={() => null} animationDuration={0}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+      await waitFor(
+        () => {
+          expect(queryByTestId('modal')).not.toBeInTheDocument();
+        },
+        { timeout: 1 },
+      );
+
+      expect(document.body.style.overflow).toBe('scroll');
+      expect(document.body.style.paddingRight).toBe('10px');
+    });
+
+    it('should overwrite and restore pre-existing body padding when reserveScrollBarGap is used', async () => {
+      const scrollBarWidth = 42;
+      mockScrollBarWidth(scrollBarWidth, 500);
+      document.body.style.paddingRight = '10px';
+
+      const { rerender, getByTestId, queryByTestId } = render(
+        <Modal
+          open
+          onClose={() => null}
+          reserveScrollBarGap
+          animationDuration={0}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(document.body.style.paddingRight).toBe(`${scrollBarWidth}px`);
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          reserveScrollBarGap
+          animationDuration={0}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+      await waitFor(
+        () => {
+          expect(queryByTestId('modal')).not.toBeInTheDocument();
+        },
+        { timeout: 1 },
+      );
+
+      expect(document.body.style.paddingRight).toBe('10px');
+    });
+
+    it('should keep the scroll bar gap until the last modal is closed', async () => {
+      const scrollBarWidth = 42;
+      mockScrollBarWidth(scrollBarWidth, 500);
+
+      const { rerender, getAllByTestId, queryByText } = render(
+        <React.Fragment>
+          <Modal
+            open
+            onClose={() => null}
+            reserveScrollBarGap
+            animationDuration={0}
+          >
+            <div>first modal</div>
+          </Modal>
+          <Modal open onClose={() => null} animationDuration={0}>
+            <div>second modal</div>
+          </Modal>
+        </React.Fragment>,
+      );
+      expect(document.body.style.overflow).toBe('hidden');
+      expect(document.body.style.paddingRight).toBe(`${scrollBarWidth}px`);
+
+      rerender(
+        <React.Fragment>
+          <Modal
+            open
+            onClose={() => null}
+            reserveScrollBarGap
+            animationDuration={0}
+          >
+            <div>first modal</div>
+          </Modal>
+          <Modal open={false} onClose={() => null} animationDuration={0}>
+            <div>second modal</div>
+          </Modal>
+        </React.Fragment>,
+      );
+      fireEvent.animationEnd(getAllByTestId('modal')[1]);
+      await waitFor(
+        () => {
+          expect(queryByText(/second modal/)).not.toBeInTheDocument();
+        },
+        { timeout: 1 },
+      );
+      expect(document.body.style.overflow).toBe('hidden');
+      expect(document.body.style.paddingRight).toBe(`${scrollBarWidth}px`);
+
+      rerender(
+        <React.Fragment>
+          <Modal
+            open={false}
+            onClose={() => null}
+            reserveScrollBarGap
+            animationDuration={0}
+          >
+            <div>first modal</div>
+          </Modal>
+          <Modal open={false} onClose={() => null} animationDuration={0}>
+            <div>second modal</div>
+          </Modal>
+        </React.Fragment>,
+      );
+      fireEvent.animationEnd(getAllByTestId('modal')[0]);
+      await waitFor(
+        () => {
+          expect(queryByText(/first modal/)).not.toBeInTheDocument();
+        },
+        { timeout: 1 },
+      );
+
+      expect(document.body.style.overflow).toBe('');
+      expect(document.body.style.paddingRight).toBe('');
+    });
+
+    it('should unblock scroll when blockScroll changes to false while open', () => {
+      const { rerender } = render(
+        <Modal open onClose={() => null}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(document.body.style.overflow).toBe('hidden');
+
+      rerender(
+        <Modal open blockScroll={false} onClose={() => null}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(document.body.style.overflow).toBe('');
     });
   });
 
