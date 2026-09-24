@@ -37,7 +37,7 @@
 .react-responsive-modal-modal {
   max-width: 800px;
   display: inline-block;
-  text-align: left;
+  text-align: start;
   vertical-align: middle;
   background: #ffffff;
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
@@ -50,7 +50,7 @@
 .react-responsive-modal-closeButton {
   position: absolute;
   top: 14px;
-  right: 14px;
+  inset-inline-end: 14px;
   border: none;
   padding: 0;
   cursor: pointer;

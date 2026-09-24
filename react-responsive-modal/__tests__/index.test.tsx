@@ -792,6 +792,28 @@ describe('modal', () => {
     });
   });
 
+  describe('prop: dir', () => {
+    it('should render the modal with the dir attribute', async () => {
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} dir="rtl">
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(getByTestId('root').getAttribute('dir')).toBe('rtl');
+    });
+
+    it('should not render the dir attribute by default', async () => {
+      const { getByTestId } = render(
+        <Modal open onClose={() => null}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(getByTestId('root').hasAttribute('dir')).toBe(false);
+    });
+  });
+
   describe('prop: ref', () => {
     it('should set the modal element to a ref object', () => {
       const ref = React.createRef<HTMLDivElement>();
