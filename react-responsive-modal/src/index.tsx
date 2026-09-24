@@ -132,6 +132,10 @@ export interface ModalProps {
    */
   ariaDescribedby?: string;
   /**
+   * Text direction of the modal content.
+   */
+  dir?: 'ltr' | 'rtl' | 'auto';
+  /**
    * Avoid unpleasant flickering effect when body overflow is hidden. For more information see https://www.npmjs.com/package/body-scroll-lock
    */
   reserveScrollBarGap?: boolean;
@@ -193,6 +197,7 @@ export const Modal = React.forwardRef(
       onAnimationEnd,
       children,
       reserveScrollBarGap,
+      dir,
     }: ModalProps,
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
@@ -332,6 +337,7 @@ export const Modal = React.forwardRef(
             className={cx(classes.root, classNames?.root)}
             style={styles?.root}
             data-testid="root"
+            dir={dir}
           >
             <div
               className={cx(classes.overlay, classNames?.overlay)}
