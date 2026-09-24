@@ -28,14 +28,17 @@ importers:
   .:
     devDependencies:
       '@types/node':
-        specifier: ^25.5.0
-        version: 25.5.0
+        specifier: ^26.6.2
+        version: 26.6.2
+      node:
+        specifier: runtime:26.10.0
+        version: runtime:26.10.0
       vite:
         specifier: 'catalog:'
-        version: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
+        version: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
       vite-plus:
         specifier: 'catalog:'
-        version: 0.3.3(@types/node@25.5.0)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)
+        version: 0.3.3(@types/node@26.6.2)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)
 
   react-responsive-modal:
     dependencies:
@@ -51,7 +54,7 @@ importers:
     devDependencies:
       '@codecov/vite-plugin':
         specifier: 2.0.1
-        version: 2.0.1(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
+        version: 2.0.1(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
       '@size-limit/preset-small-lib':
         specifier: 14.0.0
         version: 14.0.0(size-limit@14.0.0)
@@ -71,8 +74,8 @@ importers:
         specifier: 2.3.4
         version: 2.3.4
       '@types/node':
-        specifier: 25.5.0
-        version: 25.5.0
+        specifier: 26.6.2
+        version: 26.6.2
       '@types/react':
         specifier: 19.2.14
         version: 19.2.14
@@ -81,7 +84,7 @@ importers:
         version: 19.2.3(@types/react@19.2.14)
       '@vitejs/plugin-react':
         specifier: 6.1.1
-        version: 6.1.1(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
+        version: 6.1.1(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
       '@vitest/coverage-istanbul':
         specifier: 'catalog:'
         version: 4.1.11(vitest@4.1.11)
@@ -111,13 +114,13 @@ importers:
         version: 5.9.3
       vite:
         specifier: 'catalog:'
-        version: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
+        version: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
       vite-plus:
         specifier: 'catalog:'
-        version: 0.3.3(@types/node@25.5.0)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)
+        version: 0.3.3(@types/node@26.6.2)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)
       vitest:
         specifier: 'catalog:'
-        version: 4.1.11(@types/node@25.5.0)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
+        version: 4.1.11(@types/node@26.6.2)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
 
   website:
     dependencies:
@@ -153,8 +156,8 @@ importers:
         specifier: 2.0.13
         version: 2.0.13
       '@types/node':
-        specifier: 25.5.0
-        version: 25.5.0
+        specifier: 26.6.2
+        version: 26.6.2
       '@types/react':
         specifier: 19.2.14
         version: 19.2.14
@@ -1427,8 +1430,8 @@ packages:
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
 
-  '@types/node@25.5.0':
-    resolution: {integrity: sha512-jp2P3tQMSxWugkCUKLRPVUpGaL5MVFwF8RDuSRztfwgN1wmqJeMSbKlnEtQqU8UrhTmzEmZdu2I6v2dpp7XIxw==}
+  '@types/node@26.6.2':
+    resolution: {integrity: sha512-X1P21scMv4zGKLYqjdGjaKa7COa0RKVYYZZN/NfvLQ1JegxFhdhpZG/Lyn8AXx6CDUavKAd11v6BvfpkDByK8g==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -2864,6 +2867,138 @@ packages:
     resolution: {integrity: sha512-Uzmd6LXpouKo8EUK68IjH4+E01w/hXyV3R3g/geCJo+rXLNfh1xucB+LOzYEOQPSiUK3h/xZf0cQGcSsmyL2Og==}
     engines: {node: '>=18'}
 
+  node@runtime:26.10.0:
+    resolution:
+      type: variations
+      variants:
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-9ak/5zz1WDQU1Ni+WYxOx+cr4ygbWCDUlcKhXOaqE8g=
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-aix-ppc64.tar.gz
+          targets:
+            - cpu: ppc64
+              os: aix
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-dR/fdDnxFdh+4qjz8YwGW2FRhSBo4+ZmrGCsKZb3Wsk=
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-darwin-arm64.tar.gz
+          targets:
+            - cpu: arm64
+              os: darwin
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-676aubWK1rtUOQ1uLIYsGvp9RHX7foroFGrN4hG/cN8=
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-darwin-x64.tar.gz
+          targets:
+            - cpu: x64
+              os: darwin
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-QjpBv/jiovoV5wL+/ikZ75WCOyN4dE2sy4Q5MCU0tE8=
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-linux-arm64.tar.gz
+          targets:
+            - cpu: arm64
+              os: linux
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-DMa5qZBiFvjefXAUYDj+a6tffo86itKdjb6r3xOBtS0=
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-linux-ppc64le.tar.gz
+          targets:
+            - cpu: ppc64le
+              os: linux
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-eHQCtH8Pj9RioZpEw9cHBSyryV7LlG/oBBobXIEOPWM=
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-linux-s390x.tar.gz
+          targets:
+            - cpu: s390x
+              os: linux
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-G99gyBQeUVJgS6+LOPMeGRs3lPYPzitxNR54xAIfAWY=
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-linux-x64-musl.tar.gz
+          targets:
+            - cpu: x64
+              os: linux
+              libc: musl
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-y1yc6cgNe4gh46JYVDxxuTkTjPF8dNXMRLvoXW28Wtg=
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-linux-x64.tar.gz
+          targets:
+            - cpu: x64
+              os: linux
+        - resolution:
+            archive: zip
+            bin:
+              node: node.exe
+            integrity: sha256-t3hkDXJxVmvKqWeZEs3waEwT6CTBFOQai2lvsUr3p6o=
+            prefix: node-v26.10.0-win-arm64
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-win-arm64.zip
+          targets:
+            - cpu: arm64
+              os: win32
+        - resolution:
+            archive: zip
+            bin:
+              node: node.exe
+            integrity: sha256-n+9+ymdDprkQmJzY54cSN2s5T8ubbh6cRKB5mih/kMU=
+            prefix: node-v26.10.0-win-x64
+            type: binary
+            url: https://nodejs.org/download/release/v26.10.0/node-v26.10.0-win-x64.zip
+          targets:
+            - cpu: x64
+              os: win32
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-0mAnv/MZcFDSorC/oVGxjoN47YGv+iv1CTgE2xWJebY=
+            type: binary
+            url: https://unofficial-builds.nodejs.org/download/release/v26.10.0/node-v26.10.0-linux-arm64-musl.tar.gz
+          targets:
+            - cpu: arm64
+              os: linux
+              libc: musl
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-5C2pSCG5Qi63a/Wq9N4Jd+BLoyC4r/YUjYlalLCO4iM=
+            type: binary
+            url: https://unofficial-builds.nodejs.org/download/release/v26.10.0/node-v26.10.0-linux-x64-musl.tar.gz
+          targets:
+            - cpu: x64
+              os: linux
+              libc: musl
+    version: 26.10.0
+    hasBin: true
+
   npm-run-path@4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
     engines: {node: '>=8'}
@@ -3359,8 +3494,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  undici-types@7.18.2:
-    resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
+  undici-types@8.9.0:
+    resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
   undici@6.28.1:
     resolution: {integrity: sha512-zWpdTVD54H48CIybL0rWQ3ukpb9d23wM7eH5RtfdmeP70cWHNjtfo7P4vZX+5CoDcO53J4Pu5uXp7lNfjc6DRA==}
@@ -3771,11 +3906,11 @@ snapshots:
       unplugin: 1.16.1
       zod: 3.25.76
 
-  '@codecov/vite-plugin@2.0.1(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))':
+  '@codecov/vite-plugin@2.0.1(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))':
     dependencies:
       '@codecov/bundler-plugin-core': 2.0.1
       unplugin: 1.16.1
-      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
+      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
 
   '@csstools/color-helpers@6.1.1': {}
 
@@ -4483,7 +4618,7 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
     optionalDependencies:
-      vitest: 4.1.11(@types/node@25.5.0)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
+      vitest: 4.1.11(@types/node@26.6.2)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
 
   '@testing-library/react@16.3.3(@testing-library/dom@10.4.2)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
@@ -4536,9 +4671,9 @@ snapshots:
 
   '@types/ms@2.1.0': {}
 
-  '@types/node@25.5.0':
+  '@types/node@26.6.2':
     dependencies:
-      undici-types: 7.18.2
+      undici-types: 8.9.0
 
   '@types/react-dom@19.2.3(@types/react@19.2.14)':
     dependencies:
@@ -4560,33 +4695,33 @@ snapshots:
 
   '@ungap/structured-clone@1.3.1': {}
 
-  '@vitejs/plugin-react@6.1.1(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))':
+  '@vitejs/plugin-react@6.1.1(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
+      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
 
-  '@vitest/browser-preview@4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)':
+  '@vitest/browser-preview@4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)':
     dependencies:
       '@testing-library/dom': 10.4.1
       '@testing-library/user-event': 14.6.7(@testing-library/dom@10.4.1)
-      '@vitest/browser': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)
-      vitest: 4.1.11(@types/node@25.5.0)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
+      '@vitest/browser': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)
+      vitest: 4.1.11(@types/node@26.6.2)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
     transitivePeerDependencies:
       - bufferutil
       - msw
       - utf-8-validate
       - vite
 
-  '@vitest/browser@4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)':
+  '@vitest/browser@4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)':
     dependencies:
       '@blazediff/core': 1.9.1
-      '@vitest/mocker': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
+      '@vitest/mocker': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
       '@vitest/utils': 4.1.11
       magic-string: 0.30.21
       pngjs: 7.0.0
       sirv: 3.0.2
       tinyrainbow: 3.1.0
-      vitest: 4.1.11(@types/node@25.5.0)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
+      vitest: 4.1.11(@types/node@26.6.2)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
       ws: 8.21.0
     transitivePeerDependencies:
       - bufferutil
@@ -4606,7 +4741,7 @@ snapshots:
       magicast: 0.5.3
       obug: 2.1.3
       tinyrainbow: 3.1.0
-      vitest: 4.1.11(@types/node@25.5.0)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
+      vitest: 4.1.11(@types/node@26.6.2)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -4619,13 +4754,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))':
+  '@vitest/mocker@4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))':
     dependencies:
       '@vitest/spy': 4.1.11
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
+      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
 
   '@vitest/pretty-format@4.1.11':
     dependencies:
@@ -4651,7 +4786,7 @@ snapshots:
       convert-source-map: 2.0.0
       tinyrainbow: 3.1.0
 
-  '@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)':
+  '@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)':
     dependencies:
       '@oxc-project/runtime': 0.150.0
       '@oxc-project/types': 0.150.0
@@ -4660,7 +4795,7 @@ snapshots:
       yuku-codegen: 0.9.5
       yuku-parser: 0.9.5
     optionalDependencies:
-      '@types/node': 25.5.0
+      '@types/node': 26.6.2
       '@voidzero-dev/vite-plus-darwin-arm64': 0.3.3
       '@voidzero-dev/vite-plus-darwin-x64': 0.3.3
       '@voidzero-dev/vite-plus-linux-arm64-gnu': 0.3.3
@@ -6136,6 +6271,8 @@ snapshots:
 
   node-releases@2.0.47: {}
 
+  node@runtime:26.10.0: {}
+
   npm-run-path@4.0.1:
     dependencies:
       path-key: 3.1.1
@@ -6158,7 +6295,7 @@ snapshots:
 
   ospath@1.2.2: {}
 
-  oxfmt@0.68.0(vite-plus@0.3.3(@types/node@25.5.0)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)):
+  oxfmt@0.68.0(vite-plus@0.3.3(@types/node@26.6.2)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)):
     dependencies:
       tinypool: 2.1.2
     optionalDependencies:
@@ -6181,7 +6318,7 @@ snapshots:
       '@oxfmt/binding-win32-arm64-msvc': 0.68.0
       '@oxfmt/binding-win32-ia32-msvc': 0.68.0
       '@oxfmt/binding-win32-x64-msvc': 0.68.0
-      vite-plus: 0.3.3(@types/node@25.5.0)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)
+      vite-plus: 0.3.3(@types/node@26.6.2)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)
 
   oxlint-tsgolint@7.0.2001:
     optionalDependencies:
@@ -6192,7 +6329,7 @@ snapshots:
       '@oxlint-tsgolint/win32-arm64': 7.0.2001
       '@oxlint-tsgolint/win32-x64': 7.0.2001
 
-  oxlint@1.83.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.3.3(@types/node@25.5.0)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)):
+  oxlint@1.83.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.3.3(@types/node@26.6.2)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.83.0
       '@oxlint/binding-android-arm64': 1.83.0
@@ -6214,7 +6351,7 @@ snapshots:
       '@oxlint/binding-win32-ia32-msvc': 1.83.0
       '@oxlint/binding-win32-x64-msvc': 1.83.0
       oxlint-tsgolint: 7.0.2001
-      vite-plus: 0.3.3(@types/node@25.5.0)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)
+      vite-plus: 0.3.3(@types/node@26.6.2)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3)
 
   package-manager-detector@1.8.0: {}
 
@@ -6727,7 +6864,7 @@ snapshots:
 
   typescript@5.9.3: {}
 
-  undici-types@7.18.2: {}
+  undici-types@8.9.0: {}
 
   undici@6.28.1: {}
 
@@ -6841,24 +6978,24 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite-plus@0.3.3(@types/node@25.5.0)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3):
+  vite-plus@0.3.3(@types/node@26.6.2)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3):
     dependencies:
       '@oxc-project/types': 0.150.0
       '@oxlint/plugins': 1.79.0
-      '@vitest/browser': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)
-      '@vitest/browser-preview': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)
+      '@vitest/browser': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)
+      '@vitest/browser-preview': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)
       '@vitest/expect': 4.1.11
-      '@vitest/mocker': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
+      '@vitest/mocker': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
       '@vitest/pretty-format': 4.1.11
       '@vitest/runner': 4.1.11
       '@vitest/snapshot': 4.1.11
       '@vitest/spy': 4.1.11
       '@vitest/utils': 4.1.11
-      oxfmt: 0.68.0(vite-plus@0.3.3(@types/node@25.5.0)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3))
-      oxlint: 1.83.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.3.3(@types/node@25.5.0)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3))
+      oxfmt: 0.68.0(vite-plus@0.3.3(@types/node@26.6.2)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3))
+      oxlint: 1.83.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.3.3(@types/node@26.6.2)(@vitest/coverage-istanbul@4.1.11)(esbuild@0.27.7)(jiti@2.7.0)(jsdom@30.1.1)(publint@0.3.24)(typescript@5.9.3))
       oxlint-tsgolint: 7.0.2001
-      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
-      vitest: 4.1.11(@types/node@25.5.0)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
+      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
+      vitest: 4.1.11(@types/node@26.6.2)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1)
     optionalDependencies:
       '@voidzero-dev/vite-plus-darwin-arm64': 0.3.3
       '@voidzero-dev/vite-plus-darwin-x64': 0.3.3
@@ -6898,10 +7035,10 @@ snapshots:
       - utf-8-validate
       - yaml
 
-  vitest@4.1.11(@types/node@25.5.0)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1):
+  vitest@4.1.11(@types/node@26.6.2)(@vitest/browser-preview@4.1.11)(@vitest/coverage-istanbul@4.1.11)(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(jsdom@30.1.1):
     dependencies:
       '@vitest/expect': 4.1.11
-      '@vitest/mocker': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
+      '@vitest/mocker': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))
       '@vitest/pretty-format': 4.1.11
       '@vitest/runner': 4.1.11
       '@vitest/snapshot': 4.1.11
@@ -6918,11 +7055,11 @@ snapshots:
       tinyexec: 1.2.4
       tinyglobby: 0.2.17
       tinyrainbow: 3.1.0
-      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
+      vite: '@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3)'
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 25.5.0
-      '@vitest/browser-preview': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@25.5.0)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)
+      '@types/node': 26.6.2
+      '@vitest/browser-preview': 4.1.11(@voidzero-dev/vite-plus-core@0.3.3(@types/node@26.6.2)(esbuild@0.27.7)(jiti@2.7.0)(publint@0.3.24)(typescript@5.9.3))(vitest@4.1.11)
       '@vitest/coverage-istanbul': 4.1.11(vitest@4.1.11)
       jsdom: 30.1.1
     transitivePeerDependencies:

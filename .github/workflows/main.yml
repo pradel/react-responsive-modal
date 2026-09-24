@@ -19,7 +19,7 @@ jobs:
       - name: vite-plus setup
         uses: voidzero-dev/setup-vp@v1.20.0
         with:
-          node-version: 24
+          node-version: 26
           cache: true
 
       - name: Build
