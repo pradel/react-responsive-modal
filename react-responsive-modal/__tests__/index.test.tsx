@@ -653,6 +653,71 @@ describe('modal', () => {
       fireEvent.keyDown(container, { keyCode: 27 });
       expect(onEscKeyDown).toHaveBeenCalledTimes(1);
     });
+
+    it('should call the latest onEscKeyDown after the prop is updated', async () => {
+      const onEscKeyDown = vitest.fn();
+      const onEscKeyDownUpdated = vitest.fn();
+      const { container, rerender } = render(
+        <Modal open onClose={() => null} onEscKeyDown={onEscKeyDown}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal open onClose={() => null} onEscKeyDown={onEscKeyDownUpdated}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      fireEvent.keyDown(container, { keyCode: 27 });
+      expect(onEscKeyDown).not.toHaveBeenCalled();
+      expect(onEscKeyDownUpdated).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call the latest onClose after the prop is updated', async () => {
+      const onClose = vitest.fn();
+      const onCloseUpdated = vitest.fn();
+      const { container, rerender } = render(
+        <Modal open onClose={onClose}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal open onClose={onCloseUpdated}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      fireEvent.keyDown(container, { keyCode: 27 });
+      expect(onClose).not.toHaveBeenCalled();
+      expect(onCloseUpdated).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not leak the esc handler when the modal is closed and reopened', async () => {
+      const onClose = vitest.fn();
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={onClose} animationDuration={0}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal open={false} onClose={onClose} animationDuration={0}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+
+      rerender(
+        <Modal open onClose={onClose} animationDuration={0}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      fireEvent.keyDown(document, { keyCode: 27 });
+      expect(onClose).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('prop: onOverlayClick', () => {

@@ -228,8 +228,6 @@ export const Modal = React.forwardRef(
       ) {
         document.body.appendChild(refContainer.current);
       }
-
-      document.addEventListener('keydown', handleKeydown);
     };
 
     const handleClose = () => {
@@ -240,21 +238,32 @@ export const Modal = React.forwardRef(
       ) {
         document.body.removeChild(refContainer.current);
       }
-      document.removeEventListener('keydown', handleKeydown);
     };
 
-    const handleKeydown = (event: KeyboardEvent) => {
-      // Only the last modal need to be escaped when pressing the esc key
-      if (event.keyCode !== 27 || !modalManager.isTopModal(refModal)) {
+    useEffect(() => {
+      if (!showPortal) {
         return;
       }
 
-      onEscKeyDown?.(event);
+      const handleKeydown = (event: KeyboardEvent) => {
+        // Only the last modal need to be escaped when pressing the esc key
+        if (event.keyCode !== 27 || !modalManager.isTopModal(refModal)) {
+          return;
+        }
 
-      if (closeOnEsc) {
-        onClose();
-      }
-    };
+        onEscKeyDown?.(event);
+
+        if (closeOnEsc) {
+          onClose();
+        }
+      };
+
+      document.addEventListener('keydown', handleKeydown);
+
+      return () => {
+        document.removeEventListener('keydown', handleKeydown);
+      };
+    }, [showPortal, onEscKeyDown, closeOnEsc, onClose]);
 
     useEffect(() => {
       return () => {
