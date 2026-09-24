@@ -92,6 +92,42 @@ describe('modal', () => {
       expect(onClose).not.toHaveBeenCalled();
     });
 
+    it('should not call onClose when closeOnEsc is updated to false while open', () => {
+      const onClose = vitest.fn();
+      const { container, rerender } = render(
+        <Modal open onClose={onClose}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal open onClose={onClose} closeOnEsc={false}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      fireEvent.keyDown(container, { keyCode: 27 });
+      expect(onClose).not.toHaveBeenCalled();
+    });
+
+    it('should call onClose when closeOnEsc is updated to true while open', () => {
+      const onClose = vitest.fn();
+      const { container, rerender } = render(
+        <Modal open onClose={onClose} closeOnEsc={false}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal open onClose={onClose}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      fireEvent.keyDown(container, { keyCode: 27 });
+      expect(onClose).toHaveBeenCalledTimes(1);
+    });
+
     it('should call onClose when pressing esc key', () => {
       const onClose = vitest.fn();
       const { container } = render(
