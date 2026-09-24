@@ -548,4 +548,142 @@ describe('modal', () => {
       expect(modal.getAttribute('aria-label')).toBe(ariaLabel);
     });
   });
+
+  describe('prop: ref', () => {
+    it('should set the modal element to a ref object', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref.current).toBe(getByTestId('modal'));
+    });
+
+    it('should call a ref callback with the modal element', () => {
+      const ref = vitest.fn();
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref).toHaveBeenLastCalledWith(getByTestId('modal'));
+    });
+
+    it('should call a ref callback with null when the modal is not open', () => {
+      const ref = vitest.fn();
+      render(
+        <Modal open={false} onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref).toHaveBeenLastCalledWith(null);
+    });
+
+    it('should call a ref callback with null when the modal is closed', () => {
+      const ref = vitest.fn();
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={() => null} ref={ref} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(ref).toHaveBeenLastCalledWith(getByTestId('modal'));
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          ref={ref}
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+
+      expect(ref).toHaveBeenLastCalledWith(null);
+    });
+
+    it('should reset the ref when the modal is closed', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={() => null} ref={ref} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(ref.current).toBe(getByTestId('modal'));
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          ref={ref}
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+
+      expect(ref.current).toBeNull();
+    });
+
+    it('should keep the ref empty when the modal is not open', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      render(
+        <Modal open={false} onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref.current).toBeNull();
+    });
+
+    it('should set the new modal element to the ref when the modal is reopened', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={() => null} ref={ref} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      const firstModal = getByTestId('modal');
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          ref={ref}
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+      rerender(
+        <Modal open onClose={() => null} ref={ref} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref.current).toBe(getByTestId('modal'));
+      expect(ref.current).not.toBe(firstModal);
+    });
+
+    it('should reset the ref when the modal is unmounted', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { unmount } = render(
+        <Modal open onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(ref.current).not.toBeNull();
+
+      unmount();
+
+      expect(ref.current).toBeNull();
+    });
+  });
 });

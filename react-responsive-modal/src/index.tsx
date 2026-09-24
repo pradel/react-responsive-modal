@@ -1,6 +1,5 @@
-import { useForwardedRef } from '@bedrock-layout/use-forwarded-ref';
 import cx from 'classnames';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import CloseIcon from './CloseIcon';
@@ -198,7 +197,11 @@ export const Modal = React.forwardRef(
     }: ModalProps,
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
-    const refDialog = useForwardedRef(ref);
+    const refDialog = useRef<HTMLDivElement>(null);
+    useImperativeHandle<HTMLDivElement | null, HTMLDivElement | null>(
+      ref,
+      () => refDialog.current,
+    );
     const refModal = useRef<HTMLDivElement>(null);
     const refShouldClose = useRef<boolean | null>(null);
     const refContainer = useRef<HTMLDivElement | null>(null);

@@ -8,7 +8,7 @@ import {
 import { isBrowser } from './utils';
 
 interface FocusTrapProps {
-  container?: React.RefObject<HTMLElement> | null;
+  container?: React.RefObject<HTMLElement | null> | null;
   initialFocusRef?: React.RefObject<HTMLElement | null>;
 }
 
