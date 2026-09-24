@@ -8,9 +8,16 @@
     "format": "vp fmt"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0",
+    "@types/node": "^26.6.2",
     "vite": "catalog:",
     "vite-plus": "catalog:"
   },
-  "packageManager": "pnpm@11.6.0"
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "26.10.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.5.1"
 }

@@ -29,10 +29,10 @@ jobs:
         uses: pnpm/action-setup@v6
         if: ${{ fromJSON(steps.release.outputs.releases_created) }}
 
-      - name: Use Node 24
+      - name: Use Node 26
         uses: actions/setup-node@v7
         with:
-          node-version: 24.x
+          node-version: 26.x
           cache: 'pnpm'
         if: ${{ fromJSON(steps.release.outputs.releases_created) }}
 

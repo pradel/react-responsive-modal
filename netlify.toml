@@ -3,4 +3,4 @@ publish = "website/out"
 command = "pnpm vp run -r build && pnpm --filter website export"
 
 [build.environment]
-NODE_VERSION = "24"
+NODE_VERSION = "26"
