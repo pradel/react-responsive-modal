@@ -6,3 +6,18 @@ allowBuilds:
   esbuild: true
   cypress: true
   sharp: true
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@0.3.3
+  vitest: 4.1.11
+  vite-plus: 0.3.3
+  '@vitest/coverage-istanbul': 4.1.11
+overrides:
+  vite@*: 'catalog:'
+  vitest@*: 'catalog:'
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: '*'
+    vitest: '*'
