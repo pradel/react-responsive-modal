@@ -1,4 +1,3 @@
-import cx from 'classnames';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -6,7 +5,7 @@ import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
 import { modalManager, useModalManager } from './modalManager';
 import { useScrollLock } from './useScrollLock';
-import { isBrowser } from './utils';
+import { cx, isBrowser } from './utils';
 
 const classes = {
   root: 'react-responsive-modal-root',

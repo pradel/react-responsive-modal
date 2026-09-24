@@ -437,18 +437,21 @@ describe('modal', () => {
         </Modal>,
       );
 
-      expect(
-        getByTestId('overlay').classList.contains('custom-overlay'),
-      ).toBeTruthy();
-      expect(
-        getByTestId('modal').classList.contains('custom-modal'),
-      ).toBeTruthy();
-      expect(
-        getByTestId('close-button').classList.contains('custom-closeButton'),
-      ).toBeTruthy();
-      expect(
-        getByTestId('close-icon').classList.contains('custom-closeIcon'),
-      ).toBeTruthy();
+      expect(getByTestId('overlay').classList).toContain(
+        'react-responsive-modal-overlay',
+      );
+      expect(getByTestId('overlay').classList).toContain('custom-overlay');
+      expect(getByTestId('modal').classList).toContain(
+        'react-responsive-modal-modal',
+      );
+      expect(getByTestId('modal').classList).toContain('custom-modal');
+      expect(getByTestId('close-button').classList).toContain(
+        'react-responsive-modal-closeButton',
+      );
+      expect(getByTestId('close-button').classList).toContain(
+        'custom-closeButton',
+      );
+      expect(getByTestId('close-icon').classList).toContain('custom-closeIcon');
     });
   });
 
