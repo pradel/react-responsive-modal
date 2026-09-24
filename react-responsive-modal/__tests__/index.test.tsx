@@ -746,6 +746,49 @@ describe('modal', () => {
       fireEvent.animationEnd(getByTestId('modal'));
       expect(onAnimationEnd).toHaveBeenCalledTimes(1);
     });
+
+    it('should pass the animation event to onAnimationEnd', async () => {
+      const onAnimationEnd = vitest.fn();
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} onAnimationEnd={onAnimationEnd}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      const modal = getByTestId('modal');
+      fireEvent.animationEnd(modal);
+      expect(onAnimationEnd).toHaveBeenCalledTimes(1);
+      expect(onAnimationEnd.mock.calls[0][0].target).toBe(modal);
+    });
+
+    it('should not be called when a child animation ends', async () => {
+      const onAnimationEnd = vitest.fn();
+      const { getByTestId } = render(
+        <Modal open onClose={() => null} onAnimationEnd={onAnimationEnd}>
+          <div data-testid="child">modal content</div>
+        </Modal>,
+      );
+
+      fireEvent.animationEnd(getByTestId('child'));
+      expect(onAnimationEnd).not.toHaveBeenCalled();
+    });
+
+    it('should not hide the modal when a child animation ends while closing', async () => {
+      const { getByTestId, queryByTestId, rerender } = render(
+        <Modal open onClose={() => null} animationDuration={0.01}>
+          <div data-testid="child">modal content</div>
+        </Modal>,
+      );
+
+      rerender(
+        <Modal open={false} onClose={() => null} animationDuration={0.01}>
+          <div data-testid="child">modal content</div>
+        </Modal>,
+      );
+
+      fireEvent.animationEnd(getByTestId('child'));
+      expect(queryByTestId('modal')).toBeTruthy();
+    });
   });
 
   describe('prop: containerId', () => {
