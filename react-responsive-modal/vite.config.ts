@@ -12,6 +12,7 @@ export default defineConfig({
     }),
   ],
   pack: {
+    deps: { resolveDepSubpath: true },
     entry: ['src/index.tsx'],
     platform: 'browser',
     format: ['cjs', 'esm'],

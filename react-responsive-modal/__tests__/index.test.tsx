@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
-import { describe, it, expect, vitest } from 'vitest';
+import { describe, it, expect, vitest } from 'vite-plus/test';
 
 import { Modal } from '../src';
 

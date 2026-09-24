@@ -9,7 +9,8 @@
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
-    "vite-plus": "0.1.24"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   },
   "packageManager": "pnpm@11.6.0"
 }

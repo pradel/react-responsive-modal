@@ -17,7 +17,7 @@ jobs:
           persist-credentials: false
 
       - name: vite-plus setup
-        uses: voidzero-dev/setup-vp@v1
+        uses: voidzero-dev/setup-vp@v1.20.0
         with:
           node-version: 24
           cache: true
