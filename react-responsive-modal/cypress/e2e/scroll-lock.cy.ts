@@ -48,4 +48,22 @@ describe('scroll lock', () => {
       cy.window().its('scrollY').should('be.greaterThan', scrollY);
     });
   });
+
+  it('should keep the page scroll position when the modal is closed', () => {
+    // Scroll the trigger into view before opening the modal so that
+    // restoring the focus would scroll the page if not prevented
+    cy.get('button').eq(0).scrollIntoView();
+    cy.get('button').eq(0).click();
+    cy.get('[data-testid=modal]').should('exist');
+
+    cy.window().then((win) => {
+      win.scrollTo(0, 0);
+    });
+
+    cy.get('[data-testid=close-button]').click();
+    cy.get('[data-testid=modal]').should('not.exist');
+    // The focus should be restored to the trigger button
+    cy.focused().should('have.text', 'Open modal');
+    cy.window().its('scrollY').should('eq', 0);
+  });
 });
