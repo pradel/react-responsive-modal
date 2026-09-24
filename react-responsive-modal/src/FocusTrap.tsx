@@ -59,7 +59,8 @@ export const FocusTrap = ({ container, initialFocusRef }: FocusTrapProps) => {
       if (isBrowser) {
         document.removeEventListener('keydown', handleKeyEvent);
         // On unmount we restore the focus to the last focused element
-        refLastFocus.current?.focus();
+        // without scrolling to avoid moving the page scroll position
+        refLastFocus.current?.focus({ preventScroll: true });
       }
     };
   }, [container, initialFocusRef]);

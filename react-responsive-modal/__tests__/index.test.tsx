@@ -495,6 +495,52 @@ describe('modal', () => {
     });
   });
 
+  describe('focus restoration', () => {
+    it('should restore focus without scrolling when the modal is closed', async () => {
+      const trigger = document.createElement('button');
+      document.body.appendChild(trigger);
+      trigger.focus();
+
+      const focusSpy = vitest.spyOn(trigger, 'focus');
+      const inputRef = React.createRef<HTMLInputElement>();
+
+      const { getByTestId, queryByTestId, rerender } = render(
+        <Modal
+          open
+          onClose={() => null}
+          animationDuration={0}
+          initialFocusRef={inputRef}
+        >
+          <input ref={inputRef} />
+        </Modal>,
+      );
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          animationDuration={0}
+          initialFocusRef={inputRef}
+        >
+          <input ref={inputRef} />
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+      await waitFor(
+        () => {
+          expect(queryByTestId('modal')).not.toBeInTheDocument();
+        },
+        { timeout: 1 },
+      );
+
+      expect(focusSpy).toHaveBeenCalledWith({ preventScroll: true });
+      expect(document.activeElement).toBe(trigger);
+
+      focusSpy.mockRestore();
+      document.body.removeChild(trigger);
+    });
+  });
+
   describe('closeIcon', () => {
     it('should render the closeIcon by default', () => {
       const { getByTestId } = render(
