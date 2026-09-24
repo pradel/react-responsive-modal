@@ -164,7 +164,7 @@ export interface ModalProps {
   /**
    * Callback fired when the Modal has exited and the animation is finished.
    */
-  onAnimationEnd?: () => void;
+  onAnimationEnd?: (event: React.AnimationEvent<HTMLDivElement>) => void;
   children?: React.ReactNode;
 }
 
@@ -313,12 +313,19 @@ export const Modal = React.forwardRef(
       refShouldClose.current = false;
     };
 
-    const handleAnimationEnd = () => {
+    const handleAnimationEnd = (
+      event: React.AnimationEvent<HTMLDivElement>,
+    ) => {
+      // Ignore animations bubbling up from elements inside the modal
+      if (event.target !== event.currentTarget) {
+        return;
+      }
+
       if (!open) {
         setShowPortal(false);
       }
 
-      onAnimationEnd?.();
+      onAnimationEnd?.(event);
     };
 
     const containerModal = container || refContainer.current;
