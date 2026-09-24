@@ -1,10 +1,10 @@
-import { useForwardedRef } from '@bedrock-layout/use-forwarded-ref';
 import cx from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import CloseIcon from './CloseIcon';
 import { FocusTrap } from './FocusTrap';
+import { useForwardedRef } from './lib/useForwardedRef';
 import { modalManager, useModalManager } from './modalManager';
 import { useScrollLock } from './useScrollLock';
 import { isBrowser } from './utils';

@@ -17,9 +17,6 @@ importers:
 
   react-responsive-modal:
     dependencies:
-      '@bedrock-layout/use-forwarded-ref':
-        specifier: ^2.0.17
-        version: 2.0.17(react@19.2.4)
       body-scroll-lock:
         specifier: ^3.1.5
         version: 3.1.5
@@ -264,16 +261,6 @@ packages:
   '@babel/types@7.29.7':
     resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
-
-  '@bedrock-layout/use-forwarded-ref@2.0.17':
-    resolution: {integrity: sha512-4meaaQjg2ZtP9eg0F2LsL0tENmxZ6CTNz4tLheOOyKjqTSjM11yKjSOsMwaEJ8uRyQf+XBDFBmb/IfpHAuCqug==}
-    peerDependencies:
-      react: ^16.8 || ^17 || ^18
-
-  '@bedrock-layout/use-stateful-ref@2.0.17':
-    resolution: {integrity: sha512-pzVUYMTa32E9dGa2xadOFej96gYJEHg+Qh4Tg0fMj6zYT4y5LZpE+XkCiPcFafR3kTFhqSGfjRTIJbnSyeEAxQ==}
-    peerDependencies:
-      react: ^16.8 || ^17 || ^18
 
   '@codecov/bundler-plugin-core@1.9.1':
     resolution: {integrity: sha512-dt3ic7gMswz4p/qdkYPVJwXlLiLsz55rBBn2I7mr0HTG8pCoLRqnANJIwo5WrqGBZgPyVSMPBqBra6VxLWfDyA==}
@@ -3546,15 +3533,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
-
-  '@bedrock-layout/use-forwarded-ref@2.0.17(react@19.2.4)':
-    dependencies:
-      '@bedrock-layout/use-stateful-ref': 2.0.17(react@19.2.4)
-      react: 19.2.4
-
-  '@bedrock-layout/use-stateful-ref@2.0.17(react@19.2.4)':
-    dependencies:
-      react: 19.2.4
 
   '@codecov/bundler-plugin-core@1.9.1':
     dependencies:
