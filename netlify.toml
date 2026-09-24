@@ -1,6 +1,7 @@
 [build]
 publish = "website/out"
-command = "pnpm vp run -r build && pnpm --filter website export"
+command = "pnpm vp run -r build"
 
 [build.environment]
 NODE_VERSION = "26"
+NEXT_STATIC_EXPORT = "1"

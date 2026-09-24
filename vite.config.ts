@@ -12,6 +12,7 @@ export default defineConfig({
       '**/dist/**',
       'react-responsive-modal/CHANGELOG.md',
       'website/.next/**',
+      'website/next-env.d.ts',
     ],
   },
   lint: {
