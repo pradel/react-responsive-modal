@@ -198,7 +198,10 @@ export const Modal = React.forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
     const refDialog = useRef<HTMLDivElement>(null);
-    useImperativeHandle(ref, () => refDialog.current as HTMLDivElement);
+    useImperativeHandle<HTMLDivElement | null, HTMLDivElement | null>(
+      ref,
+      () => refDialog.current,
+    );
     const refModal = useRef<HTMLDivElement>(null);
     const refShouldClose = useRef<boolean | null>(null);
     const refContainer = useRef<HTMLDivElement | null>(null);

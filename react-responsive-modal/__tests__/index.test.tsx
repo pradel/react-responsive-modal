@@ -572,6 +572,41 @@ describe('modal', () => {
       expect(ref).toHaveBeenLastCalledWith(getByTestId('modal'));
     });
 
+    it('should call a ref callback with null when the modal is not open', () => {
+      const ref = vitest.fn();
+      render(
+        <Modal open={false} onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref).toHaveBeenLastCalledWith(null);
+    });
+
+    it('should call a ref callback with null when the modal is closed', () => {
+      const ref = vitest.fn();
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={() => null} ref={ref} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(ref).toHaveBeenLastCalledWith(getByTestId('modal'));
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          ref={ref}
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+
+      expect(ref).toHaveBeenLastCalledWith(null);
+    });
+
     it('should reset the ref when the modal is closed', () => {
       const ref = React.createRef<HTMLDivElement>();
       const { getByTestId, rerender } = render(
@@ -635,6 +670,20 @@ describe('modal', () => {
 
       expect(ref.current).toBe(getByTestId('modal'));
       expect(ref.current).not.toBe(firstModal);
+    });
+
+    it('should reset the ref when the modal is unmounted', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { unmount } = render(
+        <Modal open onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      expect(ref.current).not.toBeNull();
+
+      unmount();
+
+      expect(ref.current).toBeNull();
     });
   });
 });
