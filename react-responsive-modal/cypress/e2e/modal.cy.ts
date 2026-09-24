@@ -69,6 +69,17 @@ describe('simple modal', () => {
     cy.get('[data-testid=modal] input').first().should('have.focus');
   });
 
+  it('should trap focus within modal when tabbing', () => {
+    cy.get('button').eq(3).click();
+    cy.get('[data-testid=modal] input').first().should('have.focus');
+
+    cy.focused().trigger('keydown', { key: 'Tab', shiftKey: true });
+    cy.get('[data-testid=close-button]').should('have.focus');
+
+    cy.press(Cypress.Keyboard.Keys.TAB);
+    cy.get('[data-testid=modal] input').first().should('have.focus');
+  });
+
   it('should focus on modal root', () => {
     cy.get('button').eq(4).click();
     cy.get('[data-testid=modal]').should('have.focus');

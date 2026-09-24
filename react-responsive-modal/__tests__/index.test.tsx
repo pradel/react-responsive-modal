@@ -595,5 +595,46 @@ describe('modal', () => {
 
       expect(ref.current).toBeNull();
     });
+
+    it('should keep the ref empty when the modal is not open', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      render(
+        <Modal open={false} onClose={() => null} ref={ref}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref.current).toBeNull();
+    });
+
+    it('should set the new modal element to the ref when the modal is reopened', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { getByTestId, rerender } = render(
+        <Modal open onClose={() => null} ref={ref} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+      const firstModal = getByTestId('modal');
+
+      rerender(
+        <Modal
+          open={false}
+          onClose={() => null}
+          ref={ref}
+          animationDuration={0.01}
+        >
+          <div>modal content</div>
+        </Modal>,
+      );
+      fireEvent.animationEnd(getByTestId('modal'));
+      rerender(
+        <Modal open onClose={() => null} ref={ref} animationDuration={0.01}>
+          <div>modal content</div>
+        </Modal>,
+      );
+
+      expect(ref.current).toBe(getByTestId('modal'));
+      expect(ref.current).not.toBe(firstModal);
+    });
   });
 });
