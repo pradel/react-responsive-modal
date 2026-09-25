@@ -1,6 +1,6 @@
 [build]
 publish = "website/out"
-command = "pnpm vp run -r build"
+command = "vp run -r build"
 
 [build.environment]
 NODE_VERSION = "26"
