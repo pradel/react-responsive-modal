@@ -1,5 +1,38 @@
 # Changelog
 
+## [8.0.0](https://github.com/pradel/react-responsive-modal/compare/react-responsive-modal-v7.2.0...react-responsive-modal-v8.0.0) (2026-09-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* the forwarded ref.current is now null instead of undefined before the modal first opens.
+
+### Features
+
+* add dir prop for RTL support ([#574](https://github.com/pradel/react-responsive-modal/issues/574)) ([070a1f6](https://github.com/pradel/react-responsive-modal/commit/070a1f6b16e55767fbd31be0e92a5f8112a557a5)), closes [#523](https://github.com/pradel/react-responsive-modal/issues/523)
+* remove classnames dependency ([#571](https://github.com/pradel/react-responsive-modal/issues/571)) ([b43ca5b](https://github.com/pradel/react-responsive-modal/commit/b43ca5b40e9e99297715ef2eca75fd9bab444001))
+
+
+### Bug Fixes
+
+* call the latest esc key handlers when modal props change ([#573](https://github.com/pradel/react-responsive-modal/issues/573)) ([7765f69](https://github.com/pradel/react-responsive-modal/commit/7765f69cb08784626d617ca3f64d62d8f1ae84eb)), closes [#524](https://github.com/pradel/react-responsive-modal/issues/524)
+* pass the animation event to onAnimationEnd ([#575](https://github.com/pradel/react-responsive-modal/issues/575)) ([78a46ea](https://github.com/pradel/react-responsive-modal/commit/78a46ea309cf4c412f56ab1fa3ac3f79a2a12151)), closes [#522](https://github.com/pradel/react-responsive-modal/issues/522)
+* prevent page scroll when restoring focus on modal close ([#578](https://github.com/pradel/react-responsive-modal/issues/578)) ([6ca8424](https://github.com/pradel/react-responsive-modal/commit/6ca8424a485ea6bb2e0af8dd94b99773c2d7f41d))
+* remove deprecated @bedrock-layout/use-forwarded-ref dependency ([#566](https://github.com/pradel/react-responsive-modal/issues/566)) ([1d3b911](https://github.com/pradel/react-responsive-modal/commit/1d3b911833ba1a6f115b1c60ee421cfd93c7f163))
+
+
+### Miscellaneous
+
+* update repo test deps, node 26 and pnpm v12 ([#569](https://github.com/pradel/react-responsive-modal/issues/569)) ([de76e7e](https://github.com/pradel/react-responsive-modal/commit/de76e7e0bbff635bbf2085805e96de6929330d23))
+* update website docs deps ([#570](https://github.com/pradel/react-responsive-modal/issues/570)) ([feba73d](https://github.com/pradel/react-responsive-modal/commit/feba73dbf565583e35f9f68e084e3bd3a4543b79))
+* upgrade vite-plus ([#567](https://github.com/pradel/react-responsive-modal/issues/567)) ([3e1655b](https://github.com/pradel/react-responsive-modal/commit/3e1655b3ac08abefc3c99fca3cf959564281f27c))
+
+
+### Tests
+
+* add scroll lock regression coverage ([#572](https://github.com/pradel/react-responsive-modal/issues/572)) ([c4a9f2a](https://github.com/pradel/react-responsive-modal/commit/c4a9f2a4b49d23fbfa2554cb7387e8bbfa776690))
+* cover dynamically updated closeOnEsc prop ([#576](https://github.com/pradel/react-responsive-modal/issues/576)) ([b69f310](https://github.com/pradel/react-responsive-modal/commit/b69f310d1bd79b2f95abab67279f324c529c34ee)), closes [#504](https://github.com/pradel/react-responsive-modal/issues/504)
+
 ## [7.2.0](https://github.com/pradel/react-responsive-modal/compare/react-responsive-modal-v7.1.0...react-responsive-modal-v7.2.0) (2026-06-13)
 
 
