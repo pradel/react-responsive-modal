@@ -9,7 +9,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "next": "16.3.6",
+    "next": "16.3.8",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-responsive-modal": "workspace:react-responsive-modal"
